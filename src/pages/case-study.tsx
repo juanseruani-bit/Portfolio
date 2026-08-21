@@ -1,9 +1,10 @@
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 import { Card, CardContent } from "@/components/ui/card"
 import { Link } from "react-router-dom"
+import { GradientDivider, GlowOrb } from "@/components/decorative-elements"
 import {
   ArrowLeft, Layers, Bot, TestTube, FileCheck, Code, Users,
   FolderTree, ArrowRight, Check, X,
@@ -109,12 +110,16 @@ const skillPipeline = [
 /* ─── component ─── */
 export function CaseStudyPage() {
   return (
-    <div className="container mx-auto px-4 md:px-8 py-8 md:py-16">
+    <div className="container mx-auto px-4 md:px-8 py-8 md:py-16 relative">
+      {/* Decorative orbs */}
+      <GlowOrb color="indigo" size="lg" className="-top-40 right-0" />
+      <GlowOrb color="violet" size="md" className="top-[600px] -left-40" />
+
       {/* Back */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        <Button variant="ghost" size="sm" asChild className="mb-8">
-          <Link to="/"><ArrowLeft className="mr-2 h-4 w-4" />Volver</Link>
-        </Button>
+        <Link to="/" className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "mb-8")}>
+          <ArrowLeft className="mr-2 h-4 w-4" />Volver
+        </Link>
       </motion.div>
 
       {/* ═══════════════ HERO ═══════════════ */}
@@ -144,7 +149,7 @@ export function CaseStudyPage() {
         </motion.div>
       </motion.section>
 
-      <Separator className="my-16" />
+      <GradientDivider />
 
       {/* ═══════════════ THE PROBLEM ═══════════════ */}
       <motion.section className="mb-20 max-w-[800px]" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
@@ -188,7 +193,7 @@ export function CaseStudyPage() {
         </motion.div>
       </motion.section>
 
-      <Separator className="my-16" />
+      <GradientDivider />
 
       {/* ═══════════════ THE SOLUTION ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
@@ -210,7 +215,7 @@ export function CaseStudyPage() {
             { icon: Users, title: "Handoff sin Fricciones", desc: "Los desarrolladores reciben prototipos funcionales en su mismo stack, especificaciones derivadas del código, y casos de prueba." },
           ].map((card) => (
             <motion.div key={card.title} variants={fadeIn}>
-              <Card className="h-full hover:border-foreground/50 transition-colors">
+              <Card className="h-full glow-card border-border/50 hover:border-primary/40 transition-all duration-400">
                 <CardContent className="p-6">
                   <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <card.icon className="h-5 w-5 text-primary" />
@@ -224,7 +229,7 @@ export function CaseStudyPage() {
         </motion.div>
       </motion.section>
 
-      <Separator className="my-16" />
+      <GradientDivider />
 
       {/* ═══════════════ ARCHITECTURE DIAGRAM (Propuesta 5) ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
@@ -283,7 +288,7 @@ export function CaseStudyPage() {
         </motion.div>
       </motion.section>
 
-      <Separator className="my-16" />
+      <GradientDivider />
 
       {/* ═══════════════ ANATOMY OF A DISCOVERY (Propuesta 1) ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
@@ -313,7 +318,7 @@ export function CaseStudyPage() {
                   </div>
                 ))}
               </div>
-              <Separator className="my-6" />
+              <GradientDivider className="my-6" />
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">Decisiones documentadas en esta discovery:</span>
                 <span className="text-3xl font-bold text-primary">75</span>
@@ -323,7 +328,7 @@ export function CaseStudyPage() {
         </motion.div>
       </motion.section>
 
-      <Separator className="my-16" />
+      <GradientDivider />
 
       {/* ═══════════════ AI SKILLS PIPELINE (Propuesta 3) ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
@@ -368,7 +373,7 @@ export function CaseStudyPage() {
         </motion.div>
       </motion.section>
 
-      <Separator className="my-16" />
+      <GradientDivider />
 
       {/* ═══════════════ SYNTHETIC USERS IN ACTION (Propuesta 2) ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
@@ -443,7 +448,7 @@ export function CaseStudyPage() {
         </motion.div>
       </motion.section>
 
-      <Separator className="my-16" />
+      <GradientDivider />
 
       {/* ═══════════════ UI MOCKUPS (Propuesta 6) ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
@@ -470,7 +475,7 @@ export function CaseStudyPage() {
         </motion.div>
       </motion.section>
 
-      <Separator className="my-16" />
+      <GradientDivider />
 
       {/* ═══════════════ METRICS ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
@@ -480,7 +485,7 @@ export function CaseStudyPage() {
         <motion.div className="grid grid-cols-2 md:grid-cols-3 gap-6" variants={stagger}>
           {metrics.map((m) => (
             <motion.div key={m.label} variants={fadeIn}>
-              <Card className="text-center hover:border-foreground/50 transition-colors">
+              <Card className="text-center glow-card border-border/50 hover:border-primary/40 transition-all duration-400">
                 <CardContent className="p-6">
                   <p className="text-4xl md:text-5xl font-bold text-primary mb-2">{m.value}</p>
                   <p className="text-sm text-muted-foreground">{m.label}</p>
@@ -491,7 +496,7 @@ export function CaseStudyPage() {
         </motion.div>
       </motion.section>
 
-      <Separator className="my-16" />
+      <GradientDivider />
 
       {/* ═══════════════ TECH STACK ═══════════════ */}
       <motion.section className="mb-20 max-w-[800px]" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
@@ -524,8 +529,8 @@ export function CaseStudyPage() {
       <motion.section className="text-center py-12" initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeIn}>
         <p className="text-muted-foreground mb-6">¿Te interesa saber más sobre este proyecto?</p>
         <div className="flex gap-4 justify-center">
-          <Button size="lg" asChild><a href="mailto:juanseruani@gmail.com">Conversemos</a></Button>
-          <Button size="lg" variant="outline" asChild><Link to="/">Ver más proyectos</Link></Button>
+          <a href="mailto:juanseruani@gmail.com" className={buttonVariants({ size: "lg" })}>Conversemos</a>
+          <Link to="/" className={buttonVariants({ size: "lg", variant: "outline" })}>Ver más proyectos</Link>
         </div>
       </motion.section>
     </div>
