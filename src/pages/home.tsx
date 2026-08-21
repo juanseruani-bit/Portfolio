@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
+import { Link } from "react-router-dom"
 
 export function Home() {
   const container = {
@@ -64,35 +65,37 @@ export function Home() {
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Proyecto 1 */}
+          {/* Proyecto 1 — Discovery Hub */}
           <motion.div variants={item}>
-            <Card className="h-full flex flex-col hover:border-foreground/50 transition-colors">
-              <div className="h-64 bg-muted rounded-t-lg flex items-center justify-center border-b">
-                <span className="text-muted-foreground font-mono">[Placeholder Imagen B2B]</span>
-              </div>
-              <CardHeader>
-                <div className="flex justify-between items-start mb-2">
-                  <Badge>Fintech / B2B</Badge>
-                  <span className="text-sm text-muted-foreground">2023 - 2025</span>
+            <Link to="/proyectos/discovery-hub" className="block">
+              <Card className="h-full flex flex-col hover:border-foreground/50 transition-colors group cursor-pointer">
+                <div className="h-64 bg-muted rounded-t-lg flex items-center justify-center border-b overflow-hidden">
+                  <img src="/images/case-study-hero.jpg" alt="Discovery Hub" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
-                <CardTitle className="text-2xl">Plataforma de Gestión Empresarial</CardTitle>
-                <CardDescription className="text-base mt-2">
-                  Rediseño integral de una herramienta de reclutamiento (ATS) mejorando la eficiencia operativa y reduciendo tiempos de onboarding.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex-1">
-                <div className="flex flex-wrap gap-2 mt-4">
-                  <Badge variant="outline">Design Systems</Badge>
-                  <Badge variant="outline">User Research</Badge>
-                  <Badge variant="outline">UI Design</Badge>
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Button variant="secondary" className="w-full" disabled>
-                  Caso de Estudio en Progreso
-                </Button>
-              </CardFooter>
-            </Card>
+                <CardHeader>
+                  <div className="flex justify-between items-start mb-2">
+                    <Badge>DesignOps / IA</Badge>
+                    <span className="text-sm text-muted-foreground">2025</span>
+                  </div>
+                  <CardTitle className="text-2xl">Discovery & Prototyping Hub</CardTitle>
+                  <CardDescription className="text-base mt-2">
+                    Plataforma de prototipado con IA que unifica diseño y desarrollo. Skills de Claude para automatizar discovery, testing sintético y handoff.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="flex-1">
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <Badge variant="outline">React</Badge>
+                    <Badge variant="outline">Claude Code</Badge>
+                    <Badge variant="outline">UX Engineering</Badge>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="secondary" className="w-full">
+                    Ver Caso de Estudio
+                  </Button>
+                </CardFooter>
+              </Card>
+            </Link>
           </motion.div>
 
           {/* Proyecto 2 */}
