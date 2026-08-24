@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { ModeToggle } from "./mode-toggle"
 import { AnimatedBackgroundWithKeyframes } from "./animated-background"
 import { NoiseOverlay } from "./decorative-elements"
+import { ExternalLink } from "lucide-react"
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,23 +14,24 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
           <div className="flex items-center gap-6">
             <Link to="/" className="flex items-center space-x-2 group">
-              <span className="font-bold text-lg sm:inline-block gradient-text-subtle group-hover:opacity-80 transition-opacity">JS.</span>
+              <img src="/favicon.svg" alt="Juan Ruani Logo" className="w-8 h-8 group-hover:opacity-80 transition-opacity" />
             </Link>
           </div>
           <nav className="flex items-center space-x-6">
-            <Link
-              to="/"
+            <a
+              href="/#proyectos"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
               Proyectos
-            </Link>
+            </a>
             <a
               href="https://www.linkedin.com/in/jsruani"
               target="_blank"
               rel="noreferrer"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary flex items-center gap-1"
             >
               LinkedIn
+              <ExternalLink className="w-3 h-3" />
             </a>
             <ModeToggle />
           </nav>
