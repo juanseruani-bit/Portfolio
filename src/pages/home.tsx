@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { GradientDivider, GlowOrb, GridPattern } from "@/components/decorative-elements"
 import { cn } from "@/lib/utils"
 import { Link } from "react-router-dom"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 export function Home() {
   const container = {
