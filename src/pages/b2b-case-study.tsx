@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card"
 import { Link } from "react-router-dom"
 import { GradientDivider, GlowOrb } from "@/components/decorative-elements"
 import {
-  ArrowLeft, Search, Target, Users, Map, Workflow, Layers, Smartphone, SmartphoneNfc,
+  ArrowLeft, Search, Target, Users, Map, Workflow, Smartphone,
   Bell, ChevronLeft, Menu, ShoppingCart, List, Truck, AlertCircle, FileText, User, 
   Home as HomeIcon, MessageCircle, Star, Plus, Minus, ChevronRight, Package, Info, MoreVertical, Camera
 } from "lucide-react"
