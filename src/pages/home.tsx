@@ -161,13 +161,12 @@ export function Home() {
               <Link to="/proyectos/b2b-app-buyers" className="block h-full">
                 <Card className="h-full flex flex-col glow-card group cursor-pointer border-border/50 hover:border-primary/40 transition-all duration-400">
                   <div className="h-64 bg-muted rounded-t-xl flex items-center justify-center border-b relative overflow-hidden">
-                    <div
-                      className="absolute inset-0 opacity-40"
-                      style={{
-                        background: "linear-gradient(135deg, #22c55e 0%, #14532d 100%)",
-                      }}
+                    <img
+                      src="/images/b2b-cover-clean.png"
+                      alt="B2B App for Buyers"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
-                    <span className="text-white/80 font-mono relative z-10">[Portada B2B App]</span>
+                    <div className="absolute inset-0 bg-green-900/10 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
                   </div>
                   <CardHeader>
                     <div className="flex justify-between items-start mb-2">
