@@ -3,8 +3,12 @@ import { ModeToggle } from "./mode-toggle"
 import { AnimatedBackgroundWithKeyframes } from "./animated-background"
 import { NoiseOverlay } from "./decorative-elements"
 import { ExternalLink } from "lucide-react"
+import { LanguageSwitcher } from "./language-switcher"
+import { useTranslation } from "react-i18next"
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const { t } = useTranslation()
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground flex flex-col">
       <AnimatedBackgroundWithKeyframes />
@@ -17,12 +21,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <img src="/favicon.svg" alt="Juan Ruani Logo" className="w-8 h-8 group-hover:opacity-80 transition-opacity" />
             </Link>
           </div>
-          <nav className="flex items-center space-x-6">
+          <nav className="flex items-center space-x-4 md:space-x-6">
             <a
               href="/#proyectos"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
-              Proyectos
+              {t('layout.nav.projects')}
             </a>
             <a
               href="https://www.linkedin.com/in/jsruani"
@@ -30,10 +34,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
               rel="noreferrer"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary flex items-center gap-1"
             >
-              LinkedIn
+              {t('layout.nav.linkedin')}
               <ExternalLink className="w-3 h-3" />
             </a>
-            <ModeToggle />
+            <div className="flex items-center space-x-2 border-l pl-4 border-border/50">
+              <LanguageSwitcher />
+              <ModeToggle />
+            </div>
           </nav>
         </div>
       </header>
@@ -43,7 +50,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <footer className="border-t border-border/50 py-6 md:py-0">
         <div className="container mx-auto flex flex-col items-center justify-between gap-4 md:h-16 md:flex-row px-4 md:px-8">
           <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
-            Diseñado y desarrollado por Juan Sebastián Ruani.
+            {t('layout.footer.credit')}
           </p>
         </div>
       </footer>

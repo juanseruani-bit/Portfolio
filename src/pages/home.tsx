@@ -6,8 +6,11 @@ import { GradientDivider, GlowOrb, GridPattern } from "@/components/decorative-e
 import { cn } from "@/lib/utils"
 import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 export function Home() {
+  const { t } = useTranslation()
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -45,9 +48,9 @@ export function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              Product Designer uniendo{" "}
-              <span className="gradient-text">diseño UX</span> y{" "}
-              <span className="gradient-text">estrategia de negocio.</span>
+              {t('home.hero.title_prefix')}{" "}
+              <span className="gradient-text">{t('home.hero.title_ux')}</span> {t('home.hero.title_and')}{" "}
+              <span className="gradient-text">{t('home.hero.title_strategy')}</span>
             </motion.h1>
 
             <motion.p
@@ -56,7 +59,7 @@ export function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45, duration: 0.6 }}
             >
-              Con formación en Administración de Empresas y más de 5 años de experiencia diseñando productos digitales en HMM, Avature y DinoCloud.
+              {t('home.hero.subtitle')}
             </motion.p>
 
             <motion.div
@@ -69,7 +72,7 @@ export function Home() {
                 href="mailto:juanseruani@gmail.com"
                 className={cn(buttonVariants({ size: "lg" }), "group relative overflow-hidden")}
               >
-                  Contactar
+                  {t('home.hero.contact_button')}
                   <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 </a>
               <a
@@ -78,7 +81,7 @@ export function Home() {
                 rel="noreferrer"
                 className={cn(buttonVariants({ size: "lg", variant: "outline" }), "group")}
               >
-                  Ver Behance
+                  {t('home.hero.behance_button')}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
             </motion.div>
@@ -98,7 +101,7 @@ export function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Proyectos Destacados
+              {t('home.projects.title')}
             </motion.h2>
             <motion.p
               className="text-muted-foreground"
@@ -107,7 +110,7 @@ export function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              Una selección de mi trabajo reciente (casos de estudio anonimizados en progreso).
+              {t('home.projects.subtitle')}
             </motion.p>
           </div>
 
@@ -124,19 +127,19 @@ export function Home() {
                 <Card className="h-full flex flex-col glow-card group cursor-pointer border-border/50 hover:border-primary/40 transition-all duration-400">
                   <div className="h-64 bg-muted rounded-t-xl flex items-center justify-center border-b overflow-hidden">
                     <img
-                      src="/images/case-study-hero.jpg"
-                      alt="Discovery Hub"
+                      src={t('home.projects.discovery_hub.image')}
+                      alt={t('home.projects.discovery_hub.title')}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                   </div>
                   <CardHeader>
                     <div className="flex justify-between items-start mb-2">
-                      <Badge className="bg-[var(--accent-violet)] text-white border-0">DesignOps / IA</Badge>
+                      <Badge className="bg-[var(--accent-violet)] text-white border-0">{t('home.projects.discovery_hub.badge')}</Badge>
                       <span className="text-sm text-muted-foreground font-mono">2025</span>
                     </div>
-                    <CardTitle className="text-2xl">Discovery & Prototyping Hub</CardTitle>
+                    <CardTitle className="text-2xl">{t('home.projects.discovery_hub.title')}</CardTitle>
                     <CardDescription className="text-base mt-2">
-                      Plataforma de prototipado con IA que unifica diseño y desarrollo. Skills de Claude para automatizar discovery, testing sintético y handoff.
+                      {t('home.projects.discovery_hub.description')}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex-1">
@@ -148,7 +151,7 @@ export function Home() {
                   </CardContent>
                   <CardFooter>
                     <Button variant="secondary" className="w-full group/btn">
-                      Ver Caso de Estudio
+                      {t('home.projects.discovery_hub.button')}
                       <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                     </Button>
                   </CardFooter>
@@ -162,20 +165,20 @@ export function Home() {
                 <Card className="h-full flex flex-col glow-card group cursor-pointer border-border/50 hover:border-primary/40 transition-all duration-400">
                   <div className="h-64 bg-muted rounded-t-xl flex items-center justify-center border-b relative overflow-hidden">
                     <img
-                      src="/images/b2b-cover-clean.png"
-                      alt="B2B App for Buyers"
+                      src={t('home.projects.b2b_app.image')}
+                      alt={t('home.projects.b2b_app.title')}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                     <div className="absolute inset-0 bg-green-900/10 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
                   </div>
                   <CardHeader>
                     <div className="flex justify-between items-start mb-2">
-                      <Badge className="bg-green-600 hover:bg-green-700 text-white border-0">B2B / App</Badge>
+                      <Badge className="bg-green-600 hover:bg-green-700 text-white border-0">{t('home.projects.b2b_app.badge')}</Badge>
                       <span className="text-sm text-muted-foreground font-mono">2020</span>
                     </div>
-                    <CardTitle className="text-2xl">B2B App for Buyers</CardTitle>
+                    <CardTitle className="text-2xl">{t('home.projects.b2b_app.title')}</CardTitle>
                     <CardDescription className="text-base mt-2">
-                      Digitalización y optimización del proceso de compra de inventario para supermercados, eliminando el uso del papel.
+                      {t('home.projects.b2b_app.description')}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex-1">
@@ -187,7 +190,7 @@ export function Home() {
                   </CardContent>
                   <CardFooter>
                     <Button variant="secondary" className="w-full group/btn">
-                      Ver Caso de Estudio
+                      {t('home.projects.b2b_app.button')}
                       <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                     </Button>
                   </CardFooter>
@@ -211,7 +214,7 @@ export function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Acerca de Mí
+            {t('home.about.title')}
           </motion.h2>
           <motion.p
             className="text-muted-foreground"
@@ -220,7 +223,7 @@ export function Home() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            Mi recorrido profesional combinando negocio y diseño.
+            {t('home.about.subtitle')}
           </motion.p>
         </div>
 
@@ -235,12 +238,12 @@ export function Home() {
           >
             <div className="p-6 rounded-xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:bg-card/50">
               <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
-                <h3 className="text-xl font-semibold">UX/UI Designer</h3>
-                <span className="text-muted-foreground text-sm font-mono">Mayo 2025 - Presente</span>
+                <h3 className="text-xl font-semibold">{t('home.about.hmm.role')}</h3>
+                <span className="text-muted-foreground text-sm font-mono">{t('home.about.hmm.date')}</span>
               </div>
-              <p className="text-lg font-medium text-primary mb-2">Home Medical Management (HMM)</p>
+              <p className="text-lg font-medium text-primary mb-2">{t('home.about.hmm.company')}</p>
               <p className="text-muted-foreground leading-relaxed">
-                Diseño de experiencias digitales en el sector de la salud, optimizando flujos de usuarios para gestión médica y aportando visión de negocio a las decisiones de UX.
+                {t('home.about.hmm.description')}
               </p>
             </div>
           </motion.div>
@@ -255,12 +258,12 @@ export function Home() {
           >
             <div className="p-6 rounded-xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:bg-card/50">
               <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
-                <h3 className="text-xl font-semibold">UX Designer</h3>
-                <span className="text-muted-foreground text-sm font-mono">Marzo 2023 - Mayo 2025</span>
+                <h3 className="text-xl font-semibold">{t('home.about.avature.role')}</h3>
+                <span className="text-muted-foreground text-sm font-mono">{t('home.about.avature.date')}</span>
               </div>
-              <p className="text-lg font-medium text-primary mb-2">Avature</p>
+              <p className="text-lg font-medium text-primary mb-2">{t('home.about.avature.company')}</p>
               <p className="text-muted-foreground leading-relaxed">
-                Diseño de herramientas SaaS complejas para reclutamiento y gestión de talento (ATS). Mejora de flujos de trabajo B2B y colaboración estrecha con equipos de desarrollo.
+                {t('home.about.avature.description')}
               </p>
             </div>
           </motion.div>
@@ -275,12 +278,12 @@ export function Home() {
           >
             <div className="p-6 rounded-xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:bg-card/50">
               <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
-                <h3 className="text-xl font-semibold">Ssr. UX & UI Solutions Designer</h3>
-                <span className="text-muted-foreground text-sm font-mono">Junio 2021 - Marzo 2023</span>
+                <h3 className="text-xl font-semibold">{t('home.about.dinocloud.role')}</h3>
+                <span className="text-muted-foreground text-sm font-mono">{t('home.about.dinocloud.date')}</span>
               </div>
-              <p className="text-lg font-medium text-primary mb-2">DinoCloud</p>
+              <p className="text-lg font-medium text-primary mb-2">{t('home.about.dinocloud.company')}</p>
               <p className="text-muted-foreground leading-relaxed">
-                Liderazgo en diseño de soluciones Cloud. Creación de sistemas de diseño y mejora de interfaces orientadas a plataformas de infraestructura y monitoreo.
+                {t('home.about.dinocloud.description')}
               </p>
             </div>
           </motion.div>
@@ -288,15 +291,15 @@ export function Home() {
           {/* Educación */}
           <motion.div variants={item} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <div className="p-6 rounded-xl border border-border/50">
-              <h3 className="text-xl font-semibold mb-4">Educación</h3>
+              <h3 className="text-xl font-semibold mb-4">{t('home.about.education.title')}</h3>
               <ul className="space-y-4">
                 <li>
-                  <p className="font-medium">Licenciatura en Administración de Empresas</p>
-                  <p className="text-muted-foreground text-sm">Universidad Nacional de Córdoba (2013 - 2019)</p>
+                  <p className="font-medium">{t('home.about.education.degree1')}</p>
+                  <p className="text-muted-foreground text-sm">{t('home.about.education.school1')}</p>
                 </li>
                 <li>
-                  <p className="font-medium">Diplomatura en UX/UI Design</p>
-                  <p className="text-muted-foreground text-sm">Acámica (2019)</p>
+                  <p className="font-medium">{t('home.about.education.degree2')}</p>
+                  <p className="text-muted-foreground text-sm">{t('home.about.education.school2')}</p>
                 </li>
               </ul>
             </div>

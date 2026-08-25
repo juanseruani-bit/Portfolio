@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils"
 import { Card } from "@/components/ui/card"
 import { Link } from "react-router-dom"
 import { GradientDivider, GlowOrb } from "@/components/decorative-elements"
-import {
-  ArrowLeft, Search, Target, Users, Map, Workflow, Smartphone,
+import { useTranslation } from "react-i18next"
+import { ArrowLeft, Search, Target, Users, Map, Workflow, Smartphone,
   Bell, ChevronLeft, Menu, ShoppingCart, List, Truck, AlertCircle, FileText, User, 
   Home as HomeIcon, MessageCircle, Star, Plus, Minus, ChevronRight, Package, Info, MoreVertical, Camera
 } from "lucide-react"
@@ -22,7 +22,7 @@ const stagger = {
 }
 
 /* ─── data ─── */
-const personas = [
+export const _personas = [
   {
     name: "Juan Carlos",
     image: "/images/b2b-case-study/juan-carlos.png",
@@ -75,7 +75,7 @@ const personas = [
   }
 ]
 
-const journeyMap = [
+export const _journeyMap = [
   {
     stage: "Awareness",
     color: "bg-sky-400",
@@ -740,6 +740,8 @@ const ScreenChats = () => (
 
 /* ─── component ─── */
 export function B2BCaseStudyPage() {
+  const { t } = useTranslation()
+
   return (
     <div className="container mx-auto px-4 md:px-8 py-8 md:py-16 relative">
       {/* Decorative orbs */}
@@ -749,34 +751,34 @@ export function B2BCaseStudyPage() {
       {/* Back */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <Link to="/" className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "mb-8")}>
-          <ArrowLeft className="mr-2 h-4 w-4" />Volver
+          <ArrowLeft className="mr-2 h-4 w-4" />{t('b2b.back')}
         </Link>
       </motion.div>
 
       {/* ═══════════════ HERO ═══════════════ */}
       <motion.section className="mb-16" initial="hidden" animate="show" variants={stagger}>
         <motion.div variants={fadeIn} className="flex flex-wrap gap-3 mb-6">
-          <Badge className="bg-green-600 hover:bg-green-700 border-0 text-white">B2B App</Badge>
-          <Badge variant="outline">UX/UI Design</Badge>
-          <Badge variant="outline">Mobile</Badge>
+          {(t('b2b.hero.badges', { returnObjects: true }) as string[]).map(badge => (
+            <Badge key={badge} variant={badge === 'B2B App' ? 'default' : 'outline'} className={badge === 'B2B App' ? "bg-green-600 hover:bg-green-700 border-0 text-white" : ""}>{badge}</Badge>
+          ))}
         </motion.div>
 
         <motion.h1 variants={fadeIn} className="text-4xl md:text-6xl font-bold tracking-tight mb-6 max-w-[900px] text-green-500">
-          Design Assignment: <br/> B2B App for Buyers
+          {t('b2b.hero.title')}
         </motion.h1>
 
         <motion.p variants={fadeIn} className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-[700px]">
-          Digitalizando y optimizando el proceso de compra de inventario para supermercados y negocios B2B, eliminando el uso del papel y mejorando la eficiencia.
+          {t('b2b.hero.subtitle')}
         </motion.p>
 
         <motion.div variants={fadeIn} className="flex flex-wrap gap-6 text-sm text-muted-foreground mb-10">
-          <div><span className="font-semibold text-foreground">Rol:</span> UX/UI Designer</div>
-          <div><span className="font-semibold text-foreground">Sector:</span> Food / Wholesale</div>
-          <div><span className="font-semibold text-foreground">Plataforma:</span> Mobile App</div>
+          <div><span className="font-semibold text-foreground">{t('b2b.hero.role_label')}</span> {t('b2b.hero.role_val')}</div>
+          <div><span className="font-semibold text-foreground">{t('b2b.hero.platform_label')}</span> {t('b2b.hero.platform_val')}</div>
+          <div><span className="font-semibold text-foreground">{t('b2b.hero.duration_label')}</span> {t('b2b.hero.duration_val')}</div>
         </motion.div>
 
         <motion.div variants={fadeIn} className="h-64 md:h-[450px] w-full rounded-xl overflow-hidden relative border border-green-500/20 flex flex-col items-center justify-center shadow-lg">
-             <img src="/images/b2b-cover-clean.png" alt="B2B App Cover" className="absolute inset-0 w-full h-full object-cover object-center z-0" />
+             <img src={t('b2b.hero.image')} alt={t('b2b.hero.title')} className="absolute inset-0 w-full h-full object-cover object-center z-0" />
              
              {/* Overlay para igualar el tono verdoso original */}
              <div className="absolute inset-0 bg-green-900/30 mix-blend-multiply z-10" />
@@ -800,30 +802,12 @@ export function B2BCaseStudyPage() {
       <motion.section className="mb-20 max-w-[800px]" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
         <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-500">
            <Search className="h-8 w-8" />
-           Understand
+           {t('b2b.research.title')}
         </motion.h2>
         <motion.div variants={fadeIn} className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-          <ul className="space-y-4 list-none">
-            <li className="flex gap-3">
-               <div className="mt-1.5 shrink-0 w-2 h-2 rounded-full bg-green-500" />
-               <p><span className="text-foreground font-medium">How many times are available the buyers to run out of food and run into other providers?</span></p>
-            </li>
-            <li className="flex gap-3">
-               <div className="mt-1.5 shrink-0 w-2 h-2 rounded-full bg-green-500" />
-               <p><span className="text-foreground font-medium">Is there any specific "Order day" or if they buy local and running everyday, how many of this businesses exist?</span></p>
-            </li>
-            <li className="flex gap-3">
-               <div className="mt-1.5 shrink-0 w-2 h-2 rounded-full bg-green-500" />
-               <p>
-                 <span className="text-foreground font-medium">To have a full background I'll do user research from 25-45 and +45 to see:</span>
-                 <ul className="list-disc pl-6 mt-2 text-base text-muted-foreground">
-                   <li>How interact with phones</li>
-                   <li>How run their business and what kind of UX respects the terms needed.</li>
-                   <li>How organize order/stock today.</li>
-                 </ul>
-               </p>
-            </li>
-          </ul>
+          <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+          <p>{t('b2b.research.desc')}</p>
+        </div>
         </motion.div>
       </motion.section>
 
@@ -831,11 +815,11 @@ export function B2BCaseStudyPage() {
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
         <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-10 flex items-center gap-3 text-green-500">
            <Users className="h-8 w-8" />
-           User Personas
+           {t('b2b.personasTitle')}
         </motion.h2>
 
         <div className="space-y-12">
-          {personas.map((persona) => (
+          {(t('b2b.personas', { returnObjects: true }) as any[]).map((persona) => (
              <motion.div key={persona.name} variants={fadeIn}>
                 <Card className="overflow-hidden border-border/50">
                    <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-0">
@@ -854,9 +838,9 @@ export function B2BCaseStudyPage() {
                          <div className="mb-6">
                             <h3 className="text-3xl font-bold mb-2">{persona.name}</h3>
                             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-                               <span className="flex items-center gap-1.5"><Users className="w-4 h-4 text-green-500"/> {persona.age}</span>
-                               <span className="flex items-center gap-1.5"><Map className="w-4 h-4 text-green-500"/> {persona.location}</span>
-                               <span className="flex items-center gap-1.5"><Target className="w-4 h-4 text-green-500"/> {persona.role}</span>
+                               <span className="flex items-center gap-1.5"><Users className="w-4 h-4 text-green-500"/> {persona.ageLabel} {persona.ageVal}</span>
+                               <span className="flex items-center gap-1.5"><Map className="w-4 h-4 text-green-500"/> {persona.locLabel} {persona.locVal}</span>
+                               <span className="flex items-center gap-1.5"><Target className="w-4 h-4 text-green-500"/> {persona.roleVal}</span>
                                <span className="flex items-center gap-1.5"><Users className="w-4 h-4 text-green-500"/> {persona.status}</span>
                             </div>
                          </div>
@@ -868,9 +852,9 @@ export function B2BCaseStudyPage() {
 
                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
                             <div>
-                               <h4 className="text-xl font-semibold text-sky-500 mb-3 border-b-2 border-sky-500 inline-block pb-1">Wants & Needs</h4>
+                               <h4 className="text-xl font-semibold text-sky-500 mb-3 border-b-2 border-sky-500 inline-block pb-1">{persona.needsTitle}</h4>
                                <ul className="space-y-2">
-                                  {persona.needs.map(n => (
+                                  {persona.needs.map((n: string) => (
                                      <li key={n} className="flex gap-2 text-muted-foreground text-sm">
                                         <div className="mt-1.5 w-1.5 h-1.5 shrink-0 rounded-full bg-sky-500" />
                                         <span>{n}</span>
@@ -879,9 +863,9 @@ export function B2BCaseStudyPage() {
                                </ul>
                             </div>
                             <div>
-                               <h4 className="text-xl font-semibold text-sky-500 mb-3 border-b-2 border-sky-500 inline-block pb-1">Frustrations</h4>
+                               <h4 className="text-xl font-semibold text-sky-500 mb-3 border-b-2 border-sky-500 inline-block pb-1">{persona.frustrationsTitle}</h4>
                                <ul className="space-y-2">
-                                  {persona.frustrations.map(f => (
+                                  {persona.frustrations.map((f: string) => (
                                      <li key={f} className="flex gap-2 text-muted-foreground text-sm">
                                         <div className="mt-1.5 w-1.5 h-1.5 shrink-0 rounded-full bg-sky-500" />
                                         <span>{f}</span>
@@ -892,9 +876,12 @@ export function B2BCaseStudyPage() {
                          </div>
 
                          <div className="bg-muted/30 rounded-xl p-6">
-                            <h4 className="text-xl font-semibold text-sky-500 mb-4 border-b-2 border-sky-500 inline-block pb-1">Tech</h4>
+                            <h4 className="text-xl font-semibold text-sky-500 mb-4 border-b-2 border-sky-500 inline-block pb-1">{persona.techLabel}</h4>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-                               {persona.tech.map(t => (
+                               {[
+     [{name:"Internet", value:4}, {name:"Social Media", value:4}, {name:"Online Shopping", value:2}, {name:"Gadgets", value:2}, {name:"Early adopter", value:2}],
+     [{name:"Internet", value:5}, {name:"Social Media", value:4}, {name:"Online Shopping", value:4}, {name:"Gadgets", value:4}, {name:"Early adopter", value:5}]
+   ][persona.name === 'Juan Carlos' ? 0 : 1].map((t: any) => (
                                   <div key={t.name} className="flex items-center justify-between">
                                      <span className="text-sm">{t.name}</span>
                                      <div className="flex gap-1">
@@ -920,27 +907,17 @@ export function B2BCaseStudyPage() {
       <motion.section className="mb-20 max-w-[800px]" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
         <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-500">
            <Target className="h-8 w-8" />
-           Define
+           {t('b2b.define.title')}
         </motion.h2>
         <motion.div variants={fadeIn} className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-          <p className="font-semibold text-foreground">User need:</p>
+          <p className="font-semibold text-foreground">{t('b2b.define.user_need')}</p>
           <ul className="space-y-3 list-none pl-4">
-            <li className="flex gap-3">
-               <div className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-green-500" />
-               <span>Create an environment to communicate with suppliers without losing any information in the middle.</span>
-            </li>
-            <li className="flex gap-3">
-               <div className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-green-500" />
-               <span>A method to easily integrate order in the actual workflow.</span>
-            </li>
-            <li className="flex gap-3">
-               <div className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-green-500" />
-               <span>Easier access to old interactions to make new purchases.</span>
-            </li>
-            <li className="flex gap-3">
-               <div className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-green-500" />
-               <span>Digitalize the process... more synced with system for checking the stock (++).</span>
-            </li>
+            {(t('b2b.define.needs', { returnObjects: true }) as string[]).map((need, i) => (
+              <li key={i} className="flex gap-3">
+                 <div className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-green-500" />
+                 <span>{need}</span>
+              </li>
+            ))}
           </ul>
         </motion.div>
       </motion.section>
@@ -949,14 +926,14 @@ export function B2BCaseStudyPage() {
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
         <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-500">
            <Map className="h-8 w-8" />
-           User Journey
+           {t('b2b.journey.title')}
         </motion.h2>
         <motion.div variants={fadeIn} className="mb-16 overflow-x-auto pb-4">
            <div className="min-w-[800px] flex flex-col gap-8">
               {/* Stages Row */}
               <div className="grid grid-cols-[100px_1fr_1fr_1fr_1fr_1fr] gap-4 items-center">
-                 <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 text-amber-700 dark:text-amber-500 font-bold p-4 rounded-lg shadow-sm text-center">Stages</div>
-                 {journeyMap.map((col) => (
+                 <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 text-amber-700 dark:text-amber-500 font-bold p-4 rounded-lg shadow-sm text-center">{t('b2b.journey.stages_col')}</div>
+                 {(t('b2b.journey.map', { returnObjects: true }) as any[]).map((col) => (
                     <div key={col.stage} className="bg-sky-50 dark:bg-sky-950/30 border border-sky-200 dark:border-sky-900/50 text-sky-700 dark:text-sky-500 font-bold p-4 rounded-lg shadow-sm text-center">
                        {col.stage}
                     </div>
@@ -965,11 +942,11 @@ export function B2BCaseStudyPage() {
 
               {/* Touchpoints Row */}
               <div className="grid grid-cols-[100px_1fr_1fr_1fr_1fr_1fr] gap-4">
-                 <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 text-amber-700 dark:text-amber-500 font-bold p-4 rounded-lg shadow-sm flex items-center justify-center text-center h-full">Touchpoints</div>
-                 {journeyMap.map((col) => (
+                 <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 text-amber-700 dark:text-amber-500 font-bold p-4 rounded-lg shadow-sm flex items-center justify-center text-center h-full">{t('b2b.journey.touchpoints_col')}</div>
+                 {(t('b2b.journey.map', { returnObjects: true }) as any[]).map((col) => (
                     <div key={col.stage} className="flex flex-col gap-3">
-                       {col.touchpoints.map((tp, i) => (
-                          <div key={i} className={`text-sm p-3 rounded-lg shadow-sm border font-medium ${tp.includes('wait until') ? 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-400' : 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-900/50 text-green-700 dark:text-green-500'}`}>
+                       {col.touchpoints.map((tp: string, i: number) => (
+                          <div key={i} className={`text-sm p-3 rounded-lg shadow-sm border font-medium ${tp.includes('wait until') || tp.includes('esperar a que llegue') ? 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-400' : 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-900/50 text-green-700 dark:text-green-500'}`}>
                              {tp}
                           </div>
                        ))}
@@ -979,8 +956,8 @@ export function B2BCaseStudyPage() {
 
               {/* Emotions Row */}
               <div className="grid grid-cols-[100px_1fr_1fr_1fr_1fr_1fr] gap-4 items-center mt-4">
-                 <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 text-amber-700 dark:text-amber-500 font-bold p-4 rounded-lg shadow-sm text-center">Emotion</div>
-                 {journeyMap.map((col) => (
+                 <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 text-amber-700 dark:text-amber-500 font-bold p-4 rounded-lg shadow-sm text-center">{t('b2b.journey.emotion_col')}</div>
+                 {(t('b2b.journey.map', { returnObjects: true }) as any[]).map((col) => (
                     <div key={col.stage} className="text-center text-5xl flex justify-center items-center">
                        <span className="inline-block p-4 rounded-full border-4 border-blue-200 dark:border-blue-900/50 bg-blue-50 dark:bg-blue-950/30 drop-shadow-sm">{col.emotion}</span>
                     </div>
@@ -991,11 +968,11 @@ export function B2BCaseStudyPage() {
 
         <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-500">
            <Workflow className="h-8 w-8" />
-           Userflow
+           {t('b2b.userflow.title')}
         </motion.h2>
         <motion.div variants={fadeIn}>
            <div className="w-full bg-white/5 border border-border/50 rounded-xl overflow-hidden min-h-[400px] p-8">
-              <p className="text-muted-foreground mb-6">El diagrama muestra la complejidad del proceso de compra desde la verificación del stock hasta el envío de la factura a administración.</p>
+              <p className="text-muted-foreground mb-6">{t('b2b.userflow.desc')}</p>
               
               <div className="w-full overflow-x-auto pb-6">
                  <svg viewBox="0 0 1250 620" className="w-full h-auto text-sm font-sans" style={{ minWidth: '900px' }}>
@@ -1109,10 +1086,11 @@ export function B2BCaseStudyPage() {
               </div>
               
               <div className="mt-8 p-4 border-l-4 border-amber-500 bg-amber-500/10 rounded-r-lg">
-                 <h4 className="font-semibold text-amber-500 mb-2">Puntos de decisión clave:</h4>
+                 <h4 className="font-semibold text-amber-500 mb-2">{t('b2b.userflow.decision_title')}</h4>
                  <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-2">
-                    <li><strong className="text-foreground">¿Es correcta la información del pedido?</strong> Si no lo es, el flujo requiere editar el pedido cambiando cantidades o borrando productos antes de enviarlo al proveedor.</li>
-                    <li><strong className="text-foreground">¿Está bien el pedido al llegar?</strong> Si hay problemas, el flujo requiere reportar el problema emitiendo un formulario antes de iniciar otro pedido.</li>
+                    {(t('b2b.userflow.decisions', { returnObjects: true }) as any[]).map((d, i) => (
+                      <li key={i} dangerouslySetInnerHTML={{ __html: d.text }} />
+                    ))}
                  </ul>
               </div>
            </div>
@@ -1127,7 +1105,7 @@ export function B2BCaseStudyPage() {
         {/* High Fi */}
         <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-12 flex items-center gap-3 text-green-500">
            <Smartphone className="h-8 w-8" />
-           Visual Design
+           {t('b2b.visual_design.title')}
         </motion.h2>
         
         <motion.div variants={fadeIn} className="mb-24 space-y-32">
@@ -1135,9 +1113,9 @@ export function B2BCaseStudyPage() {
            {/* Section 1: My Suppliers & Control Panel */}
            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 items-center justify-items-center">
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left xl:mb-40 max-w-sm">
-                 <h3 className="text-3xl font-bold text-teal-600">My suppliers</h3>
+                 <h3 className="text-3xl font-bold text-teal-600">{t('b2b.visual_design.s1_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    Here we provide a list of all Supermarket's Suppliers, with important information like phone number and local number where they are located.
+                    {t('b2b.visual_design.s1_desc')}
                  </p>
               </div>
               
@@ -1150,9 +1128,9 @@ export function B2BCaseStudyPage() {
               </div>
               
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left xl:mt-40 max-w-sm">
-                 <h3 className="text-3xl font-bold text-teal-600">Control Panel</h3>
+                 <h3 className="text-3xl font-bold text-teal-600">{t('b2b.visual_design.s2_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    Once we select a supplier, the next screen show us a Control Panel, where we can handle different information about that supplier.
+                    {t('b2b.visual_design.s2_desc')}
                  </p>
               </div>
            </div>
@@ -1160,9 +1138,9 @@ export function B2BCaseStudyPage() {
            {/* Section 2: Negotiate */}
            <div className="space-y-12 bg-slate-50/50 dark:bg-zinc-900/20 p-8 md:p-12 rounded-3xl border border-border/30">
               <div className="max-w-4xl space-y-4">
-                 <h3 className="text-3xl font-bold text-teal-600">Negotiate</h3>
+                 <h3 className="text-3xl font-bold text-teal-600">{t('b2b.visual_design.s3_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    Items catalog where we can find every product that the Supermarket buys and his current stock on warehouse. Then we can enter agreed price and quantity while negotiate.
+                    {t('b2b.visual_design.s3_desc')}
                  </p>
               </div>
 
@@ -1175,7 +1153,7 @@ export function B2BCaseStudyPage() {
                  
                  <div className="max-w-sm xl:max-w-[280px] space-y-4 text-center xl:text-left xl:mt-32">
                     <p className="text-muted-foreground leading-relaxed text-lg border-l-4 border-teal-500 pl-4 py-2 bg-teal-50 dark:bg-teal-950/20 rounded-r-xl">
-                       Also, there is the possibility to edit the order after compare all offers. The order list is unique for each supplier.
+                       {t('b2b.visual_design.s3_extra')}
                     </p>
                  </div>
               </div>
@@ -1184,9 +1162,9 @@ export function B2BCaseStudyPage() {
            {/* Section 3: Claim Management */}
            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 items-center justify-items-center xl:justify-items-start">
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left max-w-sm xl:max-w-md xl:self-center">
-                 <h3 className="text-3xl font-bold text-green-600">Claim management</h3>
+                 <h3 className="text-3xl font-bold text-green-600">{t('b2b.visual_design.s4_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    When something is wrong with the order we provide a quick form which is sent to supplier, also we keep a copy who is stored on Supplier's Control Panel to gather information about that kind of problems.
+                    {t('b2b.visual_design.s4_desc')}
                  </p>
               </div>
               
@@ -1202,9 +1180,9 @@ export function B2BCaseStudyPage() {
            {/* Section 4: Warehouse & Chats */}
            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 items-center justify-items-center">
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left xl:mb-40 max-w-sm">
-                 <h3 className="text-3xl font-bold text-green-600">Warehouse</h3>
+                 <h3 className="text-3xl font-bold text-green-600">{t('b2b.visual_design.s5_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    On this screen, we provide stock information about all products on the list. With visual aids that advice when some product is low stock for example.
+                    {t('b2b.visual_design.s5_desc')}
                  </p>
               </div>
               
@@ -1217,9 +1195,9 @@ export function B2BCaseStudyPage() {
               </div>
               
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left xl:mt-40 max-w-sm">
-                 <h3 className="text-3xl font-bold text-green-600">Chats</h3>
+                 <h3 className="text-3xl font-bold text-green-600">{t('b2b.visual_design.s6_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    Integrated chat for easy contact with suppliers who are using the App if they need to resolve any problem or negotiate some prices.
+                    {t('b2b.visual_design.s6_desc')}
                  </p>
               </div>
            </div>
@@ -1230,11 +1208,11 @@ export function B2BCaseStudyPage() {
 
       {/* ═══════════════ CTA ═══════════════ */}
       <motion.section className="text-center py-12" initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeIn}>
-         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-green-500">Thank you!</h2>
-         <p className="text-muted-foreground mb-8">¿Te interesa saber más sobre este proyecto?</p>
+         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-green-500">{t('b2b.cta.title')}</h2>
+         <p className="text-muted-foreground mb-8">{t('b2b.cta.subtitle')}</p>
          <div className="flex gap-4 justify-center">
-          <a href="mailto:juanseruani@gmail.com" className={cn(buttonVariants({ size: "lg" }), "bg-green-600 hover:bg-green-700 text-white")}>Conversemos</a>
-          <Link to="/" className={buttonVariants({ size: "lg", variant: "outline" })}>Volver al Portfolio</Link>
+          <a href="mailto:juanseruani@gmail.com" className={cn(buttonVariants({ size: "lg" }), "bg-green-600 hover:bg-green-700 text-white")}>{t('b2b.cta.contact')}</a>
+          <Link to="/" className={buttonVariants({ size: "lg", variant: "outline" })}>{t('b2b.cta.back')}</Link>
         </div>
       </motion.section>
     </div>

@@ -1,0 +1,512 @@
+{
+  "home": {
+    "hero": {
+      "title_prefix": "Product Designer uniendo",
+      "title_ux": "diseño UX",
+      "title_and": "y",
+      "title_strategy": "estrategia de negocio.",
+      "subtitle": "Con formación en Administración de Empresas y más de 5 años de experiencia diseñando productos digitales en HMM, Avature y DinoCloud.",
+      "contact_button": "Contactar",
+      "behance_button": "Ver Behance"
+    },
+    "projects": {
+      "title": "Proyectos Destacados",
+      "subtitle": "Una selección de mi trabajo reciente (casos de estudio anonimizados en progreso).",
+      "discovery_hub": {
+        "title": "Discovery & Prototyping Hub",
+        "badge": "DesignOps / IA",
+        "description": "Plataforma de prototipado con IA que unifica diseño y desarrollo. Skills de Claude para automatizar discovery, testing sintético y handoff.",
+        "button": "Ver Caso de Estudio",
+        "image": "/images/case-study-hero.jpg"
+      },
+      "b2b_app": {
+        "title": "B2B App for Buyers",
+        "badge": "B2B / App",
+        "description": "Digitalización y optimización del proceso de compra de inventario para supermercados, eliminando el uso del papel.",
+        "button": "Ver Caso de Estudio",
+        "image": "/images/b2b-cover-clean.png"
+      }
+    },
+    "about": {
+      "title": "Acerca de Mí",
+      "subtitle": "Mi recorrido profesional combinando negocio y diseño.",
+      "hmm": {
+        "role": "UX/UI Designer",
+        "date": "Mayo 2025 - Present",
+        "company": "Home Medical Management (HMM)",
+        "description": "Diseño de experiencias digitales en el sector de la salud, optimizando flujos de usuarios para gestión médica y aportando visión de negocio a las decisiones de UX."
+      },
+      "avature": {
+        "role": "UX Designer",
+        "date": "Marzo 2023 - Mayo 2025",
+        "company": "Avature",
+        "description": "Diseño de herramientas SaaS complejas para reclutamiento y gestión de talento (ATS). Mejora de flujos de trabajo B2B y colaboración estrecha con equipos de desarrollo."
+      },
+      "dinocloud": {
+        "role": "Ssr. UX & UI Solutions Designer",
+        "date": "Junio 2021 - Marzo 2023",
+        "company": "DinoCloud",
+        "description": "Liderazgo en diseño de soluciones Cloud. Creación de sistemas de diseño y mejora de interfaces orientadas a plataformas de infraestructura y monitoreo."
+      },
+      "education": {
+        "title": "Educación",
+        "degree1": "Licenciatura en Administración de Empresas",
+        "school1": "Universidad Nacional de Córdoba (2013 - 2019)",
+        "degree2": "Diplomatura en UX/UI Design",
+        "school2": "Acámica (2019)"
+      }
+    }
+  },
+  "layout": {
+    "nav": {
+      "projects": "Proyectos",
+      "linkedin": "LinkedIn"
+    },
+    "footer": {
+      "credit": "Diseñado y desarrollado por Juan Sebastián Ruani."
+    }
+  },
+  "case_study": {
+    "back": "Volver",
+    "badges": [
+      "DesignOps",
+      "IA + Diseño",
+      "2025"
+    ],
+    "title": "Discovery & Prototyping Hub",
+    "subtitle": "De Figma a código vivo: una plataforma de prototipado que unifica diseño, IA y desarrollo para validar experiencias antes de escribir código productivo.",
+    "role_label": "Rol:",
+    "role_val": "Product Designer / UX Engineer",
+    "company_label": "Empresa:",
+    "company_val": "HealthTech (NDA)",
+    "duration_label": "Duración:",
+    "duration_val": "2025 — Presente",
+    "image": "/images/case-study-hero.jpg",
+    "problem": {
+      "title": "El Problema",
+      "p1": "En productos digitales complejos — especialmente en HealthTech, donde conviven una plataforma web para operadores, apps móviles para profesionales, pacientes y conductores — el flujo clásico de diseño genera fricciones críticas:",
+      "li1": "Los prototipos estáticos no reflejan la complejidad real. Un mockup en Figma no puede simular estados de carga, validaciones en tiempo real, ni flujos multi-paso con datos dinámicos.",
+      "li2": "El handoff es un cuello de botella. Los desarrolladores reciben PDFs o links de Figma que no coinciden con la arquitectura de componentes del frontend real.",
+      "li3": "La documentación se desactualiza al primer cambio. Las especificaciones escritas en paralelo al prototipo se reescriben con cada iteración.",
+      "li4": "El testing de UX es caro y lento. Coordinar sesiones con usuarios reales para cada iteración es insostenible en ciclos ágiles."
+    },
+    "metrics": [
+      "Discoveries completadas end-to-end",
+      "Reducción en idas y vueltas de handoff",
+      "Validación completa con usuarios reales",
+      "Tests de UX con usuarios sintéticos (IA)",
+      "Personas impactadas en el equipo",
+      "Más rápido el desarrollo (de 1 mes a 1-2 sem)"
+    ],
+    "beforeAfter": {
+      "title": "Antes vs. Después",
+      "desc": "El impacto del Discovery Hub comparado con el flujo de diseño tradicional.",
+      "items": [
+        {
+          "before": "Diseño en Figma → PDF de specs → El dev interpreta",
+          "after": "Prototipo en código real → Spec auto-derivada → El dev implementa"
+        },
+        {
+          "before": "Testing manual cada 2 semanas con usuarios reales",
+          "after": "30+ tests automáticos con usuarios sintéticos (IA)"
+        },
+        {
+          "before": "Handoff en ~2 semanas de documentación manual",
+          "after": "Handoff en 1 día (derivación automatizada con skills)"
+        },
+        {
+          "before": "Documentación manual que se desactualiza al primer cambio",
+          "after": "Docs vivos con scripts de verificación automáticos"
+        },
+        {
+          "before": "Prototipos que no coinciden con la arquitectura de desarrollo",
+          "after": "Mismo stack que producción: React, MUI, TypeScript"
+        }
+      ]
+    },
+    "solution": {
+      "title": "La Solución",
+      "desc": "Un monorepo de prototipado que replica el stack real de desarrollo, alimentado con datos mock, donde cada feature se diseña, valida y documenta antes de escribir una sola línea de código productivo.",
+      "image": "/images/workflow-diagram.jpg",
+      "cards": [
+        {
+          "title": "Monorepo Multi-Plataforma",
+          "desc": "4 entornos (1 web + 3 mobile) con el mismo stack que producción. Componentes compartidos, datos mock centralizados, y playgrounds independientes por plataforma."
+        },
+        {
+          "title": "Sistema de Discoveries",
+          "desc": "Cada feature es una \"Discovery\" — una unidad funcional que agrupa componentes, páginas, hooks, mocks y documentación. 15+ discoveries completadas."
+        },
+        {
+          "title": "Skills de IA (Claude Code)",
+          "desc": "3 skills que automatizan el ciclo: discovery-start, handoff y synth-run. Desde la investigación inicial hasta la entrega al equipo de desarrollo."
+        },
+        {
+          "title": "Usuarios Sintéticos",
+          "desc": "Personas ficticias con perfiles YAML que recorren los prototipos y reportan fricción UX en 3 capas. +30 tests ejecutados automáticamente."
+        },
+        {
+          "title": "Spec-Driven Development",
+          "desc": "Dos familias de docs que nunca se fusionan: la narrativa (el porqué) y la norma (el qué debe cumplir). Scripts de verificación automáticos."
+        },
+        {
+          "title": "Handoff sin Fricciones",
+          "desc": "Los desarrolladores reciben prototipos funcionales en su mismo stack, especificaciones derivadas del código, y casos de prueba."
+        }
+      ]
+    },
+    "architecture": {
+      "title": "Arquitectura del Monorepo",
+      "desc": "Un único repositorio que contiene los 4 entornos de producto, con recursos compartidos centralizados.",
+      "packages": [
+        {
+          "name": "web-backoffice",
+          "type": "React + Vite"
+        },
+        {
+          "name": "app-patient",
+          "type": "React Native"
+        },
+        {
+          "name": "app-professional",
+          "type": "React Native"
+        },
+        {
+          "name": "app-mobility",
+          "type": "React Native"
+        }
+      ],
+      "shared": [
+        {
+          "name": "mock-factories",
+          "desc": "Datos mock compartidos"
+        },
+        {
+          "name": "handoff",
+          "desc": "Contrato y templates"
+        },
+        {
+          "name": "synthetic-users",
+          "desc": "Runner, rúbrica, arnés"
+        },
+        {
+          "name": "utils",
+          "desc": "Utilidades comunes"
+        }
+      ]
+    },
+    "anatomy": {
+      "title": "Anatomía de una Discovery",
+      "desc": "Cada discovery tiene un ciclo documental riguroso. Este es un ejemplo real (anonimizado) de una feature de gestión financiera con ",
+      "descBold": "75 decisiones documentadas",
+      "items": [
+        {
+          "name": "README.md",
+          "desc": "Cómo funciona de punta a punta"
+        },
+        {
+          "name": "DISEÑO.md",
+          "desc": "El porqué de cada decisión"
+        },
+        {
+          "name": "DECISIONES.md",
+          "desc": "Bitácora cronológica (D-001…D-075)"
+        },
+        {
+          "name": "ESTADO.md",
+          "desc": "Qué está construido, qué falta"
+        },
+        {
+          "name": "VALIDACION.md",
+          "desc": "Cómo recorrerlo con datos mock"
+        },
+        {
+          "name": "notas/",
+          "desc": "Material crudo de reuniones, sin editar"
+        }
+      ],
+      "countLabel": "Decisiones documentadas en esta discovery:"
+    },
+    "skills": {
+      "title": "Skills de IA — Pipeline Real",
+      "desc": "Tres skills de Claude Code que automatizan el ciclo completo, desde la investigación inicial hasta la entrega al equipo de desarrollo.",
+      "inputLabel": "Input",
+      "outputLabel": "Output Automático",
+      "items": [
+        {
+          "name": "discovery-start",
+          "input": "Notas de reunión + pedidos del negocio",
+          "outputs": [
+            "Carpeta docs/<discovery>/ con 5 archivos narrativos",
+            "Bitácora de decisiones arrancada",
+            "Plan de trabajo por fases",
+            "Material crudo guardado sin editar"
+          ]
+        },
+        {
+          "name": "synth-run",
+          "input": "Persona YAML + Discovery ID + Misión",
+          "outputs": [
+            "Reporte de fricción en 3 capas",
+            "Hallazgos de usabilidad con severidad",
+            "Limitaciones detectadas del prototipo"
+          ]
+        },
+        {
+          "name": "handoff",
+          "input": "Discovery cerrada + Documentación narrativa",
+          "outputs": [
+            "HANDOFF.md — Punto de entrada para el equipo",
+            "ESPECIFICACION.md — Requisitos con IDs",
+            "CASOS-DE-PRUEBA.md — Cobertura completa"
+          ]
+        }
+      ]
+    },
+    "synthetic": {
+      "title": "Usuarios Sintéticos en Acción",
+      "desc": "Cada persona sintética tiene un perfil YAML con rol, comportamiento, frustraciones y foco. Recorren los prototipos y reportan fricción de usabilidad automáticamente.",
+      "exampleLabel": "Ejemplo real (anonimizado)",
+      "image": "/images/synthetic-testing.jpg",
+      "howItWorks": "¿Cómo funciona?",
+      "steps": [
+        "Se elige una persona y una misión (o modo exploración libre)",
+        "La IA recorre la discovery como esa persona, respetando su comportamiento",
+        "Aplica una rúbrica estandarizada de 10 principios en cada pantalla",
+        "Genera un reporte de fricción en 3 capas con severidad calibrada"
+      ]
+    },
+    "mockups": {
+      "title": "Interfaces Prototipadas",
+      "desc": "Ejemplos representativos de las interfaces diseñadas dentro del Discovery Hub (datos ficticios, diseño anonimizado).",
+      "playground": "Home del Playground — Grid de Discoveries",
+      "dashboard": "Dashboard de Consumo de IA",
+      "alerts": "Bandeja de Alertas con Priorización",
+      "imgPlayground": "/images/mockup-playground.jpg",
+      "imgDashboard": "/images/mockup-dashboard.jpg",
+      "imgAlerts": "/images/mockup-alerts.jpg"
+    },
+    "metricsSection": {
+      "title": "Resultados e Impacto",
+      "desc": "Los números hablan por sí solos."
+    },
+    "techStack": {
+      "title": "Stack Tecnológico"
+    },
+    "learnings": {
+      "title": "Aprendizajes",
+      "items": [
+        {
+          "title": "El prototipo más útil es el que habla el mismo idioma que el equipo.",
+          "body": "Prototipar en el stack real elimina el \"juego del teléfono descompuesto\" entre diseño y desarrollo."
+        },
+        {
+          "title": "La documentación debe derivarse, no inventarse.",
+          "body": "El handoff más confiable es el que se genera automáticamente desde el código y las decisiones documentadas."
+        },
+        {
+          "title": "La IA no reemplaza el criterio de diseño, lo amplifica.",
+          "body": "Los usuarios sintéticos detectan el 80% de los problemas de usabilidad antes de invertir tiempo en sesiones presenciales."
+        }
+      ]
+    },
+    "cta": {
+      "text": "¿Te interesa saber más sobre este proyecto?",
+      "contact": "Conversemos",
+      "more": "Ver más proyectos"
+    }
+  },
+  "b2b": {
+    "back": "Volver",
+    "hero": {
+      "badges": [
+        "B2B App",
+        "UX/UI Design",
+        "Mobile"
+      ],
+      "title": "B2B App for Buyers",
+      "subtitle": "Digitalización y optimización del proceso de compra de inventario para supermercados, eliminando el uso del papel y mejorando la comunicación con proveedores.",
+      "role_label": "Rol:",
+      "role_val": "Product Designer (UX/UI)",
+      "platform_label": "Plataforma:",
+      "platform_val": "iOS & Android App",
+      "duration_label": "Duración:",
+      "duration_val": "2020",
+      "image": "/images/b2b-cover-clean.png"
+    },
+    "about": {
+      "title": "Sobre el Proyecto",
+      "desc": "Un supermercado con fuerte presencia en España necesitaba modernizar la forma en que sus compradores reponen el stock de las diferentes tiendas. Actualmente, todos los procesos se realizan en papel (toma de notas, presupuestos, remitos) y luego la información debe transcribirse a una PC de escritorio."
+    },
+    "problem": {
+      "title": "El Problema",
+      "desc": "El proceso actual en Mercabarna era extremadamente ineficiente y propenso a errores humanos:",
+      "items": [
+        "Pérdida de información al perder papeles con notas de precios y presupuestos.",
+        "Tiempo desperdiciado caminando por todo el predio para buscar proveedores o información.",
+        "Errores al transcribir la información del papel al sistema al final del día.",
+        "Falta de herramientas para documentar el estado de los productos (ej. pallets rotos) en tiempo real."
+      ]
+    },
+    "research": {
+      "title": "Research & Descubrimiento",
+      "desc": "Realizamos entrevistas con los compradores actuales para entender su flujo de trabajo, frustraciones y necesidades tecnológicas. Esto nos permitió crear dos user personas clave y mapear su journey actual."
+    },
+    "personasTitle": "User Personas",
+    "personas": [
+      {
+        "name": "Juan Carlos",
+        "image": "/images/b2b-case-study/juan-carlos.png",
+        "ageLabel": "Edad:",
+        "ageVal": "41",
+        "locLabel": "Ubicación:",
+        "locVal": "Barcelona, Catalunya, Spain",
+        "roleVal": "Comprador de supermercado",
+        "quote": "Realmente disfruto mi trabajo, negociar y hablar con la gente es lo mejor!",
+        "bio": "Juan Carlos es Contador, ha estado trabajando como comprador por 8 años. Realmente disfruta su trabajo y lo hace siempre con una sonrisa. Después del trabajo, vuelve a casa para pasar tiempo con su familia.",
+        "needsTitle": "Necesidades",
+        "needs": [
+          "No perder contacto con sus proveedores.",
+          "Mantenerse en su puesto hasta su retiro."
+        ],
+        "frustrationsTitle": "Frustraciones",
+        "frustrations": [
+          "No pasar mucho tiempo con su familia debido al trabajo.",
+          "Largas caminatas por Mercabarna para hacer su trabajo."
+        ],
+        "techLabel": "Uso de Tecnología"
+      },
+      {
+        "name": "Martin Cuevas",
+        "image": "/images/b2b-case-study/martin-cuevas.png",
+        "ageLabel": "Edad:",
+        "ageVal": "25",
+        "locLabel": "Ubicación:",
+        "locVal": "Madrid, Alcobendas, Spain",
+        "roleVal": "Comprador de supermercado",
+        "quote": "Cada día es un nuevo desafío, daré lo mejor para crecer en mi carrera",
+        "bio": "Martin tiene una licenciatura en Administración de Empresas. Trabaja como comprador para un supermercado con gran presencia en España. Después del trabajo le gusta relajarse y salir con sus amigos.",
+        "needsTitle": "Necesidades",
+        "needs": [
+          "Ser eficiente en su trabajo.",
+          "Aplicar tecnología que le ayude en su trabajo."
+        ],
+        "frustrationsTitle": "Frustraciones",
+        "frustrations": [
+          "Siente que pierde el tiempo con la forma en que trabaja.",
+          "Fácilmente pierde los papeles donde hace anotaciones."
+        ],
+        "techLabel": "Uso de Tecnología"
+      }
+    ],
+    "define": {
+      "title": "Define",
+      "user_need": "Necesidad del usuario:",
+      "needs": [
+        "Crear un entorno para comunicarse con proveedores sin perder información en el medio.",
+        "Un método para integrar fácilmente el pedido en el flujo de trabajo actual.",
+        "Acceso más fácil a interacciones antiguas para realizar nuevas compras.",
+        "Digitalizar el proceso... más sincronizado con el sistema para comprobar el stock (++)."
+      ]
+    },
+    "journey": {
+      "title": "User Journey",
+      "stages_col": "Etapas",
+      "touchpoints_col": "Puntos de contacto",
+      "emotion_col": "Emoción",
+      "map": [
+        {
+          "stage": "Descubrimiento",
+          "color": "bg-sky-400",
+          "touchpoints": [
+            "Verificar stock de productos",
+            "Hacer una lista",
+            "Planificar compras"
+          ],
+          "emotion": "😉"
+        },
+        {
+          "stage": "Negociación",
+          "color": "bg-sky-400",
+          "touchpoints": [
+            "Visitar vendedores",
+            "Negociar precios",
+            "Tomar notas en papel",
+            "Ver productos disponibles",
+            "Comparar todas las ofertas",
+            "Establecer relación con vendedor"
+          ],
+          "emotion": "😃"
+        },
+        {
+          "stage": "Compra",
+          "color": "bg-sky-400",
+          "touchpoints": [
+            "Volver con los vendedores",
+            "Tomar la decisión correcta",
+            "Escribir info de compra en papel",
+            "Elegir la mejor oferta"
+          ],
+          "emotion": "😊"
+        },
+        {
+          "stage": "Revisar pedido",
+          "color": "bg-sky-400",
+          "touchpoints": [
+            "Comprobar precio y cantidad",
+            "Contactar vendedor si algo falla",
+            "El encargado de almacén tiene que esperar a que llegue el pedido sin info (Punto negativo)",
+            "Comprobar la calidad del producto"
+          ],
+          "emotion": "😲"
+        },
+        {
+          "stage": "Transferir datos",
+          "color": "bg-sky-400",
+          "touchpoints": [
+            "Reescribir información del papel al PC",
+            "Reunir los papeles necesarios",
+            "Actualizar stock",
+            "Comprobar la correcta introducción"
+          ],
+          "emotion": "😖"
+        }
+      ]
+    },
+    "userflow": {
+      "title": "Userflow",
+      "desc": "El diagrama muestra la complejidad del proceso de compra desde la verificación del stock hasta el envío de la factura a administración.",
+      "decision_title": "Puntos de decisión clave:",
+      "decisions": [
+        {
+          "text": "<strong class=\"text-foreground\">¿Es correcta la información del pedido?</strong> Si no lo es, el flujo requiere editar el pedido cambiando cantidades o borrando productos antes de enviarlo al proveedor."
+        },
+        {
+          "text": "<strong class=\"text-foreground\">¿Está bien el pedido al llegar?</strong> Si hay problemas, el flujo requiere reportar el problema emitiendo un formulario antes de iniciar otro pedido."
+        }
+      ]
+    },
+    "visual_design": {
+      "title": "Diseño Visual",
+      "s1_title": "Mis Proveedores",
+      "s1_desc": "Aquí proporcionamos una lista de todos los proveedores del supermercado, con información importante como el número de teléfono y el número de local donde se encuentran.",
+      "s2_title": "Panel de Control",
+      "s2_desc": "Una vez que seleccionamos un proveedor, la siguiente pantalla nos muestra un panel de control, donde podemos manejar diferente información sobre ese proveedor.",
+      "s3_title": "Negociar",
+      "s3_desc": "Catálogo de artículos donde podemos encontrar cada producto que compra el supermercado y su stock actual en el almacén. Luego podemos ingresar el precio acordado y la cantidad mientras negociamos.",
+      "s3_extra": "Además, existe la posibilidad de editar el pedido después de comparar todas las ofertas. La lista de pedidos es única para cada proveedor.",
+      "s4_title": "Gestión de reclamos",
+      "s4_desc": "Cuando algo sale mal con el pedido, proporcionamos un formulario rápido que se envía al proveedor. También guardamos una copia que se almacena en el Panel de Control del Proveedor para recopilar información sobre ese tipo de problemas.",
+      "s5_title": "Almacén",
+      "s5_desc": "En esta pantalla proporcionamos información de stock sobre todos los productos en la lista. Con ayudas visuales que avisan cuando algún producto tiene poco stock, por ejemplo.",
+      "s6_title": "Chats",
+      "s6_desc": "Chat integrado para un fácil contacto con los proveedores que están utilizando la aplicación si necesitan resolver algún problema o negociar algunos precios."
+    },
+    "cta": {
+      "title": "¡Gracias!",
+      "subtitle": "¿Te interesa saber más sobre este proyecto?",
+      "contact": "Conversemos",
+      "back": "Volver al Portfolio"
+    }
+  }
+}
