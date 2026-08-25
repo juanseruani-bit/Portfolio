@@ -158,40 +158,42 @@ export function Home() {
 
             {/* Proyecto 2 */}
             <motion.div variants={item}>
-              <Card className="h-full flex flex-col glow-card border-border/50 hover:border-primary/40 transition-all duration-400">
-                <div className="h-64 bg-muted rounded-t-xl flex items-center justify-center border-b relative overflow-hidden">
-                  {/* Decorative placeholder with gradient */}
-                  <div
-                    className="absolute inset-0 opacity-30"
-                    style={{
-                      background: "linear-gradient(135deg, var(--accent-teal) 0%, var(--accent-indigo) 100%)",
-                    }}
-                  />
-                  <span className="text-muted-foreground font-mono relative z-10">[Placeholder Imagen Cloud]</span>
-                </div>
-                <CardHeader>
-                  <div className="flex justify-between items-start mb-2">
-                    <Badge className="bg-[var(--accent-teal)] text-white border-0">Cloud / SaaS</Badge>
-                    <span className="text-sm text-muted-foreground font-mono">2021 - 2023</span>
+              <Link to="/proyectos/b2b-app-buyers" className="block h-full">
+                <Card className="h-full flex flex-col glow-card group cursor-pointer border-border/50 hover:border-primary/40 transition-all duration-400">
+                  <div className="h-64 bg-muted rounded-t-xl flex items-center justify-center border-b relative overflow-hidden">
+                    <div
+                      className="absolute inset-0 opacity-40"
+                      style={{
+                        background: "linear-gradient(135deg, #22c55e 0%, #14532d 100%)",
+                      }}
+                    />
+                    <span className="text-white/80 font-mono relative z-10">[Portada B2B App]</span>
                   </div>
-                  <CardTitle className="text-2xl">Dashboard de Monitoreo Cloud</CardTitle>
-                  <CardDescription className="text-base mt-2">
-                    Creación de un sistema de diseño desde cero y UX para herramientas de monitoreo en la nube.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="flex-1">
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    <Badge variant="outline">Arquitectura de Información</Badge>
-                    <Badge variant="outline">Figma</Badge>
-                    <Badge variant="outline">Prototyping</Badge>
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="secondary" className="w-full" disabled>
-                    Caso de Estudio en Progreso
-                  </Button>
-                </CardFooter>
-              </Card>
+                  <CardHeader>
+                    <div className="flex justify-between items-start mb-2">
+                      <Badge className="bg-green-600 hover:bg-green-700 text-white border-0">B2B / App</Badge>
+                      <span className="text-sm text-muted-foreground font-mono">2020</span>
+                    </div>
+                    <CardTitle className="text-2xl">B2B App for Buyers</CardTitle>
+                    <CardDescription className="text-base mt-2">
+                      Digitalización y optimización del proceso de compra de inventario para supermercados, eliminando el uso del papel.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-1">
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      <Badge variant="outline">UX/UI Design</Badge>
+                      <Badge variant="outline">User Research</Badge>
+                      <Badge variant="outline">Mobile</Badge>
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button variant="secondary" className="w-full group/btn">
+                      Ver Caso de Estudio
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </Link>
             </motion.div>
           </motion.div>
         </section>
