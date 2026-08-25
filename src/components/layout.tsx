@@ -7,7 +7,7 @@ import { LanguageSwitcher } from "./language-switcher"
 import { useTranslation } from "react-i18next"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet"
 import { useState } from "react"
-import { Button } from "./ui/button"
+import { buttonVariants } from "./ui/button"
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { t } = useTranslation()
@@ -52,10 +52,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
           {/* Mobile Nav */}
           <div className="md:hidden flex items-center">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Menu">
-                  <Menu className="h-6 w-6" />
-                </Button>
+              <SheetTrigger className={buttonVariants({ variant: "ghost", size: "icon" })} aria-label="Menu">
+                <Menu className="h-6 w-6" />
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] flex flex-col pt-12 px-6">
                 <SheetTitle className="sr-only">Menu</SheetTitle>
