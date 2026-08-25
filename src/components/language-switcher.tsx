@@ -16,6 +16,7 @@ export function LanguageSwitcher() {
       onClick={toggleLanguage}
       className="font-medium px-2"
       title={i18n.language.startsWith("es") ? "Switch to English" : "Cambiar a Español"}
+      aria-label={i18n.language.startsWith("es") ? "Switch to English" : "Cambiar a Español"}
     >
       <span className={i18n.language.startsWith("es") ? "text-muted-foreground" : "text-foreground"}>EN</span>
       <span className="mx-1 text-muted-foreground">/</span>

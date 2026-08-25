@@ -163,19 +163,19 @@ const DeviceFrame = ({ children, title }: { children: React.ReactNode, title?: s
 
 const BottomNav = ({ active = 'suppliers' }) => (
   <div className="h-16 bg-white dark:bg-zinc-900 border-t flex items-center justify-around px-2 pb-2 pt-2 shrink-0 z-40 relative shadow-[0_-4px_15px_-5px_rgba(0,0,0,0.05)]">
-    <div className={`flex flex-col items-center gap-1 cursor-pointer ${active === 'warehouse' ? 'text-teal-600' : 'text-muted-foreground hover:text-foreground'}`}>
+    <div className={`flex flex-col items-center gap-1 cursor-pointer ${active === 'warehouse' ? 'text-teal-700 dark:text-teal-500' : 'text-muted-foreground hover:text-foreground'}`}>
       <HomeIcon size={20} />
       <span className="text-[10px]">Warehouse</span>
     </div>
-    <div className={`flex flex-col items-center gap-1 cursor-pointer ${active === 'suppliers' ? 'text-teal-600' : 'text-muted-foreground hover:text-foreground'}`}>
+    <div className={`flex flex-col items-center gap-1 cursor-pointer ${active === 'suppliers' ? 'text-teal-700 dark:text-teal-500' : 'text-muted-foreground hover:text-foreground'}`}>
       <Users size={20} />
       <span className="text-[10px]">My Suppliers</span>
     </div>
-    <div className={`flex flex-col items-center gap-1 cursor-pointer ${active === 'orders' ? 'text-teal-600' : 'text-muted-foreground hover:text-foreground'}`}>
+    <div className={`flex flex-col items-center gap-1 cursor-pointer ${active === 'orders' ? 'text-teal-700 dark:text-teal-500' : 'text-muted-foreground hover:text-foreground'}`}>
       <FileText size={20} />
       <span className="text-[10px]">My Orders</span>
     </div>
-    <div className={`flex flex-col items-center gap-1 cursor-pointer ${active === 'chats' ? 'text-teal-600' : 'text-muted-foreground hover:text-foreground'}`}>
+    <div className={`flex flex-col items-center gap-1 cursor-pointer ${active === 'chats' ? 'text-teal-700 dark:text-teal-500' : 'text-muted-foreground hover:text-foreground'}`}>
       <MessageCircle size={20} />
       <span className="text-[10px]">Chats</span>
     </div>
@@ -200,7 +200,7 @@ const ScreenSuppliers = () => (
        {/* Card 1 */}
        <div className="bg-white dark:bg-zinc-900 p-4 rounded-2xl shadow-sm flex gap-4 items-center cursor-pointer border border-transparent hover:border-teal-500/30 transition-all">
          <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-950 flex items-center justify-center shrink-0 overflow-hidden border border-red-200 dark:border-red-900">
-            <span className="text-red-500 font-bold text-xl">M</span>
+            <span className="text-red-700 dark:text-red-500 font-bold text-xl">M</span>
          </div>
          <div className="flex-1">
             <div className="flex justify-between items-start">
@@ -213,7 +213,7 @@ const ScreenSuppliers = () => (
        {/* Card 2 */}
        <div className="bg-white dark:bg-zinc-900 p-4 rounded-2xl shadow-sm flex gap-4 items-center cursor-pointer border border-transparent hover:border-teal-500/30 transition-all">
          <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-950 flex items-center justify-center shrink-0 overflow-hidden border border-green-200 dark:border-green-900">
-            <span className="text-green-500 font-bold text-xl">A</span>
+            <span className="text-green-700 dark:text-green-500 font-bold text-xl">A</span>
          </div>
          <div className="flex-1">
             <div className="flex justify-between items-start">
@@ -226,7 +226,7 @@ const ScreenSuppliers = () => (
        {/* Card 3 */}
        <div className="bg-white dark:bg-zinc-900 p-4 rounded-2xl shadow-sm flex gap-4 items-center cursor-pointer border border-transparent hover:border-teal-500/30 transition-all">
          <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-950 flex items-center justify-center shrink-0 overflow-hidden border border-blue-200 dark:border-blue-900">
-            <span className="text-blue-500 font-bold text-xl">G</span>
+            <span className="text-blue-700 dark:text-blue-500 font-bold text-xl">G</span>
          </div>
          <div className="flex-1">
             <div className="flex justify-between items-start">
@@ -253,31 +253,31 @@ const ScreenControlPanel = () => (
     <div className="flex-1 overflow-y-auto p-5 grid grid-cols-2 gap-4 auto-rows-max items-start bg-slate-50 dark:bg-zinc-950">
        <div className="bg-white dark:bg-zinc-900 aspect-square rounded-2xl shadow-sm flex flex-col items-center justify-center gap-3 cursor-pointer hover:shadow-md transition-all group border border-transparent hover:border-teal-500/30">
           <div className="w-14 h-14 rounded-full bg-teal-50 dark:bg-teal-950 flex items-center justify-center group-hover:scale-110 transition-transform">
-             <ShoppingCart className="text-teal-600" size={24} />
+             <ShoppingCart className="text-teal-700 dark:text-teal-500" size={24} />
           </div>
           <span className="text-xs font-medium">New Order</span>
        </div>
        <div className="bg-white dark:bg-zinc-900 aspect-square rounded-2xl shadow-sm flex flex-col items-center justify-center gap-3 cursor-pointer hover:shadow-md transition-all group border border-transparent hover:border-teal-500/30">
           <div className="w-14 h-14 rounded-full bg-blue-50 dark:bg-blue-950 flex items-center justify-center group-hover:scale-110 transition-transform">
-             <List className="text-blue-600" size={24} />
+             <List className="text-blue-700 dark:text-blue-500" size={24} />
           </div>
           <span className="text-xs font-medium">Order List</span>
        </div>
        <div className="bg-white dark:bg-zinc-900 aspect-square rounded-2xl shadow-sm flex flex-col items-center justify-center gap-3 cursor-pointer hover:shadow-md transition-all group border border-transparent hover:border-teal-500/30">
           <div className="w-14 h-14 rounded-full bg-amber-50 dark:bg-amber-950 flex items-center justify-center group-hover:scale-110 transition-transform">
-             <Truck className="text-amber-600" size={24} />
+             <Truck className="text-amber-700 dark:text-amber-500" size={24} />
           </div>
           <span className="text-xs font-medium">Dispatch</span>
        </div>
        <div className="bg-white dark:bg-zinc-900 aspect-square rounded-2xl shadow-sm flex flex-col items-center justify-center gap-3 cursor-pointer hover:shadow-md transition-all group border border-transparent hover:border-teal-500/30">
           <div className="w-14 h-14 rounded-full bg-red-50 dark:bg-red-950 flex items-center justify-center group-hover:scale-110 transition-transform">
-             <AlertCircle className="text-red-600" size={24} />
+             <AlertCircle className="text-red-700 dark:text-red-500" size={24} />
           </div>
           <span className="text-xs font-medium">Order Issues</span>
        </div>
        <div className="bg-white dark:bg-zinc-900 aspect-square rounded-2xl shadow-sm flex flex-col items-center justify-center gap-3 cursor-pointer hover:shadow-md transition-all group border border-transparent hover:border-teal-500/30">
           <div className="w-14 h-14 rounded-full bg-purple-50 dark:bg-purple-950 flex items-center justify-center group-hover:scale-110 transition-transform">
-             <FileText className="text-purple-600" size={24} />
+             <FileText className="text-purple-700 dark:text-purple-500" size={24} />
           </div>
           <span className="text-xs font-medium">Documents</span>
        </div>
@@ -314,7 +314,7 @@ const ScreenItemsSearch = () => (
           <div className="flex gap-3 p-3">
              <div className="w-20 h-20 bg-red-100 dark:bg-red-950 rounded-xl shrink-0 border border-red-200 dark:border-red-900 relative">
                 <div className="absolute inset-0 bg-red-500 opacity-10" />
-                <Package className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-red-500" size={24} />
+                <Package className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-red-700 dark:text-red-500" size={24} />
              </div>
              <div className="flex-1 flex flex-col justify-between">
                 <div>
@@ -325,7 +325,7 @@ const ScreenItemsSearch = () => (
                    <span className="text-[10px] text-muted-foreground mt-0.5 block">SKU: #R7450-T202</span>
                 </div>
                 <div className="flex justify-between items-end mt-2">
-                   <div className="text-[9px] text-amber-600 bg-amber-50 dark:bg-amber-950/50 dark:border dark:border-amber-900/50 px-2 py-0.5 rounded-full font-medium">In Stock 500/1200kg</div>
+                   <div className="text-[9px] text-amber-700 dark:text-amber-500 bg-amber-50 dark:bg-amber-950/50 dark:border dark:border-amber-900/50 px-2 py-0.5 rounded-full font-medium">In Stock 500/1200kg</div>
                    <div className="bg-teal-600 text-white p-1.5 rounded-full shadow-md hover:scale-110 transition-transform"><Plus size={14}/></div>
                 </div>
              </div>
@@ -337,18 +337,18 @@ const ScreenItemsSearch = () => (
           <div className="flex gap-3 p-3">
              <div className="w-20 h-20 bg-green-100 dark:bg-green-950 rounded-xl shrink-0 border border-green-200 dark:border-green-900 relative">
                 <div className="absolute inset-0 bg-green-500 opacity-10" />
-                <Package className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-green-500" size={24} />
+                <Package className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-green-700 dark:text-green-500" size={24} />
              </div>
              <div className="flex-1 flex flex-col justify-between">
                 <div>
                    <div className="flex justify-between">
                       <h5 className="font-semibold text-sm leading-tight text-foreground">Iceberg Lettuce</h5>
-                      <Star size={16} className="text-amber-400 fill-amber-400 shrink-0 ml-2" />
+                      <Star size={16} className="text-amber-600 dark:text-amber-400 fill-amber-400 shrink-0 ml-2" />
                    </div>
                    <span className="text-[10px] text-muted-foreground mt-0.5 block">SKU: #L222-L7545</span>
                 </div>
                 <div className="flex justify-between items-end mt-2">
-                   <div className="text-[9px] text-amber-600 bg-amber-50 dark:bg-amber-950/50 dark:border dark:border-amber-900/50 px-2 py-0.5 rounded-full font-medium">In Stock 100/900kg</div>
+                   <div className="text-[9px] text-amber-700 dark:text-amber-500 bg-amber-50 dark:bg-amber-950/50 dark:border dark:border-amber-900/50 px-2 py-0.5 rounded-full font-medium">In Stock 100/900kg</div>
                    <div className="bg-teal-600 text-white p-1.5 rounded-full shadow-md hover:scale-110 transition-transform"><Plus size={14}/></div>
                 </div>
              </div>
@@ -367,7 +367,7 @@ const ScreenProductDetail = () => (
          <ChevronLeft size={20} />
        </div>
        <div className="absolute inset-0 bg-red-600/20 dark:bg-red-900/40 flex items-center justify-center">
-         <Package size={64} className="text-red-500/50" />
+         <Package size={64} className="text-red-700 dark:text-red-500/50" />
        </div>
        <div className="absolute top-4 right-4 z-20 w-8 h-8 bg-black/20 backdrop-blur-md rounded-full flex items-center justify-center text-white shadow-sm cursor-pointer">
          <MoreVertical size={20} />
@@ -380,11 +380,11 @@ const ScreenProductDetail = () => (
              <h3 className="text-lg font-bold leading-tight text-foreground">Red Beefsteak Tomato</h3>
              <span className="text-[11px] text-muted-foreground block mt-1">SKU: #R7450-T202</span>
           </div>
-          <div className="text-[10px] text-amber-600 bg-amber-50 dark:bg-amber-950/50 dark:border dark:border-amber-900/50 px-2 py-1 rounded-full font-medium whitespace-nowrap ml-2">Stock: 500/1200kg</div>
+          <div className="text-[10px] text-amber-700 dark:text-amber-500 bg-amber-50 dark:bg-amber-950/50 dark:border dark:border-amber-900/50 px-2 py-1 rounded-full font-medium whitespace-nowrap ml-2">Stock: 500/1200kg</div>
        </div>
        
        <div className="bg-slate-50 dark:bg-zinc-900 rounded-xl p-3 flex justify-between items-center cursor-pointer border border-transparent hover:border-teal-500/30">
-          <span className="text-xs font-semibold flex items-center gap-2"><Info size={16} className="text-teal-600"/> Product Information</span>
+          <span className="text-xs font-semibold flex items-center gap-2"><Info size={16} className="text-teal-700 dark:text-teal-500"/> Product Information</span>
           <ChevronRight size={16} className="text-muted-foreground" />
        </div>
        
@@ -394,7 +394,7 @@ const ScreenProductDetail = () => (
              <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-zinc-800 flex items-center justify-center cursor-pointer hover:bg-slate-200 dark:hover:bg-zinc-700 transition-colors"><Minus size={14}/></div>
                 <span className="font-semibold w-6 text-center">30</span>
-                <div className="w-8 h-8 rounded-full bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400 flex items-center justify-center cursor-pointer hover:bg-teal-200 dark:hover:bg-teal-900 transition-colors"><Plus size={14}/></div>
+                <div className="w-8 h-8 rounded-full bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-500 dark:text-teal-400 flex items-center justify-center cursor-pointer hover:bg-teal-200 dark:hover:bg-teal-900 transition-colors"><Plus size={14}/></div>
              </div>
           </div>
           
@@ -426,7 +426,7 @@ const ScreenProductDetail = () => (
        <div className="mt-auto pt-4 border-t flex justify-between items-center pb-2">
           <div className="flex flex-col">
              <span className="text-[10px] text-muted-foreground font-medium uppercase tracking-wide">Total</span>
-             <span className="text-xl font-bold text-teal-600">464.40 €</span>
+             <span className="text-xl font-bold text-teal-700 dark:text-teal-500">464.40 €</span>
           </div>
           <button className="bg-teal-600 text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-lg shadow-teal-600/30 hover:bg-teal-700 transition-all hover:scale-105 active:scale-95">
              Add to Order
@@ -447,7 +447,7 @@ const ScreenOrderSummary = () => (
     <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4 bg-slate-50 dark:bg-zinc-950">
        <div className="bg-white dark:bg-zinc-900 rounded-2xl p-4 shadow-sm border border-transparent hover:border-border transition-colors">
           <div className="flex justify-between items-center mb-3">
-             <span className="text-[13px] font-bold flex items-center gap-2"><List size={16} className="text-teal-600"/> Order Information</span>
+             <span className="text-[13px] font-bold flex items-center gap-2"><List size={16} className="text-teal-700 dark:text-teal-500"/> Order Information</span>
           </div>
           <div className="text-[11px] space-y-1 mb-4 text-muted-foreground border-b pb-3 border-dashed">
              <p><span className="font-medium text-foreground">Created:</span> Monday, 03 10:50</p>
@@ -472,7 +472,7 @@ const ScreenOrderSummary = () => (
                 <span>0.97 €</span>
              </div>
           </div>
-          <div className="flex justify-between items-center font-bold text-sm text-teal-600 pt-2 border-t border-dashed">
+          <div className="flex justify-between items-center font-bold text-sm text-teal-700 dark:text-teal-500 pt-2 border-t border-dashed">
              <span>Total Amount:</span>
              <span>758.22 €</span>
           </div>
@@ -480,19 +480,19 @@ const ScreenOrderSummary = () => (
        
        <div className="bg-white dark:bg-zinc-900 rounded-2xl p-4 shadow-sm border border-transparent hover:border-border transition-colors">
           <div className="flex justify-between items-center mb-3">
-             <span className="text-[13px] font-bold flex items-center gap-2"><Truck size={16} className="text-teal-600"/> Shipping Info</span>
+             <span className="text-[13px] font-bold flex items-center gap-2"><Truck size={16} className="text-teal-700 dark:text-teal-500"/> Shipping Info</span>
           </div>
           <div className="text-[11px] space-y-1.5 text-muted-foreground">
              <p>D. Carrer K Zona Franca, 37, 39, 08040 Barcelona</p>
              <p className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block"/> 12:00 - 13:00hs</p>
           </div>
           <div className="mt-3 text-right">
-             <span className="text-[10px] font-bold text-teal-600 uppercase tracking-wide cursor-pointer hover:underline">Edit Shipping</span>
+             <span className="text-[10px] font-bold text-teal-700 dark:text-teal-500 uppercase tracking-wide cursor-pointer hover:underline">Edit Shipping</span>
           </div>
        </div>
        
        <div className="bg-white dark:bg-zinc-900 rounded-2xl p-4 shadow-sm border border-transparent hover:border-border transition-colors flex justify-between items-center cursor-pointer">
-          <span className="text-[13px] font-bold flex items-center gap-2"><MessageCircle size={16} className="text-teal-600"/> Comments</span>
+          <span className="text-[13px] font-bold flex items-center gap-2"><MessageCircle size={16} className="text-teal-700 dark:text-teal-500"/> Comments</span>
           <ChevronRight size={16} className="text-muted-foreground" />
        </div>
     </div>
@@ -501,7 +501,7 @@ const ScreenOrderSummary = () => (
        <button className="w-full bg-teal-600 text-white py-3 rounded-xl text-sm font-bold shadow-lg shadow-teal-600/30 hover:bg-teal-700 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
           <Package size={16} /> CONFIRM PURCHASE
        </button>
-       <button className="w-full bg-transparent text-teal-600 border border-teal-600/30 py-3 rounded-xl text-sm font-bold mt-2 hover:bg-teal-50 dark:hover:bg-teal-950 transition-colors">
+       <button className="w-full bg-transparent text-teal-700 dark:text-teal-500 border border-teal-600/30 py-3 rounded-xl text-sm font-bold mt-2 hover:bg-teal-50 dark:hover:bg-teal-950 transition-colors">
           EDIT ORDER
        </button>
     </div>
@@ -528,7 +528,7 @@ const ScreenClaimForm = ({ state = 'dropdown' }: { state?: 'dropdown' | 'photos'
                 <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-zinc-900 border rounded-xl shadow-xl z-20 overflow-hidden">
                    <div className="p-3.5 text-sm border-b hover:bg-slate-50 dark:hover:bg-zinc-800 cursor-pointer text-muted-foreground transition-colors">Wrong quantity</div>
                    <div className="p-3.5 text-sm border-b hover:bg-slate-50 dark:hover:bg-zinc-800 cursor-pointer text-muted-foreground transition-colors">Wrong total weight</div>
-                   <div className="p-3.5 text-sm bg-red-50 dark:bg-red-900/20 text-red-600 font-semibold cursor-pointer">Broken pallet</div>
+                   <div className="p-3.5 text-sm bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-500 font-semibold cursor-pointer">Broken pallet</div>
                 </div>
              </div>
           ) : (
@@ -551,7 +551,7 @@ const ScreenClaimForm = ({ state = 'dropdown' }: { state?: 'dropdown' | 'photos'
        <div className="space-y-3 mt-2">
           <label className="text-[11px] font-bold text-center block w-full text-muted-foreground uppercase tracking-wide">Take some photos</label>
           {state === 'dropdown' ? (
-             <div className="w-20 h-20 mx-auto border-2 border-dashed border-red-300 dark:border-red-800/50 rounded-2xl flex items-center justify-center text-red-500 bg-red-50/50 dark:bg-red-950/20 hover:bg-red-100 dark:hover:bg-red-900/30 cursor-pointer transition-all">
+             <div className="w-20 h-20 mx-auto border-2 border-dashed border-red-300 dark:border-red-800/50 rounded-2xl flex items-center justify-center text-red-700 dark:text-red-500 bg-red-50/50 dark:bg-red-950/20 hover:bg-red-100 dark:hover:bg-red-900/30 cursor-pointer transition-all">
                 <Camera size={28} />
              </div>
           ) : (
@@ -561,10 +561,10 @@ const ScreenClaimForm = ({ state = 'dropdown' }: { state?: 'dropdown' | 'photos'
                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-white"><Camera size={20}/></div>
                 </div>
                 <div className="w-[72px] h-[72px] bg-zinc-200 dark:bg-zinc-800 rounded-xl overflow-hidden border-2 border-transparent hover:border-red-500 cursor-pointer transition-colors relative group">
-                   <div className="w-full h-full bg-amber-100 dark:bg-amber-950 flex items-center justify-center"><Package size={24} className="text-amber-500"/></div>
+                   <div className="w-full h-full bg-amber-100 dark:bg-amber-950 flex items-center justify-center"><Package size={24} className="text-amber-700 dark:text-amber-500"/></div>
                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-white"><Camera size={20}/></div>
                 </div>
-                <div className="w-[72px] h-[72px] bg-zinc-200 dark:bg-zinc-800 rounded-xl overflow-hidden border-2 border-dashed border-border flex items-center justify-center text-muted-foreground hover:text-red-500 hover:border-red-500 cursor-pointer transition-colors">
+                <div className="w-[72px] h-[72px] bg-zinc-200 dark:bg-zinc-800 rounded-xl overflow-hidden border-2 border-dashed border-border flex items-center justify-center text-muted-foreground hover:text-red-700 dark:text-red-500 hover:border-red-500 cursor-pointer transition-colors">
                    <Plus size={24}/>
                 </div>
              </div>
@@ -604,7 +604,7 @@ const ScreenWarehouse = () => (
        <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-sm p-4 border border-transparent hover:border-teal-500/30 flex gap-4 cursor-pointer transition-colors relative overflow-hidden">
           <div className="absolute right-0 top-0 bottom-0 w-1 bg-amber-500" />
           <div className="w-16 h-16 bg-red-100 dark:bg-red-950 rounded-xl shrink-0 flex items-center justify-center border border-red-200 dark:border-red-900">
-             <Package className="text-red-500" size={24}/>
+             <Package className="text-red-700 dark:text-red-500" size={24}/>
           </div>
           <div className="flex-1 flex flex-col justify-between py-0.5">
              <div>
@@ -612,11 +612,11 @@ const ScreenWarehouse = () => (
                 <span className="text-[9px] text-muted-foreground block mt-0.5">SKU: #R7450-T202</span>
              </div>
              <div className="flex items-center gap-2 mt-2">
-                <span className="text-[10px] font-bold w-16 text-amber-600 dark:text-amber-500">500/1200 Kg</span>
+                <span className="text-[10px] font-bold w-16 text-amber-700 dark:text-amber-500 dark:text-amber-500">500/1200 Kg</span>
                 <div className="flex-1 h-1.5 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden">
                    <div className="h-full bg-amber-500 w-[45%]" />
                 </div>
-                <span className="text-[9px] font-bold text-amber-500">45%</span>
+                <span className="text-[9px] font-bold text-amber-700 dark:text-amber-500">45%</span>
              </div>
           </div>
        </div>
@@ -625,22 +625,22 @@ const ScreenWarehouse = () => (
        <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-sm p-4 border border-transparent hover:border-teal-500/30 flex gap-4 cursor-pointer transition-colors relative overflow-hidden">
           <div className="absolute right-0 top-0 bottom-0 w-1 bg-red-500" />
           <div className="w-16 h-16 bg-green-100 dark:bg-green-950 rounded-xl shrink-0 flex items-center justify-center border border-green-200 dark:border-green-900">
-             <Package className="text-green-500" size={24}/>
+             <Package className="text-green-700 dark:text-green-500" size={24}/>
           </div>
           <div className="flex-1 flex flex-col justify-between py-0.5">
              <div>
                 <h5 className="font-semibold text-[13px] leading-tight flex justify-between">
                    Iceberg Lettuce
-                   <AlertCircle size={14} className="text-red-500"/>
+                   <AlertCircle size={14} className="text-red-700 dark:text-red-500"/>
                 </h5>
                 <span className="text-[9px] text-muted-foreground block mt-0.5">SKU: #L222-L7545</span>
              </div>
              <div className="flex items-center gap-2 mt-2">
-                <span className="text-[10px] font-bold w-16 text-red-500">100/900 Kg</span>
+                <span className="text-[10px] font-bold w-16 text-red-700 dark:text-red-500">100/900 Kg</span>
                 <div className="flex-1 h-1.5 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden">
                    <div className="h-full bg-red-500 w-[15%]" />
                 </div>
-                <span className="text-[9px] font-bold text-red-500">15%</span>
+                <span className="text-[9px] font-bold text-red-700 dark:text-red-500">15%</span>
              </div>
           </div>
        </div>
@@ -649,7 +649,7 @@ const ScreenWarehouse = () => (
        <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-sm p-4 border border-transparent hover:border-teal-500/30 flex gap-4 cursor-pointer transition-colors relative overflow-hidden">
           <div className="absolute right-0 top-0 bottom-0 w-1 bg-teal-500" />
           <div className="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/40 rounded-xl shrink-0 flex items-center justify-center border border-yellow-200 dark:border-yellow-900">
-             <Package className="text-yellow-500" size={24}/>
+             <Package className="text-yellow-700 dark:text-yellow-500" size={24}/>
           </div>
           <div className="flex-1 flex flex-col justify-between py-0.5">
              <div>
@@ -661,7 +661,7 @@ const ScreenWarehouse = () => (
                 <div className="flex-1 h-1.5 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden">
                    <div className="h-full bg-teal-500 w-[100%]" />
                 </div>
-                <span className="text-[9px] font-bold text-teal-600">100%</span>
+                <span className="text-[9px] font-bold text-teal-700 dark:text-teal-500">100%</span>
              </div>
           </div>
        </div>
@@ -689,13 +689,13 @@ const ScreenChats = () => (
        {/* Chat 1 - Unread */}
        <div className="px-4 py-3 flex gap-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-900 transition-colors">
           <div className="w-[52px] h-[52px] rounded-full bg-red-100 shrink-0 border border-red-200 flex items-center justify-center relative">
-             <span className="text-red-500 font-bold text-xl">M</span>
+             <span className="text-red-700 dark:text-red-500 font-bold text-xl">M</span>
              <div className="absolute -bottom-1 -right-1 bg-teal-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center ring-2 ring-white dark:ring-zinc-950 shadow-sm">2</div>
           </div>
           <div className="flex-1 border-b border-border/50 pb-3">
              <div className="flex justify-between items-center">
                 <h5 className="font-semibold text-sm">Mark Vegetables</h5>
-                <span className="text-[10px] text-teal-600 font-bold">10:50</span>
+                <span className="text-[10px] text-teal-700 dark:text-teal-500 font-bold">10:50</span>
              </div>
              <div className="flex justify-between items-center mt-0.5">
                 <p className="text-xs text-foreground font-medium truncate max-w-[180px]">✓ The order has arrived, thank you!</p>
@@ -706,7 +706,7 @@ const ScreenChats = () => (
        {/* Chat 2 */}
        <div className="px-4 py-3 flex gap-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-900 transition-colors">
           <div className="w-[52px] h-[52px] rounded-full bg-green-100 shrink-0 border border-green-200 flex items-center justify-center">
-             <span className="text-green-500 font-bold text-xl">A</span>
+             <span className="text-green-700 dark:text-green-500 font-bold text-xl">A</span>
           </div>
           <div className="flex-1 border-b border-border/50 pb-3">
              <div className="flex justify-between items-center">
@@ -720,7 +720,7 @@ const ScreenChats = () => (
        {/* Chat 3 */}
        <div className="px-4 py-3 flex gap-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-900 transition-colors">
           <div className="w-[52px] h-[52px] rounded-full bg-blue-100 shrink-0 border border-blue-200 flex items-center justify-center">
-             <span className="text-blue-500 font-bold text-xl">G</span>
+             <span className="text-blue-700 dark:text-blue-500 font-bold text-xl">G</span>
           </div>
           <div className="flex-1 pb-3">
              <div className="flex justify-between items-center">
@@ -728,7 +728,7 @@ const ScreenChats = () => (
                 <span className="text-[10px] text-muted-foreground">Tuesday</span>
              </div>
              <div className="flex items-center gap-1 mt-0.5 text-xs text-muted-foreground">
-                <span className="text-teal-500 font-bold text-[10px]">✓✓</span> <span className="truncate">I have sent you the order, cheers!</span>
+                <span className="text-teal-700 dark:text-teal-500 font-bold text-[10px]">✓✓</span> <span className="truncate">I have sent you the order, cheers!</span>
              </div>
           </div>
        </div>
@@ -763,7 +763,7 @@ export function B2BCaseStudyPage() {
           ))}
         </motion.div>
 
-        <motion.h1 variants={fadeIn} className="text-4xl md:text-6xl font-bold tracking-tight mb-6 max-w-[900px] text-green-500">
+        <motion.h1 variants={fadeIn} className="text-4xl md:text-6xl font-bold tracking-tight mb-6 max-w-[900px] text-green-700 dark:text-green-500">
           {t('b2b.hero.title')}
         </motion.h1>
 
@@ -800,7 +800,7 @@ export function B2BCaseStudyPage() {
 
       {/* ═══════════════ UNDERSTAND ═══════════════ */}
       <motion.section className="mb-20 max-w-[800px]" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-500">
+        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-700 dark:text-green-500">
            <Search className="h-8 w-8" />
            {t('b2b.research.title')}
         </motion.h2>
@@ -813,7 +813,7 @@ export function B2BCaseStudyPage() {
 
       {/* ═══════════════ PERSONAS ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-10 flex items-center gap-3 text-green-500">
+        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-10 flex items-center gap-3 text-green-700 dark:text-green-500">
            <Users className="h-8 w-8" />
            {t('b2b.personasTitle')}
         </motion.h2>
@@ -838,21 +838,21 @@ export function B2BCaseStudyPage() {
                          <div className="mb-6">
                             <h3 className="text-3xl font-bold mb-2">{persona.name}</h3>
                             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-                               <span className="flex items-center gap-1.5"><Users className="w-4 h-4 text-green-500"/> {persona.ageLabel} {persona.ageVal}</span>
-                               <span className="flex items-center gap-1.5"><Map className="w-4 h-4 text-green-500"/> {persona.locLabel} {persona.locVal}</span>
-                               <span className="flex items-center gap-1.5"><Target className="w-4 h-4 text-green-500"/> {persona.roleVal}</span>
-                               <span className="flex items-center gap-1.5"><Users className="w-4 h-4 text-green-500"/> {persona.status}</span>
+                               <span className="flex items-center gap-1.5"><Users className="w-4 h-4 text-green-700 dark:text-green-500"/> {persona.ageLabel} {persona.ageVal}</span>
+                               <span className="flex items-center gap-1.5"><Map className="w-4 h-4 text-green-700 dark:text-green-500"/> {persona.locLabel} {persona.locVal}</span>
+                               <span className="flex items-center gap-1.5"><Target className="w-4 h-4 text-green-700 dark:text-green-500"/> {persona.roleVal}</span>
+                               <span className="flex items-center gap-1.5"><Users className="w-4 h-4 text-green-700 dark:text-green-500"/> {persona.status}</span>
                             </div>
                          </div>
 
                          <div className="mb-6">
-                           <h4 className="text-xl font-semibold text-sky-500 mb-2 border-b-2 border-sky-500 inline-block pb-1">Bio</h4>
+                           <h4 className="text-xl font-semibold text-sky-700 dark:text-sky-500 mb-2 border-b-2 border-sky-500 inline-block pb-1">Bio</h4>
                            <p className="text-muted-foreground leading-relaxed">{persona.bio}</p>
                          </div>
 
                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
                             <div>
-                               <h4 className="text-xl font-semibold text-sky-500 mb-3 border-b-2 border-sky-500 inline-block pb-1">{persona.needsTitle}</h4>
+                               <h4 className="text-xl font-semibold text-sky-700 dark:text-sky-500 mb-3 border-b-2 border-sky-500 inline-block pb-1">{persona.needsTitle}</h4>
                                <ul className="space-y-2">
                                   {persona.needs.map((n: string) => (
                                      <li key={n} className="flex gap-2 text-muted-foreground text-sm">
@@ -863,7 +863,7 @@ export function B2BCaseStudyPage() {
                                </ul>
                             </div>
                             <div>
-                               <h4 className="text-xl font-semibold text-sky-500 mb-3 border-b-2 border-sky-500 inline-block pb-1">{persona.frustrationsTitle}</h4>
+                               <h4 className="text-xl font-semibold text-sky-700 dark:text-sky-500 mb-3 border-b-2 border-sky-500 inline-block pb-1">{persona.frustrationsTitle}</h4>
                                <ul className="space-y-2">
                                   {persona.frustrations.map((f: string) => (
                                      <li key={f} className="flex gap-2 text-muted-foreground text-sm">
@@ -876,7 +876,7 @@ export function B2BCaseStudyPage() {
                          </div>
 
                          <div className="bg-muted/30 rounded-xl p-6">
-                            <h4 className="text-xl font-semibold text-sky-500 mb-4 border-b-2 border-sky-500 inline-block pb-1">{persona.techLabel}</h4>
+                            <h4 className="text-xl font-semibold text-sky-700 dark:text-sky-500 mb-4 border-b-2 border-sky-500 inline-block pb-1">{persona.techLabel}</h4>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
                                {[
      [{name:"Internet", value:4}, {name:"Social Media", value:4}, {name:"Online Shopping", value:2}, {name:"Gadgets", value:2}, {name:"Early adopter", value:2}],
@@ -905,7 +905,7 @@ export function B2BCaseStudyPage() {
 
       {/* ═══════════════ DEFINE ═══════════════ */}
       <motion.section className="mb-20 max-w-[800px]" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-500">
+        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-700 dark:text-green-500">
            <Target className="h-8 w-8" />
            {t('b2b.define.title')}
         </motion.h2>
@@ -924,7 +924,7 @@ export function B2BCaseStudyPage() {
 
       {/* ═══════════════ JOURNEY & FLOW ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-500">
+        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-700 dark:text-green-500">
            <Map className="h-8 w-8" />
            {t('b2b.journey.title')}
         </motion.h2>
@@ -966,7 +966,7 @@ export function B2BCaseStudyPage() {
            </div>
         </motion.div>
 
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-500">
+        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-700 dark:text-green-500">
            <Workflow className="h-8 w-8" />
            {t('b2b.userflow.title')}
         </motion.h2>
@@ -1039,7 +1039,7 @@ export function B2BCaseStudyPage() {
                     </g>
 
                     {/* NODES Row 1 */}
-                    <FlowNode type="oval" x={20} y={20} label="Start" border="border-green-500" bg="bg-green-500/10 text-green-500 font-bold" />
+                    <FlowNode type="oval" x={20} y={20} label="Start" border="border-green-500" bg="bg-green-500/10 text-green-700 dark:text-green-500 font-bold" />
                     <FlowNode type="rect" x={170} y={20} label="Stock" />
                     <FlowNode type="oval" x={320} y={20} label="Check today's stock and plan purchases" />
                     <FlowNode type="rect" x={470} y={20} label="My Suppliers" />
@@ -1075,7 +1075,7 @@ export function B2BCaseStudyPage() {
                     <FlowNode type="rect" x={470} y={420} label="QR scan" />
                     <FlowNode type="oval" x={620} y={420} label="Scan QR on products delivered" />
                     <FlowNode type="rect" x={770} y={420} label="Bill sent to administration" />
-                    <FlowNode type="oval" x={920} y={420} label="Finish" border="border-red-500" bg="bg-red-500/10 text-red-500 font-bold" />
+                    <FlowNode type="oval" x={920} y={420} label="Finish" border="border-red-500" bg="bg-red-500/10 text-red-700 dark:text-red-500 font-bold" />
 
                     {/* NODES Row 4 No branch */}
                     <FlowNode type="oval" x={320} y={520} label="Report Problem" />
@@ -1086,7 +1086,7 @@ export function B2BCaseStudyPage() {
               </div>
               
               <div className="mt-8 p-4 border-l-4 border-amber-500 bg-amber-500/10 rounded-r-lg">
-                 <h4 className="font-semibold text-amber-500 mb-2">{t('b2b.userflow.decision_title')}</h4>
+                 <h3 className="font-semibold text-amber-700 dark:text-amber-500 mb-2">{t('b2b.userflow.decision_title')}</h3>
                  <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-2">
                     {(t('b2b.userflow.decisions', { returnObjects: true }) as any[]).map((d, i) => (
                       <li key={i} dangerouslySetInnerHTML={{ __html: d.text }} />
@@ -1103,7 +1103,7 @@ export function B2BCaseStudyPage() {
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
 
         {/* High Fi */}
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-12 flex items-center gap-3 text-green-500">
+        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-12 flex items-center gap-3 text-green-700 dark:text-green-500">
            <Smartphone className="h-8 w-8" />
            {t('b2b.visual_design.title')}
         </motion.h2>
@@ -1113,7 +1113,7 @@ export function B2BCaseStudyPage() {
            {/* Section 1: My Suppliers & Control Panel */}
            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 items-center justify-items-center">
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left xl:mb-40 max-w-sm">
-                 <h3 className="text-3xl font-bold text-teal-600">{t('b2b.visual_design.s1_title')}</h3>
+                 <h3 className="text-3xl font-bold text-teal-700 dark:text-teal-500">{t('b2b.visual_design.s1_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
                     {t('b2b.visual_design.s1_desc')}
                  </p>
@@ -1128,7 +1128,7 @@ export function B2BCaseStudyPage() {
               </div>
               
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left xl:mt-40 max-w-sm">
-                 <h3 className="text-3xl font-bold text-teal-600">{t('b2b.visual_design.s2_title')}</h3>
+                 <h3 className="text-3xl font-bold text-teal-700 dark:text-teal-500">{t('b2b.visual_design.s2_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
                     {t('b2b.visual_design.s2_desc')}
                  </p>
@@ -1138,7 +1138,7 @@ export function B2BCaseStudyPage() {
            {/* Section 2: Negotiate */}
            <div className="space-y-12 bg-slate-50/50 dark:bg-zinc-900/20 p-8 md:p-12 rounded-3xl border border-border/30">
               <div className="max-w-4xl space-y-4">
-                 <h3 className="text-3xl font-bold text-teal-600">{t('b2b.visual_design.s3_title')}</h3>
+                 <h3 className="text-3xl font-bold text-teal-700 dark:text-teal-500">{t('b2b.visual_design.s3_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
                     {t('b2b.visual_design.s3_desc')}
                  </p>
@@ -1162,7 +1162,7 @@ export function B2BCaseStudyPage() {
            {/* Section 3: Claim Management */}
            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 items-center justify-items-center xl:justify-items-start">
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left max-w-sm xl:max-w-md xl:self-center">
-                 <h3 className="text-3xl font-bold text-green-600">{t('b2b.visual_design.s4_title')}</h3>
+                 <h3 className="text-3xl font-bold text-green-700 dark:text-green-500">{t('b2b.visual_design.s4_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
                     {t('b2b.visual_design.s4_desc')}
                  </p>
@@ -1180,7 +1180,7 @@ export function B2BCaseStudyPage() {
            {/* Section 4: Warehouse & Chats */}
            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 items-center justify-items-center">
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left xl:mb-40 max-w-sm">
-                 <h3 className="text-3xl font-bold text-green-600">{t('b2b.visual_design.s5_title')}</h3>
+                 <h3 className="text-3xl font-bold text-green-700 dark:text-green-500">{t('b2b.visual_design.s5_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
                     {t('b2b.visual_design.s5_desc')}
                  </p>
@@ -1195,7 +1195,7 @@ export function B2BCaseStudyPage() {
               </div>
               
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left xl:mt-40 max-w-sm">
-                 <h3 className="text-3xl font-bold text-green-600">{t('b2b.visual_design.s6_title')}</h3>
+                 <h3 className="text-3xl font-bold text-green-700 dark:text-green-500">{t('b2b.visual_design.s6_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
                     {t('b2b.visual_design.s6_desc')}
                  </p>
@@ -1208,11 +1208,11 @@ export function B2BCaseStudyPage() {
 
       {/* ═══════════════ CTA ═══════════════ */}
       <motion.section className="text-center py-12" initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeIn}>
-         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-green-500">{t('b2b.cta.title')}</h2>
+         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-green-700 dark:text-green-500">{t('b2b.cta.title')}</h2>
          <p className="text-muted-foreground mb-8">{t('b2b.cta.subtitle')}</p>
          <div className="flex gap-4 justify-center">
           <a href="mailto:juanseruani@gmail.com" className={cn(buttonVariants({ size: "lg" }), "bg-green-600 hover:bg-green-700 text-white")}>{t('b2b.cta.contact')}</a>
-          <Link to="/" className={buttonVariants({ size: "lg", variant: "outline" })}>{t('b2b.cta.back')}</Link>
+          <a href="/#proyectos" className={buttonVariants({ size: "lg", variant: "outline" })}>{t('b2b.cta.back')}</a>
         </div>
       </motion.section>
     </div>

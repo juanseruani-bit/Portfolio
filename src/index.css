@@ -73,7 +73,7 @@
     --popover-foreground: oklch(0.985 0.001 106.423);
 
     --primary: oklch(0.585 0.233 277.117);
-    --primary-foreground: oklch(0.962 0.018 272.314);
+    --primary-foreground: oklch(0.147 0.004 49.25);
 
     --secondary: oklch(0.274 0.006 286.033);
     --secondary-foreground: oklch(0.985 0 0);
@@ -121,6 +121,13 @@
   * {
     @apply border-border;
   }
+  
+  /* Mejorar visibilidad del foco para navegación por teclado */
+  *:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
   body {
     @apply bg-background text-foreground;
   }

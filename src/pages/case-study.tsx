@@ -78,7 +78,7 @@ export const _skillPipeline = [
       "Plan de trabajo por fases",
       "Material crudo guardado sin editar",
     ],
-    color: "text-violet-400",
+    color: "text-violet-600 dark:text-violet-400",
     bgColor: "bg-violet-500/10",
     borderColor: "border-violet-500/30",
   },
@@ -90,7 +90,7 @@ export const _skillPipeline = [
       "Hallazgos de usabilidad con severidad",
       "Limitaciones detectadas del prototipo",
     ],
-    color: "text-teal-400",
+    color: "text-teal-600 dark:text-teal-400",
     bgColor: "bg-teal-500/10",
     borderColor: "border-teal-500/30",
   },
@@ -102,7 +102,7 @@ export const _skillPipeline = [
       "ESPECIFICACION.md — Requisitos con IDs",
       "CASOS-DE-PRUEBA.md — Cobertura completa",
     ],
-    color: "text-amber-400",
+    color: "text-amber-600 dark:text-amber-400",
     bgColor: "bg-amber-500/10",
     borderColor: "border-amber-500/30",
   },
@@ -347,9 +347,9 @@ export function CaseStudyPage() {
           {(() => {
             const skills = t('case_study.skills.items', { returnObjects: true }) as any[];
             const meta = [
-              { color: "text-violet-400", bgColor: "bg-violet-500/10", borderColor: "border-violet-500/30" },
-              { color: "text-teal-400", bgColor: "bg-teal-500/10", borderColor: "border-teal-500/30" },
-              { color: "text-amber-400", bgColor: "bg-amber-500/10", borderColor: "border-amber-500/30" },
+              { color: "text-violet-600 dark:text-violet-400", bgColor: "bg-violet-500/10", borderColor: "border-violet-500/30" },
+              { color: "text-teal-600 dark:text-teal-400", bgColor: "bg-teal-500/10", borderColor: "border-teal-500/30" },
+              { color: "text-amber-600 dark:text-amber-400", bgColor: "bg-amber-500/10", borderColor: "border-amber-500/30" },
             ];
             return skills.map((skill, i) => (
               <motion.div key={skill.name} variants={fadeIn}>
@@ -400,8 +400,8 @@ export function CaseStudyPage() {
           {/* YAML Example */}
           <Card className="border-teal-500/30">
             <CardContent className="p-6">
-              <p className="text-xs uppercase font-semibold text-teal-400 mb-4 tracking-wider">{t('case_study.synthetic.exampleLabel')}</p>
-              <pre className="text-sm font-mono leading-relaxed overflow-x-auto text-foreground">
+              <p className="text-xs uppercase font-semibold text-teal-600 dark:text-teal-400 mb-4 tracking-wider">{t('case_study.synthetic.exampleLabel')}</p>
+              <pre tabIndex={0} className="text-sm font-mono leading-relaxed overflow-x-auto text-foreground">
 {`synthetic_user:
   id: ops-coordinador
   environment: web-backoffice
@@ -437,7 +437,7 @@ export function CaseStudyPage() {
             <img src={t('case_study.synthetic.image')} alt="Synthetic User Testing" className="w-full rounded-lg border" />
             <Card>
               <CardContent className="p-6 space-y-4">
-                <h4 className="font-semibold">{t('case_study.synthetic.howItWorks')}</h4>
+                <h3 className="font-semibold">{t('case_study.synthetic.howItWorks')}</h3>
                 <ol className="space-y-2 text-sm text-muted-foreground">
                   {(() => {
                     const steps = t('case_study.synthetic.steps', { returnObjects: true }) as string[];
@@ -537,7 +537,7 @@ export function CaseStudyPage() {
         <p className="text-muted-foreground mb-6">{t('case_study.cta.text')}</p>
         <div className="flex gap-4 justify-center">
           <a href="mailto:juanseruani@gmail.com" className={buttonVariants({ size: "lg" })}>{t('case_study.cta.contact')}</a>
-          <Link to="/" className={buttonVariants({ size: "lg", variant: "outline" })}>{t('case_study.cta.more')}</Link>
+          <a href="/#proyectos" className={buttonVariants({ size: "lg", variant: "outline" })}>{t('case_study.cta.more')}</a>
         </div>
       </motion.section>
     </div>

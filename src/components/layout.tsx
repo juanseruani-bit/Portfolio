@@ -17,7 +17,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
           <div className="flex items-center gap-6">
-            <Link to="/" className="flex items-center space-x-2 group">
+            <Link to="/" className="flex items-center space-x-2 group" aria-label="Inicio / Home">
               <img src="/favicon.svg" alt="Juan Ruani Logo" className="w-8 h-8 group-hover:opacity-80 transition-opacity" />
             </Link>
           </div>
