@@ -156,7 +156,7 @@ export function CaseStudyPage() {
 
       {/* ═══════════════ THE PROBLEM ═══════════════ */}
       <motion.section className="mb-20 max-w-[800px]" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6">{t('case_study.problem.title')}</motion.h2>
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-6">{t('case_study.problem.title')}</motion.h2>
         <motion.div variants={fadeIn} className="space-y-4 text-lg text-muted-foreground leading-relaxed">
           <p>{t('case_study.problem.p1')}</p>
           <ul className="space-y-3 pl-6 list-disc">
@@ -170,7 +170,7 @@ export function CaseStudyPage() {
 
       {/* ═══════════════ BEFORE & AFTER (Propuesta 4) ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-4">{t('case_study.beforeAfter.title')}</motion.h2>
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-4">{t('case_study.beforeAfter.title')}</motion.h2>
         <motion.p variants={fadeIn} className="text-lg text-muted-foreground mb-10 max-w-[700px]">
           {t('case_study.beforeAfter.desc')}
         </motion.p>
@@ -200,7 +200,7 @@ export function CaseStudyPage() {
 
       {/* ═══════════════ THE SOLUTION ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-4">{t('case_study.solution.title')}</motion.h2>
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-4">{t('case_study.solution.title')}</motion.h2>
         <motion.p variants={fadeIn} className="text-lg text-muted-foreground mb-12 max-w-[700px]">
           {t('case_study.solution.desc')}
         </motion.p>
@@ -236,7 +236,7 @@ export function CaseStudyPage() {
 
       {/* ═══════════════ ARCHITECTURE DIAGRAM (Propuesta 5) ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-4">{t('case_study.architecture.title')}</motion.h2>
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-4">{t('case_study.architecture.title')}</motion.h2>
         <motion.p variants={fadeIn} className="text-lg text-muted-foreground mb-10 max-w-[700px]">
           {t('case_study.architecture.desc')}
         </motion.p>
@@ -294,7 +294,7 @@ export function CaseStudyPage() {
 
       {/* ═══════════════ ANATOMY OF A DISCOVERY (Propuesta 1) ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-4">
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
           <FolderTree className="inline h-8 w-8 mr-3" />
           {t('case_study.anatomy.title')}
         </motion.h2>
@@ -327,7 +327,7 @@ export function CaseStudyPage() {
               <GradientDivider className="my-6" />
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">{t('case_study.anatomy.countLabel')}</span>
-                <span className="text-3xl font-bold text-primary">75</span>
+                <span className="text-2xl md:text-3xl font-bold text-primary">75</span>
               </div>
             </CardContent>
           </Card>
@@ -338,7 +338,7 @@ export function CaseStudyPage() {
 
       {/* ═══════════════ AI SKILLS PIPELINE (Propuesta 3) ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-4">{t('case_study.skills.title')}</motion.h2>
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-4">{t('case_study.skills.title')}</motion.h2>
         <motion.p variants={fadeIn} className="text-lg text-muted-foreground mb-10 max-w-[700px]">
           {t('case_study.skills.desc')}
         </motion.p>
@@ -391,7 +391,7 @@ export function CaseStudyPage() {
 
       {/* ═══════════════ SYNTHETIC USERS IN ACTION (Propuesta 2) ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-4">{t('case_study.synthetic.title')}</motion.h2>
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-4">{t('case_study.synthetic.title')}</motion.h2>
         <motion.p variants={fadeIn} className="text-lg text-muted-foreground mb-10 max-w-[700px]">
           {t('case_study.synthetic.desc')}
         </motion.p>
@@ -459,7 +459,7 @@ export function CaseStudyPage() {
 
       {/* ═══════════════ UI MOCKUPS (Propuesta 6) ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-4">{t('case_study.mockups.title')}</motion.h2>
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-4">{t('case_study.mockups.title')}</motion.h2>
         <motion.p variants={fadeIn} className="text-lg text-muted-foreground mb-10 max-w-[700px]">
           {t('case_study.mockups.desc')}
         </motion.p>
@@ -486,7 +486,7 @@ export function CaseStudyPage() {
 
       {/* ═══════════════ METRICS ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-4">{t('case_study.metricsSection.title')}</motion.h2>
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-4">{t('case_study.metricsSection.title')}</motion.h2>
         <motion.p variants={fadeIn} className="text-lg text-muted-foreground mb-12 max-w-[700px]">{t('case_study.metricsSection.desc')}</motion.p>
 
         <motion.div className="grid grid-cols-2 md:grid-cols-3 gap-6" variants={stagger}>
@@ -511,7 +511,7 @@ export function CaseStudyPage() {
 
       {/* ═══════════════ TECH STACK ═══════════════ */}
       <motion.section className="mb-20 max-w-[800px]" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-8">{t('case_study.techStack.title')}</motion.h2>
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-8">{t('case_study.techStack.title')}</motion.h2>
         <motion.div variants={fadeIn} className="flex flex-wrap gap-3">
           {techStack.map((tItem) => (
             <Badge key={tItem} variant="secondary" className="text-sm py-1.5 px-4">{tItem}</Badge>
@@ -521,7 +521,7 @@ export function CaseStudyPage() {
 
       {/* ═══════════════ LEARNINGS ═══════════════ */}
       <motion.section className="mb-20 max-w-[800px]" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6">{t('case_study.learnings.title')}</motion.h2>
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-6">{t('case_study.learnings.title')}</motion.h2>
         <motion.div variants={fadeIn} className="space-y-6 text-lg text-muted-foreground leading-relaxed">
           {(t('case_study.learnings.items', { returnObjects: true }) as any[]).map((l) => (
             <div key={l.title} className="border-l-2 border-primary pl-6">
@@ -535,9 +535,9 @@ export function CaseStudyPage() {
       {/* ═══════════════ CTA ═══════════════ */}
       <motion.section className="text-center py-12" initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeIn}>
         <p className="text-muted-foreground mb-6">{t('case_study.cta.text')}</p>
-        <div className="flex gap-4 justify-center">
-          <a href="mailto:juanseruani@gmail.com" className={buttonVariants({ size: "lg" })}>{t('case_study.cta.contact')}</a>
-          <a href="/#proyectos" className={buttonVariants({ size: "lg", variant: "outline" })}>{t('case_study.cta.more')}</a>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="mailto:juanseruani@gmail.com" className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-auto")}>{t('case_study.cta.contact')}</a>
+          <a href="/#proyectos" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "w-full sm:w-auto")}>{t('case_study.cta.more')}</a>
         </div>
       </motion.section>
     </div>

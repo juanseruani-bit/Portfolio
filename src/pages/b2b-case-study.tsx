@@ -800,7 +800,7 @@ export function B2BCaseStudyPage() {
 
       {/* ═══════════════ UNDERSTAND ═══════════════ */}
       <motion.section className="mb-20 max-w-[800px]" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-700 dark:text-green-500">
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-700 dark:text-green-500">
            <Search className="h-8 w-8" />
            {t('b2b.research.title')}
         </motion.h2>
@@ -813,7 +813,7 @@ export function B2BCaseStudyPage() {
 
       {/* ═══════════════ PERSONAS ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-10 flex items-center gap-3 text-green-700 dark:text-green-500">
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-10 flex items-center gap-3 text-green-700 dark:text-green-500">
            <Users className="h-8 w-8" />
            {t('b2b.personasTitle')}
         </motion.h2>
@@ -836,7 +836,7 @@ export function B2BCaseStudyPage() {
                       {/* Info Side */}
                       <div className="p-6 md:p-8">
                          <div className="mb-6">
-                            <h3 className="text-3xl font-bold mb-2">{persona.name}</h3>
+                            <h3 className="text-2xl md:text-3xl font-bold mb-2">{persona.name}</h3>
                             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
                                <span className="flex items-center gap-1.5"><Users className="w-4 h-4 text-green-700 dark:text-green-500"/> {persona.ageLabel} {persona.ageVal}</span>
                                <span className="flex items-center gap-1.5"><Map className="w-4 h-4 text-green-700 dark:text-green-500"/> {persona.locLabel} {persona.locVal}</span>
@@ -905,7 +905,7 @@ export function B2BCaseStudyPage() {
 
       {/* ═══════════════ DEFINE ═══════════════ */}
       <motion.section className="mb-20 max-w-[800px]" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-700 dark:text-green-500">
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-700 dark:text-green-500">
            <Target className="h-8 w-8" />
            {t('b2b.define.title')}
         </motion.h2>
@@ -924,7 +924,7 @@ export function B2BCaseStudyPage() {
 
       {/* ═══════════════ JOURNEY & FLOW ═══════════════ */}
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-700 dark:text-green-500">
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-700 dark:text-green-500">
            <Map className="h-8 w-8" />
            {t('b2b.journey.title')}
         </motion.h2>
@@ -966,7 +966,7 @@ export function B2BCaseStudyPage() {
            </div>
         </motion.div>
 
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-700 dark:text-green-500">
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-6 flex items-center gap-3 text-green-700 dark:text-green-500">
            <Workflow className="h-8 w-8" />
            {t('b2b.userflow.title')}
         </motion.h2>
@@ -1103,7 +1103,7 @@ export function B2BCaseStudyPage() {
       <motion.section className="mb-20" initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
 
         {/* High Fi */}
-        <motion.h2 variants={fadeIn} className="text-3xl font-bold tracking-tight mb-12 flex items-center gap-3 text-green-700 dark:text-green-500">
+        <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-12 flex items-center gap-3 text-green-700 dark:text-green-500">
            <Smartphone className="h-8 w-8" />
            {t('b2b.visual_design.title')}
         </motion.h2>
@@ -1113,7 +1113,7 @@ export function B2BCaseStudyPage() {
            {/* Section 1: My Suppliers & Control Panel */}
            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 items-center justify-items-center">
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left xl:mb-40 max-w-sm">
-                 <h3 className="text-3xl font-bold text-teal-700 dark:text-teal-500">{t('b2b.visual_design.s1_title')}</h3>
+                 <h3 className="text-2xl md:text-3xl font-bold text-teal-700 dark:text-teal-500">{t('b2b.visual_design.s1_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
                     {t('b2b.visual_design.s1_desc')}
                  </p>
@@ -1128,7 +1128,7 @@ export function B2BCaseStudyPage() {
               </div>
               
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left xl:mt-40 max-w-sm">
-                 <h3 className="text-3xl font-bold text-teal-700 dark:text-teal-500">{t('b2b.visual_design.s2_title')}</h3>
+                 <h3 className="text-2xl md:text-3xl font-bold text-teal-700 dark:text-teal-500">{t('b2b.visual_design.s2_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
                     {t('b2b.visual_design.s2_desc')}
                  </p>
@@ -1138,7 +1138,7 @@ export function B2BCaseStudyPage() {
            {/* Section 2: Negotiate */}
            <div className="space-y-12 bg-slate-50/50 dark:bg-zinc-900/20 p-8 md:p-12 rounded-3xl border border-border/30">
               <div className="max-w-4xl space-y-4">
-                 <h3 className="text-3xl font-bold text-teal-700 dark:text-teal-500">{t('b2b.visual_design.s3_title')}</h3>
+                 <h3 className="text-2xl md:text-3xl font-bold text-teal-700 dark:text-teal-500">{t('b2b.visual_design.s3_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
                     {t('b2b.visual_design.s3_desc')}
                  </p>
@@ -1162,7 +1162,7 @@ export function B2BCaseStudyPage() {
            {/* Section 3: Claim Management */}
            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 items-center justify-items-center xl:justify-items-start">
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left max-w-sm xl:max-w-md xl:self-center">
-                 <h3 className="text-3xl font-bold text-green-700 dark:text-green-500">{t('b2b.visual_design.s4_title')}</h3>
+                 <h3 className="text-2xl md:text-3xl font-bold text-green-700 dark:text-green-500">{t('b2b.visual_design.s4_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
                     {t('b2b.visual_design.s4_desc')}
                  </p>
@@ -1180,7 +1180,7 @@ export function B2BCaseStudyPage() {
            {/* Section 4: Warehouse & Chats */}
            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 items-center justify-items-center">
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left xl:mb-40 max-w-sm">
-                 <h3 className="text-3xl font-bold text-green-700 dark:text-green-500">{t('b2b.visual_design.s5_title')}</h3>
+                 <h3 className="text-2xl md:text-3xl font-bold text-green-700 dark:text-green-500">{t('b2b.visual_design.s5_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
                     {t('b2b.visual_design.s5_desc')}
                  </p>
@@ -1195,7 +1195,7 @@ export function B2BCaseStudyPage() {
               </div>
               
               <div className="xl:col-span-1 space-y-4 text-center xl:text-left xl:mt-40 max-w-sm">
-                 <h3 className="text-3xl font-bold text-green-700 dark:text-green-500">{t('b2b.visual_design.s6_title')}</h3>
+                 <h3 className="text-2xl md:text-3xl font-bold text-green-700 dark:text-green-500">{t('b2b.visual_design.s6_title')}</h3>
                  <p className="text-muted-foreground leading-relaxed text-lg">
                     {t('b2b.visual_design.s6_desc')}
                  </p>
@@ -1210,9 +1210,9 @@ export function B2BCaseStudyPage() {
       <motion.section className="text-center py-12" initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeIn}>
          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-green-700 dark:text-green-500">{t('b2b.cta.title')}</h2>
          <p className="text-muted-foreground mb-8">{t('b2b.cta.subtitle')}</p>
-         <div className="flex gap-4 justify-center">
-          <a href="mailto:juanseruani@gmail.com" className={cn(buttonVariants({ size: "lg" }), "bg-green-600 hover:bg-green-700 text-white")}>{t('b2b.cta.contact')}</a>
-          <a href="/#proyectos" className={buttonVariants({ size: "lg", variant: "outline" })}>{t('b2b.cta.back')}</a>
+         <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="mailto:juanseruani@gmail.com" className={cn(buttonVariants({ size: "lg" }), "bg-green-600 hover:bg-green-700 text-white w-full sm:w-auto")}>{t('b2b.cta.contact')}</a>
+          <a href="/#proyectos" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "w-full sm:w-auto")}>{t('b2b.cta.back')}</a>
         </div>
       </motion.section>
     </div>

@@ -2,12 +2,16 @@ import { Link } from "react-router-dom"
 import { ModeToggle } from "./mode-toggle"
 import { AnimatedBackgroundWithKeyframes } from "./animated-background"
 import { NoiseOverlay } from "./decorative-elements"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, Menu } from "lucide-react"
 import { LanguageSwitcher } from "./language-switcher"
 import { useTranslation } from "react-i18next"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet"
+import { useState } from "react"
+import { Button } from "./ui/button"
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { t } = useTranslation()
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground flex flex-col">
@@ -21,7 +25,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <img src="/favicon.svg" alt="Juan Ruani Logo" className="w-8 h-8 group-hover:opacity-80 transition-opacity" />
             </Link>
           </div>
-          <nav className="flex items-center space-x-4 md:space-x-6">
+          
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center space-x-4 md:space-x-6">
             <a
               href="/#proyectos"
               className="text-sm font-medium transition-colors hover:text-primary"
@@ -42,6 +48,53 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <ModeToggle />
             </div>
           </nav>
+
+          {/* Mobile Nav */}
+          <div className="md:hidden flex items-center">
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" aria-label="Menu">
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] flex flex-col pt-12 px-6">
+                <SheetTitle className="sr-only">Menu</SheetTitle>
+                <SheetDescription className="sr-only">Navegación principal del sitio</SheetDescription>
+                
+                <div className="flex flex-col space-y-6 flex-1 mt-4">
+                  <a
+                    href="/#proyectos"
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-medium transition-colors hover:text-primary border-b border-border/50 pb-4"
+                  >
+                    {t('layout.nav.projects')}
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/jsruani"
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-medium text-muted-foreground transition-colors hover:text-primary flex items-center gap-2 border-b border-border/50 pb-4"
+                  >
+                    {t('layout.nav.linkedin')}
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                  
+                  <div className="flex flex-col space-y-4 pt-4">
+                    <p className="text-sm text-muted-foreground uppercase tracking-wider font-semibold">Configuración</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm">Idioma</span>
+                      <LanguageSwitcher />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm">Tema</span>
+                      <ModeToggle />
+                    </div>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </header>
 

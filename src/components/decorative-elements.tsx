@@ -46,7 +46,7 @@ export function GlowOrb({
  */
 export function GradientDivider({ className }: { className?: string }) {
   return (
-    <div className={cn("my-16 w-full", className)} aria-hidden="true">
+    <div className={cn("my-8 md:my-16 w-full", className)} aria-hidden="true">
       <div
         className="mx-auto h-px w-full max-w-3xl"
         style={{

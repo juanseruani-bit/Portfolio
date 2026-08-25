@@ -33,7 +33,7 @@ export function Home() {
         <GlowOrb color="violet" size="md" className="top-1/3 -left-20" />
         <GlowOrb color="teal" size="sm" className="bottom-0 right-10" />
 
-        <div className="container mx-auto px-4 md:px-8 pt-8 pb-20 md:pt-16 md:pb-32">
+        <div className="container mx-auto px-4 md:px-8 pt-8 pb-10 md:pt-16 md:pb-16">
           <motion.div
             className="max-w-[850px]"
             initial={{ opacity: 0, y: 30 }}
@@ -63,14 +63,14 @@ export function Home() {
             </motion.p>
 
             <motion.div
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
               <a
                 href="mailto:juanseruani@gmail.com"
-                className={cn(buttonVariants({ size: "lg" }), "group relative overflow-hidden")}
+                className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-auto group relative overflow-hidden")}
               >
                   {t('home.hero.contact_button')}
                   <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -79,7 +79,7 @@ export function Home() {
                 href="https://www.behance.net/juanseruani"
                 target="_blank"
                 rel="noreferrer"
-                className={cn(buttonVariants({ size: "lg", variant: "outline" }), "group")}
+                className={cn(buttonVariants({ size: "lg", variant: "outline" }), "w-full sm:w-auto group")}
               >
                   {t('home.hero.behance_button')}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -96,7 +96,7 @@ export function Home() {
         <section id="proyectos" className="container mx-auto px-4 md:px-8 py-4 scroll-mt-20">
           <div className="mb-12">
             <motion.h2
-              className="text-3xl font-bold tracking-tight mb-2"
+              className="text-2xl md:text-3xl font-bold tracking-tight mb-2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -209,7 +209,7 @@ export function Home() {
 
         <div className="mb-12">
           <motion.h2
-            className="text-3xl font-bold tracking-tight mb-2"
+            className="text-2xl md:text-3xl font-bold tracking-tight mb-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
