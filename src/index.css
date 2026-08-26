@@ -130,10 +130,12 @@
 
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
   }
   html {
     font-family: 'Nunito Sans Variable', system-ui, sans-serif;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 }
 
