@@ -6,8 +6,7 @@
       "title_and": "and",
       "title_strategy": "business strategy.",
       "subtitle": "With a background in Business Administration and over 5 years of experience designing digital products at HMM, Avature, and DinoCloud.",
-      "contact_button": "Get in touch",
-      "behance_button": "View Behance"
+      "contact_button": "Get in touch"
     },
     "projects": {
       "title": "Featured Projects",
@@ -48,19 +47,19 @@
         "role": "UX/UI Designer",
         "date": "May 2025 - Present",
         "company": "Home Medical Management (HMM)",
-        "description": "Designing digital experiences in the healthcare sector, optimizing user flows for medical management and bringing business vision to UX decisions."
+        "description": "I design the web and mobile experience of a home-care platform: an operations backoffice and apps for patients, clinicians and drivers. I run discovery end to end with a Business Analyst, and built a code-based prototyping hub that uses AI to automate usability testing and the handoff to engineering. Several of those features are already in production, including a route optimizer that increased medical visits by 32%."
       },
       "avature": {
         "role": "UX Designer",
         "date": "March 2023 - May 2025",
         "company": "Avature",
-        "description": "Designing complex SaaS tools for recruitment and talent management (ATS). Improving B2B workflows and working closely with development teams."
+        "description": "Customized standard HR software solutions to each client's needs and branding. Adapted and scaled design systems with Atomic Design, and designed wireframes and high-fidelity prototypes with clients and stakeholders."
       },
       "dinocloud": {
-        "role": "Ssr. UX & UI Solutions Designer",
+        "role": "UX/UI Solutions Designer",
         "date": "June 2021 - March 2023",
         "company": "DinoCloud",
-        "description": "Led design for Cloud solutions. Created design systems and improved interfaces for infrastructure and monitoring platforms."
+        "description": "Designed digital products for clients in logistics, car sales, HR management and accounting. Ran discovery to balance client and user needs, followed implementation alongside the development team, and measured and iterated on products to support decisions."
       },
       "education": {
         "title": "Education",

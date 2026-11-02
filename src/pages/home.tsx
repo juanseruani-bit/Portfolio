@@ -114,15 +114,6 @@ export function Home() {
                   {t('home.hero.contact_button')}
                   <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 </a>
-              <a
-                href="https://www.behance.net/juanseruani"
-                target="_blank"
-                rel="noreferrer"
-                className={cn(buttonVariants({ size: "lg", variant: "outline" }), "w-full sm:w-auto group")}
-              >
-                  {t('home.hero.behance_button')}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </a>
             </motion.div>
           </motion.div>
         </div>

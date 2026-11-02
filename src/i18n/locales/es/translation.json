@@ -6,8 +6,7 @@
       "title_and": "y",
       "title_strategy": "estrategia de negocio.",
       "subtitle": "Con formación en Administración de Empresas y más de 5 años de experiencia diseñando productos digitales en HMM, Avature y DinoCloud.",
-      "contact_button": "Contactar",
-      "behance_button": "Ver Behance"
+      "contact_button": "Contactar"
     },
     "projects": {
       "title": "Proyectos Destacados",
@@ -46,21 +45,21 @@
       "subtitle": "Mi recorrido profesional combinando negocio y diseño.",
       "hmm": {
         "role": "UX/UI Designer",
-        "date": "Mayo 2025 - Present",
+        "date": "Mayo 2025 - Presente",
         "company": "Home Medical Management (HMM)",
-        "description": "Diseño de experiencias digitales en el sector de la salud, optimizando flujos de usuarios para gestión médica y aportando visión de negocio a las decisiones de UX."
+        "description": "Diseño la experiencia web y mobile de una plataforma de atención domiciliaria: un backoffice de operaciones y apps para pacientes, profesionales y conductores. Llevo el discovery de punta a punta junto a un Business Analyst, y construí un hub de prototipado en código que usa IA para automatizar pruebas de usabilidad y el handoff a desarrollo. Varias de esas funcionalidades ya están en producción, como un optimizador de rutas que aumentó un 32% las visitas médicas."
       },
       "avature": {
         "role": "UX Designer",
         "date": "Marzo 2023 - Mayo 2025",
         "company": "Avature",
-        "description": "Diseño de herramientas SaaS complejas para reclutamiento y gestión de talento (ATS). Mejora de flujos de trabajo B2B y colaboración estrecha con equipos de desarrollo."
+        "description": "Personalicé soluciones estándar de software de RR.HH. según las necesidades y la marca de cada cliente. Adapté y escalé sistemas de diseño con Atomic Design, y diseñé wireframes y prototipos de alta fidelidad junto a clientes y stakeholders."
       },
       "dinocloud": {
-        "role": "Ssr. UX & UI Solutions Designer",
+        "role": "UX/UI Solutions Designer",
         "date": "Junio 2021 - Marzo 2023",
         "company": "DinoCloud",
-        "description": "Liderazgo en diseño de soluciones Cloud. Creación de sistemas de diseño y mejora de interfaces orientadas a plataformas de infraestructura y monitoreo."
+        "description": "Diseñé productos digitales para clientes de logística, venta de autos, gestión de RR.HH. y contabilidad. Hice discovery para equilibrar las necesidades del cliente y de los usuarios, acompañé la implementación junto al equipo de desarrollo, y medí e iteré los productos para tomar decisiones."
       },
       "education": {
         "title": "Educación",
