@@ -11,13 +11,27 @@
     },
     "projects": {
       "title": "Proyectos Destacados",
-      "subtitle": "Una selección de mi trabajo reciente (casos de estudio anonimizados en progreso).",
+      "subtitle": "Casos de estudio de producto, de punta a punta: del problema y las decisiones a los resultados en producción.",
       "discovery_hub": {
         "title": "Discovery & Prototyping Hub",
         "badge": "DesignOps / IA",
         "description": "Plataforma de prototipado con IA que unifica diseño y desarrollo. Skills de Claude para automatizar discovery, testing sintético y handoff.",
         "button": "Ver Caso de Estudio",
         "image": "/images/case-study-hero.jpg"
+      },
+      "ai_usage": {
+        "title": "Gestión del consumo de IA",
+        "badge": "Producto / IA",
+        "description": "Convertir un pedido de \"cobrar la IA\" en un sistema para medir y cortar el consumo de agentes de IA, cuando el contrato todavía no permitía cobrar.",
+        "button": "Ver Caso de Estudio",
+        "stat": "En producción"
+      },
+      "routes": {
+        "title": "Optimizador de rutas domiciliarias",
+        "badge": "Producto / Automatización",
+        "description": "Un optimizador de agendas para visitas médicas a domicilio donde el sistema arma la semana y el coordinador decide.",
+        "button": "Ver Caso de Estudio",
+        "stat": "+32% visitas"
       },
       "b2b_app": {
         "title": "B2B App for Buyers",
@@ -91,12 +105,30 @@
       "li4": "El testing de UX es caro y lento. Coordinar sesiones con usuarios reales para cada iteración es insostenible en ciclos ágiles."
     },
     "metrics": [
-      "Discoveries completadas end-to-end",
-      "Reducción en idas y vueltas de handoff",
-      "Validación completa con usuarios reales",
-      "Tests de UX con usuarios sintéticos (IA)",
-      "Personas impactadas en el equipo",
-      "Más rápido el desarrollo (de 1 mes a 1-2 sem)"
+      {
+        "value": "24",
+        "label": "Discoveries en 4 productos (1 web + 3 mobile)"
+      },
+      {
+        "value": "12",
+        "label": "Usuarios sintéticos con misiones reutilizables"
+      },
+      {
+        "value": "76",
+        "label": "Decisiones registradas en una sola discovery"
+      },
+      {
+        "value": "8",
+        "label": "Decisiones revertidas (total o parcialmente) en el prototipo, no en producción"
+      },
+      {
+        "value": "86",
+        "label": "Requisitos con ID en un solo handoff"
+      },
+      {
+        "value": "240+",
+        "label": "Casos de prueba derivados de ese handoff"
+      }
     ],
     "beforeAfter": {
       "title": "Antes vs. Después",
@@ -104,23 +136,23 @@
       "items": [
         {
           "before": "Diseño en Figma → PDF de specs → El dev interpreta",
-          "after": "Prototipo en código real → Spec auto-derivada → El dev implementa"
+          "after": "Prototipo en código real → Spec derivada con IDs → El dev implementa"
         },
         {
-          "before": "Testing manual cada 2 semanas con usuarios reales",
-          "after": "30+ tests automáticos con usuarios sintéticos (IA)"
+          "before": "Propuestas pensadas sin ver cómo funciona hoy el producto",
+          "after": "Cada discovery parte del código de producción y marca qué agrega, modifica y quita"
         },
         {
-          "before": "Handoff en ~2 semanas de documentación manual",
-          "after": "Handoff en 1 día (derivación automatizada con skills)"
+          "before": "Las sesiones con usuarios reales cargan con toda la detección de fricción",
+          "after": "Pasada previa con usuarios sintéticos; las sesiones reales se enfocan en lo que solo un humano revela"
+        },
+        {
+          "before": "Handoff en prosa, armado a mano, que cada dev interpreta distinto",
+          "after": "Requisitos con ID, casos de prueba, test IDs de producción y tests automatizados para QA integrados con Jira"
         },
         {
           "before": "Documentación manual que se desactualiza al primer cambio",
-          "after": "Docs vivos con scripts de verificación automáticos"
-        },
-        {
-          "before": "Prototipos que no coinciden con la arquitectura de desarrollo",
-          "after": "Mismo stack que producción: React, MUI, TypeScript"
+          "after": "Docs vivos con un gate de verificación automático"
         }
       ]
     },
@@ -135,7 +167,7 @@
         },
         {
           "title": "Sistema de Discoveries",
-          "desc": "Cada feature es una \"Discovery\" — una unidad funcional que agrupa componentes, páginas, hooks, mocks y documentación. 15+ discoveries completadas."
+          "desc": "Cada feature es una \"Discovery\" — una unidad funcional que agrupa componentes, páginas, hooks, mocks y documentación. 24 discoveries en 4 productos."
         },
         {
           "title": "Skills de IA (Claude Code)",
@@ -143,7 +175,7 @@
         },
         {
           "title": "Usuarios Sintéticos",
-          "desc": "Personas ficticias con perfiles YAML que recorren los prototipos y reportan fricción UX en 3 capas. +30 tests ejecutados automáticamente."
+          "desc": "Personas ficticias con perfiles YAML que recorren los prototipos y reportan fricción UX en 3 capas. 12 personas en 4 productos, con misiones reutilizables."
         },
         {
           "title": "Spec-Driven Development",
@@ -151,7 +183,7 @@
         },
         {
           "title": "Handoff sin Fricciones",
-          "desc": "Los desarrolladores reciben prototipos funcionales en su mismo stack, especificaciones derivadas del código, y casos de prueba."
+          "desc": "Los desarrolladores reciben prototipos funcionales en su mismo stack, requisitos con ID y casos de prueba. QA recibe tests automatizados integrados con Jira."
         }
       ]
     },
@@ -198,7 +230,7 @@
     "anatomy": {
       "title": "Anatomía de una Discovery",
       "desc": "Cada discovery tiene un ciclo documental riguroso. Este es un ejemplo real (anonimizado) de una feature de gestión financiera con ",
-      "descBold": "75 decisiones documentadas",
+      "descBold": "76 decisiones documentadas",
       "items": [
         {
           "name": "README.md",
@@ -210,7 +242,7 @@
         },
         {
           "name": "DECISIONES.md",
-          "desc": "Bitácora cronológica (D-001…D-075)"
+          "desc": "Bitácora cronológica (D-001…D-076)"
         },
         {
           "name": "ESTADO.md",
@@ -235,9 +267,10 @@
       "items": [
         {
           "name": "discovery-start",
-          "input": "Notas de reunión + pedidos del negocio",
+          "input": "Notas de reunión + pedidos del negocio + código de producción",
           "outputs": [
             "Carpeta docs/<discovery>/ con 5 archivos narrativos",
+            "Qué se agrega, modifica y quita respecto de producción",
             "Bitácora de decisiones arrancada",
             "Plan de trabajo por fases",
             "Material crudo guardado sin editar"
@@ -258,7 +291,8 @@
           "outputs": [
             "HANDOFF.md — Punto de entrada para el equipo",
             "ESPECIFICACION.md — Requisitos con IDs",
-            "CASOS-DE-PRUEBA.md — Cobertura completa"
+            "CASOS-DE-PRUEBA.md — Cobertura completa",
+            "Test IDs de producción + tests automatizados para QA (Jira)"
           ]
         }
       ]
@@ -288,7 +322,7 @@
     },
     "metricsSection": {
       "title": "Resultados e Impacto",
-      "desc": "Los números hablan por sí solos."
+      "desc": "Datos contados en el propio repositorio, no estimaciones."
     },
     "techStack": {
       "title": "Stack Tecnológico"
@@ -306,7 +340,7 @@
         },
         {
           "title": "La IA no reemplaza el criterio de diseño, lo amplifica.",
-          "body": "Los usuarios sintéticos detectan el 80% de los problemas de usabilidad antes de invertir tiempo en sesiones presenciales."
+          "body": "Los usuarios sintéticos limpian la fricción obvia antes de las sesiones con usuarios reales, para que ese tiempo se use en lo que solo un humano puede revelar."
         }
       ]
     },
@@ -507,6 +541,337 @@
       "subtitle": "¿Te interesa saber más sobre este proyecto?",
       "contact": "Conversemos",
       "back": "Volver al Portfolio"
+    }
+  },
+  "product_cases": {
+    "common": {
+      "back": "Volver",
+      "role_label": "Rol:",
+      "company_label": "Empresa:",
+      "duration_label": "Período:",
+      "status_label": "Estado:",
+      "built_with_label": "Construido con el Discovery Hub",
+      "built_with_text": "Prototipado, validado y entregado a desarrollo con el sistema de discovery que diseñé. Ver cómo funciona.",
+      "cta_text": "¿Te interesa saber más sobre este proyecto?",
+      "cta_contact": "Conversemos",
+      "cta_more": "Ver más proyectos"
+    },
+    "ai_usage": {
+      "badges": [
+        "Producto",
+        "IA",
+        "Web backoffice",
+        "2026"
+      ],
+      "title": "Gestión del consumo de IA",
+      "subtitle": "El pedido era \"cobrar la IA\". El contrato no lo permitía. Diseñé el sistema para medir y cortar el consumo, y así poder lanzar agentes de IA sin riesgo financiero.",
+      "role_val": "Product Designer, junto a un Business Analyst",
+      "company_val": "HealthTech (NDA)",
+      "duration_val": "Jul – Ago 2026",
+      "status_val": "En producción",
+      "cover": {
+        "src": "/images/cases/ai-balance.webp",
+        "alt": "Panel de saldo de la clínica: créditos disponibles y consumidos, bolsillos ordenados por vencimiento y reglas de consumo"
+      },
+      "problem": {
+        "title": "El Problema",
+        "intro": "La plataforma iba a lanzar agentes de IA (evolución clínica, historia clínica, análisis de imágenes, soporte) que consumen tokens de modelos de terceros. Ese consumo es un costo variable real, y nadie podía verlo:",
+        "items": [
+          "La clínica (el cliente) no sabía cuánto gastaba su equipo en IA ni podía ponerle límites.",
+          "El equipo interno no tenía dónde operar la reventa: habilitar paquetes, saber qué facturar a fin de mes ni medir el margen.",
+          "Cada agente nuevo sumaba exposición financiera sin control, para las dos partes."
+        ]
+      },
+      "insight": {
+        "title": "El giro: medir para poder cortar",
+        "body": "Los contratos vigentes no permitían sumar cargos a la factura. En vez de diseñar pantallas para un modelo de cobro que no se podía aplicar, reencuadramos el alcance: el MVP no cobra, mide. La palanca de cobro pasa a ser un corte por organización, que detiene el uso de los agentes sin tocar su saldo ni su configuración. Por eso \"Cobro de IA\" pasó a llamarse \"Gestión de IA\"."
+      },
+      "flow": {
+        "title": "Dos usuarios, un circuito",
+        "desc": "El flujo lo abre el administrador de la clínica y lo cierra el equipo interno que opera la reventa.",
+        "steps": [
+          {
+            "actor": "Admin de la clínica",
+            "text": "Ve su saldo en dos números (disponible y consumido) y sus bolsillos de crédito ordenados por vencimiento, con las reglas de saldo explicadas en la misma pantalla."
+          },
+          {
+            "actor": "Admin de la clínica",
+            "text": "Analiza el consumo por agente y por usuario en el período que elige, y pone límites por usuario para que nadie se lleve el saldo del equipo."
+          },
+          {
+            "actor": "Admin de la clínica",
+            "text": "Cuando se queda corto, pide un paquete. Mientras esté pendiente no puede pedir otro."
+          },
+          {
+            "actor": "Operación interna",
+            "text": "Trabaja una cola de solicitudes ordenada por urgencia de decisión. Habilitar acredita el saldo al instante y queda registrado quién lo hizo; rechazar exige un motivo."
+          },
+          {
+            "actor": "Operación interna",
+            "text": "Ve qué organizaciones consumen más y en qué agentes, abre la ficha de cada una y, si no pagó, le corta el uso de los agentes."
+          },
+          {
+            "actor": "Operación interna",
+            "text": "Cierra el mes en lote: lee el margen de reventa desglosado y pasa todas las habilitaciones a facturado de una vez."
+          }
+        ]
+      },
+      "gallery": {
+        "title": "Pantallas del prototipo",
+        "desc": "Capturas del prototipo funcional con datos ficticios. Es la misma base que se entregó a desarrollo.",
+        "items": [
+          {
+            "src": "/images/cases/ai-consumption.webp",
+            "caption": "Consumo del período, con la agrupación conmutable entre origen del saldo y agente."
+          },
+          {
+            "src": "/images/cases/ai-ops-queue.webp",
+            "caption": "Operación interna: KPIs del mes y cola de solicitudes ordenada por urgencia de decisión."
+          },
+          {
+            "src": "/images/cases/ai-ops-close.webp",
+            "caption": "Cierre de mes: facturado y margen por mes, con el margen pintado como magnitud y no como alarma."
+          }
+        ]
+      },
+      "decisions": {
+        "title": "Decisiones clave",
+        "desc": "76 decisiones registradas en unas tres semanas. Estas son las que más definieron el producto.",
+        "items": [
+          {
+            "title": "El saldo se consume por vencimiento",
+            "body": "Primero se gasta lo que vence antes, sin importar de qué bolsillo sale. En una revisión detectamos que el orden estaba al revés en el doc, en los datos y en la UI; lo corregimos el mismo día, en el prototipo."
+          },
+          {
+            "title": "La pantalla explica sus propias reglas",
+            "body": "Un saldo con vencimientos es opaco. La explicación vive donde aparece la duda, no en un manual."
+          },
+          {
+            "title": "El margen se muestra abierto",
+            "body": "El margen de reventa va separado del costo del cupo contractual, así el cupo incluido nunca se lee como pérdida. Es una decisión de negocio antes que visual."
+          },
+          {
+            "title": "Magnitud, no alarma",
+            "body": "El margen se pinta con una rampa ordinal en lugar de verde y rojo: comunica cuánto sin sugerir que algo está mal, y es más accesible."
+          },
+          {
+            "title": "Sin saldo se avisa antes de cero",
+            "body": "\"Sin saldo\" se define por un umbral, para avisar antes de que un profesional se quede sin herramienta en plena consulta."
+          },
+          {
+            "title": "La cola se ordena por urgencia",
+            "body": "Las solicitudes aparecen primero según cuánto urge decidir, no por fecha de llegada, y marcan a la organización que ya está sin saldo."
+          }
+        ]
+      },
+      "pivots": {
+        "title": "Cambios de rumbo",
+        "desc": "8 decisiones se revirtieron total o parcialmente. Pasó en el prototipo, no en producción, y quedó registrado qué reemplazó a qué.",
+        "items": [
+          {
+            "before": "Replicar la consola de facturación de un proveedor cloud, como pidió un stakeholder",
+            "after": "El usuario elige el período de análisis, y ese período nunca cambia el saldo",
+            "why": "En vez de copiar la pantalla, investigué qué problema resolvía cada control. Esa consola separa cuándo se consumió de en qué factura cae: el mismo problema que teníamos, porque los paquetes vencen a 30 días y los cupos se renuevan en el aniversario de cada cliente."
+          },
+          {
+            "before": "Límites por usuario \"blandos\" o \"duros\", a elección",
+            "after": "El límite por usuario siempre bloquea",
+            "why": "Un límite que no limita no es un límite: es un aviso, y confundía al admin. Proteger al profesional en plena consulta se resuelve con avisos previos, no con un segundo tipo de límite."
+          },
+          {
+            "before": "Todo el saldo vence a fin de mes calendario",
+            "after": "Cada paquete vence a los 30 días de habilitado",
+            "why": "Un paquete comprado el día 10 no puede vencer el 31: se cobraba un mes y a veces se entregaban seis días. Era letra chica que en producción genera reclamos."
+          }
+        ]
+      },
+      "results": {
+        "title": "Validación y resultado",
+        "desc": "El prototipo se validó contra datos sembrados, con un usuario sintético y con el equipo, antes de pasar a desarrollo.",
+        "items": [
+          "Hoy está en producción: la plataforma puede lanzar agentes de IA con el consumo medido y con un corte por organización disponible.",
+          "Una re-corrida completa de la guía de validación encontró 4 bugs, corregidos el mismo día. El más importante: el límite por usuario tomaba el período de análisis en vez del ciclo, y mostraba como bloqueados a usuarios que no lo estaban.",
+          "Un usuario sintético con perfil de auditor recorrió la discovery: los números densos se entendían, y apareció un hallazgo de severidad media (las tarjetas de KPI eran clickeables pero no lo parecían)."
+        ]
+      },
+      "learnings": {
+        "title": "Aprendizajes",
+        "items": [
+          {
+            "title": "A veces el mejor diseño es cambiar la pregunta.",
+            "body": "\"¿Cómo cobramos la IA?\" no tenía respuesta viable. \"¿Cómo controlamos el consumo?\" sí, y además desbloqueaba el lanzamiento."
+          },
+          {
+            "title": "Copiar una pantalla no es copiar una solución.",
+            "body": "El valor de una referencia está en el problema que resuelve cada control, no en su layout."
+          },
+          {
+            "title": "Revertir barato es una ventaja.",
+            "body": "Con cada decisión registrada, cambiar de opinión costó una entrada en la bitácora, no un sprint."
+          }
+        ]
+      }
+    },
+    "routes": {
+      "badges": [
+        "Producto",
+        "Automatización",
+        "Web backoffice",
+        "2026"
+      ],
+      "title": "Optimizador de rutas domiciliarias",
+      "subtitle": "Un optimizador de agendas para visitas médicas a domicilio, donde el sistema arma la semana y el coordinador conserva el control.",
+      "role_val": "Product Designer, junto a un Business Analyst",
+      "company_val": "HealthTech (NDA)",
+      "duration_val": "May – Jun 2026",
+      "status_val": "En producción",
+      "highlights": [
+        {
+          "value": "+32%",
+          "label": "Visitas médicas realizadas"
+        },
+        {
+          "value": "4–5 h",
+          "label": "De armado de agenda ahorradas por día"
+        },
+        {
+          "value": "7 días",
+          "label": "De agenda armada automáticamente"
+        }
+      ],
+      "cover": {
+        "src": "/images/cases/routes-agenda.webp",
+        "alt": "Agenda del día en formato Gantt por profesional, con la jornada ya optimizada, métricas de kilómetros y citas y el panel de no atendidas"
+      },
+      "problem": {
+        "title": "El Problema",
+        "intro": "Los coordinadores armaban a mano la agenda diaria de los profesionales que visitan pacientes en su domicilio:",
+        "items": [
+          "Armar la agenda les llevaba entre 4 y 5 horas por día.",
+          "Las visitas se atrasaban, y cada atraso era un paciente esperando en su casa.",
+          "Existía un optimizador para traslados con conductores, pero no servía tal cual: acá no hay centro de destino (el paciente es el destino), no hay capacidad de vehículo (hay especialidad) y las citas ya están agendadas en el sistema."
+        ]
+      },
+      "insight": {
+        "title": "El modelo mental: consulta y retoque, no disparador",
+        "body": "La optimización corre sola cada vez que se crea o se mueve una cita, así que el coordinador entra y la jornada ya viene armada. La pantalla no dispara nada: sirve para consultar y retocar. El sistema nunca propone cambios por su cuenta ni reacomoda la agenda mientras alguien trabaja. La agenda optimizada es la base, y los cambios son siempre del coordinador."
+      },
+      "flow": {
+        "title": "Cómo trabaja el coordinador",
+        "desc": "Automatización con la persona en control, de punta a punta.",
+        "steps": [
+          {
+            "actor": "Sistema",
+            "text": "Mantiene optimizados los próximos 7 días. Más allá de esa ventana muestra la agenda cruda, marcada como \"sin optimizar\"."
+          },
+          {
+            "actor": "Coordinador",
+            "text": "Consulta la jornada en Gantt, rutas, mapa o lista, con un corte principal por especialidad."
+          },
+          {
+            "actor": "Coordinador",
+            "text": "Retoca lo que necesite: reasigna una cita, la fija para que no se mueva o la saca a \"pendientes\"."
+          },
+          {
+            "actor": "Coordinador",
+            "text": "Compara antes y después (kilómetros y citas) o prueba otro criterio de optimización sin tocar la configuración global."
+          },
+          {
+            "actor": "Coordinador",
+            "text": "Confirma, y recién ahí se notifica en masa a profesionales y pacientes. O descarta."
+          },
+          {
+            "actor": "Resto de la operación",
+            "text": "Ve en el listado y en el detalle de cada cita qué movió el sistema, con un \"se movió de X a Y\"."
+          }
+        ]
+      },
+      "gallery": {
+        "title": "Pantallas del prototipo",
+        "desc": "Capturas del prototipo funcional con datos ficticios. Es la misma base que se entregó a desarrollo.",
+        "items": [
+          {
+            "src": "/images/cases/routes-trial.webp",
+            "caption": "Probar optimización: tres criterios comparados lado a lado, como una prueba reversible."
+          },
+          {
+            "src": "/images/cases/routes-summary.webp",
+            "caption": "Vista de rutas: visitas, distancia y tiempo de conducción por profesional."
+          }
+        ]
+      },
+      "decisions": {
+        "title": "Decisiones clave",
+        "desc": "Cada decisión equilibra eficiencia con confianza: un optimizador que nadie entiende es uno que nadie usa.",
+        "items": [
+          {
+            "title": "Continuidad del cuidado antes que eficiencia",
+            "body": "Se mantiene al profesional habitual del paciente salvo que reasignar ahorre 20 minutos o más de traslado. El trade-off es explícito y medible."
+          },
+          {
+            "title": "Antes / Después siempre a mano",
+            "body": "Un toggle entre la ruta optimizada y la ruta con cambios, con kilómetros y citas, hace visible el costo de cada retoque."
+          },
+          {
+            "title": "Probar sin romper",
+            "body": "El coordinador puede comparar planes con otros criterios (mínimo traslado, carga equitativa, máximo de citas) como una prueba reversible."
+          },
+          {
+            "title": "Bloquear la jornada",
+            "body": "Un día confirmado no se re-optimiza solo. Si entran citas nuevas, esperan en \"pendientes\" hasta que el coordinador decida incorporarlas."
+          },
+          {
+            "title": "Transparencia hacia el resto",
+            "body": "Quien no estuvo en la pantalla entiende qué cambió el sistema: cada cita reubicada se marca y dice de dónde a dónde se movió."
+          },
+          {
+            "title": "Estados de la operación real",
+            "body": "El día en curso (las citas ya pasadas no se editan), los pacientes no atendidos con re-agendado y el error del optimizador con reintento."
+          }
+        ]
+      },
+      "pivots": {
+        "title": "Cambios de rumbo",
+        "desc": "Lo que cambiamos después de revisar el prototipo con producto y con los coordinadores.",
+        "items": [
+          {
+            "before": "Fijar citas y después apretar \"Re-optimizar con mis fijaciones\" en una barra aparte",
+            "after": "Fijar o quitar una fijación re-optimiza el día al instante",
+            "why": "Un paso y un concepto menos: fijar pasó a ser un retoque más, contado en el resumen de cambios."
+          },
+          {
+            "before": "Fecha, toggle Antes/Después, métricas y \"Probar\" repartidos en filas distintas, y el toggle dentro del mapa",
+            "after": "Una sola barra de contexto con fecha, rango de días, Antes/Después, métricas y prueba",
+            "why": "Menos lugares donde buscar, y el mismo control se comporta igual en la agenda y en el mapa."
+          }
+        ]
+      },
+      "results": {
+        "title": "Resultados",
+        "desc": "Resultado de comparar los 3 meses posteriores al lanzamiento en producción.",
+        "items": [
+          "Bajaron los atrasos en la atención domiciliaria.",
+          "El optimizador arma las agendas a una semana, y el coordinador solo hace pequeños ajustes cuando hacen falta.",
+          "Los coordinadores confían en el sistema para armar las agendas y usan el tiempo liberado en otras tareas."
+        ]
+      },
+      "learnings": {
+        "title": "Aprendizajes",
+        "items": [
+          {
+            "title": "La adopción de una automatización depende de la confianza.",
+            "body": "Que la agenda no se mueva sola y que cada cambio sea visible pesó tanto como la calidad del algoritmo."
+          },
+          {
+            "title": "Los trade-offs humanos tienen que estar escritos.",
+            "body": "\"Mantener al profesional salvo que se ahorren 20 minutos\" es una regla que el equipo puede discutir. \"Optimizar\" a secas no lo es."
+          },
+          {
+            "title": "Reusar es reencuadrar.",
+            "body": "El optimizador de traslados sirvió como base, pero recién funcionó cuando redefinimos qué era un destino, una capacidad y una cita."
+          }
+        ]
+      }
     }
   }
 }

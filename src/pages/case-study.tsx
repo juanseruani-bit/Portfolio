@@ -22,47 +22,15 @@ const stagger = {
 }
 
 /* ─── data ─── */
-export const _metrics = [
-  { value: "15+", label: "Discoveries completadas end-to-end" },
-  { value: "50%", label: "Reducción en idas y vueltas de handoff" },
-  { value: "1 sem", label: "Validación completa con usuarios reales" },
-  { value: "30+", label: "Tests de UX con usuarios sintéticos (IA)" },
-  { value: "10+", label: "Personas impactadas en el equipo" },
-  { value: "2x", label: "Más rápido el desarrollo (de 1 mes a 1-2 sem)" },
-]
-
 const techStack = [
   "React", "TypeScript", "Vite", "Material-UI", "Express",
   "Claude Code", "npm Workspaces", "React Native", "i18n", "YAML",
 ]
 
-export const _beforeAfter = [
-  {
-    before: "Diseño en Figma → PDF de specs → El dev interpreta",
-    after: "Prototipo en código real → Spec auto-derivada → El dev implementa",
-  },
-  {
-    before: "Testing manual cada 2 semanas con usuarios reales",
-    after: "30+ tests automáticos con usuarios sintéticos (IA)",
-  },
-  {
-    before: "Handoff en ~2 semanas de documentación manual",
-    after: "Handoff en 1 día (derivación automatizada con skills)",
-  },
-  {
-    before: "Documentación manual que se desactualiza al primer cambio",
-    after: "Docs vivos con scripts de verificación automáticos",
-  },
-  {
-    before: "Prototipos que no coinciden con la arquitectura de desarrollo",
-    after: "Mismo stack que producción: React, MUI, TypeScript",
-  },
-]
-
 export const _discoveryTree = [
   { name: "README.md", desc: "Cómo funciona de punta a punta", icon: "📄" },
   { name: "DISEÑO.md", desc: "El porqué de cada decisión", icon: "🎨" },
-  { name: "DECISIONES.md", desc: "Bitácora cronológica (D-001…D-075)", icon: "📋" },
+  { name: "DECISIONES.md", desc: "Bitácora cronológica (D-001…D-076)", icon: "📋" },
   { name: "ESTADO.md", desc: "Qué está construido, qué falta", icon: "🏗️" },
   { name: "VALIDACION.md", desc: "Cómo recorrerlo con datos mock", icon: "✅" },
   { name: "notas/", desc: "Material crudo de reuniones, sin editar", icon: "📁" },
@@ -327,7 +295,7 @@ export function CaseStudyPage() {
               <GradientDivider className="my-6" />
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">{t('case_study.anatomy.countLabel')}</span>
-                <span className="text-2xl md:text-3xl font-bold text-primary">75</span>
+                <span className="text-2xl md:text-3xl font-bold text-primary">76</span>
               </div>
             </CardContent>
           </Card>
@@ -490,20 +458,16 @@ export function CaseStudyPage() {
         <motion.p variants={fadeIn} className="text-lg text-muted-foreground mb-12 max-w-[700px]">{t('case_study.metricsSection.desc')}</motion.p>
 
         <motion.div className="grid grid-cols-2 md:grid-cols-3 gap-6" variants={stagger}>
-          {(() => {
-            const mData = t('case_study.metrics', { returnObjects: true }) as string[];
-            const mValues = ["15+", "50%", "1 sem", "30+", "10+", "2x"];
-            return mData.map((label, idx) => (
-              <motion.div key={label} variants={fadeIn}>
-                <Card className="text-center glow-card border-border/50 hover:border-primary/40 transition-all duration-400">
-                  <CardContent className="p-6">
-                    <p className="text-4xl md:text-5xl font-bold text-primary mb-2">{mValues[idx]}</p>
-                    <p className="text-sm text-muted-foreground">{label}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ));
-          })()}
+          {(t('case_study.metrics', { returnObjects: true }) as { value: string; label: string }[]).map(({ value, label }) => (
+            <motion.div key={label} variants={fadeIn}>
+              <Card className="text-center glow-card border-border/50 hover:border-primary/40 transition-all duration-400">
+                <CardContent className="p-6">
+                  <p className="text-4xl md:text-5xl font-bold text-primary mb-2">{value}</p>
+                  <p className="text-sm text-muted-foreground">{label}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </motion.div>
       </motion.section>
 

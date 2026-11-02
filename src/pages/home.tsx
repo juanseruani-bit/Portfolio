@@ -5,8 +5,47 @@ import { Badge } from "@/components/ui/badge"
 import { GradientDivider, GlowOrb, GridPattern } from "@/components/decorative-elements"
 import { cn } from "@/lib/utils"
 import { Link } from "react-router-dom"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Coins, Route, type LucideIcon } from "lucide-react"
 import { useTranslation } from "react-i18next"
+
+type ProjectCover =
+  | { kind: "image" }
+  | { kind: "stat"; icon: LucideIcon; gradient: string }
+
+const projects: { key: string; to: string; year: string; badgeClass: string; tags: string[]; cover: ProjectCover }[] = [
+  {
+    key: "discovery_hub",
+    to: "/proyectos/discovery-hub",
+    year: "2025",
+    badgeClass: "bg-[var(--accent-violet)]",
+    tags: ["React", "Claude Code", "UX Engineering"],
+    cover: { kind: "image" },
+  },
+  {
+    key: "ai_usage",
+    to: "/proyectos/consumo-ia",
+    year: "2026",
+    badgeClass: "bg-[var(--accent-indigo)]",
+    tags: ["Product Strategy", "AI", "B2B SaaS"],
+    cover: { kind: "stat", icon: Coins, gradient: "from-indigo-500/15 via-violet-500/10 to-transparent" },
+  },
+  {
+    key: "routes",
+    to: "/proyectos/optimizador-rutas",
+    year: "2026",
+    badgeClass: "bg-teal-600",
+    tags: ["Automation", "Operations", "Data Viz"],
+    cover: { kind: "stat", icon: Route, gradient: "from-teal-500/15 via-sky-500/10 to-transparent" },
+  },
+  {
+    key: "b2b_app",
+    to: "/proyectos/b2b-app-buyers",
+    year: "2020",
+    badgeClass: "bg-green-600",
+    tags: ["UX/UI Design", "User Research", "Mobile"],
+    cover: { kind: "image" },
+  },
+]
 
 export function Home() {
   const { t } = useTranslation()
@@ -121,82 +160,49 @@ export function Home() {
             whileInView="show"
             viewport={{ once: true, margin: "-100px" }}
           >
-            {/* Proyecto 1 — Discovery Hub */}
-            <motion.div variants={item}>
-              <Link to="/proyectos/discovery-hub" className="block">
-                <Card className="h-full flex flex-col glow-card group cursor-pointer border-border/50 hover:border-primary/40 transition-all duration-400">
-                  <div className="h-64 bg-muted rounded-t-xl flex items-center justify-center border-b overflow-hidden">
-                    <img
-                      src={t('home.projects.discovery_hub.image')}
-                      alt={t('home.projects.discovery_hub.title')}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                    />
-                  </div>
-                  <CardHeader>
-                    <div className="flex justify-between items-start mb-2">
-                      <Badge className="bg-[var(--accent-violet)] text-white border-0">{t('home.projects.discovery_hub.badge')}</Badge>
-                      <span className="text-sm text-muted-foreground font-mono">2025</span>
+            {projects.map((project) => (
+              <motion.div key={project.key} variants={item}>
+                <Link to={project.to} className="block h-full">
+                  <Card className="h-full flex flex-col glow-card group cursor-pointer border-border/50 hover:border-primary/40 transition-all duration-400">
+                    <div className="h-64 bg-muted rounded-t-xl flex items-center justify-center border-b relative overflow-hidden">
+                      {project.cover.kind === "image" ? (
+                        <img
+                          src={t(`home.projects.${project.key}.image`)}
+                          alt={t(`home.projects.${project.key}.title`)}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                        />
+                      ) : (
+                        <div className={cn("w-full h-full flex flex-col items-center justify-center gap-4 bg-gradient-to-br group-hover:scale-105 transition-transform duration-500 ease-out", project.cover.gradient)}>
+                          <project.cover.icon className="h-12 w-12 text-primary" aria-hidden="true" />
+                          <span className="text-2xl md:text-3xl font-bold tracking-tight">{t(`home.projects.${project.key}.stat`)}</span>
+                        </div>
+                      )}
                     </div>
-                    <CardTitle className="text-2xl">{t('home.projects.discovery_hub.title')}</CardTitle>
-                    <CardDescription className="text-base mt-2">
-                      {t('home.projects.discovery_hub.description')}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex-1">
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      <Badge variant="outline">React</Badge>
-                      <Badge variant="outline">Claude Code</Badge>
-                      <Badge variant="outline">UX Engineering</Badge>
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant="secondary" className="w-full group/btn">
-                      {t('home.projects.discovery_hub.button')}
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
-                  </CardFooter>
-                </Card>
-              </Link>
-            </motion.div>
-
-            {/* Proyecto 2 */}
-            <motion.div variants={item}>
-              <Link to="/proyectos/b2b-app-buyers" className="block h-full">
-                <Card className="h-full flex flex-col glow-card group cursor-pointer border-border/50 hover:border-primary/40 transition-all duration-400">
-                  <div className="h-64 bg-muted rounded-t-xl flex items-center justify-center border-b relative overflow-hidden">
-                    <img
-                      src={t('home.projects.b2b_app.image')}
-                      alt={t('home.projects.b2b_app.title')}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                    />
-                    <div className="absolute inset-0 bg-green-900/10 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
-                  </div>
-                  <CardHeader>
-                    <div className="flex justify-between items-start mb-2">
-                      <Badge className="bg-green-600 hover:bg-green-700 text-white border-0">{t('home.projects.b2b_app.badge')}</Badge>
-                      <span className="text-sm text-muted-foreground font-mono">2020</span>
-                    </div>
-                    <CardTitle className="text-2xl">{t('home.projects.b2b_app.title')}</CardTitle>
-                    <CardDescription className="text-base mt-2">
-                      {t('home.projects.b2b_app.description')}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex-1">
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      <Badge variant="outline">UX/UI Design</Badge>
-                      <Badge variant="outline">User Research</Badge>
-                      <Badge variant="outline">Mobile</Badge>
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant="secondary" className="w-full group/btn">
-                      {t('home.projects.b2b_app.button')}
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
-                  </CardFooter>
-                </Card>
-              </Link>
-            </motion.div>
+                    <CardHeader>
+                      <div className="flex justify-between items-start mb-2">
+                        <Badge className={cn("text-white border-0", project.badgeClass)}>{t(`home.projects.${project.key}.badge`)}</Badge>
+                        <span className="text-sm text-muted-foreground font-mono">{project.year}</span>
+                      </div>
+                      <CardTitle className="text-2xl">{t(`home.projects.${project.key}.title`)}</CardTitle>
+                      <CardDescription className="text-base mt-2">
+                        {t(`home.projects.${project.key}.description`)}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="flex-1">
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {project.tags.map((tag) => <Badge key={tag} variant="outline">{tag}</Badge>)}
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button variant="secondary" className="w-full group/btn">
+                        {t(`home.projects.${project.key}.button`)}
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </Link>
+              </motion.div>
+            ))}
           </motion.div>
         </section>
       </GridPattern>

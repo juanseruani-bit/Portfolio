@@ -11,13 +11,27 @@
     },
     "projects": {
       "title": "Featured Projects",
-      "subtitle": "A selection of my recent work (anonymized case studies in progress).",
+      "subtitle": "End-to-end product case studies: from the problem and the decisions to results in production.",
       "discovery_hub": {
         "title": "Discovery & Prototyping Hub",
         "badge": "DesignOps / AI",
         "description": "AI-powered prototyping platform bridging design and development. Claude skills to automate discovery, synthetic testing, and handoff.",
         "button": "View Case Study",
         "image": "/images/case-study-hero.jpg"
+      },
+      "ai_usage": {
+        "title": "AI Usage Control",
+        "badge": "Product / AI",
+        "description": "Turning a request to \"charge for AI\" into a system to measure and cut AI agent usage, at a time when contracts didn't allow charging yet.",
+        "button": "View Case Study",
+        "stat": "In production"
+      },
+      "routes": {
+        "title": "Home-Visit Route Optimizer",
+        "badge": "Product / Automation",
+        "description": "A scheduling optimizer for home medical visits where the system plans the week and the coordinator decides.",
+        "button": "View Case Study",
+        "stat": "+32% visits"
       },
       "b2b_app": {
         "title": "B2B App for Buyers",
@@ -91,12 +105,30 @@
       "li4": "UX testing is expensive and slow. Coordinating sessions with real users for each iteration is unsustainable in agile cycles."
     },
     "metrics": [
-      "End-to-end discoveries completed",
-      "Reduction in handoff back-and-forth",
-      "Full validation with real users",
-      "UX tests with synthetic users (AI)",
-      "People impacted in the team",
-      "Faster development (from 1 month to 1-2 weeks)"
+      {
+        "value": "24",
+        "label": "Discoveries across 4 products (1 web + 3 mobile)"
+      },
+      {
+        "value": "12",
+        "label": "Synthetic users with reusable missions"
+      },
+      {
+        "value": "76",
+        "label": "Decisions logged in a single discovery"
+      },
+      {
+        "value": "8",
+        "label": "Decisions fully or partly reversed in the prototype, not in production"
+      },
+      {
+        "value": "86",
+        "label": "ID-tagged requirements in a single handoff"
+      },
+      {
+        "value": "240+",
+        "label": "Test cases derived from that handoff"
+      }
     ],
     "beforeAfter": {
       "title": "Before vs. After",
@@ -104,23 +136,23 @@
       "items": [
         {
           "before": "Design in Figma → PDF specs → Dev interprets",
-          "after": "Live code prototype → Auto-derived spec → Dev implements"
+          "after": "Prototype in real code → Spec derived with IDs → Dev implements"
         },
         {
-          "before": "Manual testing every 2 weeks with real users",
-          "after": "30+ automated tests with synthetic users (AI)"
+          "before": "Proposals made without seeing how the product works today",
+          "after": "Each discovery starts from production code and flags what it adds, changes and removes"
         },
         {
-          "before": "Handoff in ~2 weeks of manual documentation",
-          "after": "Handoff in 1 day (automated derivation with skills)"
+          "before": "Live user sessions carry all of the friction detection",
+          "after": "A synthetic-user pass first; live sessions focus on what only a human reveals"
         },
         {
-          "before": "Manual docs that get outdated on first change",
-          "after": "Living docs with automated verification scripts"
+          "before": "Hand-written prose handoff that each dev reads differently",
+          "after": "ID-tagged requirements, test cases, production test IDs and automated QA tests integrated with Jira"
         },
         {
-          "before": "Prototypes that dont match dev architecture",
-          "after": "Same stack as production: React, MUI, TypeScript"
+          "before": "Manual documentation that goes stale with the first change",
+          "after": "Living docs with an automated verification gate"
         }
       ]
     },
@@ -135,7 +167,7 @@
         },
         {
           "title": "Discoveries System",
-          "desc": "Every feature is a \"Discovery\" — a functional unit grouping components, pages, hooks, mocks, and docs. 15+ discoveries completed."
+          "desc": "Each feature is a \"Discovery\" — a functional unit grouping components, pages, hooks, mocks and documentation. 24 discoveries across 4 products."
         },
         {
           "title": "AI Skills (Claude Code)",
@@ -143,7 +175,7 @@
         },
         {
           "title": "Synthetic Users",
-          "desc": "Fictional personas with YAML profiles that navigate prototypes and report UX friction in 3 layers. 30+ tests executed automatically."
+          "desc": "Fictional personas with YAML profiles that walk through prototypes and report UX friction in 3 layers. 12 personas across 4 products, with reusable missions."
         },
         {
           "title": "Spec-Driven Development",
@@ -151,7 +183,7 @@
         },
         {
           "title": "Frictionless Handoff",
-          "desc": "Developers receive functional prototypes in their exact stack, specifications derived from code, and test cases."
+          "desc": "Developers receive working prototypes in their own stack, ID-tagged requirements and test cases. QA receives automated tests integrated with Jira."
         }
       ]
     },
@@ -198,7 +230,7 @@
     "anatomy": {
       "title": "Anatomy of a Discovery",
       "desc": "Every discovery has a rigorous document cycle. This is a real (anonymized) example of a financial feature with ",
-      "descBold": "75 documented decisions",
+      "descBold": "76 documented decisions",
       "items": [
         {
           "name": "README.md",
@@ -210,7 +242,7 @@
         },
         {
           "name": "DECISIONS.md",
-          "desc": "Chronological log (D-001…D-075)"
+          "desc": "Chronological log (D-001…D-076)"
         },
         {
           "name": "STATUS.md",
@@ -235,9 +267,10 @@
       "items": [
         {
           "name": "discovery-start",
-          "input": "Meeting notes + business requests",
+          "input": "Meeting notes + business requests + production code",
           "outputs": [
             "docs/<discovery>/ folder with 5 narrative files",
+            "What is added, changed and removed vs. production",
             "Decisions log started",
             "Phased work plan",
             "Raw material saved unedited"
@@ -258,7 +291,8 @@
           "outputs": [
             "HANDOFF.md — Entry point for the team",
             "SPECIFICATION.md — Requirements with IDs",
-            "TEST-CASES.md — Full coverage"
+            "TEST-CASES.md — Full coverage",
+            "Production test IDs + automated QA tests (Jira)"
           ]
         }
       ]
@@ -288,7 +322,7 @@
     },
     "metricsSection": {
       "title": "Results and Impact",
-      "desc": "The numbers speak for themselves."
+      "desc": "Counted from the repository itself — not estimates."
     },
     "techStack": {
       "title": "Tech Stack"
@@ -306,7 +340,7 @@
         },
         {
           "title": "AI amplifies design judgement, it doesnt replace it.",
-          "body": "Synthetic users detect 80% of usability issues before investing time in in-person sessions."
+          "body": "Synthetic users clear out the obvious friction before live sessions, so time with real users goes to what only a human can reveal."
         }
       ]
     },
@@ -507,6 +541,337 @@
       "subtitle": "Interested in knowing more about this project?",
       "contact": "Let's talk",
       "back": "Back to Portfolio"
+    }
+  },
+  "product_cases": {
+    "common": {
+      "back": "Back",
+      "role_label": "Role:",
+      "company_label": "Company:",
+      "duration_label": "Timeline:",
+      "status_label": "Status:",
+      "built_with_label": "Built with the Discovery Hub",
+      "built_with_text": "Prototyped, validated and handed off to engineering with the discovery system I designed. See how it works.",
+      "cta_text": "Interested in learning more about this project?",
+      "cta_contact": "Let's talk",
+      "cta_more": "View more projects"
+    },
+    "ai_usage": {
+      "badges": [
+        "Product",
+        "AI",
+        "Web backoffice",
+        "2026"
+      ],
+      "title": "AI Usage Control",
+      "subtitle": "The request was \"charge for AI\". The contracts didn't allow it. I designed the system to measure and cut usage instead, so AI agents could launch without financial risk.",
+      "role_val": "Product Designer, with a Business Analyst",
+      "company_val": "HealthTech (NDA)",
+      "duration_val": "Jul – Aug 2026",
+      "status_val": "In production",
+      "cover": {
+        "src": "/images/cases/ai-balance.webp",
+        "alt": "Clinic balance panel: available and consumed credits, pockets sorted by expiry and consumption rules"
+      },
+      "problem": {
+        "title": "The Problem",
+        "intro": "The platform was about to launch AI agents (clinical notes, medical records, image analysis, support) that consume tokens from third-party models. That usage is a real variable cost, and nobody could see it:",
+        "items": [
+          "The clinic (the customer) didn't know how much its team spent on AI and couldn't set limits.",
+          "The internal team had nowhere to run the resale: enabling packages, knowing what to invoice at month end, or measuring margin.",
+          "Every new agent added uncontrolled financial exposure for both sides."
+        ]
+      },
+      "insight": {
+        "title": "The pivot: measure in order to cut",
+        "body": "Existing contracts didn't allow adding charges to the invoice. Instead of designing screens for a billing model that couldn't be applied, we reframed the scope: the MVP doesn't charge, it measures. The billing lever becomes a per-organization cut-off that stops agent usage without touching balance or settings. That's why \"AI Billing\" was renamed \"AI Management\"."
+      },
+      "flow": {
+        "title": "Two users, one loop",
+        "desc": "The clinic admin starts the flow and the internal team running the resale closes it.",
+        "steps": [
+          {
+            "actor": "Clinic admin",
+            "text": "Sees the balance as two numbers (available and consumed) and credit pockets sorted by expiry, with the balance rules explained on the same screen."
+          },
+          {
+            "actor": "Clinic admin",
+            "text": "Analyzes usage by agent and by user over a chosen period, and sets per-user limits so no one drains the team's balance."
+          },
+          {
+            "actor": "Clinic admin",
+            "text": "When running low, requests a package. While it's pending, another one can't be requested."
+          },
+          {
+            "actor": "Internal operations",
+            "text": "Works a request queue sorted by decision urgency. Approving credits the balance instantly and logs who did it; rejecting requires a reason."
+          },
+          {
+            "actor": "Internal operations",
+            "text": "Sees which organizations consume most and on which agents, opens each one's profile and, if it hasn't paid, cuts off agent usage."
+          },
+          {
+            "actor": "Internal operations",
+            "text": "Closes the month in bulk: reads the broken-down resale margin and moves every approval to invoiced at once."
+          }
+        ]
+      },
+      "gallery": {
+        "title": "Prototype screens",
+        "desc": "Screenshots of the working prototype with fictional data. The same baseline handed off to engineering (UI in Spanish).",
+        "items": [
+          {
+            "src": "/images/cases/ai-consumption.webp",
+            "caption": "Usage over the period, with switchable grouping by balance source or by agent."
+          },
+          {
+            "src": "/images/cases/ai-ops-queue.webp",
+            "caption": "Internal operations: monthly KPIs and the request queue sorted by decision urgency."
+          },
+          {
+            "src": "/images/cases/ai-ops-close.webp",
+            "caption": "Month close: invoiced amount and margin per month, with margin shown as magnitude, not alarm."
+          }
+        ]
+      },
+      "decisions": {
+        "title": "Key decisions",
+        "desc": "76 decisions logged in about three weeks. These are the ones that shaped the product most.",
+        "items": [
+          {
+            "title": "Balance is consumed by expiry",
+            "body": "What expires first is spent first, whichever pocket it comes from. A review caught that the order was reversed in the doc, the data and the UI; we fixed it the same day, in the prototype."
+          },
+          {
+            "title": "The screen explains its own rules",
+            "body": "A balance with expiry dates is opaque. The explanation lives where the question comes up, not in a manual."
+          },
+          {
+            "title": "Margin is shown broken down",
+            "body": "Resale margin is separated from the cost of the contractual quota, so the included quota never reads as a loss. A business decision before a visual one."
+          },
+          {
+            "title": "Magnitude, not alarm",
+            "body": "Margin uses an ordinal color ramp instead of green and red: it conveys how much without implying something is wrong, and it's more accessible."
+          },
+          {
+            "title": "Low balance is flagged before zero",
+            "body": "\"Out of balance\" is defined by a threshold, to warn before a clinician loses a tool mid-consultation."
+          },
+          {
+            "title": "The queue is sorted by urgency",
+            "body": "Requests come first by how urgent the decision is, not by arrival date, and flag the organization that has already run out."
+          }
+        ]
+      },
+      "pivots": {
+        "title": "Course corrections",
+        "desc": "8 decisions were fully or partly reversed. It happened in the prototype, not in production, and the log records what replaced what.",
+        "items": [
+          {
+            "before": "Replicate a cloud provider's billing console, as a stakeholder asked",
+            "after": "Users choose the analysis period, and that period never changes the balance",
+            "why": "Instead of copying the screen, I researched what problem each control solved. That console separates when usage happened from which invoice it lands on: our exact problem, since packages expire after 30 days and quotas renew on each customer's anniversary."
+          },
+          {
+            "before": "\"Soft\" or \"hard\" per-user limits, by choice",
+            "after": "Per-user limits always block",
+            "why": "A limit that doesn't limit isn't a limit, it's a warning, and it confused admins. Protecting a clinician mid-consultation is solved with advance warnings, not a second kind of limit."
+          },
+          {
+            "before": "All balance expires at calendar month end",
+            "after": "Each package expires 30 days after approval",
+            "why": "A package bought on the 10th can't expire on the 31st: it charged for a month and sometimes delivered six days. Fine print like that turns into complaints in production."
+          }
+        ]
+      },
+      "results": {
+        "title": "Validation and outcome",
+        "desc": "The prototype was validated against seeded data, with a synthetic user and with the team, before reaching engineering.",
+        "items": [
+          "It's now in production: the platform can launch AI agents with usage measured and a per-organization cut-off available.",
+          "A full re-run of the validation guide found 4 bugs, fixed the same day. The main one: the per-user limit used the analysis period instead of the billing cycle, showing users as blocked when they weren't.",
+          "A synthetic user with an auditor profile walked the discovery: dense numbers read clearly, and one medium-severity finding surfaced (KPI cards were clickable but didn't look it)."
+        ]
+      },
+      "learnings": {
+        "title": "Learnings",
+        "items": [
+          {
+            "title": "Sometimes the best design move is changing the question.",
+            "body": "\"How do we charge for AI?\" had no viable answer. \"How do we control usage?\" did, and it unblocked the launch."
+          },
+          {
+            "title": "Copying a screen isn't copying a solution.",
+            "body": "A reference's value is in the problem each control solves, not in its layout."
+          },
+          {
+            "title": "Cheap reversals are an advantage.",
+            "body": "With every decision logged, changing our minds cost a log entry, not a sprint."
+          }
+        ]
+      }
+    },
+    "routes": {
+      "badges": [
+        "Product",
+        "Automation",
+        "Web backoffice",
+        "2026"
+      ],
+      "title": "Home-Visit Route Optimizer",
+      "subtitle": "A scheduling optimizer for home medical visits, where the system plans the week and the coordinator stays in control.",
+      "role_val": "Product Designer, with a Business Analyst",
+      "company_val": "HealthTech (NDA)",
+      "duration_val": "May – Jun 2026",
+      "status_val": "In production",
+      "highlights": [
+        {
+          "value": "+32%",
+          "label": "Medical visits completed"
+        },
+        {
+          "value": "4–5 h",
+          "label": "Of scheduling saved per day"
+        },
+        {
+          "value": "7 days",
+          "label": "Of schedule planned automatically"
+        }
+      ],
+      "cover": {
+        "src": "/images/cases/routes-agenda.webp",
+        "alt": "Day schedule as a Gantt per clinician, already optimized, with kilometers and appointments metrics and the missed-visits panel"
+      },
+      "problem": {
+        "title": "The Problem",
+        "intro": "Coordinators built the daily schedule for clinicians visiting patients at home by hand:",
+        "items": [
+          "Building the schedule took them 4 to 5 hours a day.",
+          "Visits ran late, and every delay meant a patient waiting at home.",
+          "An optimizer existed for driver-based patient transfers, but it didn't fit as is: there's no destination facility (the patient is the destination), no vehicle capacity (there's specialty), and appointments are already booked in the system."
+        ]
+      },
+      "insight": {
+        "title": "The mental model: review and adjust, not trigger",
+        "body": "Optimization runs on its own whenever an appointment is created or moved, so the coordinator opens a day that's already planned. The screen doesn't trigger anything: it's for reviewing and adjusting. The system never proposes changes by itself or reshuffles the schedule while someone is working. The optimized schedule is the baseline, and changes always belong to the coordinator."
+      },
+      "flow": {
+        "title": "How the coordinator works",
+        "desc": "Automation with the person in control, end to end.",
+        "steps": [
+          {
+            "actor": "System",
+            "text": "Keeps the next 7 days optimized. Beyond that window it shows the raw schedule, marked as \"not optimized\"."
+          },
+          {
+            "actor": "Coordinator",
+            "text": "Reviews the day as a Gantt, routes, map or list, with specialty as the main cut."
+          },
+          {
+            "actor": "Coordinator",
+            "text": "Adjusts what's needed: reassigns an appointment, pins it so it won't move, or sends it to \"pending\"."
+          },
+          {
+            "actor": "Coordinator",
+            "text": "Compares before and after (kilometers and appointments) or tries another optimization criterion without touching the global settings."
+          },
+          {
+            "actor": "Coordinator",
+            "text": "Confirms, and only then are clinicians and patients notified in bulk. Or discards."
+          },
+          {
+            "actor": "Rest of the operation",
+            "text": "Sees in each appointment's list and detail what the system moved, with a \"moved from X to Y\"."
+          }
+        ]
+      },
+      "gallery": {
+        "title": "Prototype screens",
+        "desc": "Screenshots of the working prototype with fictional data. The same baseline handed off to engineering (UI in Spanish).",
+        "items": [
+          {
+            "src": "/images/cases/routes-trial.webp",
+            "caption": "Try optimization: three criteria compared side by side, as a reversible trial."
+          },
+          {
+            "src": "/images/cases/routes-summary.webp",
+            "caption": "Routes view: visits, distance and driving time per clinician."
+          }
+        ]
+      },
+      "decisions": {
+        "title": "Key decisions",
+        "desc": "Each decision balances efficiency with trust: an optimizer nobody understands is one nobody uses.",
+        "items": [
+          {
+            "title": "Continuity of care before efficiency",
+            "body": "The patient keeps their usual clinician unless reassigning saves 20 or more minutes of travel. The trade-off is explicit and measurable."
+          },
+          {
+            "title": "Before / After always at hand",
+            "body": "A toggle between the optimized route and the adjusted route, with kilometers and appointments, makes the cost of each adjustment visible."
+          },
+          {
+            "title": "Try without breaking",
+            "body": "Coordinators can compare plans under other criteria (least travel, balanced load, most appointments) as a reversible trial."
+          },
+          {
+            "title": "Lock the day",
+            "body": "A confirmed day doesn't re-optimize on its own. New appointments wait in \"pending\" until the coordinator chooses to add them."
+          },
+          {
+            "title": "Transparency for everyone else",
+            "body": "Anyone who wasn't on the screen understands what the system changed: each moved appointment is flagged with where it moved from and to."
+          },
+          {
+            "title": "Real-operation states",
+            "body": "The day in progress (past appointments aren't editable), missed visits with rescheduling, and optimizer errors with retry."
+          }
+        ]
+      },
+      "pivots": {
+        "title": "Course corrections",
+        "desc": "What we changed after reviewing the prototype with product and with coordinators.",
+        "items": [
+          {
+            "before": "Pin appointments, then press \"Re-optimize with my pins\" in a separate bar",
+            "after": "Pinning or unpinning re-optimizes the day instantly",
+            "why": "One step and one concept fewer: pinning became just another adjustment, counted in the change summary."
+          },
+          {
+            "before": "Date, Before/After toggle, metrics and \"Try\" spread across separate rows, with the toggle inside the map",
+            "after": "A single context bar with date, day range, Before/After, metrics and trial",
+            "why": "Fewer places to look, and the same control behaves the same in the schedule and on the map."
+          }
+        ]
+      },
+      "results": {
+        "title": "Results",
+        "desc": "Based on a comparison of the 3 months after launching in production.",
+        "items": [
+          "Delays in home care went down.",
+          "The optimizer plans schedules a week ahead, and coordinators only make small adjustments when needed.",
+          "Coordinators trust the system to build schedules and spend the time they got back on other work."
+        ]
+      },
+      "learnings": {
+        "title": "Learnings",
+        "items": [
+          {
+            "title": "Adopting automation depends on trust.",
+            "body": "A schedule that doesn't move on its own and visible changes mattered as much as the algorithm's quality."
+          },
+          {
+            "title": "Human trade-offs have to be written down.",
+            "body": "\"Keep the clinician unless it saves 20 minutes\" is a rule a team can debate. \"Optimize\" on its own isn't."
+          },
+          {
+            "title": "Reusing means reframing.",
+            "body": "The transfer optimizer was a starting point, but it only worked once we redefined what a destination, a capacity and an appointment were."
+          }
+        ]
+      }
     }
   }
 }
