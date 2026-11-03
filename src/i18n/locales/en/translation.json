@@ -21,11 +21,11 @@
         "outcome": "24 discoveries across 4 products · handoffs with requirement IDs and QA tests"
       },
       "ai_usage": {
-        "title": "AI Usage Control",
+        "title": "AI Agent Spend Control",
         "badge": "Product / AI",
-        "description": "Turning a request to \"charge for AI\" into a system to measure and cut AI agent usage, at a time when contracts didn't allow charging yet.",
+        "description": "Turning a request to monetize AI agents into a system to measure and cut their spend, at a time when contracts didn't allow adding charges yet.",
         "button": "View Case Study",
-        "outcome": "In production · AI agent usage metered, with a per-organization cutoff"
+        "outcome": "In production · AI agent spend metered, with a per-organization cutoff"
       },
       "routes": {
         "title": "Home-Visit Route Optimizer",
@@ -47,7 +47,7 @@
           "Run product discovery end to end with a Business Analyst: research, requirements, user flows, prototypes and validation with users and stakeholders.",
           "Built a code-based prototyping hub (React, TypeScript, React Native) that replaced static Figma mockups and is grounded in the production codebase.",
           "Automated discovery, synthetic usability testing and developer handoff with AI agents (Claude Code), delivering specs with requirement IDs, test cases and QA test IDs integrated with Jira.",
-          "Shipped features to production, including a home-visit route optimizer (+32% medical visits, 4–5 hours of daily scheduling saved) and an AI usage control module."
+          "Shipped features to production, including a home-visit route optimizer (+32% medical visits, 4–5 hours of daily scheduling saved) and an AI agent spend control module."
         ]
       },
       "avature": {
@@ -374,7 +374,7 @@
           "src": "/images/cases/hub-alerts-inbox.webp"
         },
         {
-          "label": "AI usage per organization",
+          "label": "AI agent spend per organization",
           "src": "/images/cases/ai-consumption.webp"
         },
         {
@@ -439,8 +439,8 @@
         "Web backoffice",
         "2026"
       ],
-      "title": "AI Usage Control",
-      "subtitle": "The request was \"charge for AI\". The contracts didn't allow it. I designed the system to measure and cut usage instead, so AI agents could launch without financial risk.",
+      "title": "AI Agent Spend Control",
+      "subtitle": "The request was to monetize the AI agents. The contracts didn't allow adding charges. I designed the system to measure and cut their spend instead, so the agents could launch without financial risk.",
       "role_val": "Product Designer, with a Business Analyst",
       "company_val": "HealthTech (NDA)",
       "duration_val": "Jul – Aug 2026",
@@ -453,14 +453,14 @@
         "title": "The Problem",
         "intro": "The platform was about to launch AI agents (clinical notes, medical records, image analysis, support) that consume tokens from third-party models. That usage is a real variable cost, and nobody could see it:",
         "items": [
-          "The clinic (the customer) didn't know how much its team spent on AI and couldn't set limits.",
+          "The clinic (the customer) didn't know how much its team spent on AI agents and couldn't set limits.",
           "The internal team had nowhere to run the resale: enabling packages, knowing what to invoice at month end, or measuring margin.",
           "Every new agent added uncontrolled financial exposure for both sides."
         ]
       },
       "insight": {
         "title": "The pivot: measure in order to cut",
-        "body": "Existing contracts didn't allow adding charges to the invoice. Instead of designing screens for a billing model that couldn't be applied, we reframed the scope: the MVP doesn't charge, it measures. The billing lever becomes a per-organization cut-off that stops agent usage without touching balance or settings. That's why \"AI Billing\" was renamed \"AI Management\"."
+        "body": "Existing contracts didn't allow adding charges to the invoice. Instead of designing screens for a pricing model that couldn't be applied, we reframed the scope: the MVP doesn't bill, it measures. The lever becomes a per-organization cut-off that stops agent usage without touching balance or settings. That's why \"AI Billing\" was renamed \"AI Management\"."
       },
       "flow": {
         "title": "Two users, one loop",
@@ -565,7 +565,7 @@
         "title": "Validation and outcome",
         "desc": "The prototype was validated against seeded data, with a synthetic user and with the team, before reaching engineering.",
         "items": [
-          "It's now in production: the platform can launch AI agents with usage measured and a per-organization cut-off available.",
+          "It's now in production: the platform can launch AI agents with their spend measured and a per-organization cut-off available.",
           "A full re-run of the validation guide found 4 bugs, fixed the same day. The main one: the per-user limit used the analysis period instead of the billing cycle, showing users as blocked when they weren't.",
           "A synthetic user with an auditor profile walked the discovery: dense numbers read clearly, and one medium-severity finding surfaced (KPI cards were clickable but didn't look it)."
         ]
@@ -575,7 +575,7 @@
         "items": [
           {
             "title": "Sometimes the best design move is changing the question.",
-            "body": "\"How do we charge for AI?\" had no viable answer. \"How do we control usage?\" did, and it unblocked the launch."
+            "body": "\"How do we monetize the AI agents?\" had no viable answer. \"How do we control their spend?\" did, and it unblocked the launch."
           },
           {
             "title": "Copying a screen isn't copying a solution.",
@@ -588,9 +588,9 @@
         ]
       },
       "summary": {
-        "problem": "The platform was about to launch AI agents with a variable cost nobody could see, and contracts did not allow charging for it.",
-        "solution": "Reframe the scope: meter usage per organization, user and agent, with a per-organization cutoff as the lever.",
-        "impact": "In production: AI agents launch with metered usage and a per-organization cutoff available."
+        "problem": "The platform was about to launch AI agents with a variable cost nobody could see, and contracts did not allow passing it on to customers.",
+        "solution": "Reframe the scope: meter spend per organization, user and agent, with a per-organization cutoff as the lever.",
+        "impact": "In production: AI agents launch with metered spend and a per-organization cutoff available."
       }
     },
     "routes": {

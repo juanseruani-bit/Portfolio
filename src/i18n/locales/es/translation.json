@@ -21,11 +21,11 @@
         "outcome": "24 discoveries en 4 productos · handoffs con requisitos con ID y tests para QA"
       },
       "ai_usage": {
-        "title": "Gestión del consumo de IA",
+        "title": "Control de gasto en agentes de IA",
         "badge": "Producto / IA",
-        "description": "Convertir un pedido de \"cobrar la IA\" en un sistema para medir y cortar el consumo de agentes de IA, cuando el contrato todavía no permitía cobrar.",
+        "description": "Convertir un pedido para monetizar los agentes de IA en un sistema para medir y cortar su gasto, cuando el contrato todavía no permitía sumar cargos.",
         "button": "Ver Caso de Estudio",
-        "outcome": "En producción · consumo de agentes de IA medido, con corte por organización"
+        "outcome": "En producción · gasto de los agentes de IA medido, con corte por organización"
       },
       "routes": {
         "title": "Optimizador de rutas domiciliarias",
@@ -47,7 +47,7 @@
           "Discovery de producto de punta a punta junto a un Business Analyst: investigación, requerimientos, flujos, prototipos y validación con usuarios y stakeholders.",
           "Creación de un hub de prototipado en código (React, TypeScript, React Native) que reemplazó los mockups estáticos de Figma y se basa en el código de producción.",
           "Automatización del discovery, las pruebas de usabilidad con usuarios sintéticos y el handoff a desarrollo con agentes de IA (Claude Code): specs con IDs de requerimientos, casos de prueba y test IDs de QA integrados con Jira.",
-          "Lanzamiento de funcionalidades a producción, como un optimizador de rutas de visitas domiciliarias (+32% de visitas médicas, 4–5 horas diarias de armado de agenda ahorradas) y un módulo de control de consumo de IA."
+          "Lanzamiento de funcionalidades a producción, como un optimizador de rutas de visitas domiciliarias (+32% de visitas médicas, 4–5 horas diarias de armado de agenda ahorradas) y un módulo de control de gasto en agentes de IA."
         ]
       },
       "avature": {
@@ -374,7 +374,7 @@
           "src": "/images/cases/hub-alerts-inbox.webp"
         },
         {
-          "label": "Consumo de IA por organización",
+          "label": "Gasto en agentes de IA por organización",
           "src": "/images/cases/ai-consumption.webp"
         },
         {
@@ -439,8 +439,8 @@
         "Web backoffice",
         "2026"
       ],
-      "title": "Gestión del consumo de IA",
-      "subtitle": "El pedido era \"cobrar la IA\". El contrato no lo permitía. Diseñé el sistema para medir y cortar el consumo, y así poder lanzar agentes de IA sin riesgo financiero.",
+      "title": "Control de gasto en agentes de IA",
+      "subtitle": "El pedido era monetizar los agentes de IA. El contrato no permitía sumar cargos. Diseñé el sistema para medir y cortar su gasto, y así poder lanzarlos sin riesgo financiero.",
       "role_val": "Product Designer, junto a un Business Analyst",
       "company_val": "HealthTech (NDA)",
       "duration_val": "Jul – Ago 2026",
@@ -453,14 +453,14 @@
         "title": "El Problema",
         "intro": "La plataforma iba a lanzar agentes de IA (evolución clínica, historia clínica, análisis de imágenes, soporte) que consumen tokens de modelos de terceros. Ese consumo es un costo variable real, y nadie podía verlo:",
         "items": [
-          "La clínica (el cliente) no sabía cuánto gastaba su equipo en IA ni podía ponerle límites.",
+          "La clínica (el cliente) no sabía cuánto gastaba su equipo en agentes de IA ni podía ponerle límites.",
           "El equipo interno no tenía dónde operar la reventa: habilitar paquetes, saber qué facturar a fin de mes ni medir el margen.",
           "Cada agente nuevo sumaba exposición financiera sin control, para las dos partes."
         ]
       },
       "insight": {
         "title": "El giro: medir para poder cortar",
-        "body": "Los contratos vigentes no permitían sumar cargos a la factura. En vez de diseñar pantallas para un modelo de cobro que no se podía aplicar, reencuadramos el alcance: el MVP no cobra, mide. La palanca de cobro pasa a ser un corte por organización, que detiene el uso de los agentes sin tocar su saldo ni su configuración. Por eso \"Cobro de IA\" pasó a llamarse \"Gestión de IA\"."
+        "body": "Los contratos vigentes no permitían sumar cargos a la factura. En vez de diseñar pantallas para un modelo comercial que no se podía aplicar, reencuadramos el alcance: el MVP no factura, mide. La palanca pasa a ser un corte por organización, que detiene el uso de los agentes sin tocar su saldo ni su configuración. Por eso \"Cobro de IA\" pasó a llamarse \"Gestión de IA\"."
       },
       "flow": {
         "title": "Dos usuarios, un circuito",
@@ -565,7 +565,7 @@
         "title": "Validación y resultado",
         "desc": "El prototipo se validó contra datos sembrados, con un usuario sintético y con el equipo, antes de pasar a desarrollo.",
         "items": [
-          "Hoy está en producción: la plataforma puede lanzar agentes de IA con el consumo medido y con un corte por organización disponible.",
+          "Hoy está en producción: la plataforma puede lanzar agentes de IA con su gasto medido y con un corte por organización disponible.",
           "Una re-corrida completa de la guía de validación encontró 4 bugs, corregidos el mismo día. El más importante: el límite por usuario tomaba el período de análisis en vez del ciclo, y mostraba como bloqueados a usuarios que no lo estaban.",
           "Un usuario sintético con perfil de auditor recorrió la discovery: los números densos se entendían, y apareció un hallazgo de severidad media (las tarjetas de KPI eran clickeables pero no lo parecían)."
         ]
@@ -575,7 +575,7 @@
         "items": [
           {
             "title": "A veces el mejor diseño es cambiar la pregunta.",
-            "body": "\"¿Cómo cobramos la IA?\" no tenía respuesta viable. \"¿Cómo controlamos el consumo?\" sí, y además desbloqueaba el lanzamiento."
+            "body": "\"¿Cómo monetizamos los agentes de IA?\" no tenía respuesta viable. \"¿Cómo controlamos su gasto?\" sí, y además desbloqueaba el lanzamiento."
           },
           {
             "title": "Copiar una pantalla no es copiar una solución.",
@@ -588,9 +588,9 @@
         ]
       },
       "summary": {
-        "problem": "La plataforma iba a lanzar agentes de IA con un costo variable que nadie podía ver, y el contrato no permitía cobrarlo.",
-        "solution": "Reencuadrar el alcance: medir el consumo por organización, usuario y agente, con un corte por organización como palanca.",
-        "impact": "En producción: los agentes de IA se lanzan con el consumo medido y un corte disponible por organización."
+        "problem": "La plataforma iba a lanzar agentes de IA con un costo variable que nadie podía ver, y el contrato no permitía trasladarlo al cliente.",
+        "solution": "Reencuadrar el alcance: medir el gasto por organización, usuario y agente, con un corte por organización como palanca.",
+        "impact": "En producción: los agentes de IA se lanzan con su gasto medido y un corte disponible por organización."
       }
     },
     "routes": {
