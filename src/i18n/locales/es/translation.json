@@ -15,8 +15,7 @@
         "title": "Discovery & Prototyping Hub",
         "badge": "DesignOps / IA",
         "description": "Plataforma de prototipado con IA que unifica diseño y desarrollo. Skills de Claude para automatizar discovery, testing sintético y handoff.",
-        "button": "Ver Caso de Estudio",
-        "image": "/images/case-study-hero.jpg"
+        "button": "Ver Caso de Estudio"
       },
       "ai_usage": {
         "title": "Gestión del consumo de IA",
@@ -102,7 +101,7 @@
     "company_val": "HealthTech (NDA)",
     "duration_label": "Duración:",
     "duration_val": "2025 — Presente",
-    "image": "/images/case-study-hero.jpg",
+    "image": "/images/cases/hub-playground.webp",
     "problem": {
       "title": "El Problema",
       "p1": "En productos digitales complejos — especialmente en HealthTech, donde conviven una plataforma web para operadores, apps móviles para profesionales, pacientes y conductores — el flujo clásico de diseño genera fricciones críticas:",
@@ -166,7 +165,6 @@
     "solution": {
       "title": "La Solución",
       "desc": "Un monorepo de prototipado que replica el stack real de desarrollo, alimentado con datos mock, donde cada feature se diseña, valida y documenta antes de escribir una sola línea de código productivo.",
-      "image": "/images/workflow-diagram.jpg",
       "cards": [
         {
           "title": "Monorepo Multi-Plataforma",
@@ -308,7 +306,6 @@
       "title": "Usuarios Sintéticos en Acción",
       "desc": "Cada persona sintética tiene un perfil YAML con rol, comportamiento, frustraciones y foco. Recorren los prototipos y reportan fricción de usabilidad automáticamente.",
       "exampleLabel": "Ejemplo real (anonimizado)",
-      "image": "/images/synthetic-testing.jpg",
       "howItWorks": "¿Cómo funciona?",
       "steps": [
         "Se elige una persona y una misión (o modo exploración libre)",
@@ -319,13 +316,21 @@
     },
     "mockups": {
       "title": "Interfaces Prototipadas",
-      "desc": "Ejemplos representativos de las interfaces diseñadas dentro del Discovery Hub (datos ficticios, diseño anonimizado).",
-      "playground": "Home del Playground — Grid de Discoveries",
-      "dashboard": "Dashboard de Consumo de IA",
-      "alerts": "Bandeja de Alertas con Priorización",
-      "imgPlayground": "/images/mockup-playground.jpg",
-      "imgDashboard": "/images/mockup-dashboard.jpg",
-      "imgAlerts": "/images/mockup-alerts.jpg"
+      "desc": "Capturas reales de discoveries prototipadas en el Hub, con datos ficticios y el estilo visual anonimizado.",
+      "items": [
+        {
+          "label": "Bandeja de alertas clínicas y operativas",
+          "src": "/images/cases/hub-alerts-inbox.webp"
+        },
+        {
+          "label": "Consumo de IA por organización",
+          "src": "/images/cases/ai-consumption.webp"
+        },
+        {
+          "label": "Comparación de criterios en el optimizador de rutas",
+          "src": "/images/cases/routes-trial.webp"
+        }
+      ]
     },
     "metricsSection": {
       "title": "Resultados e Impacto",
@@ -355,7 +360,8 @@
       "text": "¿Te interesa saber más sobre este proyecto?",
       "contact": "Conversemos",
       "more": "Ver más proyectos"
-    }
+    },
+    "image_alt": "Discovery Playground: cada módulo del producto agrupa sus discoveries"
   },
   "product_cases": {
     "common": {

@@ -8,9 +8,7 @@ import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
-type ProjectCover =
-  | { kind: "image" }
-  | { kind: "screenshot"; src: string; position: string; zoom?: number; gradient: string }
+type ProjectCover = { src: string; position: string; zoom?: number; gradient: string }
 
 const projects: { key: string; to: string; year: string; badgeClass: string; tags: string[]; cover: ProjectCover; featured?: boolean }[] = [
   {
@@ -20,7 +18,7 @@ const projects: { key: string; to: string; year: string; badgeClass: string; tag
     year: "2025",
     badgeClass: "bg-[var(--accent-violet)]",
     tags: ["React", "Claude Code", "UX Engineering"],
-    cover: { kind: "image" },
+    cover: { src: "/images/cases/hub-playground.webp", position: "0% 0%", gradient: "from-violet-500/25 via-indigo-500/15 to-transparent" },
   },
   {
     key: "ai_usage",
@@ -28,7 +26,7 @@ const projects: { key: string; to: string; year: string; badgeClass: string; tag
     year: "2026",
     badgeClass: "bg-[var(--accent-indigo)]",
     tags: ["Product Strategy", "AI", "B2B SaaS"],
-    cover: { kind: "screenshot", src: "/images/cases/ai-consumption.webp", position: "center", gradient: "from-indigo-500/25 via-violet-500/15 to-transparent" },
+    cover: { src: "/images/cases/ai-consumption.webp", position: "center", gradient: "from-indigo-500/25 via-violet-500/15 to-transparent" },
   },
   {
     key: "routes",
@@ -36,7 +34,7 @@ const projects: { key: string; to: string; year: string; badgeClass: string; tag
     year: "2026",
     badgeClass: "bg-teal-600",
     tags: ["Automation", "Operations", "Data Viz"],
-    cover: { kind: "screenshot", src: "/images/cases/routes-agenda.webp", position: "0% 62%", zoom: 1.8, gradient: "from-teal-500/25 via-sky-500/15 to-transparent" },
+    cover: { src: "/images/cases/routes-agenda.webp", position: "0% 62%", zoom: 1.8, gradient: "from-teal-500/25 via-sky-500/15 to-transparent" },
   },
 ]
 
@@ -151,25 +149,17 @@ export function Home() {
                 <Link to={project.to} className="block h-full">
                   <Card className={cn("h-full flex flex-col glow-card group cursor-pointer border-border/50 hover:border-primary/40 transition-all duration-400", project.featured && "md:flex-row")}>
                     <div className={cn("h-64 bg-muted rounded-t-xl flex items-center justify-center border-b relative overflow-hidden", project.featured && "md:h-auto md:min-h-80 md:w-1/2 md:shrink-0 md:rounded-tr-none md:rounded-l-xl md:border-b-0 md:border-r")}>
-                      {project.cover.kind === "image" ? (
-                        <img
-                          src={t(`home.projects.${project.key}.image`)}
-                          alt={t(`home.projects.${project.key}.title`)}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                        />
-                      ) : (
-                        <div className={cn("w-full h-full bg-gradient-to-br", project.cover.gradient)}>
-                          <div className="absolute inset-x-8 top-8 -bottom-4 rounded-lg overflow-hidden border border-border/60 bg-white shadow-xl group-hover:-translate-y-2 transition-transform duration-500 ease-out">
-                            <img
-                              src={project.cover.src}
-                              alt={t(`home.projects.${project.key}.title`)}
-                              loading="lazy"
-                              className="w-full h-full object-cover"
-                              style={{ objectPosition: project.cover.position, transform: `scale(${project.cover.zoom ?? 1})`, transformOrigin: "0% 50%" }}
-                            />
-                          </div>
+                      <div className={cn("w-full h-full bg-gradient-to-br", project.cover.gradient)}>
+                        <div className="absolute inset-x-8 top-8 -bottom-4 rounded-lg overflow-hidden border border-border/60 bg-white shadow-xl group-hover:-translate-y-2 transition-transform duration-500 ease-out">
+                          <img
+                            src={project.cover.src}
+                            alt={t(`home.projects.${project.key}.title`)}
+                            loading="lazy"
+                            className="w-full h-full object-cover"
+                            style={{ objectPosition: project.cover.position, transform: `scale(${project.cover.zoom ?? 1})`, transformOrigin: "0% 50%" }}
+                          />
                         </div>
-                      )}
+                      </div>
                     </div>
                     <div className={cn("flex flex-col flex-1", project.featured && "md:justify-center")}>
                     <CardHeader>

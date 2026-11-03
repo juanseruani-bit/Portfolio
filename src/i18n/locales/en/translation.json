@@ -15,8 +15,7 @@
         "title": "Discovery & Prototyping Hub",
         "badge": "DesignOps / AI",
         "description": "AI-powered prototyping platform bridging design and development. Claude skills to automate discovery, synthetic testing, and handoff.",
-        "button": "View Case Study",
-        "image": "/images/case-study-hero.jpg"
+        "button": "View Case Study"
       },
       "ai_usage": {
         "title": "AI Usage Control",
@@ -102,7 +101,7 @@
     "company_val": "HealthTech (NDA)",
     "duration_label": "Duration:",
     "duration_val": "2025 — Present",
-    "image": "/images/case-study-hero.jpg",
+    "image": "/images/cases/hub-playground.webp",
     "problem": {
       "title": "The Problem",
       "p1": "In complex digital products — especially in HealthTech, where a web platform for operators coexists with mobile apps for professionals, patients, and drivers — the classic design flow creates critical frictions:",
@@ -166,7 +165,6 @@
     "solution": {
       "title": "The Solution",
       "desc": "A prototyping monorepo that replicates the real development stack, fueled with mock data, where every feature is designed, validated, and documented before writing a single line of production code.",
-      "image": "/images/workflow-diagram.jpg",
       "cards": [
         {
           "title": "Cross-Platform Monorepo",
@@ -308,7 +306,6 @@
       "title": "Synthetic Users in Action",
       "desc": "Every synthetic persona has a YAML profile with role, behavior, frustrations, and focus. They navigate prototypes and report usability friction automatically.",
       "exampleLabel": "Real example (anonymized)",
-      "image": "/images/synthetic-testing.jpg",
       "howItWorks": "How does it work?",
       "steps": [
         "A persona and a mission are selected (or free-explore mode)",
@@ -319,13 +316,21 @@
     },
     "mockups": {
       "title": "Prototyped Interfaces",
-      "desc": "Representative examples of interfaces designed inside the Discovery Hub (fictional data, anonymized design).",
-      "playground": "Playground Home — Discoveries Grid",
-      "dashboard": "AI Usage Dashboard",
-      "alerts": "Prioritized Alerts Inbox",
-      "imgPlayground": "/images/mockup-playground.jpg",
-      "imgDashboard": "/images/mockup-dashboard.jpg",
-      "imgAlerts": "/images/mockup-alerts.jpg"
+      "desc": "Real captures of discoveries prototyped in the Hub, with fictional data and an anonymized visual style.",
+      "items": [
+        {
+          "label": "Clinical and operational alerts inbox",
+          "src": "/images/cases/hub-alerts-inbox.webp"
+        },
+        {
+          "label": "AI usage per organization",
+          "src": "/images/cases/ai-consumption.webp"
+        },
+        {
+          "label": "Comparing criteria in the route optimizer",
+          "src": "/images/cases/routes-trial.webp"
+        }
+      ]
     },
     "metricsSection": {
       "title": "Results and Impact",
@@ -355,7 +360,8 @@
       "text": "Interested in knowing more about this project?",
       "contact": "Lets talk",
       "more": "View more projects"
-    }
+    },
+    "image_alt": "Discovery Playground: each product module groups its discoveries"
   },
   "product_cases": {
     "common": {

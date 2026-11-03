@@ -116,7 +116,7 @@ export function CaseStudyPage() {
         </motion.div>
 
         <motion.div variants={fadeIn}>
-          <img src={t('case_study.image')} alt={t('case_study.title')} className="w-full rounded-lg border" />
+          <img src={t('case_study.image')} alt={t('case_study.image_alt')} className="w-full rounded-lg border" />
         </motion.div>
       </motion.section>
 
@@ -172,8 +172,6 @@ export function CaseStudyPage() {
         <motion.p variants={fadeIn} className="text-lg text-muted-foreground mb-12 max-w-[700px]">
           {t('case_study.solution.desc')}
         </motion.p>
-
-        <motion.div variants={fadeIn}><img src={t('case_study.solution.image')} alt="Workflow: Discovery → Prototype → Handoff" className="w-full rounded-lg border mb-12" /></motion.div>
 
         {/* Innovation Cards */}
         <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={stagger}>
@@ -402,7 +400,6 @@ export function CaseStudyPage() {
 
           {/* Visual + Context */}
           <div className="space-y-6">
-            <img src={t('case_study.synthetic.image')} alt="Synthetic User Testing" className="w-full rounded-lg border" />
             <Card>
               <CardContent className="p-6 space-y-4">
                 <h3 className="font-semibold">{t('case_study.synthetic.howItWorks')}</h3>
@@ -432,22 +429,25 @@ export function CaseStudyPage() {
           {t('case_study.mockups.desc')}
         </motion.p>
 
-        <motion.div className="space-y-8" variants={stagger}>
-          <motion.div variants={fadeIn}>
-            <p className="text-sm font-semibold text-muted-foreground mb-3">{t('case_study.mockups.playground')}</p>
-            <img src={t('case_study.mockups.imgPlayground')} alt="Playground Home" className="w-full rounded-lg border" />
-          </motion.div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div variants={fadeIn}>
-              <p className="text-sm font-semibold text-muted-foreground mb-3">{t('case_study.mockups.dashboard')}</p>
-              <img src={t('case_study.mockups.imgDashboard')} alt="AI Dashboard" className="w-full rounded-lg border" />
+        {(() => {
+          const [main, ...rest] = t('case_study.mockups.items', { returnObjects: true }) as { label: string; src: string }[]
+          return (
+            <motion.div className="space-y-8" variants={stagger}>
+              <motion.div variants={fadeIn}>
+                <p className="text-sm font-semibold text-muted-foreground mb-3">{main.label}</p>
+                <img src={main.src} alt={main.label} loading="lazy" className="w-full rounded-lg border" />
+              </motion.div>
+              <div className="grid md:grid-cols-2 gap-8">
+                {rest.map((shot) => (
+                  <motion.div key={shot.src} variants={fadeIn}>
+                    <p className="text-sm font-semibold text-muted-foreground mb-3">{shot.label}</p>
+                    <img src={shot.src} alt={shot.label} loading="lazy" className="w-full rounded-lg border bg-white" />
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
-            <motion.div variants={fadeIn}>
-              <p className="text-sm font-semibold text-muted-foreground mb-3">{t('case_study.mockups.alerts')}</p>
-              <img src={t('case_study.mockups.imgAlerts')} alt="Alerts Inbox" className="w-full rounded-lg border" />
-            </motion.div>
-          </div>
-        </motion.div>
+          )
+        })()}
       </motion.section>
 
       <GradientDivider />
