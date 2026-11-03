@@ -1,11 +1,12 @@
 {
   "home": {
     "hero": {
-      "title_prefix": "Product Designer uniendo",
-      "title_ux": "diseño UX",
-      "title_and": "y",
-      "title_strategy": "estrategia de negocio.",
-      "subtitle": "Con formación en Administración de Empresas y más de 5 años de experiencia diseñando productos digitales en HMM, Avature y DinoCloud.",
+      "title_prefix": "Product Designer que lleva ideas a producción con",
+      "title_highlight_a": "prototipos en código",
+      "title_join": "e",
+      "title_highlight_b": "IA.",
+      "subtitle": "Más de 5 años diseñando productos B2B y HealthTech en HMM, Avature y DinoCloud, con formación en Administración de Empresas para alinear usuarios y negocio.",
+      "proof": "En producción: un optimizador de rutas con +32% de visitas médicas y 4–5 h diarias de agenda ahorradas.",
       "contact_button": "Contactar"
     },
     "projects": {
@@ -15,19 +16,22 @@
         "title": "Discovery & Prototyping Hub",
         "badge": "DesignOps / IA",
         "description": "Plataforma de prototipado con IA que unifica diseño y desarrollo. Skills de Claude para automatizar discovery, testing sintético y handoff.",
-        "button": "Ver Caso de Estudio"
+        "button": "Ver Caso de Estudio",
+        "outcome": "24 discoveries en 4 productos · handoffs con requisitos con ID y tests para QA"
       },
       "ai_usage": {
         "title": "Gestión del consumo de IA",
         "badge": "Producto / IA",
         "description": "Convertir un pedido de \"cobrar la IA\" en un sistema para medir y cortar el consumo de agentes de IA, cuando el contrato todavía no permitía cobrar.",
-        "button": "Ver Caso de Estudio"
+        "button": "Ver Caso de Estudio",
+        "outcome": "En producción · consumo de agentes de IA medido, con corte por organización"
       },
       "routes": {
         "title": "Optimizador de rutas domiciliarias",
         "badge": "Producto / Automatización",
         "description": "Un optimizador de agendas para visitas médicas a domicilio donde el sistema arma la semana y el coordinador decide.",
-        "button": "Ver Caso de Estudio"
+        "button": "Ver Caso de Estudio",
+        "outcome": "En producción · +32% visitas médicas · 4–5 h/día de agenda ahorradas"
       }
     },
     "about": {

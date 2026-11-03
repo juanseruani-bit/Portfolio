@@ -81,17 +81,27 @@ export function Home() {
               transition={{ delay: 0.3, duration: 0.6 }}
             >
               {t('home.hero.title_prefix')}{" "}
-              <span className="gradient-text">{t('home.hero.title_ux')}</span> {t('home.hero.title_and')}{" "}
-              <span className="gradient-text">{t('home.hero.title_strategy')}</span>
+              <span className="gradient-text">{t('home.hero.title_highlight_a')}</span> {t('home.hero.title_join')}{" "}
+              <span className="gradient-text">{t('home.hero.title_highlight_b')}</span>
             </motion.h1>
 
             <motion.p
-              className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-[620px]"
+              className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed max-w-[620px]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45, duration: 0.6 }}
             >
               {t('home.hero.subtitle')}
+            </motion.p>
+
+            <motion.p
+              className="flex items-start gap-2.5 text-sm md:text-base font-medium mb-10 max-w-[620px]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+            >
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20" aria-hidden="true" />
+              {t('home.hero.proof')}
             </motion.p>
 
             <motion.div
@@ -168,6 +178,7 @@ export function Home() {
                         <span className="text-sm text-muted-foreground font-mono">{project.year}</span>
                       </div>
                       <CardTitle className="text-2xl">{t(`home.projects.${project.key}.title`)}</CardTitle>
+                      <p className="text-sm font-semibold text-primary mt-2">{t(`home.projects.${project.key}.outcome`)}</p>
                       <CardDescription className="text-base mt-2">
                         {t(`home.projects.${project.key}.description`)}
                       </CardDescription>

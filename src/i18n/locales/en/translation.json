@@ -1,11 +1,12 @@
 {
   "home": {
     "hero": {
-      "title_prefix": "Product Designer bridging",
-      "title_ux": "UX design",
-      "title_and": "and",
-      "title_strategy": "business strategy.",
-      "subtitle": "With a background in Business Administration and over 5 years of experience designing digital products at HMM, Avature, and DinoCloud.",
+      "title_prefix": "Product Designer taking ideas to production with",
+      "title_highlight_a": "code prototypes",
+      "title_join": "and",
+      "title_highlight_b": "AI.",
+      "subtitle": "5+ years designing B2B and HealthTech products at HMM, Avature and DinoCloud, with a Business Administration background to align users and business.",
+      "proof": "In production: a route optimizer with +32% medical visits and 4–5 h of daily scheduling saved.",
       "contact_button": "Get in touch"
     },
     "projects": {
@@ -15,19 +16,22 @@
         "title": "Discovery & Prototyping Hub",
         "badge": "DesignOps / AI",
         "description": "AI-powered prototyping platform bridging design and development. Claude skills to automate discovery, synthetic testing, and handoff.",
-        "button": "View Case Study"
+        "button": "View Case Study",
+        "outcome": "24 discoveries across 4 products · handoffs with requirement IDs and QA tests"
       },
       "ai_usage": {
         "title": "AI Usage Control",
         "badge": "Product / AI",
         "description": "Turning a request to \"charge for AI\" into a system to measure and cut AI agent usage, at a time when contracts didn't allow charging yet.",
-        "button": "View Case Study"
+        "button": "View Case Study",
+        "outcome": "In production · AI agent usage metered, with a per-organization cutoff"
       },
       "routes": {
         "title": "Home-Visit Route Optimizer",
         "badge": "Product / Automation",
         "description": "A scheduling optimizer for home medical visits where the system plans the week and the coordinator decides.",
-        "button": "View Case Study"
+        "button": "View Case Study",
+        "outcome": "In production · +32% medical visits · 4–5 h/day of scheduling saved"
       }
     },
     "about": {
