@@ -3,11 +3,14 @@ import { Button } from "@/components/ui/button"
 
 export function LanguageSwitcher() {
   const { i18n } = useTranslation()
+  const isSpanish = i18n.language.startsWith("es")
 
   const toggleLanguage = () => {
-    const newLang = i18n.language.startsWith("es") ? "en" : "es"
-    i18n.changeLanguage(newLang)
+    i18n.changeLanguage(isSpanish ? "en" : "es")
   }
+
+  // The accessible name starts with the visible "EN / ES" so voice control ("click EN") still finds it.
+  const hint = isSpanish ? "Switch to English" : "Cambiar a Español"
 
   return (
     <Button
@@ -15,12 +18,12 @@ export function LanguageSwitcher() {
       size="sm"
       onClick={toggleLanguage}
       className="font-medium px-2"
-      title={i18n.language.startsWith("es") ? "Switch to English" : "Cambiar a Español"}
-      aria-label={i18n.language.startsWith("es") ? "Switch to English" : "Cambiar a Español"}
+      title={hint}
     >
-      <span className={i18n.language.startsWith("es") ? "text-muted-foreground" : "text-foreground"}>EN</span>
+      <span lang="en" className={isSpanish ? "text-muted-foreground" : "text-foreground"}>EN</span>
       <span className="mx-1 text-muted-foreground">/</span>
-      <span className={i18n.language.startsWith("es") ? "text-foreground" : "text-muted-foreground"}>ES</span>
+      <span lang="es" className={isSpanish ? "text-foreground" : "text-muted-foreground"}>ES</span>
+      <span className="sr-only" lang={isSpanish ? "en" : "es"}>, {hint}</span>
     </Button>
   )
 }

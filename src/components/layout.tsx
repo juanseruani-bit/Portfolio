@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigationType } from "react-router-dom"
 import { ModeToggle } from "./mode-toggle"
 import { AnimatedBackgroundWithKeyframes } from "./animated-background"
 import { NoiseOverlay } from "./decorative-elements"
@@ -6,13 +6,59 @@ import { ExternalLink, Menu } from "lucide-react"
 import { LanguageSwitcher } from "./language-switcher"
 import { useTranslation } from "react-i18next"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { buttonVariants } from "./ui/button"
 import { CONTACT_EMAIL, LINKEDIN_URL } from "./contact-section"
+
+/**
+ * Client-side navigation keeps the old scroll position, drops focus on <body> and ignores #anchors.
+ * On each navigation, scroll to the anchor (e.g. /#proyectos) or to the top of the new page, then
+ * move focus to that section's heading (or the page <h1>) so keyboard users continue from there
+ * and screen readers announce it. Direct visits to a URL with an anchor get the same scroll.
+ */
+function useRouteFocus() {
+  const { pathname, hash, key } = useLocation()
+  const navigationType = useNavigationType()
+  // Track the last handled navigation (not a first-render flag) so StrictMode's double effect run is a no-op.
+  const lastKey = useRef<string | null>(null)
+  const lastPathname = useRef(pathname)
+
+  useEffect(() => {
+    if (lastKey.current === key) return
+    const isFirstLoad = lastKey.current === null
+    const samePage = !isFirstLoad && lastPathname.current === pathname
+    lastKey.current = key
+    lastPathname.current = pathname
+    if (isFirstLoad && !hash) return
+
+    if (!hash && navigationType !== "POP") window.scrollTo(0, 0)
+
+    // Case pages load lazily, so wait a few frames for the target to exist.
+    let frame = 0
+    let tries = 0
+    const focusTarget = () => {
+      const section = hash ? document.getElementById(decodeURIComponent(hash.slice(1))) : null
+      const heading = hash
+        ? section?.querySelector<HTMLHeadingElement>("h1, h2")
+        : document.querySelector<HTMLHeadingElement>("main h1")
+      if (heading) {
+        // Smooth scroll only within the same page; arriving from another page should land directly.
+        if (section) section.scrollIntoView({ block: "start", behavior: samePage ? "smooth" : "instant" })
+        heading.tabIndex = -1
+        heading.focus({ preventScroll: true })
+      } else if (tries++ < 120) {
+        frame = requestAnimationFrame(focusTarget)
+      }
+    }
+    frame = requestAnimationFrame(focusTarget)
+    return () => cancelAnimationFrame(frame)
+  }, [key, pathname, hash, navigationType])
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
+  useRouteFocus()
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground flex flex-col">
@@ -29,12 +75,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
           
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-4 md:space-x-6">
-            <a
-              href="/#proyectos"
+            <Link
+              to="/#proyectos"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
               {t('layout.nav.projects')}
-            </a>
+            </Link>
             <a
               href="https://www.linkedin.com/in/jsruani"
               target="_blank"
@@ -61,13 +107,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <SheetDescription className="sr-only">Navegación principal del sitio</SheetDescription>
                 
                 <div className="flex flex-col space-y-6 flex-1 mt-4">
-                  <a
-                    href="/#proyectos"
+                  <Link
+                    to="/#proyectos"
                     onClick={() => setIsOpen(false)}
                     className="text-lg font-medium transition-colors hover:text-primary border-b border-border/50 pb-4"
                   >
                     {t('layout.nav.projects')}
-                  </a>
+                  </Link>
                   <a
                     href="https://www.linkedin.com/in/jsruani"
                     target="_blank"

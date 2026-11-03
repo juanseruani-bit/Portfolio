@@ -60,7 +60,7 @@ export const _skillPipeline = [
       "Hallazgos de usabilidad con severidad",
       "Limitaciones detectadas del prototipo",
     ],
-    color: "text-teal-600 dark:text-teal-400",
+    color: "text-teal-700 dark:text-teal-400",
     bgColor: "bg-teal-500/10",
     borderColor: "border-teal-500/30",
   },
@@ -72,7 +72,7 @@ export const _skillPipeline = [
       "ESPECIFICACION.md — Requisitos con IDs",
       "CASOS-DE-PRUEBA.md — Cobertura completa",
     ],
-    color: "text-amber-600 dark:text-amber-400",
+    color: "text-amber-700 dark:text-amber-400",
     bgColor: "bg-amber-500/10",
     borderColor: "border-amber-500/30",
   },
@@ -321,8 +321,8 @@ export function CaseStudyPage() {
             const skills = t('case_study.skills.items', { returnObjects: true }) as any[];
             const meta = [
               { color: "text-violet-600 dark:text-violet-400", bgColor: "bg-violet-500/10", borderColor: "border-violet-500/30" },
-              { color: "text-teal-600 dark:text-teal-400", bgColor: "bg-teal-500/10", borderColor: "border-teal-500/30" },
-              { color: "text-amber-600 dark:text-amber-400", bgColor: "bg-amber-500/10", borderColor: "border-amber-500/30" },
+              { color: "text-teal-700 dark:text-teal-400", bgColor: "bg-teal-500/10", borderColor: "border-teal-500/30" },
+              { color: "text-amber-700 dark:text-amber-400", bgColor: "bg-amber-500/10", borderColor: "border-amber-500/30" },
             ];
             return skills.map((skill, i) => (
               <m.div key={skill.name} variants={fadeIn}>
@@ -334,7 +334,7 @@ export function CaseStudyPage() {
                       </span>
                       <code className={`font-mono font-bold text-lg ${meta[i].color}`}>/{skill.name}</code>
                     </div>
-                    <div className="grid md:grid-cols-[1fr_auto_1fr] gap-4 items-start">
+                    <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 items-start">
                       <div>
                         <p className="text-xs uppercase font-semibold text-muted-foreground mb-2 tracking-wider">{t('case_study.skills.inputLabel')}</p>
                         <p className="text-sm text-foreground">{skill.input}</p>
@@ -369,11 +369,11 @@ export function CaseStudyPage() {
           {t('case_study.synthetic.desc')}
         </m.p>
 
-        <m.div variants={fadeIn} className="grid md:grid-cols-2 gap-8 items-start">
+        <m.div variants={fadeIn} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* YAML Example */}
           <Card className="border-teal-500/30">
             <CardContent className="p-6">
-              <p className="text-xs uppercase font-semibold text-teal-600 dark:text-teal-400 mb-4 tracking-wider">{t('case_study.synthetic.exampleLabel')}</p>
+              <p className="text-xs uppercase font-semibold text-teal-700 dark:text-teal-400 mb-4 tracking-wider">{t('case_study.synthetic.exampleLabel')}</p>
               <pre tabIndex={0} className="text-sm font-mono leading-relaxed overflow-x-auto text-foreground">
 {`synthetic_user:
   id: ops-coordinador
@@ -487,7 +487,7 @@ export function CaseStudyPage() {
                 <p className="text-sm font-semibold text-muted-foreground mb-3">{main.label}</p>
                 <img src={main.src} alt={main.label} loading="lazy" className="w-full rounded-lg border" />
               </m.div>
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {rest.map((shot) => (
                   <m.div key={shot.src} variants={fadeIn}>
                     <p className="text-sm font-semibold text-muted-foreground mb-3">{shot.label}</p>
@@ -551,7 +551,7 @@ export function CaseStudyPage() {
         <p className="text-muted-foreground mb-6">{t('case_study.cta.text')}</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="mailto:juanseruani@gmail.com" className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-auto")}>{t('case_study.cta.contact')}</a>
-          <a href="/#proyectos" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "w-full sm:w-auto")}>{t('case_study.cta.more')}</a>
+          <Link to="/#proyectos" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "w-full sm:w-auto")}>{t('case_study.cta.more')}</Link>
         </div>
       </m.section>
     </div>

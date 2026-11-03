@@ -21,7 +21,7 @@
     --secondary-foreground: oklch(0.21 0.006 285.885);
 
     --muted: oklch(0.97 0.001 106.424);
-    --muted-foreground: oklch(0.553 0.013 58.071);
+    --muted-foreground: oklch(0.5 0.013 58.071);
 
     --accent: oklch(0.97 0.001 106.424);
     --accent-foreground: oklch(0.216 0.006 56.043);
@@ -31,7 +31,8 @@
 
     --border: oklch(0.923 0.003 48.717);
     --input: oklch(0.923 0.003 48.717);
-    --ring: oklch(0.709 0.01 56.259);
+    /* Focus ring uses the brand color: it needs 3:1 against the page */
+    --ring: oklch(0.457 0.24 277.023);
 
     --radius: 0.625rem;
 
@@ -75,7 +76,7 @@
     --popover: oklch(0.216 0.006 56.043);
     --popover-foreground: oklch(0.985 0.001 106.423);
 
-    --primary: oklch(0.585 0.233 277.117);
+    --primary: oklch(0.673 0.182 276.935);
     --primary-foreground: oklch(0.147 0.004 49.25);
 
     --secondary: oklch(0.274 0.006 286.033);
@@ -92,7 +93,7 @@
 
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.553 0.013 58.071);
+    --ring: oklch(0.673 0.182 276.935);
 
     --chart-1: oklch(0.785 0.115 274.713);
     --chart-2: oklch(0.585 0.233 277.117);
@@ -131,6 +132,10 @@
   *:focus-visible {
     outline: 2px solid var(--ring);
     outline-offset: 2px;
+  }
+  /* Page and section headings get focus on navigation so screen readers announce them; they aren't controls */
+  :is(h1, h2)[tabindex="-1"]:focus {
+    outline: none;
   }
 
   body {

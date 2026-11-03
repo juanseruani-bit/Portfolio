@@ -306,7 +306,7 @@ export function ProductCaseStudyPage({ caseKey }: { caseKey: ProductCaseKey }) {
         <p className="text-muted-foreground mb-6">{t('product_cases.common.cta_text')}</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="mailto:juanseruani@gmail.com" className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-auto")}>{t('product_cases.common.cta_contact')}</a>
-          <a href="/#proyectos" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "w-full sm:w-auto")}>{t('product_cases.common.cta_more')}</a>
+          <Link to="/#proyectos" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "w-full sm:w-auto")}>{t('product_cases.common.cta_more')}</Link>
         </div>
       </m.section>
     </div>
