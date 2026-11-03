@@ -7,7 +7,9 @@
       "title_highlight_b": "AI.",
       "subtitle": "5+ years designing B2B and HealthTech products at HMM, Avature and DinoCloud, with a Business Administration background to align users and business.",
       "proof": "In production: a route optimizer with +32% medical visits and 4–5 h of daily scheduling saved.",
-      "contact_button": "Get in touch"
+      "contact_button": "Get in touch",
+      "photo_alt": "Photo of Juan Sebastián Ruani",
+      "location": "Product Designer · Córdoba, Argentina"
     },
     "projects": {
       "title": "Featured Projects",
@@ -79,6 +81,13 @@
         "degree2": "UX/UI Design Diploma",
         "school2": "Acámica (2019)"
       }
+    },
+    "contact": {
+      "title": "Let’s talk",
+      "desc": "To talk about a project, a product team or any of these case studies, email is the best channel.",
+      "email_button": "Send an email",
+      "copy_button": "Copy email",
+      "copied": "Copied!"
     }
   },
   "layout": {
@@ -87,7 +96,8 @@
       "linkedin": "LinkedIn"
     },
     "footer": {
-      "credit": "Designed and developed by Juan Sebastián Ruani."
+      "credit": "Designed and developed by Juan Sebastián Ruani.",
+      "contact_label": "Contact"
     }
   },
   "case_study": {

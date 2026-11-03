@@ -3,6 +3,7 @@ import { Button, buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { GlowOrb, GridPattern } from "@/components/decorative-elements"
+import { ContactSection } from "@/components/contact-section"
 import { cn } from "@/lib/utils"
 import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
@@ -72,6 +73,25 @@ export function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
+
+            <motion.div
+              className="flex items-center gap-4 mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.6 }}
+            >
+              <img
+                src="/images/juan-ruani.webp"
+                alt={t('home.hero.photo_alt')}
+                width={64}
+                height={64}
+                className="h-14 w-14 md:h-16 md:w-16 rounded-full object-cover ring-2 ring-background shadow-md"
+              />
+              <div className="leading-tight">
+                <p className="font-semibold text-base md:text-lg">Juan Sebastián Ruani</p>
+                <p className="text-sm text-muted-foreground">{t('home.hero.location')}</p>
+              </div>
+            </motion.div>
 
             {/* Hero headline with gradient text */}
             <motion.h1
@@ -268,6 +288,11 @@ export function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* ═══════════════ CONTACT ═══════════════ */}
+      <div className="mt-16 md:mt-24">
+        <ContactSection />
+      </div>
 
       {/* Bottom spacer */}
       <div className="h-16" />

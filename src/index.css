@@ -135,12 +135,13 @@
 
   body {
     @apply bg-background text-foreground;
-    overflow-x: hidden;
+    /* clip, not hidden: hidden still lets focus/scrollIntoView shift the page sideways past the glow orbs */
+    overflow-x: clip;
   }
   html {
     font-family: 'Nunito Sans Variable', system-ui, sans-serif;
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 }
 

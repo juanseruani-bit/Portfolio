@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet"
 import { useState } from "react"
 import { buttonVariants } from "./ui/button"
+import { CONTACT_EMAIL, LINKEDIN_URL } from "./contact-section"
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { t } = useTranslation()
@@ -103,6 +104,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
             {t('layout.footer.credit')}
           </p>
+          <nav aria-label={t('layout.footer.contact_label')} className="flex items-center gap-5 text-sm">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-muted-foreground hover:text-primary transition-colors">
+              {CONTACT_EMAIL}
+            </a>
+            <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
+              LinkedIn
+              <ExternalLink className="w-3 h-3" aria-hidden="true" />
+            </a>
+          </nav>
         </div>
       </footer>
     </div>

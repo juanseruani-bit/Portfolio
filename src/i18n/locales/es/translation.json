@@ -7,7 +7,9 @@
       "title_highlight_b": "IA.",
       "subtitle": "Más de 5 años diseñando productos B2B y HealthTech en HMM, Avature y DinoCloud, con formación en Administración de Empresas para alinear usuarios y negocio.",
       "proof": "En producción: un optimizador de rutas con +32% de visitas médicas y 4–5 h diarias de agenda ahorradas.",
-      "contact_button": "Contactar"
+      "contact_button": "Contactar",
+      "photo_alt": "Foto de Juan Sebastián Ruani",
+      "location": "Product Designer · Córdoba, Argentina"
     },
     "projects": {
       "title": "Proyectos Destacados",
@@ -79,6 +81,13 @@
         "degree2": "Diplomatura en UX/UI Design",
         "school2": "Acámica (2019)"
       }
+    },
+    "contact": {
+      "title": "¿Conversamos?",
+      "desc": "Para hablar de un proyecto, un equipo de producto o cualquiera de estos casos, el mejor canal es el email.",
+      "email_button": "Escribir un email",
+      "copy_button": "Copiar email",
+      "copied": "¡Copiado!"
     }
   },
   "layout": {
@@ -87,7 +96,8 @@
       "linkedin": "LinkedIn"
     },
     "footer": {
-      "credit": "Diseñado y desarrollado por Juan Sebastián Ruani."
+      "credit": "Diseñado y desarrollado por Juan Sebastián Ruani.",
+      "contact_label": "Contacto"
     }
   },
   "case_study": {
