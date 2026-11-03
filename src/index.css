@@ -60,6 +60,9 @@
     --glow-primary: oklch(0.457 0.24 277.023 / 15%);
     --glow-violet: oklch(0.585 0.233 295 / 12%);
     --glow-teal: oklch(0.65 0.17 180 / 12%);
+
+    /* Tinted band behind card sections, so white cards stand out */
+    --surface: oklch(0.972 0.008 285);
   }
 
   .dark {
@@ -116,6 +119,8 @@
     --glow-primary: oklch(0.585 0.233 277.117 / 20%);
     --glow-violet: oklch(0.65 0.25 295 / 18%);
     --glow-teal: oklch(0.7 0.18 180 / 18%);
+
+    --surface: oklch(0.18 0.008 285);
   }
 
   * {

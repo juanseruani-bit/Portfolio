@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { GradientDivider, GlowOrb, GridPattern } from "@/components/decorative-elements"
+import { GlowOrb, GridPattern } from "@/components/decorative-elements"
 import { cn } from "@/lib/utils"
 import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
@@ -122,11 +122,9 @@ export function Home() {
         </div>
       </section>
 
-      <GradientDivider />
-
       {/* ═══════════════ PROJECTS ═══════════════ */}
-      <GridPattern>
-        <section id="proyectos" className="container mx-auto px-4 md:px-8 py-4 scroll-mt-20">
+      <GridPattern className="bg-[var(--surface)] border-y border-border/60 mb-16 md:mb-24">
+        <section id="proyectos" className="container mx-auto px-4 md:px-8 py-16 md:py-20 scroll-mt-16">
           <div className="mb-12">
             <motion.h2
               className="text-2xl md:text-3xl font-bold tracking-tight mb-2"
@@ -202,8 +200,6 @@ export function Home() {
           </motion.div>
         </section>
       </GridPattern>
-
-      <GradientDivider />
 
       {/* ═══════════════ ABOUT ═══════════════ */}
       <section className="container mx-auto px-4 md:px-8 py-4 relative">

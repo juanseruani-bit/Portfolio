@@ -76,15 +76,18 @@ export function GridPattern({
   children?: React.ReactNode
 }) {
   return (
-    <div className={cn("relative", className)}>
+    // isolate + -z-10 keeps the grid under the content: an absolute layer otherwise paints over static siblings
+    <div className={cn("relative isolate", className)}>
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.05] dark:opacity-[0.06]"
         style={{
           backgroundImage: `
             linear-gradient(var(--foreground) 1px, transparent 1px),
             linear-gradient(90deg, var(--foreground) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
+          maskImage: "radial-gradient(ellipse 80% 70% at 50% 0%, black, transparent)",
+          WebkitMaskImage: "radial-gradient(ellipse 80% 70% at 50% 0%, black, transparent)",
         }}
         aria-hidden="true"
       />
