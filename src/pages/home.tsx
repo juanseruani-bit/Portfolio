@@ -5,17 +5,18 @@ import { Badge } from "@/components/ui/badge"
 import { GradientDivider, GlowOrb, GridPattern } from "@/components/decorative-elements"
 import { cn } from "@/lib/utils"
 import { Link } from "react-router-dom"
-import { ArrowRight, FileText } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
 type ProjectCover =
   | { kind: "image" }
   | { kind: "screenshot"; src: string; position: string; zoom?: number; gradient: string }
 
-const projects: { key: string; to: string; year: string; badgeClass: string; tags: string[]; cover: ProjectCover }[] = [
+const projects: { key: string; to: string; year: string; badgeClass: string; tags: string[]; cover: ProjectCover; featured?: boolean }[] = [
   {
     key: "discovery_hub",
     to: "/proyectos/discovery-hub",
+    featured: true,
     year: "2025",
     badgeClass: "bg-[var(--accent-violet)]",
     tags: ["React", "Claude Code", "UX Engineering"],
@@ -36,14 +37,6 @@ const projects: { key: string; to: string; year: string; badgeClass: string; tag
     badgeClass: "bg-teal-600",
     tags: ["Automation", "Operations", "Data Viz"],
     cover: { kind: "screenshot", src: "/images/cases/routes-agenda.webp", position: "0% 62%", zoom: 1.8, gradient: "from-teal-500/25 via-sky-500/15 to-transparent" },
-  },
-  {
-    key: "b2b_app",
-    to: "/proyectos/b2b-app-buyers",
-    year: "2020",
-    badgeClass: "bg-green-600",
-    tags: ["UX/UI Design", "User Research", "Mobile"],
-    cover: { kind: "image" },
   },
 ]
 
@@ -116,15 +109,6 @@ export function Home() {
                   {t('home.hero.contact_button')}
                   <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 </a>
-              <a
-                href="/Juan_Sebastian_Ruani_CV.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className={cn(buttonVariants({ size: "lg", variant: "outline" }), "w-full sm:w-auto gap-2")}
-              >
-                <FileText className="h-4 w-4" aria-hidden="true" />
-                {t('home.hero.cv_button')}
-              </a>
             </motion.div>
           </motion.div>
         </div>
@@ -163,10 +147,10 @@ export function Home() {
             viewport={{ once: true, margin: "-100px" }}
           >
             {projects.map((project) => (
-              <motion.div key={project.key} variants={item}>
+              <motion.div key={project.key} variants={item} className={cn(project.featured && "md:col-span-2")}>
                 <Link to={project.to} className="block h-full">
-                  <Card className="h-full flex flex-col glow-card group cursor-pointer border-border/50 hover:border-primary/40 transition-all duration-400">
-                    <div className="h-64 bg-muted rounded-t-xl flex items-center justify-center border-b relative overflow-hidden">
+                  <Card className={cn("h-full flex flex-col glow-card group cursor-pointer border-border/50 hover:border-primary/40 transition-all duration-400", project.featured && "md:flex-row")}>
+                    <div className={cn("h-64 bg-muted rounded-t-xl flex items-center justify-center border-b relative overflow-hidden", project.featured && "md:h-auto md:min-h-80 md:w-1/2 md:shrink-0 md:rounded-tr-none md:rounded-l-xl md:border-b-0 md:border-r")}>
                       {project.cover.kind === "image" ? (
                         <img
                           src={t(`home.projects.${project.key}.image`)}
@@ -187,6 +171,7 @@ export function Home() {
                         </div>
                       )}
                     </div>
+                    <div className={cn("flex flex-col flex-1", project.featured && "md:justify-center")}>
                     <CardHeader>
                       <div className="flex justify-between items-start mb-2">
                         <Badge className={cn("text-white border-0", project.badgeClass)}>{t(`home.projects.${project.key}.badge`)}</Badge>
@@ -208,6 +193,7 @@ export function Home() {
                         <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                       </Button>
                     </CardFooter>
+                    </div>
                   </Card>
                 </Link>
               </motion.div>

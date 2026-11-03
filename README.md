@@ -18,7 +18,7 @@ npm install
 npm run dev      # local dev server
 npm run build    # type-check and production build
 npm run lint     # oxlint
-npm run cv       # regenerate public/Juan_Sebastian_Ruani_CV.pdf from generate-pdf.js
+npm run cv       # generate the CV PDF locally (git-ignored, not published with the site)
 ```
 
 ## Structure
@@ -26,4 +26,4 @@ npm run cv       # regenerate public/Juan_Sebastian_Ruani_CV.pdf from generate-p
 - `src/pages/` — home and case study pages (product cases are driven by i18n content via `product-case-study.tsx`)
 - `src/i18n/locales/{en,es}/translation.json` — all site copy
 - `public/images/` — case study images
-- `generate-pdf.js` — source of the CV PDF
+- `generate-pdf.js` — source of the CV PDF, which is shared with recruiters directly

@@ -35,14 +35,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
               {t('layout.nav.projects')}
             </a>
             <a
-              href="/Juan_Sebastian_Ruani_CV.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="text-sm font-medium transition-colors hover:text-primary"
-            >
-              {t('layout.nav.cv')}
-            </a>
-            <a
               href="https://www.linkedin.com/in/jsruani"
               target="_blank"
               rel="noreferrer"
@@ -74,15 +66,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     className="text-lg font-medium transition-colors hover:text-primary border-b border-border/50 pb-4"
                   >
                     {t('layout.nav.projects')}
-                  </a>
-                  <a
-                    href="/Juan_Sebastian_Ruani_CV.pdf"
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium transition-colors hover:text-primary border-b border-border/50 pb-4"
-                  >
-                    {t('layout.nav.cv')}
                   </a>
                   <a
                     href="https://www.linkedin.com/in/jsruani"

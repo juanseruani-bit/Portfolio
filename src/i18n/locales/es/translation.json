@@ -6,8 +6,7 @@
       "title_and": "y",
       "title_strategy": "estrategia de negocio.",
       "subtitle": "Con formación en Administración de Empresas y más de 5 años de experiencia diseñando productos digitales en HMM, Avature y DinoCloud.",
-      "contact_button": "Contactar",
-      "cv_button": "Descargar CV"
+      "contact_button": "Contactar"
     },
     "projects": {
       "title": "Proyectos Destacados",
@@ -30,13 +29,6 @@
         "badge": "Producto / Automatización",
         "description": "Un optimizador de agendas para visitas médicas a domicilio donde el sistema arma la semana y el coordinador decide.",
         "button": "Ver Caso de Estudio"
-      },
-      "b2b_app": {
-        "title": "B2B App for Buyers",
-        "badge": "B2B / App",
-        "description": "Digitalización y optimización del proceso de compra de inventario para supermercados, eliminando el uso del papel.",
-        "button": "Ver Caso de Estudio",
-        "image": "/images/b2b-cover-clean.png"
       }
     },
     "about": {
@@ -89,8 +81,7 @@
   "layout": {
     "nav": {
       "projects": "Proyectos",
-      "linkedin": "LinkedIn",
-      "cv": "CV"
+      "linkedin": "LinkedIn"
     },
     "footer": {
       "credit": "Diseñado y desarrollado por Juan Sebastián Ruani."
@@ -364,199 +355,6 @@
       "text": "¿Te interesa saber más sobre este proyecto?",
       "contact": "Conversemos",
       "more": "Ver más proyectos"
-    }
-  },
-  "b2b": {
-    "back": "Volver",
-    "hero": {
-      "badges": [
-        "B2B App",
-        "UX/UI Design",
-        "Mobile"
-      ],
-      "title": "B2B App for Buyers",
-      "subtitle": "Digitalización y optimización del proceso de compra de inventario para supermercados, eliminando el uso del papel y mejorando la comunicación con proveedores.",
-      "role_label": "Rol:",
-      "role_val": "Product Designer (UX/UI)",
-      "platform_label": "Plataforma:",
-      "platform_val": "iOS & Android App",
-      "duration_label": "Duración:",
-      "duration_val": "2020",
-      "image": "/images/b2b-cover-clean.png"
-    },
-    "about": {
-      "title": "Sobre el Proyecto",
-      "desc": "Un supermercado con fuerte presencia en España necesitaba modernizar la forma en que sus compradores reponen el stock de las diferentes tiendas. Actualmente, todos los procesos se realizan en papel (toma de notas, presupuestos, remitos) y luego la información debe transcribirse a una PC de escritorio."
-    },
-    "problem": {
-      "title": "El Problema",
-      "desc": "El proceso actual en Mercabarna era extremadamente ineficiente y propenso a errores humanos:",
-      "items": [
-        "Pérdida de información al perder papeles con notas de precios y presupuestos.",
-        "Tiempo desperdiciado caminando por todo el predio para buscar proveedores o información.",
-        "Errores al transcribir la información del papel al sistema al final del día.",
-        "Falta de herramientas para documentar el estado de los productos (ej. pallets rotos) en tiempo real."
-      ]
-    },
-    "research": {
-      "title": "Research & Descubrimiento",
-      "desc": "Realizamos entrevistas con los compradores actuales para entender su flujo de trabajo, frustraciones y necesidades tecnológicas. Esto nos permitió crear dos user personas clave y mapear su journey actual."
-    },
-    "personasTitle": "User Personas",
-    "personas": [
-      {
-        "name": "Juan Carlos",
-        "image": "/images/b2b-case-study/juan-carlos.png",
-        "ageLabel": "Edad:",
-        "ageVal": "41",
-        "locLabel": "Ubicación:",
-        "locVal": "Barcelona, Catalunya, Spain",
-        "roleVal": "Comprador de supermercado",
-        "quote": "Realmente disfruto mi trabajo, negociar y hablar con la gente es lo mejor!",
-        "bio": "Juan Carlos es Contador, ha estado trabajando como comprador por 8 años. Realmente disfruta su trabajo y lo hace siempre con una sonrisa. Después del trabajo, vuelve a casa para pasar tiempo con su familia.",
-        "needsTitle": "Necesidades",
-        "needs": [
-          "No perder contacto con sus proveedores.",
-          "Mantenerse en su puesto hasta su retiro."
-        ],
-        "frustrationsTitle": "Frustraciones",
-        "frustrations": [
-          "No pasar mucho tiempo con su familia debido al trabajo.",
-          "Largas caminatas por Mercabarna para hacer su trabajo."
-        ],
-        "techLabel": "Uso de Tecnología"
-      },
-      {
-        "name": "Martin Cuevas",
-        "image": "/images/b2b-case-study/martin-cuevas.png",
-        "ageLabel": "Edad:",
-        "ageVal": "25",
-        "locLabel": "Ubicación:",
-        "locVal": "Madrid, Alcobendas, Spain",
-        "roleVal": "Comprador de supermercado",
-        "quote": "Cada día es un nuevo desafío, daré lo mejor para crecer en mi carrera",
-        "bio": "Martin tiene una licenciatura en Administración de Empresas. Trabaja como comprador para un supermercado con gran presencia en España. Después del trabajo le gusta relajarse y salir con sus amigos.",
-        "needsTitle": "Necesidades",
-        "needs": [
-          "Ser eficiente en su trabajo.",
-          "Aplicar tecnología que le ayude en su trabajo."
-        ],
-        "frustrationsTitle": "Frustraciones",
-        "frustrations": [
-          "Siente que pierde el tiempo con la forma en que trabaja.",
-          "Fácilmente pierde los papeles donde hace anotaciones."
-        ],
-        "techLabel": "Uso de Tecnología"
-      }
-    ],
-    "define": {
-      "title": "Define",
-      "user_need": "Necesidad del usuario:",
-      "needs": [
-        "Crear un entorno para comunicarse con proveedores sin perder información en el medio.",
-        "Un método para integrar fácilmente el pedido en el flujo de trabajo actual.",
-        "Acceso más fácil a interacciones antiguas para realizar nuevas compras.",
-        "Digitalizar el proceso... más sincronizado con el sistema para comprobar el stock (++)."
-      ]
-    },
-    "journey": {
-      "title": "User Journey",
-      "stages_col": "Etapas",
-      "touchpoints_col": "Puntos de contacto",
-      "emotion_col": "Emoción",
-      "map": [
-        {
-          "stage": "Descubrimiento",
-          "color": "bg-sky-400",
-          "touchpoints": [
-            "Verificar stock de productos",
-            "Hacer una lista",
-            "Planificar compras"
-          ],
-          "emotion": "😉"
-        },
-        {
-          "stage": "Negociación",
-          "color": "bg-sky-400",
-          "touchpoints": [
-            "Visitar vendedores",
-            "Negociar precios",
-            "Tomar notas en papel",
-            "Ver productos disponibles",
-            "Comparar todas las ofertas",
-            "Establecer relación con vendedor"
-          ],
-          "emotion": "😃"
-        },
-        {
-          "stage": "Compra",
-          "color": "bg-sky-400",
-          "touchpoints": [
-            "Volver con los vendedores",
-            "Tomar la decisión correcta",
-            "Escribir info de compra en papel",
-            "Elegir la mejor oferta"
-          ],
-          "emotion": "😊"
-        },
-        {
-          "stage": "Revisar pedido",
-          "color": "bg-sky-400",
-          "touchpoints": [
-            "Comprobar precio y cantidad",
-            "Contactar vendedor si algo falla",
-            "El encargado de almacén tiene que esperar a que llegue el pedido sin info (Punto negativo)",
-            "Comprobar la calidad del producto"
-          ],
-          "emotion": "😲"
-        },
-        {
-          "stage": "Transferir datos",
-          "color": "bg-sky-400",
-          "touchpoints": [
-            "Reescribir información del papel al PC",
-            "Reunir los papeles necesarios",
-            "Actualizar stock",
-            "Comprobar la correcta introducción"
-          ],
-          "emotion": "😖"
-        }
-      ]
-    },
-    "userflow": {
-      "title": "Userflow",
-      "desc": "El diagrama muestra la complejidad del proceso de compra desde la verificación del stock hasta el envío de la factura a administración.",
-      "decision_title": "Puntos de decisión clave:",
-      "decisions": [
-        {
-          "text": "<strong class=\"text-foreground\">¿Es correcta la información del pedido?</strong> Si no lo es, el flujo requiere editar el pedido cambiando cantidades o borrando productos antes de enviarlo al proveedor."
-        },
-        {
-          "text": "<strong class=\"text-foreground\">¿Está bien el pedido al llegar?</strong> Si hay problemas, el flujo requiere reportar el problema emitiendo un formulario antes de iniciar otro pedido."
-        }
-      ]
-    },
-    "visual_design": {
-      "title": "Diseño Visual",
-      "s1_title": "Mis Proveedores",
-      "s1_desc": "Aquí proporcionamos una lista de todos los proveedores del supermercado, con información importante como el número de teléfono y el número de local donde se encuentran.",
-      "s2_title": "Panel de Control",
-      "s2_desc": "Una vez que seleccionamos un proveedor, la siguiente pantalla nos muestra un panel de control, donde podemos manejar diferente información sobre ese proveedor.",
-      "s3_title": "Negociar",
-      "s3_desc": "Catálogo de artículos donde podemos encontrar cada producto que compra el supermercado y su stock actual en el almacén. Luego podemos ingresar el precio acordado y la cantidad mientras negociamos.",
-      "s3_extra": "Además, existe la posibilidad de editar el pedido después de comparar todas las ofertas. La lista de pedidos es única para cada proveedor.",
-      "s4_title": "Gestión de reclamos",
-      "s4_desc": "Cuando algo sale mal con el pedido, proporcionamos un formulario rápido que se envía al proveedor. También guardamos una copia que se almacena en el Panel de Control del Proveedor para recopilar información sobre ese tipo de problemas.",
-      "s5_title": "Almacén",
-      "s5_desc": "En esta pantalla proporcionamos información de stock sobre todos los productos en la lista. Con ayudas visuales que avisan cuando algún producto tiene poco stock, por ejemplo.",
-      "s6_title": "Chats",
-      "s6_desc": "Chat integrado para un fácil contacto con los proveedores que están utilizando la aplicación si necesitan resolver algún problema o negociar algunos precios."
-    },
-    "cta": {
-      "title": "¡Gracias!",
-      "subtitle": "¿Te interesa saber más sobre este proyecto?",
-      "contact": "Conversemos",
-      "back": "Volver al Portfolio"
     }
   },
   "product_cases": {

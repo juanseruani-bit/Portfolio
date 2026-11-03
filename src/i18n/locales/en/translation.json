@@ -6,8 +6,7 @@
       "title_and": "and",
       "title_strategy": "business strategy.",
       "subtitle": "With a background in Business Administration and over 5 years of experience designing digital products at HMM, Avature, and DinoCloud.",
-      "contact_button": "Get in touch",
-      "cv_button": "Download CV"
+      "contact_button": "Get in touch"
     },
     "projects": {
       "title": "Featured Projects",
@@ -30,13 +29,6 @@
         "badge": "Product / Automation",
         "description": "A scheduling optimizer for home medical visits where the system plans the week and the coordinator decides.",
         "button": "View Case Study"
-      },
-      "b2b_app": {
-        "title": "B2B App for Buyers",
-        "badge": "B2B / App",
-        "description": "Digitalization and optimization of the inventory purchasing process for supermarkets, eliminating paper usage.",
-        "button": "View Case Study",
-        "image": "/images/b2b-cover-clean.png"
       }
     },
     "about": {
@@ -89,8 +81,7 @@
   "layout": {
     "nav": {
       "projects": "Projects",
-      "linkedin": "LinkedIn",
-      "cv": "CV"
+      "linkedin": "LinkedIn"
     },
     "footer": {
       "credit": "Designed and developed by Juan Sebastián Ruani."
@@ -364,199 +355,6 @@
       "text": "Interested in knowing more about this project?",
       "contact": "Lets talk",
       "more": "View more projects"
-    }
-  },
-  "b2b": {
-    "back": "Back",
-    "hero": {
-      "badges": [
-        "B2B App",
-        "UX/UI Design",
-        "Mobile"
-      ],
-      "title": "B2B App for Buyers",
-      "subtitle": "Digitization and optimization of the inventory purchasing process for supermarkets, eliminating paper use and improving communication with suppliers.",
-      "role_label": "Role:",
-      "role_val": "Product Designer (UX/UI)",
-      "platform_label": "Platform:",
-      "platform_val": "iOS & Android App",
-      "duration_label": "Duration:",
-      "duration_val": "2020",
-      "image": "/images/b2b-cover-clean.png"
-    },
-    "about": {
-      "title": "About the Project",
-      "desc": "A supermarket with a strong presence in Spain needed to modernize how its buyers replenish stock for different stores. Currently, all processes are done on paper (note-taking, quotes, delivery notes) and then the information must be transcribed to a desktop PC."
-    },
-    "problem": {
-      "title": "The Problem",
-      "desc": "The current process at Mercabarna was extremely inefficient and prone to human errors:",
-      "items": [
-        "Information loss due to losing papers with price notes and quotes.",
-        "Wasted time walking around the whole premises to find suppliers or information.",
-        "Errors when transcribing information from paper to the system at the end of the day.",
-        "Lack of tools to document product status (e.g., broken pallets) in real time."
-      ]
-    },
-    "research": {
-      "title": "Research & Discovery",
-      "desc": "We conducted interviews with current buyers to understand their workflow, frustrations, and technological needs. This allowed us to create two key user personas and map their current journey."
-    },
-    "personasTitle": "User Personas",
-    "personas": [
-      {
-        "name": "Juan Carlos",
-        "image": "/images/b2b-case-study/juan-carlos.png",
-        "ageLabel": "Age:",
-        "ageVal": "41",
-        "locLabel": "Location:",
-        "locVal": "Barcelona, Catalunya, Spain",
-        "roleVal": "Supermarket buyer",
-        "quote": "I really enjoy my job, negotiate and talk with people is the best!",
-        "bio": "Juan Carlos is an Accountant, he has been working as buyer for 8 years. He really enjoys his job and does it always with a smile. After work he comes home to spend time with his family.",
-        "needsTitle": "Needs",
-        "needs": [
-          "Don't lose contact with his suppliers.",
-          "Stay on his position until his retirement."
-        ],
-        "frustrationsTitle": "Frustrations",
-        "frustrations": [
-          "Don't spend too many time with his family because of work.",
-          "Long walks over Mercabarna to do his job."
-        ],
-        "techLabel": "Tech Usage"
-      },
-      {
-        "name": "Martin Cuevas",
-        "image": "/images/b2b-case-study/martin-cuevas.png",
-        "ageLabel": "Age:",
-        "ageVal": "25",
-        "locLabel": "Location:",
-        "locVal": "Madrid, Alcobendas, Spain",
-        "roleVal": "Supermarket buyer",
-        "quote": "Everyday is a new challenge, I'll do my best to grow on my career",
-        "bio": "Martin has a Degree on Business Administration. He works as buyer for a supermarket with a strong presence throughout Spain. After work he likes relaxing and going out with his friends.",
-        "needsTitle": "Needs",
-        "needs": [
-          "Being efficient on his job.",
-          "Apply technology that would help him on his job."
-        ],
-        "frustrationsTitle": "Frustrations",
-        "frustrations": [
-          "He feels that He wastes time the way he works.",
-          "He easily loses the papers where He makes notations."
-        ],
-        "techLabel": "Tech Usage"
-      }
-    ],
-    "define": {
-      "title": "Define",
-      "user_need": "User need:",
-      "needs": [
-        "Create an environment to communicate with suppliers without losing any information in the middle.",
-        "A method to easily integrate order in the actual workflow.",
-        "Easier access to old interactions to make new purchases.",
-        "Digitalize the process... more synced with system for checking the stock (++)."
-      ]
-    },
-    "journey": {
-      "title": "User Journey",
-      "stages_col": "Stages",
-      "touchpoints_col": "Touchpoints",
-      "emotion_col": "Emotion",
-      "map": [
-        {
-          "stage": "Awareness",
-          "color": "bg-sky-400",
-          "touchpoints": [
-            "Check product Stock",
-            "Make a list",
-            "Plan purchases"
-          ],
-          "emotion": "😉"
-        },
-        {
-          "stage": "Negotiate",
-          "color": "bg-sky-400",
-          "touchpoints": [
-            "Visit vendors",
-            "Negotiate prices",
-            "Take notes on paper",
-            "See available products",
-            "Compare all offers",
-            "Stablish relationship with vendor"
-          ],
-          "emotion": "😃"
-        },
-        {
-          "stage": "Purchase",
-          "color": "bg-sky-400",
-          "touchpoints": [
-            "Come back with vendors",
-            "Take de correct decision",
-            "Write purchase information on paper",
-            "Choose the best offer"
-          ],
-          "emotion": "😊"
-        },
-        {
-          "stage": "Check order",
-          "color": "bg-sky-400",
-          "touchpoints": [
-            "Check agreed price and quantity",
-            "Contact vendor if something wrong",
-            "Warehouse manager has to wait until order comes, without information (Negative point)",
-            "Check product's quality"
-          ],
-          "emotion": "😲"
-        },
-        {
-          "stage": "Transfer data",
-          "color": "bg-sky-400",
-          "touchpoints": [
-            "Rewrite info from paper to PC",
-            "Collect the necessary papers",
-            "Update Stock",
-            "Check for correct input"
-          ],
-          "emotion": "😖"
-        }
-      ]
-    },
-    "userflow": {
-      "title": "Userflow",
-      "desc": "The diagram shows the complexity of the purchasing process from checking the stock to sending the invoice to administration.",
-      "decision_title": "Key decision points:",
-      "decisions": [
-        {
-          "text": "<strong class=\"text-foreground\">Is the order information correct?</strong> If not, the flow requires editing the order by changing quantities or deleting products before sending it to the supplier."
-        },
-        {
-          "text": "<strong class=\"text-foreground\">Is the order okay upon arrival?</strong> If there are problems, the flow requires reporting the issue by issuing a form before starting another order."
-        }
-      ]
-    },
-    "visual_design": {
-      "title": "Visual Design",
-      "s1_title": "My suppliers",
-      "s1_desc": "Here we provide a list of all Supermarket's Suppliers, with important information like phone number and local number where they are located.",
-      "s2_title": "Control Panel",
-      "s2_desc": "Once we select a supplier, the next screen show us a Control Panel, where we can handle different information about that supplier.",
-      "s3_title": "Negotiate",
-      "s3_desc": "Items catalog where we can find every product that the Supermarket buys and his current stock on warehouse. Then we can enter agreed price and quantity while negotiate.",
-      "s3_extra": "Also, there is the possibility to edit the order after compare all offers. The order list is unique for each supplier.",
-      "s4_title": "Claim management",
-      "s4_desc": "When something is wrong with the order we provide a quick form which is sent to supplier, also we keep a copy who is stored on Supplier's Control Panel to gather information about that kind of problems.",
-      "s5_title": "Warehouse",
-      "s5_desc": "On this screen, we provide stock information about all products on the list. With visual aids that advice when some product is low stock for example.",
-      "s6_title": "Chats",
-      "s6_desc": "Integrated chat for easy contact with suppliers who are using the App if they need to resolve any problem or negotiate some prices."
-    },
-    "cta": {
-      "title": "Thank you!",
-      "subtitle": "Interested in knowing more about this project?",
-      "contact": "Let's talk",
-      "back": "Back to Portfolio"
     }
   },
   "product_cases": {

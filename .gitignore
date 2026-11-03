@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# CV is delivered to recruiters directly, never published with the site
+Juan_Sebastian_Ruani_CV.pdf
