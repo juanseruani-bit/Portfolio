@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { useTranslation } from "react-i18next"
+import { useDocumentTitle } from "@/lib/use-document-title"
 
 type ProjectCover = { src: string; position: string; zoom?: number; gradient: string }
 
@@ -43,6 +44,7 @@ const experience = ["hmm", "avature", "dinocloud"] as const
 
 export function Home() {
   const { t } = useTranslation()
+  useDocumentTitle()
 
   const container = {
     hidden: { opacity: 0 },
@@ -67,14 +69,14 @@ export function Home() {
         <GlowOrb color="teal" size="sm" className="bottom-0 right-10" />
 
         <div className="container mx-auto px-4 md:px-8 pt-8 pb-10 md:pt-16 md:pb-16">
-          <motion.div
+          <m.div
             className="max-w-[850px]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
 
-            <motion.div
+            <m.div
               className="flex items-center gap-4 mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -91,10 +93,10 @@ export function Home() {
                 <p className="font-semibold text-base md:text-lg">Juan Sebastián Ruani</p>
                 <p className="text-sm text-muted-foreground">{t('home.hero.location')}</p>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Hero headline with gradient text */}
-            <motion.h1
+            <m.h1
               className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-[1.1]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -103,18 +105,18 @@ export function Home() {
               {t('home.hero.title_prefix')}{" "}
               <span className="gradient-text">{t('home.hero.title_highlight_a')}</span> {t('home.hero.title_join')}{" "}
               <span className="gradient-text">{t('home.hero.title_highlight_b')}</span>
-            </motion.h1>
+            </m.h1>
 
-            <motion.p
+            <m.p
               className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed max-w-[620px]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45, duration: 0.6 }}
             >
               {t('home.hero.subtitle')}
-            </motion.p>
+            </m.p>
 
-            <motion.p
+            <m.p
               className="flex items-start gap-2.5 text-sm md:text-base font-medium mb-10 max-w-[620px]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -122,9 +124,9 @@ export function Home() {
             >
               <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20" aria-hidden="true" />
               {t('home.hero.proof')}
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               className="flex flex-col sm:flex-row gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -137,8 +139,8 @@ export function Home() {
                   {t('home.hero.contact_button')}
                   <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 </a>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         </div>
       </section>
 
@@ -146,15 +148,15 @@ export function Home() {
       <GridPattern className="bg-[var(--surface)] border-y border-border/60 mb-16 md:mb-24">
         <section id="proyectos" className="container mx-auto px-4 md:px-8 py-16 md:py-20 scroll-mt-16">
           <div className="mb-12">
-            <motion.h2
+            <m.h2
               className="text-2xl md:text-3xl font-bold tracking-tight mb-2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
               {t('home.projects.title')}
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               className="text-muted-foreground"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -162,10 +164,10 @@ export function Home() {
               transition={{ delay: 0.1 }}
             >
               {t('home.projects.subtitle')}
-            </motion.p>
+            </m.p>
           </div>
 
-          <motion.div
+          <m.div
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
             variants={container}
             initial="hidden"
@@ -173,7 +175,7 @@ export function Home() {
             viewport={{ once: true, margin: "-100px" }}
           >
             {projects.map((project) => (
-              <motion.div key={project.key} variants={item} className={cn(project.featured && "md:col-span-2")}>
+              <m.div key={project.key} variants={item} className={cn(project.featured && "md:col-span-2")}>
                 <Link to={project.to} className="block h-full">
                   <Card className={cn("h-full flex flex-col glow-card group cursor-pointer border-border/50 hover:border-primary/40 transition-all duration-400", project.featured && "md:flex-row")}>
                     <div className={cn("h-64 bg-muted rounded-t-xl flex items-center justify-center border-b relative overflow-hidden", project.featured && "md:h-auto md:min-h-80 md:w-1/2 md:shrink-0 md:rounded-tr-none md:rounded-l-xl md:border-b-0 md:border-r")}>
@@ -215,9 +217,9 @@ export function Home() {
                     </div>
                   </Card>
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </section>
       </GridPattern>
 
@@ -226,15 +228,15 @@ export function Home() {
         <GlowOrb color="violet" size="md" className="-right-32 top-20" />
 
         <div className="mb-12">
-          <motion.h2
+          <m.h2
             className="text-2xl md:text-3xl font-bold tracking-tight mb-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             {t('home.about.title')}
-          </motion.h2>
-          <motion.p
+          </m.h2>
+          <m.p
             className="text-muted-foreground"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -242,12 +244,12 @@ export function Home() {
             transition={{ delay: 0.1 }}
           >
             {t('home.about.subtitle')}
-          </motion.p>
+          </m.p>
         </div>
 
         <div className="space-y-8 max-w-[800px]">
           {experience.map((job) => (
-            <motion.div
+            <m.div
               key={job}
               variants={item}
               initial="hidden"
@@ -267,11 +269,11 @@ export function Home() {
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </m.div>
           ))}
 
           {/* Educación */}
-          <motion.div variants={item} initial="hidden" whileInView="show" viewport={{ once: true }}>
+          <m.div variants={item} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <div className="p-6 rounded-xl border border-border/50">
               <h3 className="text-xl font-semibold mb-4">{t('home.about.education.title')}</h3>
               <ul className="space-y-4">
@@ -285,7 +287,7 @@ export function Home() {
                 </li>
               </ul>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 

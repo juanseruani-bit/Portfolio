@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
 import { useTranslation } from "react-i18next"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Check, Copy, ExternalLink, Mail } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -39,7 +39,7 @@ export function ContactSection() {
 
   return (
     <section id="contacto" className="container mx-auto px-4 md:px-8 scroll-mt-20">
-      <motion.div
+      <m.div
         className="rounded-2xl border border-border/60 bg-[var(--surface)] px-6 py-12 md:px-12 md:py-16 text-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ export function ContactSection() {
             <ExternalLink className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   )
 }
