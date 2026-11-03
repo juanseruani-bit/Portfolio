@@ -312,7 +312,45 @@
         "The AI navigates the discovery as that persona, respecting their behavior",
         "Applies a standardized 10-principle rubric on every screen",
         "Generates a 3-layer friction report with calibrated severity"
-      ]
+      ],
+      "report": {
+        "label": "Excerpt from a real report (anonymized)",
+        "mission": "Persona ops-coordinator · Mission: alerts inbox triage",
+        "verdictTitle": "3-layer verdict",
+        "verdict": [
+          {
+            "layer": "Task",
+            "value": "Completed with friction"
+          },
+          {
+            "layer": "Rubric",
+            "value": "Good state coverage; status gets lost after acting"
+          },
+          {
+            "layer": "Persona focus",
+            "value": "Prioritizes fast, but unsure whether the alert is still escalated"
+          }
+        ],
+        "findingsTitle": "Key findings",
+        "findings": [
+          {
+            "severity": "Medium",
+            "text": "After taking ownership, the \"Escalated\" tag disappears from the row: it is unclear whether the escalation is still active.",
+            "principle": "1. Visibility of status"
+          },
+          {
+            "severity": "Medium",
+            "text": "The row moves after the action and gets lost while scanning the list.",
+            "principle": "7. Consistency"
+          },
+          {
+            "severity": "Medium",
+            "text": "The tab still reads \"Open (9)\" while the filter shows 2 alerts.",
+            "principle": "1. Visibility of status"
+          }
+        ],
+        "note": "The report separates UX friction from prototype limitations, such as actions without test IDs or mock data."
+      }
     },
     "mockups": {
       "title": "Prototyped Interfaces",

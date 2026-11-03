@@ -312,7 +312,45 @@
         "La IA recorre la discovery como esa persona, respetando su comportamiento",
         "Aplica una rúbrica estandarizada de 10 principios en cada pantalla",
         "Genera un reporte de fricción en 3 capas con severidad calibrada"
-      ]
+      ],
+      "report": {
+        "label": "Extracto de un reporte real (anonimizado)",
+        "mission": "Persona ops-coordinador · Misión: triage de la bandeja de alertas",
+        "verdictTitle": "Veredicto en 3 capas",
+        "verdict": [
+          {
+            "layer": "Tarea",
+            "value": "Completada con fricción"
+          },
+          {
+            "layer": "Rúbrica",
+            "value": "Buena cobertura de estados; el estado se pierde después de actuar"
+          },
+          {
+            "layer": "Foco de la persona",
+            "value": "Prioriza rápido, pero duda si la alerta sigue escalada"
+          }
+        ],
+        "findingsTitle": "Hallazgos principales",
+        "findings": [
+          {
+            "severity": "Media",
+            "text": "Al tomar el seguimiento, la marca \"Escalada\" desaparece de la fila: no queda claro si la escalada sigue activa.",
+            "principle": "1. Visibilidad del estado"
+          },
+          {
+            "severity": "Media",
+            "text": "La fila cambia de lugar después de accionarla y se pierde al escanear la lista.",
+            "principle": "7. Consistencia"
+          },
+          {
+            "severity": "Media",
+            "text": "La pestaña sigue diciendo \"Abiertas (9)\" mientras el filtro muestra 2 alertas.",
+            "principle": "1. Visibilidad del estado"
+          }
+        ],
+        "note": "El reporte separa la fricción de UX de las limitaciones del prototipo, como acciones sin test ID o datos mock."
+      }
     },
     "mockups": {
       "title": "Interfaces Prototipadas",

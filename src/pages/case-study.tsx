@@ -416,6 +416,49 @@ export function CaseStudyPage() {
                 </ol>
               </CardContent>
             </Card>
+            {(() => {
+              const report = t('case_study.synthetic.report', { returnObjects: true }) as {
+                label: string; mission: string; verdictTitle: string; findingsTitle: string; note: string
+                verdict: { layer: string; value: string }[]
+                findings: { severity: string; text: string; principle: string }[]
+              }
+              return (
+                <Card>
+                  <CardContent className="p-6 space-y-5">
+                    <div>
+                      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">{report.label}</p>
+                      <p className="text-sm text-muted-foreground">{report.mission}</p>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-sm mb-2">{report.verdictTitle}</h3>
+                      <dl className="space-y-1.5 text-sm">
+                        {report.verdict.map((v) => (
+                          <div key={v.layer} className="flex gap-2">
+                            <dt className="font-medium shrink-0">{v.layer}:</dt>
+                            <dd className="text-muted-foreground">{v.value}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-sm mb-2">{report.findingsTitle}</h3>
+                      <ul className="space-y-3">
+                        {report.findings.map((f) => (
+                          <li key={f.text} className="text-sm">
+                            <div className="flex items-center gap-2 mb-1">
+                              <Badge variant="outline" className="border-amber-500/50 text-amber-700 dark:text-amber-400">{f.severity}</Badge>
+                              <span className="text-xs text-muted-foreground">{f.principle}</span>
+                            </div>
+                            <p className="text-muted-foreground">{f.text}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <p className="text-xs text-muted-foreground border-t pt-4">{report.note}</p>
+                  </CardContent>
+                </Card>
+              )
+            })()}
           </div>
         </motion.div>
       </motion.section>
