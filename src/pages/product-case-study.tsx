@@ -223,14 +223,14 @@ export function ProductCaseStudyPage({ caseKey }: { caseKey: ProductCaseKey }) {
                 <Card className="border-border/60 bg-muted/40">
                   <CardContent className="p-5 flex items-start gap-3">
                     <Undo2 className="h-5 w-5 text-muted-foreground mt-0.5 shrink-0" />
-                    <p className="text-sm text-muted-foreground line-through decoration-muted-foreground/40">{p.before}</p>
+                    <p className="text-sm text-muted-foreground line-through decoration-muted-foreground/40"><span className="sr-only">{t('a11y.before')} </span>{p.before}</p>
                   </CardContent>
                 </Card>
                 <ArrowRight className="h-5 w-5 text-muted-foreground hidden md:block" />
                 <Card className="border-primary/30 bg-primary/5">
                   <CardContent className="p-5 flex items-start gap-3">
                     <Check className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                    <p className="text-sm text-foreground font-medium">{p.after}</p>
+                    <p className="text-sm text-foreground font-medium"><span className="sr-only">{t('a11y.after')} </span>{p.after}</p>
                   </CardContent>
                 </Card>
               </div>

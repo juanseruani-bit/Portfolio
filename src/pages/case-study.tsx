@@ -156,14 +156,14 @@ export function CaseStudyPage() {
               <Card className="border-destructive/30 bg-destructive/5">
                 <CardContent className="p-5 flex items-start gap-3">
                   <X className="h-5 w-5 text-destructive mt-0.5 shrink-0" />
-                  <p className="text-sm text-muted-foreground">{row.before}</p>
+                  <p className="text-sm text-muted-foreground"><span className="sr-only">{t('a11y.before')} </span>{row.before}</p>
                 </CardContent>
               </Card>
               <ArrowRight className="h-5 w-5 text-muted-foreground hidden md:block" />
               <Card className="border-primary/30 bg-primary/5">
                 <CardContent className="p-5 flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                  <p className="text-sm text-foreground font-medium">{row.after}</p>
+                  <p className="text-sm text-foreground font-medium"><span className="sr-only">{t('a11y.after')} </span>{row.after}</p>
                 </CardContent>
               </Card>
             </m.div>
@@ -218,7 +218,7 @@ export function CaseStudyPage() {
           {/* Root */}
           <div className="text-center mb-6">
             <span className="inline-block bg-primary/10 border border-primary/30 rounded-lg px-6 py-3 font-mono font-bold text-lg">
-              🏗️ discovery-playground/
+              <span aria-hidden="true">🏗️ </span>discovery-playground/
             </span>
           </div>
 
@@ -235,13 +235,13 @@ export function CaseStudyPage() {
               return pkgs.map((pkg, idx) => (
                 <Card key={pkg.name} className={`${meta[idx].color} border`}>
                   <CardContent className="p-4 text-center">
-                    <p className="text-2xl mb-2">{meta[idx].emoji}</p>
+                    <p className="text-2xl mb-2" aria-hidden="true">{meta[idx].emoji}</p>
                     <p className="font-mono text-sm font-semibold">{pkg.name}</p>
                     <p className="text-xs text-muted-foreground mt-1">{pkg.type}</p>
                     <div className="mt-3 space-y-1 text-xs text-muted-foreground">
-                      <p>📂 playground/</p>
-                      <p>👥 synthetic-users/</p>
-                      <p>🧩 components/</p>
+                      <p><span aria-hidden="true">📂</span> playground/</p>
+                      <p><span aria-hidden="true">👥</span> synthetic-users/</p>
+                      <p><span aria-hidden="true">🧩</span> components/</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -279,7 +279,7 @@ export function CaseStudyPage() {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center gap-3 mb-6">
-                <span className="text-2xl">📁</span>
+                <span className="text-2xl" aria-hidden="true">📁</span>
                 <code className="text-lg font-bold font-mono">docs/feature-financiero/</code>
               </div>
               <div className="space-y-3">
@@ -288,7 +288,7 @@ export function CaseStudyPage() {
                   const icons = ["📄", "🎨", "📋", "🏗️", "✅", "📁"];
                   return items.map((item, idx) => (
                     <div key={item.name} className="flex items-center gap-4 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
-                      <span className="text-xl">{icons[idx]}</span>
+                      <span className="text-xl" aria-hidden="true">{icons[idx]}</span>
                       <div className="flex-1 min-w-0">
                         <code className="font-mono text-sm font-semibold">{item.name}</code>
                         <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>

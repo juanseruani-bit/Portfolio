@@ -127,6 +127,10 @@ const FloatKeyframes = () => (
       33% { transform: translate(30px, -20px) scale(1.05); }
       66% { transform: translate(-20px, 15px) scale(0.95); }
     }
+    /* !important beats the blobs' inline animation */
+    @media (prefers-reduced-motion: reduce) {
+      [style*="float-slow"] { animation: none !important; }
+    }
   `}</style>
 )
 

@@ -145,8 +145,12 @@
   }
   html {
     font-family: 'Nunito Sans Variable', system-ui, sans-serif;
-    scroll-behavior: smooth;
     overflow-x: clip;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 }
 
@@ -195,6 +199,11 @@
     @apply absolute -left-3 top-1/2 -translate-y-1/2 h-2 w-2 rounded-full;
     background: oklch(0.72 0.19 142);
     animation: pulse-glow 2s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-dot::before {
+      animation: none;
+    }
   }
 
   @keyframes pulse-glow {

@@ -62,6 +62,7 @@ export function ContactSection() {
           <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "gap-2")}>
             LinkedIn
             <ExternalLink className="h-4 w-4" aria-hidden="true" />
+            <span className="sr-only"> {t('a11y.new_tab')}</span>
           </a>
         </div>
       </m.div>

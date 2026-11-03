@@ -1,5 +1,5 @@
 import { m } from "framer-motion"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { GlowOrb, GridPattern } from "@/components/decorative-elements"
@@ -108,22 +108,12 @@ export function Home() {
             </m.h1>
 
             <m.p
-              className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed max-w-[620px]"
+              className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-[620px]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45, duration: 0.6 }}
             >
               {t('home.hero.subtitle')}
-            </m.p>
-
-            <m.p
-              className="flex items-start gap-2.5 text-sm md:text-base font-medium mb-10 max-w-[620px]"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-            >
-              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20" aria-hidden="true" />
-              {t('home.hero.proof')}
             </m.p>
 
             <m.div
@@ -176,14 +166,15 @@ export function Home() {
           >
             {projects.map((project) => (
               <m.div key={project.key} variants={item} className={cn(project.featured && "md:col-span-2")}>
-                <Link to={project.to} className="block h-full">
+                {/* Named by title + call to action and described by the outcome, so the whole card isn't read as one long link */}
+                <Link to={project.to} className="block h-full rounded-xl" aria-labelledby={`${project.key}-title ${project.key}-cta`} aria-describedby={`${project.key}-outcome`}>
                   <Card className={cn("h-full flex flex-col glow-card group cursor-pointer border-border/50 hover:border-primary/40 transition-all duration-400", project.featured && "md:flex-row")}>
                     <div className={cn("h-64 bg-muted rounded-t-xl flex items-center justify-center border-b relative overflow-hidden", project.featured && "md:h-auto md:min-h-80 md:w-1/2 md:shrink-0 md:rounded-tr-none md:rounded-l-xl md:border-b-0 md:border-r")}>
                       <div className={cn("w-full h-full bg-gradient-to-br", project.cover.gradient)}>
                         <div className="absolute inset-x-8 top-8 -bottom-4 rounded-lg overflow-hidden border border-border/60 bg-white shadow-xl group-hover:-translate-y-2 transition-transform duration-500 ease-out">
                           <img
                             src={project.cover.src}
-                            alt={t(`home.projects.${project.key}.title`)}
+                            alt=""
                             loading="lazy"
                             className="w-full h-full object-cover"
                             style={{ objectPosition: project.cover.position, transform: `scale(${project.cover.zoom ?? 1})`, transformOrigin: "0% 50%" }}
@@ -197,8 +188,8 @@ export function Home() {
                         <Badge className={cn("text-white border-0", project.badgeClass)}>{t(`home.projects.${project.key}.badge`)}</Badge>
                         <span className="text-sm text-muted-foreground font-mono">{project.year}</span>
                       </div>
-                      <CardTitle className="text-2xl">{t(`home.projects.${project.key}.title`)}</CardTitle>
-                      <p className="text-sm font-semibold text-primary mt-2">{t(`home.projects.${project.key}.outcome`)}</p>
+                      <CardTitle id={`${project.key}-title`} className="text-2xl">{t(`home.projects.${project.key}.title`)}</CardTitle>
+                      <p id={`${project.key}-outcome`} className="text-sm font-semibold text-primary mt-2">{t(`home.projects.${project.key}.outcome`)}</p>
                       <CardDescription className="text-base mt-2">
                         {t(`home.projects.${project.key}.description`)}
                       </CardDescription>
@@ -209,10 +200,11 @@ export function Home() {
                       </div>
                     </CardContent>
                     <CardFooter>
-                      <Button variant="secondary" className="w-full group/btn">
+                      {/* Looks like a button but is part of the card link: a real <button> inside <a> is invalid and adds a tab stop */}
+                      <span id={`${project.key}-cta`} className={cn(buttonVariants({ variant: "secondary" }), "w-full group/btn")}>
                         {t(`home.projects.${project.key}.button`)}
                         <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </Button>
+                      </span>
                     </CardFooter>
                     </div>
                   </Card>
