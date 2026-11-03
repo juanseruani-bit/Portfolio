@@ -403,7 +403,12 @@
       "contact": "Lets talk",
       "more": "View more projects"
     },
-    "image_alt": "Discovery Playground: each product module groups its discoveries"
+    "image_alt": "Discovery Playground: each product module groups its discoveries",
+    "summary": {
+      "problem": "Figma prototypes could not show real complexity, and prose handoffs were read differently by each developer.",
+      "solution": "A prototyping hub on the production stack, with AI agents that set up discovery, test with synthetic users and derive the handoff.",
+      "impact": "24 discoveries across 4 products, and handoffs with requirement IDs, test cases and automated QA tests integrated with Jira."
+    }
   },
   "product_cases": {
     "common": {
@@ -572,6 +577,11 @@
             "body": "With every decision logged, changing our minds cost a log entry, not a sprint."
           }
         ]
+      },
+      "summary": {
+        "problem": "The platform was about to launch AI agents with a variable cost nobody could see, and contracts did not allow charging for it.",
+        "solution": "Reframe the scope: meter usage per organization, user and agent, with a per-organization cutoff as the lever.",
+        "impact": "In production: AI agents launch with metered usage and a per-organization cutoff available."
       }
     },
     "routes": {
@@ -733,7 +743,18 @@
             "body": "The transfer optimizer was a starting point, but it only worked once we redefined what a destination, a capacity and an appointment were."
           }
         ]
+      },
+      "summary": {
+        "problem": "Coordinators built the daily home-visit schedule by hand: 4–5 hours a day, with delays that left patients waiting.",
+        "solution": "An optimizer that keeps the week scheduled while the coordinator reviews, adjusts and confirms, with no surprise changes.",
+        "impact": "+32% medical visits in the 3 months after launch, 4–5 h saved per day and fewer delays."
       }
     }
+  },
+  "case_summary": {
+    "title": "At a glance",
+    "problem": "Problem",
+    "solution": "Solution",
+    "impact": "Impact"
   }
 }

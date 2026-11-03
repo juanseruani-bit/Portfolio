@@ -403,7 +403,12 @@
       "contact": "Conversemos",
       "more": "Ver más proyectos"
     },
-    "image_alt": "Discovery Playground: cada módulo del producto agrupa sus discoveries"
+    "image_alt": "Discovery Playground: cada módulo del producto agrupa sus discoveries",
+    "summary": {
+      "problem": "Los prototipos en Figma no reflejaban la complejidad real, y el handoff en prosa se interpretaba distinto en cada desarrollo.",
+      "solution": "Un hub de prototipado en el stack de producción, con agentes de IA que arman el discovery, prueban con usuarios sintéticos y derivan el handoff.",
+      "impact": "24 discoveries en 4 productos, y handoffs con requisitos con ID, casos de prueba y tests automatizados para QA integrados con Jira."
+    }
   },
   "product_cases": {
     "common": {
@@ -572,6 +577,11 @@
             "body": "Con cada decisión registrada, cambiar de opinión costó una entrada en la bitácora, no un sprint."
           }
         ]
+      },
+      "summary": {
+        "problem": "La plataforma iba a lanzar agentes de IA con un costo variable que nadie podía ver, y el contrato no permitía cobrarlo.",
+        "solution": "Reencuadrar el alcance: medir el consumo por organización, usuario y agente, con un corte por organización como palanca.",
+        "impact": "En producción: los agentes de IA se lanzan con el consumo medido y un corte disponible por organización."
       }
     },
     "routes": {
@@ -733,7 +743,18 @@
             "body": "El optimizador de traslados sirvió como base, pero recién funcionó cuando redefinimos qué era un destino, una capacidad y una cita."
           }
         ]
+      },
+      "summary": {
+        "problem": "Los coordinadores armaban a mano la agenda diaria de visitas domiciliarias: 4–5 horas por día y atrasos con pacientes esperando.",
+        "solution": "Un optimizador que mantiene armada la semana y deja al coordinador consultar, retocar y confirmar, sin cambios por sorpresa.",
+        "impact": "+32% de visitas médicas en los 3 meses posteriores al lanzamiento, 4–5 h diarias ahorradas y menos atrasos."
       }
     }
+  },
+  "case_summary": {
+    "title": "En resumen",
+    "problem": "Problema",
+    "solution": "Solución",
+    "impact": "Impacto"
   }
 }

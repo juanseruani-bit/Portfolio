@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 import { Card, CardContent } from "@/components/ui/card"
 import { Link } from "react-router-dom"
 import { GradientDivider, GlowOrb } from "@/components/decorative-elements"
+import { CaseSummary, type CaseSummaryContent } from "@/components/case-summary"
 import { ArrowLeft, ArrowRight, Check, Lightbulb, Undo2 } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
@@ -29,6 +30,7 @@ interface ProductCase {
   company_val: string
   duration_val: string
   status_val: string
+  summary: CaseSummaryContent
   highlights?: Metric[]
   cover?: { src: string; alt: string }
   gallery?: { title: string; desc: string; items: { src: string; caption: string }[] }
@@ -85,6 +87,10 @@ export function ProductCaseStudyPage({ caseKey }: { caseKey: ProductCaseKey }) {
               <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />{c.status_val}
             </span>
           </div>
+        </motion.div>
+
+        <motion.div variants={fadeIn} className="mt-10">
+          <CaseSummary summary={c.summary} />
         </motion.div>
 
         {c.highlights && (

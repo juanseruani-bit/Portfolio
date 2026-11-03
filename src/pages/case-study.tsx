@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 import { Card, CardContent } from "@/components/ui/card"
 import { Link } from "react-router-dom"
 import { GradientDivider, GlowOrb } from "@/components/decorative-elements"
+import { CaseSummary, type CaseSummaryContent } from "@/components/case-summary"
 import {
   ArrowLeft, Layers, Bot, TestTube, FileCheck, Code, Users,
   FolderTree, ArrowRight, Check, X,
@@ -113,6 +114,10 @@ export function CaseStudyPage() {
           <div><span className="font-semibold text-foreground">{t('case_study.role_label')}</span> {t('case_study.role_val')}</div>
           <div><span className="font-semibold text-foreground">{t('case_study.company_label')}</span> {t('case_study.company_val')}</div>
           <div><span className="font-semibold text-foreground">{t('case_study.duration_label')}</span> {t('case_study.duration_val')}</div>
+        </motion.div>
+
+        <motion.div variants={fadeIn} className="mb-10">
+          <CaseSummary summary={t('case_study.summary', { returnObjects: true }) as CaseSummaryContent} />
         </motion.div>
 
         <motion.div variants={fadeIn}>
