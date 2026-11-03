@@ -22,15 +22,13 @@
         "title": "Gestión del consumo de IA",
         "badge": "Producto / IA",
         "description": "Convertir un pedido de \"cobrar la IA\" en un sistema para medir y cortar el consumo de agentes de IA, cuando el contrato todavía no permitía cobrar.",
-        "button": "Ver Caso de Estudio",
-        "stat": "En producción"
+        "button": "Ver Caso de Estudio"
       },
       "routes": {
         "title": "Optimizador de rutas domiciliarias",
         "badge": "Producto / Automatización",
         "description": "Un optimizador de agendas para visitas médicas a domicilio donde el sistema arma la semana y el coordinador decide.",
-        "button": "Ver Caso de Estudio",
-        "stat": "+32% visitas"
+        "button": "Ver Caso de Estudio"
       },
       "b2b_app": {
         "title": "B2B App for Buyers",
@@ -47,19 +45,36 @@
         "role": "UX/UI Designer",
         "date": "Mayo 2025 - Presente",
         "company": "Home Medical Management (HMM)",
-        "description": "Diseño la experiencia web y mobile de una plataforma de atención domiciliaria: un backoffice de operaciones y apps para pacientes, profesionales y conductores. Llevo el discovery de punta a punta junto a un Business Analyst, y construí un hub de prototipado en código que usa IA para automatizar pruebas de usabilidad y el handoff a desarrollo. Varias de esas funcionalidades ya están en producción, como un optimizador de rutas que aumentó un 32% las visitas médicas."
+        "bullets": [
+          "Diseño de experiencias web y mobile para una plataforma HealthTech de atención domiciliaria: backoffice de operaciones y apps para pacientes, profesionales y conductores.",
+          "Discovery de producto de punta a punta junto a un Business Analyst: investigación, requerimientos, flujos, prototipos y validación con usuarios y stakeholders.",
+          "Creación de un hub de prototipado en código (React, TypeScript, React Native) que reemplazó los mockups estáticos de Figma y se basa en el código de producción.",
+          "Automatización del discovery, las pruebas de usabilidad con usuarios sintéticos y el handoff a desarrollo con agentes de IA (Claude Code): specs con IDs de requerimientos, casos de prueba y test IDs de QA integrados con Jira.",
+          "Lanzamiento de funcionalidades a producción, como un optimizador de rutas de visitas domiciliarias (+32% de visitas médicas, 4–5 horas diarias de armado de agenda ahorradas) y un módulo de control de consumo de IA."
+        ]
       },
       "avature": {
         "role": "UX Designer",
         "date": "Marzo 2023 - Mayo 2025",
         "company": "Avature",
-        "description": "Personalicé soluciones estándar de software de RR.HH. según las necesidades y la marca de cada cliente. Adapté y escalé sistemas de diseño con Atomic Design, y diseñé wireframes y prototipos de alta fidelidad junto a clientes y stakeholders."
+        "bullets": [
+          "Personalización de soluciones estándar de software de RR.HH. según las necesidades y la marca de cada cliente.",
+          "Adaptación y escalado de sistemas de diseño con Atomic Design.",
+          "Definición de la mejor solución para cada necesidad junto a clientes y stakeholders.",
+          "Diseño de wireframes y prototipos de alta fidelidad."
+        ]
       },
       "dinocloud": {
         "role": "UX/UI Solutions Designer",
         "date": "Junio 2021 - Marzo 2023",
         "company": "DinoCloud",
-        "description": "Diseñé productos digitales para clientes de logística, venta de autos, gestión de RR.HH. y contabilidad. Hice discovery para equilibrar las necesidades del cliente y de los usuarios, acompañé la implementación junto al equipo de desarrollo, y medí e iteré los productos para tomar decisiones."
+        "bullets": [
+          "Diseño de productos digitales para clientes de logística, venta de autos, gestión de RR.HH. y contabilidad.",
+          "Discovery para equilibrar las necesidades del cliente y de los usuarios, integrando los objetivos de negocio en las decisiones de diseño y producto.",
+          "Entrega de insights y soluciones a clientes y equipos de desarrollo, y mejora de los flujos de trabajo con desarrolladores.",
+          "Diseño de interfaces y seguimiento de la implementación para asegurar los estándares de diseño.",
+          "Medición e iteración de los productos para apoyar la toma de decisiones."
+        ]
       },
       "education": {
         "title": "Educación",

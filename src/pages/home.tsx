@@ -5,12 +5,12 @@ import { Badge } from "@/components/ui/badge"
 import { GradientDivider, GlowOrb, GridPattern } from "@/components/decorative-elements"
 import { cn } from "@/lib/utils"
 import { Link } from "react-router-dom"
-import { ArrowRight, Coins, Route, type LucideIcon } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
 type ProjectCover =
   | { kind: "image" }
-  | { kind: "stat"; icon: LucideIcon; gradient: string }
+  | { kind: "screenshot"; src: string; position: string; zoom?: number; gradient: string }
 
 const projects: { key: string; to: string; year: string; badgeClass: string; tags: string[]; cover: ProjectCover }[] = [
   {
@@ -27,7 +27,7 @@ const projects: { key: string; to: string; year: string; badgeClass: string; tag
     year: "2026",
     badgeClass: "bg-[var(--accent-indigo)]",
     tags: ["Product Strategy", "AI", "B2B SaaS"],
-    cover: { kind: "stat", icon: Coins, gradient: "from-indigo-500/15 via-violet-500/10 to-transparent" },
+    cover: { kind: "screenshot", src: "/images/cases/ai-consumption.webp", position: "center", gradient: "from-indigo-500/25 via-violet-500/15 to-transparent" },
   },
   {
     key: "routes",
@@ -35,7 +35,7 @@ const projects: { key: string; to: string; year: string; badgeClass: string; tag
     year: "2026",
     badgeClass: "bg-teal-600",
     tags: ["Automation", "Operations", "Data Viz"],
-    cover: { kind: "stat", icon: Route, gradient: "from-teal-500/15 via-sky-500/10 to-transparent" },
+    cover: { kind: "screenshot", src: "/images/cases/routes-agenda.webp", position: "0% 62%", zoom: 1.8, gradient: "from-teal-500/25 via-sky-500/15 to-transparent" },
   },
   {
     key: "b2b_app",
@@ -46,6 +46,8 @@ const projects: { key: string; to: string; year: string; badgeClass: string; tag
     cover: { kind: "image" },
   },
 ]
+
+const experience = ["hmm", "avature", "dinocloud"] as const
 
 export function Home() {
   const { t } = useTranslation()
@@ -163,9 +165,16 @@ export function Home() {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                         />
                       ) : (
-                        <div className={cn("w-full h-full flex flex-col items-center justify-center gap-4 bg-gradient-to-br group-hover:scale-105 transition-transform duration-500 ease-out", project.cover.gradient)}>
-                          <project.cover.icon className="h-12 w-12 text-primary" aria-hidden="true" />
-                          <span className="text-2xl md:text-3xl font-bold tracking-tight">{t(`home.projects.${project.key}.stat`)}</span>
+                        <div className={cn("w-full h-full bg-gradient-to-br", project.cover.gradient)}>
+                          <div className="absolute inset-x-8 top-8 -bottom-4 rounded-lg overflow-hidden border border-border/60 bg-white shadow-xl group-hover:-translate-y-2 transition-transform duration-500 ease-out">
+                            <img
+                              src={project.cover.src}
+                              alt={t(`home.projects.${project.key}.title`)}
+                              loading="lazy"
+                              className="w-full h-full object-cover"
+                              style={{ objectPosition: project.cover.position, transform: `scale(${project.cover.zoom ?? 1})`, transformOrigin: "0% 50%" }}
+                            />
+                          </div>
                         </div>
                       )}
                     </div>
@@ -225,65 +234,29 @@ export function Home() {
         </div>
 
         <div className="space-y-8 max-w-[800px]">
-          {/* HMM */}
-          <motion.div
-            variants={item}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="group"
-          >
-            <div className="p-6 rounded-xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:bg-card/50">
-              <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
-                <h3 className="text-xl font-semibold">{t('home.about.hmm.role')}</h3>
-                <span className="text-muted-foreground text-sm font-mono">{t('home.about.hmm.date')}</span>
+          {experience.map((job) => (
+            <motion.div
+              key={job}
+              variants={item}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="group"
+            >
+              <div className="p-6 rounded-xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:bg-card/50">
+                <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
+                  <h3 className="text-xl font-semibold">{t(`home.about.${job}.role`)}</h3>
+                  <span className="text-muted-foreground text-sm font-mono">{t(`home.about.${job}.date`)}</span>
+                </div>
+                <p className="text-lg font-medium text-primary mb-3">{t(`home.about.${job}.company`)}</p>
+                <ul className="list-disc marker:text-primary pl-5 space-y-1.5 text-muted-foreground leading-relaxed">
+                  {(t(`home.about.${job}.bullets`, { returnObjects: true }) as string[]).map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
               </div>
-              <p className="text-lg font-medium text-primary mb-2">{t('home.about.hmm.company')}</p>
-              <p className="text-muted-foreground leading-relaxed">
-                {t('home.about.hmm.description')}
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Avature */}
-          <motion.div
-            variants={item}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="group"
-          >
-            <div className="p-6 rounded-xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:bg-card/50">
-              <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
-                <h3 className="text-xl font-semibold">{t('home.about.avature.role')}</h3>
-                <span className="text-muted-foreground text-sm font-mono">{t('home.about.avature.date')}</span>
-              </div>
-              <p className="text-lg font-medium text-primary mb-2">{t('home.about.avature.company')}</p>
-              <p className="text-muted-foreground leading-relaxed">
-                {t('home.about.avature.description')}
-              </p>
-            </div>
-          </motion.div>
-
-          {/* DinoCloud */}
-          <motion.div
-            variants={item}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="group"
-          >
-            <div className="p-6 rounded-xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:bg-card/50">
-              <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
-                <h3 className="text-xl font-semibold">{t('home.about.dinocloud.role')}</h3>
-                <span className="text-muted-foreground text-sm font-mono">{t('home.about.dinocloud.date')}</span>
-              </div>
-              <p className="text-lg font-medium text-primary mb-2">{t('home.about.dinocloud.company')}</p>
-              <p className="text-muted-foreground leading-relaxed">
-                {t('home.about.dinocloud.description')}
-              </p>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
 
           {/* Educación */}
           <motion.div variants={item} initial="hidden" whileInView="show" viewport={{ once: true }}>

@@ -22,15 +22,13 @@
         "title": "AI Usage Control",
         "badge": "Product / AI",
         "description": "Turning a request to \"charge for AI\" into a system to measure and cut AI agent usage, at a time when contracts didn't allow charging yet.",
-        "button": "View Case Study",
-        "stat": "In production"
+        "button": "View Case Study"
       },
       "routes": {
         "title": "Home-Visit Route Optimizer",
         "badge": "Product / Automation",
         "description": "A scheduling optimizer for home medical visits where the system plans the week and the coordinator decides.",
-        "button": "View Case Study",
-        "stat": "+32% visits"
+        "button": "View Case Study"
       },
       "b2b_app": {
         "title": "B2B App for Buyers",
@@ -47,19 +45,36 @@
         "role": "UX/UI Designer",
         "date": "May 2025 - Present",
         "company": "Home Medical Management (HMM)",
-        "description": "I design the web and mobile experience of a home-care platform: an operations backoffice and apps for patients, clinicians and drivers. I run discovery end to end with a Business Analyst, and built a code-based prototyping hub that uses AI to automate usability testing and the handoff to engineering. Several of those features are already in production, including a route optimizer that increased medical visits by 32%."
+        "bullets": [
+          "Design web and mobile experiences for a home-care HealthTech platform: an operations backoffice and apps for patients, clinicians and drivers.",
+          "Run product discovery end to end with a Business Analyst: research, requirements, user flows, prototypes and validation with users and stakeholders.",
+          "Built a code-based prototyping hub (React, TypeScript, React Native) that replaced static Figma mockups and is grounded in the production codebase.",
+          "Automated discovery, synthetic usability testing and developer handoff with AI agents (Claude Code), delivering specs with requirement IDs, test cases and QA test IDs integrated with Jira.",
+          "Shipped features to production, including a home-visit route optimizer (+32% medical visits, 4–5 hours of daily scheduling saved) and an AI usage control module."
+        ]
       },
       "avature": {
         "role": "UX Designer",
         "date": "March 2023 - May 2025",
         "company": "Avature",
-        "description": "Customized standard HR software solutions to each client's needs and branding. Adapted and scaled design systems with Atomic Design, and designed wireframes and high-fidelity prototypes with clients and stakeholders."
+        "bullets": [
+          "Customized standard HR software solutions to each client's needs and branding.",
+          "Adapted and scaled design systems using Atomic Design.",
+          "Worked with clients and stakeholders to define the best solution for each need.",
+          "Designed wireframes and high-fidelity prototypes."
+        ]
       },
       "dinocloud": {
         "role": "UX/UI Solutions Designer",
         "date": "June 2021 - March 2023",
         "company": "DinoCloud",
-        "description": "Designed digital products for clients in logistics, car sales, HR management and accounting. Ran discovery to balance client and user needs, followed implementation alongside the development team, and measured and iterated on products to support decisions."
+        "bullets": [
+          "Designed digital products for clients in logistics, car sales, HR management and accounting.",
+          "Ran discovery to balance client and user needs, and integrated business goals into design and product decisions.",
+          "Handed off insights and solutions to clients and development teams, and improved workflows with developers.",
+          "Designed user interfaces and followed up on implementation to ensure design standards.",
+          "Measured and iterated on products to support decision-making."
+        ]
       },
       "education": {
         "title": "Education",
