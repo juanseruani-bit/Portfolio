@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { GradientDivider, GlowOrb, GridPattern } from "@/components/decorative-elements"
 import { cn } from "@/lib/utils"
 import { Link } from "react-router-dom"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, FileText } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
 type ProjectCover =
@@ -116,6 +116,15 @@ export function Home() {
                   {t('home.hero.contact_button')}
                   <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 </a>
+              <a
+                href="/Juan_Sebastian_Ruani_CV.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className={cn(buttonVariants({ size: "lg", variant: "outline" }), "w-full sm:w-auto gap-2")}
+              >
+                <FileText className="h-4 w-4" aria-hidden="true" />
+                {t('home.hero.cv_button')}
+              </a>
             </motion.div>
           </motion.div>
         </div>

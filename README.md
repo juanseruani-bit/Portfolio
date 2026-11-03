@@ -1,32 +1,29 @@
-# React + TypeScript + Vite
+# Juan Sebastián Ruani — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio and case studies of Juan Sebastián Ruani, Product Designer.
 
-Currently, two official plugins are available:
+**Live:** https://portfolio-plum-delta-el2gvdcqib.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- React 19 + TypeScript + Vite
+- Tailwind CSS + shadcn/ui, Framer Motion
+- i18next (English / Spanish)
+- Deployed on Vercel
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Scripts
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev      # local dev server
+npm run build    # type-check and production build
+npm run lint     # oxlint
+npm run cv       # regenerate public/Juan_Sebastian_Ruani_CV.pdf from generate-pdf.js
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Structure
+
+- `src/pages/` — home and case study pages (product cases are driven by i18n content via `product-case-study.tsx`)
+- `src/i18n/locales/{en,es}/translation.json` — all site copy
+- `public/images/` — case study images
+- `generate-pdf.js` — source of the CV PDF

@@ -6,7 +6,8 @@
       "title_and": "y",
       "title_strategy": "estrategia de negocio.",
       "subtitle": "Con formación en Administración de Empresas y más de 5 años de experiencia diseñando productos digitales en HMM, Avature y DinoCloud.",
-      "contact_button": "Contactar"
+      "contact_button": "Contactar",
+      "cv_button": "Descargar CV"
     },
     "projects": {
       "title": "Proyectos Destacados",
@@ -88,7 +89,8 @@
   "layout": {
     "nav": {
       "projects": "Proyectos",
-      "linkedin": "LinkedIn"
+      "linkedin": "LinkedIn",
+      "cv": "CV"
     },
     "footer": {
       "credit": "Diseñado y desarrollado por Juan Sebastián Ruani."
