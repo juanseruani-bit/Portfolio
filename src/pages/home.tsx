@@ -12,7 +12,7 @@ import { useDocumentTitle } from "@/lib/use-document-title"
 
 type ProjectCover = { src: string; position: string; zoom?: number; gradient: string }
 
-const projects: { key: string; to: string; year: string; badgeClass: string; tags: string[]; cover: ProjectCover; featured?: boolean }[] = [
+const projects: { key: string; to: string; year?: string; badgeClass: string; tags: string[]; cover: ProjectCover; featured?: boolean }[] = [
   {
     key: "discovery_hub",
     to: "/proyectos/discovery-hub",
@@ -37,6 +37,14 @@ const projects: { key: string; to: string; year: string; badgeClass: string; tag
     badgeClass: "bg-teal-700",
     tags: ["Automation", "Operations", "Data Viz"],
     cover: { src: "/images/cases/routes-agenda.webp", position: "0% 62%", zoom: 1.8, gradient: "from-teal-500/25 via-sky-500/15 to-transparent" },
+  },
+  {
+    key: "design_system",
+    to: "/proyectos/design-system",
+    featured: true,
+    badgeClass: "bg-fuchsia-700",
+    tags: ["Design Tokens", "MUI", "React Native"],
+    cover: { src: "/images/cases/ds-library-states.webp", position: "100% 45%", gradient: "from-fuchsia-500/25 via-violet-500/15 to-transparent" },
   },
 ]
 
@@ -186,7 +194,7 @@ export function Home() {
                     <CardHeader>
                       <div className="flex justify-between items-start mb-2">
                         <Badge className={cn("text-white border-0", project.badgeClass)}>{t(`home.projects.${project.key}.badge`)}</Badge>
-                        <span className="text-sm text-muted-foreground font-mono">{project.year}</span>
+                        {project.year && <span className="text-sm text-muted-foreground font-mono">{project.year}</span>}
                       </div>
                       <CardTitle id={`${project.key}-title`} className="text-2xl">{t(`home.projects.${project.key}.title`)}</CardTitle>
                       <p id={`${project.key}-outcome`} className="text-sm font-semibold text-primary mt-2">{t(`home.projects.${project.key}.outcome`)}</p>

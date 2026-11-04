@@ -23,6 +23,7 @@ function App() {
                   <Route path="/proyectos/discovery-hub" element={<CaseStudyPage />} />
                   <Route path="/proyectos/consumo-ia" element={<ProductCaseStudyPage key="ai_usage" caseKey="ai_usage" />} />
                   <Route path="/proyectos/optimizador-rutas" element={<ProductCaseStudyPage key="routes" caseKey="routes" />} />
+                  <Route path="/proyectos/design-system" element={<ProductCaseStudyPage key="design_system" caseKey="design_system" />} />
                   <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
               </Suspense>

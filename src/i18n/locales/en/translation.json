@@ -33,6 +33,13 @@
         "description": "A scheduling optimizer for home medical visits where the system plans the week and the coordinator decides.",
         "button": "View Case Study",
         "outcome": "In production · +32% medical visits · 4–5 h/day of scheduling saved"
+      },
+      "design_system": {
+        "title": "Cross-platform design system",
+        "badge": "Design System",
+        "description": "Two shared libraries, web and mobile, for 8 product frontends. Design decisions live in code, through PRs, ADRs and versioned releases.",
+        "button": "View Case Study",
+        "outcome": "Used by 8 frontends · 3 mobile libraries merged into 1"
       }
     },
     "about": {
@@ -757,6 +764,175 @@
         "problem": "Coordinators built the daily home-visit schedule by hand: 4–5 hours a day, with delays that left patients waiting.",
         "solution": "An optimizer that keeps the week scheduled while the coordinator reviews, adjusts and confirms, with no surprise changes.",
         "impact": "+32% medical visits in the 3 months after launch, 4–5 h saved per day and fewer delays."
+      }
+    },
+    "design_system": {
+      "badges": [
+        "Design System",
+        "Tokens",
+        "Web + Mobile"
+      ],
+      "title": "A design system that lives in code",
+      "subtitle": "Two shared libraries, one for web and one for mobile, used by 8 product frontends. Every decision is recorded in one place.",
+      "role_val": "Product Designer: token definition, migration lead and close work with engineering",
+      "company_val": "HealthTech (NDA)",
+      "duration_val": "3–4 week migration",
+      "status_val": "Used by 8 frontends",
+      "summary": {
+        "problem": "Each frontend built its own UI: three different mobile libraries, hard-coded colors and a Figma file that no longer matched production.",
+        "solution": "Two shared libraries, one per platform, built on semantic tokens and governed through PRs, ADRs and versioned releases.",
+        "impact": "8 frontends use the same source of truth, dark mode comes from the tokens, and the MUI 7 migration shipped without breaking screens."
+      },
+      "highlights": [
+        {
+          "value": "8",
+          "label": "Frontends using the libraries (5 web, 3 mobile)"
+        },
+        {
+          "value": "3 → 1",
+          "label": "Mobile libraries merged"
+        },
+        {
+          "value": "3–4 wks",
+          "label": "MUI 7 migration, validated screen by screen"
+        }
+      ],
+      "cover": {
+        "src": "/images/cases/ds-library-states.webp",
+        "alt": "Component library: Button documentation showing its contained, outlined, ghost and icon variants"
+      },
+      "problem": {
+        "title": "The Problem",
+        "intro": "The product is split into micro-frontends: about 5 in the web backoffice and 3 mobile apps. Each one built its own UI:",
+        "items": [
+          "Each of the 3 apps had its own component library, so the same button, input or card existed in several versions.",
+          "Colors were hard-coded in every component, and states (hover, error, disabled) didn't match across screens.",
+          "Figma was the reference, but what shipped kept drifting from the design, and nobody could say which version of a component was the right one."
+        ]
+      },
+      "insight": {
+        "title": "Unify what you can, separate what you can't",
+        "body": "Web and mobile can't share a component library: MUI only exists for web, and mobile is better served by its own library with full control over behavior. So a single library wasn't forced. Everything that shares a platform was unified (the 3 apps moved to one library), and across platforms the tokens and criteria were shared instead of the code."
+      },
+      "snippet": {
+        "title": "Tokens that say what a color is for, not what it looks like",
+        "desc": "Three levels: primitives (the palette), semantic tokens (the role) and components. A component never knows a color value, only its role.",
+        "before_label": "Before: the component knows the color",
+        "before": "backgroundColor: \"#5DC4B9\",\n\"&:hover\": {\n  backgroundColor: darken(theme.palette.primary.main, 15),\n},",
+        "after_label": "After: the component knows the role",
+        "after": "backgroundColor: tokens.action.primary,\n\"&:hover\": {\n  backgroundColor: tokens.action.primaryHover,\n},",
+        "note": "Semantic tokens are grouped into bg, text, border, action and feedback. Each has a light and a dark value, so dark mode shipped without touching a single component."
+      },
+      "flow": {
+        "title": "Migrating without breaking: a guided review",
+        "desc": "Moving to MUI 7 and applying the new styles affected every screen in 5 frontends. Manual review was unavoidable; AI agents made it targeted.",
+        "steps": [
+          {
+            "actor": "AI agent",
+            "text": "Finds where each component is used across every screen: an impact map of the migration."
+          },
+          {
+            "actor": "AI agent",
+            "text": "Turns that map into a guide of what to review and test, so nobody walks through screens blind."
+          },
+          {
+            "actor": "AI agent",
+            "text": "Generates a visual before/after comparison of each screen as a reference."
+          },
+          {
+            "actor": "Design + QA",
+            "text": "Review screen by screen with regression and manual tests, guided by the map and the comparison."
+          },
+          {
+            "actor": "Each frontend team",
+            "text": "Adopts the new library version only once its screens are validated."
+          }
+        ]
+      },
+      "gallery": {
+        "title": "The documentation is the product",
+        "desc": "Each environment has a browsable component library with usage guidelines, props, states and examples. There's no design file to go stale: what's documented is what runs.",
+        "items": [
+          {
+            "src": "/images/cases/ds-library-guide.webp",
+            "caption": "Button usage guide: when to use it and when not to, with its import path and status."
+          }
+        ]
+      },
+      "decisions": {
+        "title": "Governance: every decision in one place",
+        "desc": "What makes a design system last isn't the number of components, but how each change is decided and released.",
+        "items": [
+          {
+            "title": "Changes through PRs",
+            "body": "Every new component or token goes through review. No single frontend changes everyone's library."
+          },
+          {
+            "title": "Decisions through ADRs",
+            "body": "The big decisions (semantic tokens, MUI 7, a custom mobile library) are written down with their context and alternatives."
+          },
+          {
+            "title": "Versioned releases",
+            "body": "A release skill builds each version and publishes it as a git tag, with notes organized into Added, Changed and Fixed."
+          },
+          {
+            "title": "Controlled adoption",
+            "body": "Each frontend pins a tag in its package.json. A new version changes nothing until the team adopts it in its own PR."
+          }
+        ]
+      },
+      "pivots": {
+        "title": "Before and after",
+        "desc": "The deeper changes the system left behind.",
+        "items": [
+          {
+            "before": "Three mobile libraries, one per app, with duplicated components",
+            "after": "A single mobile library shared by the 3 apps",
+            "why": "A component is designed, fixed and improved once."
+          },
+          {
+            "before": "Colors hard-coded in every component",
+            "after": "Semantic tokens with light and dark values",
+            "why": "Dark mode came from the tokens, and a rebrand would come down to changing the primitives."
+          },
+          {
+            "before": "Figma as the reference, drifting from production",
+            "after": "Code as the only source: Figma was used to migrate and then deprecated",
+            "why": "The design and what users see became the same thing."
+          }
+        ]
+      },
+      "results": {
+        "title": "Results",
+        "desc": "What changed in the way the product is built.",
+        "items": [
+          "Two shared libraries used by 8 frontends: 5 in the web backoffice and 3 mobile apps.",
+          "A single source of truth: updates happen in code and are traced through PRs and ADRs.",
+          "Dark mode solved with tokens, without touching components.",
+          "MUI 7 migration in 3–4 weeks, validated with QA through regression and manual tests, without breaking screens.",
+          "Discovery Hub prototypes use these same components, so the handoff needs no translation."
+        ]
+      },
+      "learnings": {
+        "title": "Learnings",
+        "items": [
+          {
+            "title": "A design system lasts because of its governance, not its components.",
+            "body": "PRs, ADRs and versioned releases made every change visible and reversible for every team."
+          },
+          {
+            "title": "Across platforms, share criteria, not code.",
+            "body": "Forcing one library for web and mobile would have looked neater in a diagram and worked worse in practice."
+          },
+          {
+            "title": "AI doesn't replace review: it directs it.",
+            "body": "The impact map and the before/after comparison didn't remove the need to check every screen, but they made that review targeted instead of blind."
+          }
+        ]
+      },
+      "related": {
+        "label": "The foundation of the Discovery Hub",
+        "text": "Hub prototypes use these components and tokens, so what gets validated is what gets built. See how it works."
       }
     }
   },

@@ -33,6 +33,13 @@
         "description": "Un optimizador de agendas para visitas médicas a domicilio donde el sistema arma la semana y el coordinador decide.",
         "button": "Ver Caso de Estudio",
         "outcome": "En producción · +32% visitas médicas · 4–5 h/día de agenda ahorradas"
+      },
+      "design_system": {
+        "title": "Design system multiplataforma",
+        "badge": "Design System",
+        "description": "Dos bibliotecas compartidas, web y mobile, para 8 frontends del producto. Las decisiones de diseño viven en código, con PRs, ADRs y releases versionados.",
+        "button": "Ver Caso de Estudio",
+        "outcome": "En uso en 8 frontends · 3 bibliotecas mobile unificadas en 1"
       }
     },
     "about": {
@@ -757,6 +764,175 @@
         "problem": "Los coordinadores armaban a mano la agenda diaria de visitas domiciliarias: 4–5 horas por día y atrasos con pacientes esperando.",
         "solution": "Un optimizador que mantiene armada la semana y deja al coordinador consultar, retocar y confirmar, sin cambios por sorpresa.",
         "impact": "+32% de visitas médicas en los 3 meses posteriores al lanzamiento, 4–5 h diarias ahorradas y menos atrasos."
+      }
+    },
+    "design_system": {
+      "badges": [
+        "Design System",
+        "Tokens",
+        "Web + Mobile"
+      ],
+      "title": "Un design system que vive en código",
+      "subtitle": "Dos bibliotecas compartidas, una web y una mobile, que usan 8 frontends del producto. Cada decisión queda registrada en un solo lugar.",
+      "role_val": "Product Designer: definición de tokens, liderazgo de la migración y trabajo junto a desarrollo",
+      "company_val": "HealthTech (NDA)",
+      "duration_val": "Migración en 3–4 semanas",
+      "status_val": "En uso en 8 frontends",
+      "summary": {
+        "problem": "Cada frontend resolvía la interfaz por su cuenta: tres bibliotecas mobile distintas, colores escritos a mano y un Figma que ya no coincidía con producción.",
+        "solution": "Dos bibliotecas compartidas, una por plataforma, construidas sobre tokens semánticos y gobernadas con PRs, ADRs y releases versionados.",
+        "impact": "8 frontends consumen la misma fuente de verdad, el tema oscuro sale de los tokens y la migración a MUI 7 se hizo sin romper pantallas."
+      },
+      "highlights": [
+        {
+          "value": "8",
+          "label": "Frontends que usan las bibliotecas (5 web y 3 mobile)"
+        },
+        {
+          "value": "3 → 1",
+          "label": "Bibliotecas mobile unificadas"
+        },
+        {
+          "value": "3–4 sem.",
+          "label": "Migración a MUI 7, validada pantalla por pantalla"
+        }
+      ],
+      "cover": {
+        "src": "/images/cases/ds-library-states.webp",
+        "alt": "Biblioteca de componentes: documentación del Button con sus variantes contained, outlined, ghost y con ícono"
+      },
+      "problem": {
+        "title": "El Problema",
+        "intro": "El producto está dividido en micro-frontends: unos 5 en el backoffice web y 3 apps mobile. Cada uno resolvía la interfaz por su cuenta:",
+        "items": [
+          "Cada una de las 3 apps tenía su propia biblioteca de componentes, así que el mismo botón, input o card existía en varias versiones.",
+          "Los colores estaban escritos a mano en cada componente, y los estados (hover, error, disabled) no coincidían entre pantallas.",
+          "Figma era la referencia, pero lo que llegaba a producción se iba separando del diseño, y nadie podía decir cuál era la versión correcta de un componente."
+        ]
+      },
+      "insight": {
+        "title": "Unificar lo que se puede, separar lo que no",
+        "body": "Web y mobile no pueden compartir una biblioteca de componentes: MUI existe solo para web, y en mobile conviene una biblioteca propia con control total del comportamiento. Por eso no se forzó una sola. Se unificó todo lo que comparte plataforma (las 3 apps pasaron a usar una única biblioteca) y, entre plataformas, se compartieron los tokens y los criterios en lugar del código."
+      },
+      "snippet": {
+        "title": "Tokens que dicen qué es el color, no cómo se ve",
+        "desc": "Tres niveles: primitivos (la paleta), semánticos (la función) y componentes. Un componente nunca conoce un valor de color, solo su función.",
+        "before_label": "Antes: el componente conoce el color",
+        "before": "backgroundColor: \"#5DC4B9\",\n\"&:hover\": {\n  backgroundColor: darken(theme.palette.primary.main, 15),\n},",
+        "after_label": "Después: el componente conoce la función",
+        "after": "backgroundColor: tokens.action.primary,\n\"&:hover\": {\n  backgroundColor: tokens.action.primaryHover,\n},",
+        "note": "Los semánticos se agrupan en bg, text, border, action y feedback. Cada uno tiene su valor claro y su valor oscuro, así que el tema oscuro salió sin tocar un solo componente."
+      },
+      "flow": {
+        "title": "Migrar sin romper: una revisión dirigida",
+        "desc": "Pasar a MUI 7 y aplicar los estilos nuevos impactaba en todas las pantallas de 5 frontends. La revisión manual era inevitable; los agentes de IA la volvieron dirigida.",
+        "steps": [
+          {
+            "actor": "Agente de IA",
+            "text": "Detecta dónde se usa cada componente en todas las pantallas: un mapa de impacto de la migración."
+          },
+          {
+            "actor": "Agente de IA",
+            "text": "Con ese mapa arma una guía de qué revisar y qué probar, así nadie recorre pantallas a ciegas."
+          },
+          {
+            "actor": "Agente de IA",
+            "text": "Genera una comparación visual de cada pantalla antes y después de la migración, como referencia."
+          },
+          {
+            "actor": "Diseño + QA",
+            "text": "Revisan pantalla por pantalla con pruebas de regresión y tests manuales, guiados por el mapa y la comparación."
+          },
+          {
+            "actor": "Equipo de cada frontend",
+            "text": "Adopta la nueva versión de la biblioteca recién cuando sus pantallas están validadas."
+          }
+        ]
+      },
+      "gallery": {
+        "title": "La documentación es el producto",
+        "desc": "Cada entorno tiene una biblioteca de componentes navegable, con guía de uso, props, estados y ejemplos. No hay un archivo de diseño que se desactualice: lo documentado es lo que corre.",
+        "items": [
+          {
+            "src": "/images/cases/ds-library-guide.webp",
+            "caption": "Guía de uso del Button: cuándo usarlo y cuándo no, con la importación y el estado del componente."
+          }
+        ]
+      },
+      "decisions": {
+        "title": "Gobernanza: cada decisión, en un solo lugar",
+        "desc": "Lo que hace durar un design system no es la cantidad de componentes, sino cómo se decide y cómo se publica cada cambio.",
+        "items": [
+          {
+            "title": "Cambios por PR",
+            "body": "Cada componente o token nuevo entra con revisión. Nadie cambia la biblioteca de todos desde un solo frontend."
+          },
+          {
+            "title": "Decisiones por ADR",
+            "body": "Las decisiones de fondo (tokens semánticos, MUI 7, una biblioteca propia en mobile) quedan escritas con su contexto y sus alternativas."
+          },
+          {
+            "title": "Releases versionados",
+            "body": "Una skill de release arma cada versión y la publica como tag de git, con notas organizadas en Added, Changed y Fixed."
+          },
+          {
+            "title": "Adopción controlada",
+            "body": "Cada frontend apunta a un tag en su package.json. Una versión nueva no cambia nada hasta que el equipo decide adoptarla en su propio PR."
+          }
+        ]
+      },
+      "pivots": {
+        "title": "Antes y después",
+        "desc": "Los cambios de fondo que dejó el sistema.",
+        "items": [
+          {
+            "before": "Tres bibliotecas mobile, una por app, con componentes duplicados",
+            "after": "Una sola biblioteca mobile compartida por las 3 apps",
+            "why": "Un componente se diseña, se arregla y se mejora una vez."
+          },
+          {
+            "before": "Colores escritos a mano en cada componente",
+            "after": "Tokens semánticos con valor claro y oscuro",
+            "why": "El tema oscuro salió de los tokens, y un cambio de marca quedaría reducido a cambiar los primitivos."
+          },
+          {
+            "before": "Figma como referencia, separándose de producción",
+            "after": "El código como única fuente: Figma se usó para migrar y quedó deprecado",
+            "why": "El diseño y lo que ve el usuario pasaron a ser la misma cosa."
+          }
+        ]
+      },
+      "results": {
+        "title": "Resultados",
+        "desc": "Lo que cambió en la forma de construir el producto.",
+        "items": [
+          "Dos bibliotecas compartidas que usan 8 frontends: 5 en el backoffice web y 3 apps mobile.",
+          "Una sola fuente de verdad: las actualizaciones se hacen sobre código y quedan trazadas en PRs y ADRs.",
+          "Tema oscuro resuelto con tokens, sin tocar componentes.",
+          "Migración a MUI 7 en 3–4 semanas, validada con QA mediante regresiones y tests manuales, sin romper pantallas.",
+          "Los prototipos del Discovery Hub usan estos mismos componentes, así que el handoff no necesita traducción."
+        ]
+      },
+      "learnings": {
+        "title": "Aprendizajes",
+        "items": [
+          {
+            "title": "Un design system dura por su gobernanza, no por sus componentes.",
+            "body": "PRs, ADRs y releases versionados hicieron que cada cambio fuera visible y reversible para todos los equipos."
+          },
+          {
+            "title": "Entre plataformas, se comparten criterios, no código.",
+            "body": "Forzar una sola biblioteca para web y mobile habría sido más prolijo en un diagrama y peor en la práctica."
+          },
+          {
+            "title": "La IA no reemplaza la revisión: la dirige.",
+            "body": "El mapa de impacto y la comparación pre/post no evitaron revisar cada pantalla, pero hicieron que esa revisión fuera dirigida y no a ciegas."
+          }
+        ]
+      },
+      "related": {
+        "label": "La base del Discovery Hub",
+        "text": "Los prototipos del Hub usan estos componentes y tokens, por eso lo que se valida es lo que se construye. Ver cómo funciona."
       }
     }
   },

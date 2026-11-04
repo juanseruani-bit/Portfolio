@@ -37,14 +37,16 @@ interface ProductCase {
   gallery?: { title: string; desc: string; items: { src: string; caption: string }[] }
   problem: { title: string; intro: string; items: string[] }
   insight: { title: string; body: string }
+  snippet?: { title: string; desc: string; before_label: string; before: string; after_label: string; after: string; note: string }
   flow: { title: string; desc: string; steps: { actor: string; text: string }[] }
   decisions: { title: string; desc: string; items: { title: string; body: string }[] }
   pivots: { title: string; desc: string; items: { before: string; after: string; why: string }[] }
   results: { title: string; desc: string; metrics?: Metric[]; items: string[] }
   learnings: { title: string; items: { title: string; body: string }[] }
+  related?: { label: string; text: string }
 }
 
-export type ProductCaseKey = "ai_usage" | "routes"
+export type ProductCaseKey = "ai_usage" | "routes" | "design_system"
 
 export function ProductCaseStudyPage({ caseKey }: { caseKey: ProductCaseKey }) {
   const { t } = useTranslation()
@@ -146,6 +148,31 @@ export function ProductCaseStudyPage({ caseKey }: { caseKey: ProductCaseKey }) {
           </Card>
         </m.div>
       </m.section>
+
+      {/* ═══════════════ CODE BEFORE / AFTER ═══════════════ */}
+      {c.snippet && (
+        <m.section className="mb-20" {...inView}>
+          <m.h2 variants={fadeIn} className="text-2xl md:text-3xl font-bold tracking-tight mb-4">{c.snippet.title}</m.h2>
+          <m.p variants={fadeIn} className="text-lg text-muted-foreground mb-10 max-w-[700px]">{c.snippet.desc}</m.p>
+
+          <m.div variants={fadeIn} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[1000px]">
+            {[
+              { label: c.snippet.before_label, code: c.snippet.before, Icon: Undo2, tone: "border-border/60 bg-muted/40", iconClass: "text-muted-foreground" },
+              { label: c.snippet.after_label, code: c.snippet.after, Icon: Check, tone: "border-primary/30 bg-primary/5", iconClass: "text-primary" },
+            ].map(({ label, code, Icon, tone, iconClass }) => (
+              <Card key={label} className={tone}>
+                <CardContent className="p-5">
+                  <p className="flex items-center gap-2 text-sm font-medium mb-3">
+                    <Icon className={cn("h-4 w-4 shrink-0", iconClass)} aria-hidden="true" />{label}
+                  </p>
+                  <pre className="text-xs md:text-sm font-mono leading-relaxed overflow-x-auto whitespace-pre"><code>{code}</code></pre>
+                </CardContent>
+              </Card>
+            ))}
+          </m.div>
+          <m.p variants={fadeIn} className="text-muted-foreground mt-6 max-w-[800px] leading-relaxed">{c.snippet.note}</m.p>
+        </m.section>
+      )}
 
       <GradientDivider />
 
@@ -291,8 +318,8 @@ export function ProductCaseStudyPage({ caseKey }: { caseKey: ProductCaseKey }) {
             <Card className="glow-card border-border/50 group-hover:border-primary/40 transition-all duration-400">
               <CardContent className="p-6 flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-xs font-mono uppercase tracking-wider text-primary mb-1">{t('product_cases.common.built_with_label')}</p>
-                  <p className="text-muted-foreground">{t('product_cases.common.built_with_text')}</p>
+                  <p className="text-xs font-mono uppercase tracking-wider text-primary mb-1">{c.related?.label ?? t('product_cases.common.built_with_label')}</p>
+                  <p className="text-muted-foreground">{c.related?.text ?? t('product_cases.common.built_with_text')}</p>
                 </div>
                 <ArrowRight className="h-5 w-5 text-primary shrink-0 group-hover:translate-x-1 transition-transform" />
               </CardContent>
