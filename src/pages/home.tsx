@@ -6,7 +6,7 @@ import { GlowOrb, GridPattern } from "@/components/decorative-elements"
 import { ContactSection } from "@/components/contact-section"
 import { cn } from "@/lib/utils"
 import { Link } from "react-router-dom"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Bot } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useDocumentTitle } from "@/lib/use-document-title"
 
@@ -50,6 +50,84 @@ const projects: { key: string; to: string; year?: string; badgeClass: string; ta
 
 const experience = ["hmm", "avature", "dinocloud"] as const
 
+type SynthReport = {
+  mission: string
+  verdict: { layer: string; value: string }[]
+  findings: { severity: string; text: string; principle: string }[]
+}
+
+function HeroVisual() {
+  const { t } = useTranslation()
+  const report = t("case_study.synthetic.report", { returnObjects: true }) as SynthReport
+  // The tab-count finding points at the "Abiertas (9)" tab visible in the screenshot
+  const finding = report.findings[2]
+
+  return (
+    <m.div
+      className="relative hidden lg:block"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.5, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+    >
+      <Link to="/proyectos/discovery-hub" aria-labelledby="hero-visual-caption" className="group block rounded-xl">
+        <div className="relative pb-10 pl-10">
+          <div className="rounded-xl border border-border/60 bg-card shadow-2xl overflow-hidden transition-transform duration-500 ease-out group-hover:-translate-y-1">
+            <div className="flex items-center gap-1.5 h-9 px-4 border-b border-border bg-muted" aria-hidden="true">
+              <span className="h-2.5 w-2.5 rounded-full bg-zinc-400 dark:bg-zinc-600" />
+              <span className="h-2.5 w-2.5 rounded-full bg-zinc-400 dark:bg-zinc-600" />
+              <span className="h-2.5 w-2.5 rounded-full bg-zinc-400 dark:bg-zinc-600" />
+              <span className="ml-3 text-xs font-mono text-muted-foreground truncate">discovery-hub / alertas</span>
+            </div>
+            <div className="aspect-[4/3] bg-white overflow-hidden">
+              {/* Desktop-only visual: below lg the <source> doesn't match, so phones get the 1px placeholder instead of downloading the screenshot */}
+              <picture>
+                <source media="(min-width: 1024px)" srcSet="/images/cases/hub-alerts-inbox.webp" />
+                <img
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                  alt=""
+                  width={2768}
+                  height={2360}
+                  className="w-full h-full object-cover object-top"
+                />
+              </picture>
+            </div>
+          </div>
+
+          <div
+            className="absolute left-0 bottom-0 w-[min(320px,80%)] rounded-xl border border-border bg-card p-4 shadow-2xl space-y-3 transition-transform duration-500 ease-out group-hover:translate-y-1"
+            aria-hidden="true"
+          >
+            <div className="flex items-center gap-2 text-xs font-mono font-semibold text-primary">
+              <Bot className="h-4 w-4" />
+              synth-run
+            </div>
+            <p className="text-xs text-muted-foreground leading-snug">{report.mission}</p>
+            <p className="text-sm">
+              <span className="font-medium">{report.verdict[0].layer}:</span>{" "}
+              <span className="text-muted-foreground">{report.verdict[0].value}</span>
+            </p>
+            <div className="text-sm border-t border-border/60 pt-3">
+              <div className="flex items-center gap-2 mb-1">
+                <Badge variant="outline" className="border-amber-500/50 text-amber-700 dark:text-amber-400">{finding.severity}</Badge>
+                <span className="text-xs text-muted-foreground">{finding.principle}</span>
+              </div>
+              <p className="leading-snug">{finding.text}</p>
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-4 text-sm text-muted-foreground">
+          <span id="hero-visual-caption">
+            {t("home.hero.visual_caption")}{" "}
+            <span className="font-medium text-foreground group-hover:text-primary transition-colors">{t("home.hero.visual_cta")}</span>
+          </span>
+          <ArrowRight className="inline ml-1 h-3.5 w-3.5 align-[-2px] text-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
+        </p>
+      </Link>
+    </m.div>
+  )
+}
+
 export function Home() {
   const { t } = useTranslation()
   useDocumentTitle()
@@ -76,7 +154,7 @@ export function Home() {
         <GlowOrb color="violet" size="md" className="top-1/3 -left-20" />
         <GlowOrb color="teal" size="sm" className="bottom-0 right-10" />
 
-        <div className="container mx-auto px-4 md:px-8 pt-8 pb-10 md:pt-16 md:pb-16">
+        <div className="container mx-auto px-4 md:px-8 pt-8 pb-10 md:pt-16 md:pb-16 lg:grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-16">
           <m.div
             className="max-w-[850px]"
             initial={{ opacity: 0, y: 30 }}
@@ -105,7 +183,7 @@ export function Home() {
 
             {/* Hero headline with gradient text */}
             <m.h1
-              className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-[1.1]"
+              className="text-4xl md:text-6xl lg:text-[3.5rem] xl:text-6xl font-bold tracking-tight mb-8 leading-[1.1]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
@@ -139,6 +217,9 @@ export function Home() {
                 </a>
             </m.div>
           </m.div>
+
+          {/* Work above the fold: a Hub prototype screen plus the synthetic-user report about that same screen */}
+          <HeroVisual />
         </div>
       </section>
 
