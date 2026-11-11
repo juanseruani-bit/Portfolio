@@ -11,39 +11,39 @@
       "location": "Product Designer · Córdoba, Argentina"
     },
     "projects": {
-      "title": "Proyectos Destacados",
+      "title": "Proyectos destacados",
       "subtitle": "Casos de estudio de producto, de punta a punta: del problema y las decisiones a los resultados en producción.",
       "discovery_hub": {
         "title": "Discovery & Prototyping Hub",
         "badge": "DesignOps / IA",
         "description": "Plataforma de prototipado con IA que unifica diseño y desarrollo. Skills de Claude para automatizar discovery, testing sintético y handoff.",
-        "button": "Ver Caso de Estudio",
+        "button": "Ver caso de estudio",
         "outcome": "24 discoveries en 4 productos · handoffs con requisitos con ID y tests para QA"
       },
       "ai_usage": {
         "title": "Control de gasto en agentes de IA",
         "badge": "Producto / IA",
         "description": "Convertir un pedido para monetizar los agentes de IA en un sistema para medir y cortar su gasto, cuando el contrato todavía no permitía sumar cargos.",
-        "button": "Ver Caso de Estudio",
+        "button": "Ver caso de estudio",
         "outcome": "En producción · gasto de los agentes de IA medido, con corte por organización"
       },
       "routes": {
         "title": "Optimizador de rutas domiciliarias",
         "badge": "Producto / Automatización",
         "description": "Un optimizador de agendas para visitas médicas a domicilio donde el sistema arma la semana y el coordinador decide.",
-        "button": "Ver Caso de Estudio",
+        "button": "Ver caso de estudio",
         "outcome": "En producción · +32% visitas médicas · 4–5 h/día de agenda ahorradas"
       },
       "design_system": {
         "title": "Design system multiplataforma",
         "badge": "Design System",
         "description": "Dos bibliotecas compartidas, web y mobile, para 8 frontends del producto. Las decisiones de diseño viven en código, con PRs, ADRs y releases versionados.",
-        "button": "Ver Caso de Estudio",
+        "button": "Ver caso de estudio",
         "outcome": "En uso en 8 frontends · 3 bibliotecas mobile unificadas en 1"
       }
     },
     "about": {
-      "title": "Acerca de Mí",
+      "title": "Acerca de mí",
       "subtitle": "Mi recorrido profesional combinando negocio y diseño.",
       "hmm": {
         "role": "UX/UI Designer",
@@ -110,7 +110,7 @@
     "back": "Volver",
     "badges": [
       "DesignOps",
-      "IA + Diseño",
+      "IA + diseño",
       "2025"
     ],
     "title": "Discovery & Prototyping Hub",
@@ -123,7 +123,7 @@
     "duration_val": "2025 — Presente",
     "image": "/images/cases/hub-playground.webp",
     "problem": {
-      "title": "El Problema",
+      "title": "El problema",
       "p1": "En productos digitales complejos — especialmente en HealthTech, donde conviven una plataforma web para operadores, apps móviles para profesionales, pacientes y conductores — el flujo clásico de diseño genera fricciones críticas:",
       "li1": "Los prototipos estáticos no reflejan la complejidad real. Un mockup en Figma no puede simular estados de carga, validaciones en tiempo real, ni flujos multi-paso con datos dinámicos.",
       "li2": "El handoff es un cuello de botella. Los desarrolladores reciben PDFs o links de Figma que no coinciden con la arquitectura de componentes del frontend real.",
@@ -157,7 +157,7 @@
       }
     ],
     "beforeAfter": {
-      "title": "Antes vs. Después",
+      "title": "Antes vs. después",
       "desc": "El impacto del Discovery Hub comparado con el flujo de diseño tradicional.",
       "items": [
         {
@@ -183,15 +183,15 @@
       ]
     },
     "solution": {
-      "title": "La Solución",
+      "title": "La solución",
       "desc": "Un monorepo de prototipado que replica el stack real de desarrollo, alimentado con datos mock, donde cada feature se diseña, valida y documenta antes de escribir una sola línea de código productivo.",
       "cards": [
         {
-          "title": "Monorepo Multi-Plataforma",
+          "title": "Monorepo multiplataforma",
           "desc": "4 entornos (1 web + 3 mobile) con el mismo stack que producción. Componentes compartidos, datos mock centralizados, y playgrounds independientes por plataforma."
         },
         {
-          "title": "Sistema de Discoveries",
+          "title": "Sistema de discoveries",
           "desc": "Cada feature es una \"Discovery\" — una unidad funcional que agrupa componentes, páginas, hooks, mocks y documentación. 24 discoveries en 4 productos."
         },
         {
@@ -199,7 +199,7 @@
           "desc": "3 skills que automatizan el ciclo: discovery-start, handoff y synth-run. Desde la investigación inicial hasta la entrega al equipo de desarrollo."
         },
         {
-          "title": "Usuarios Sintéticos",
+          "title": "Usuarios sintéticos",
           "desc": "Personas ficticias con perfiles YAML que recorren los prototipos y reportan fricción UX en 3 capas. 12 personas en 4 productos, con misiones reutilizables."
         },
         {
@@ -207,13 +207,13 @@
           "desc": "Dos familias de docs que nunca se fusionan: la narrativa (el porqué) y la norma (el qué debe cumplir). Scripts de verificación automáticos."
         },
         {
-          "title": "Handoff sin Fricciones",
+          "title": "Handoff sin fricciones",
           "desc": "Los desarrolladores reciben prototipos funcionales en su mismo stack, requisitos con ID y casos de prueba. QA recibe tests automatizados integrados con Jira."
         }
       ]
     },
     "architecture": {
-      "title": "Arquitectura del Monorepo",
+      "title": "Arquitectura del monorepo",
       "desc": "Un único repositorio que contiene los 4 entornos de producto, con recursos compartidos centralizados.",
       "packages": [
         {
@@ -253,7 +253,7 @@
       ]
     },
     "anatomy": {
-      "title": "Anatomía de una Discovery",
+      "title": "Anatomía de una discovery",
       "desc": "Cada discovery tiene un ciclo documental riguroso. Este es un ejemplo real (anonimizado) de una feature de gestión financiera con ",
       "descBold": "76 decisiones documentadas",
       "items": [
@@ -285,10 +285,10 @@
       "countLabel": "Decisiones documentadas en esta discovery:"
     },
     "skills": {
-      "title": "Skills de IA — Pipeline Real",
+      "title": "Skills de IA: pipeline real",
       "desc": "Tres skills de Claude Code que automatizan el ciclo completo, desde la investigación inicial hasta la entrega al equipo de desarrollo.",
       "inputLabel": "Input",
-      "outputLabel": "Output Automático",
+      "outputLabel": "Output automático",
       "items": [
         {
           "name": "discovery-start",
@@ -323,7 +323,7 @@
       ]
     },
     "synthetic": {
-      "title": "Usuarios Sintéticos en Acción",
+      "title": "Usuarios sintéticos en acción",
       "desc": "Cada persona sintética tiene un perfil YAML con rol, comportamiento, frustraciones y foco. Recorren los prototipos y reportan fricción de usabilidad automáticamente.",
       "exampleLabel": "Ejemplo real (anonimizado)",
       "howItWorks": "¿Cómo funciona?",
@@ -373,7 +373,7 @@
       }
     },
     "mockups": {
-      "title": "Interfaces Prototipadas",
+      "title": "Interfaces prototipadas",
       "desc": "Capturas reales de discoveries prototipadas en el Hub, con datos ficticios y el estilo visual anonimizado.",
       "items": [
         {
@@ -391,11 +391,11 @@
       ]
     },
     "metricsSection": {
-      "title": "Resultados e Impacto",
+      "title": "Resultados e impacto",
       "desc": "Datos contados en el propio repositorio, no estimaciones."
     },
     "techStack": {
-      "title": "Stack Tecnológico"
+      "title": "Stack tecnológico"
     },
     "learnings": {
       "title": "Aprendizajes",
@@ -457,7 +457,7 @@
         "alt": "Panel de saldo de la clínica: créditos disponibles y consumidos, bolsillos ordenados por vencimiento y reglas de consumo"
       },
       "problem": {
-        "title": "El Problema",
+        "title": "El problema",
         "intro": "La plataforma iba a lanzar agentes de IA (evolución clínica, historia clínica, análisis de imágenes, soporte) que consumen tokens de modelos de terceros. Ese consumo es un costo variable real, y nadie podía verlo:",
         "items": [
           "La clínica (el cliente) no sabía cuánto gastaba su equipo en agentes de IA ni podía ponerle límites.",
@@ -632,7 +632,7 @@
         "alt": "Agenda del día en formato Gantt por profesional, con la jornada ya optimizada, métricas de kilómetros y citas y el panel de no atendidas"
       },
       "problem": {
-        "title": "El Problema",
+        "title": "El problema",
         "intro": "Los coordinadores armaban a mano la agenda diaria de los profesionales que visitan pacientes en su domicilio:",
         "items": [
           "Armar la agenda les llevaba entre 4 y 5 horas por día.",
@@ -802,7 +802,7 @@
         "alt": "Biblioteca de componentes: documentación del Button con sus variantes contained, outlined, ghost y con ícono"
       },
       "problem": {
-        "title": "El Problema",
+        "title": "El problema",
         "intro": "El producto está dividido en micro-frontends: unos 5 en el backoffice web y 3 apps mobile. Cada uno resolvía la interfaz por su cuenta:",
         "items": [
           "Cada una de las 3 apps tenía su propia biblioteca de componentes, así que el mismo botón, input o card existía en varias versiones.",

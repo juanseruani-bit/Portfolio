@@ -401,7 +401,7 @@
       "title": "Learnings",
       "items": [
         {
-          "title": "The most useful prototype speaks the teams language.",
+          "title": "The most useful prototype speaks the team's language.",
           "body": "Prototyping in the real stack eliminates the game of telephone between design and dev."
         },
         {
@@ -409,7 +409,7 @@
           "body": "The most reliable handoff is automatically generated from code and documented decisions."
         },
         {
-          "title": "AI amplifies design judgement, it doesnt replace it.",
+          "title": "AI amplifies design judgement, it doesn't replace it.",
           "body": "Synthetic users clear out the obvious friction before live sessions, so time with real users goes to what only a human can reveal."
         }
       ]
