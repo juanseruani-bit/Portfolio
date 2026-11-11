@@ -124,13 +124,146 @@
     "duration_label": "Duración:",
     "duration_val": "2025 — Presente",
     "image": "/images/cases/hub-playground.webp",
+    "image_alt": "Discovery Playground: cada módulo del producto agrupa sus discoveries",
+    "summary": {
+      "problem": "Los prototipos en Figma no reflejaban la complejidad real, y el handoff en prosa se interpretaba distinto en cada desarrollo.",
+      "solution": "Un hub de prototipado en el stack de producción, con agentes de IA que arman el discovery, prueban con usuarios sintéticos y derivan el handoff.",
+      "impact": "24 discoveries en 4 productos, y handoffs con requisitos con ID, casos de prueba y tests automatizados para QA integrados con Jira."
+    },
     "problem": {
       "title": "El problema",
-      "p1": "En productos digitales complejos — especialmente en HealthTech, donde conviven una plataforma web para operadores, apps móviles para profesionales, pacientes y conductores — el flujo clásico de diseño genera fricciones críticas:",
-      "li1": "Los prototipos estáticos no reflejan la complejidad real. Un mockup en Figma no puede simular estados de carga, validaciones en tiempo real, ni flujos multi-paso con datos dinámicos.",
-      "li2": "El handoff es un cuello de botella. Los desarrolladores reciben PDFs o links de Figma que no coinciden con la arquitectura de componentes del frontend real.",
-      "li3": "La documentación se desactualiza al primer cambio. Las especificaciones escritas en paralelo al prototipo se reescriben con cada iteración.",
-      "li4": "El testing de UX es caro y lento. Coordinar sesiones con usuarios reales para cada iteración es insostenible en ciclos ágiles."
+      "intro": "El producto tiene una plataforma web para operadores y tres apps móviles, para profesionales, pacientes y conductores. Con el flujo de diseño tradicional aparecían tres problemas:",
+      "items": [
+        "Un mockup en Figma no muestra estados de carga, validaciones ni flujos de varios pasos con datos que cambian.",
+        "Desarrollo recibía links de Figma y documentos en prosa que cada persona interpretaba distinto, y que no coincidían con los componentes reales del frontend.",
+        "La documentación quedaba vieja con cada iteración, y probar cada cambio con usuarios reales no entraba en los tiempos de un sprint."
+      ]
+    },
+    "insight": {
+      "title": "El giro: prototipar en el mismo código que producción",
+      "body": "Los prototipos pasaron a construirse con el mismo stack y los mismos componentes que el producto, con datos ficticios. Lo que se revisa con el equipo y con usuarios es lo que después se construye, y la documentación para desarrollo sale del prototipo y de las decisiones registradas. Claude Code acompaña todo el proceso: con él se construyen los prototipos, y sus agentes se encargan de las partes repetitivas."
+    },
+    "cycle": {
+      "title": "Cómo funciona",
+      "desc": "Cada feature se trabaja como una discovery: una carpeta con el prototipo, sus datos ficticios y su documentación. Este es el recorrido de una discovery, de la primera reunión a desarrollo.",
+      "ai_label": "Agente de IA",
+      "steps": [
+        {
+          "title": "Reunión con negocio",
+          "text": "Las notas y los pedidos se guardan tal cual. Un agente arma la discovery, abre la bitácora de decisiones y marca qué cambia respecto de producción.",
+          "ai": true
+        },
+        {
+          "title": "Prototipo en código",
+          "text": "El diseño se construye directamente en React o React Native con Claude Code, usando los componentes del design system y datos ficticios.",
+          "ai": true
+        },
+        {
+          "title": "Usuarios sintéticos",
+          "text": "Un agente recorre el prototipo con el perfil de un usuario ficticio y una misión, y reporta la fricción que encuentra.",
+          "ai": true
+        },
+        {
+          "title": "Revisión con personas",
+          "text": "Producto, el equipo y usuarios reales revisan cada prototipo funcionando. Cada cambio queda en la bitácora.",
+          "ai": false
+        },
+        {
+          "title": "Entrega a desarrollo",
+          "text": "Un agente deriva los requisitos con ID y los casos de prueba. QA recibe tests vinculados a Jira.",
+          "ai": true
+        }
+      ]
+    },
+    "synthetic": {
+      "title": "Usuarios sintéticos en acción",
+      "desc": "Antes de mostrarle un prototipo a una persona, un agente lo recorre con el perfil de un usuario ficticio: por ejemplo, un coordinador de operaciones que trabaja bajo presión y lee escaneando. En cada pantalla aplica una rúbrica de 10 principios, y al final entrega un reporte. Este es un extracto de una corrida real sobre la bandeja de alertas.",
+      "exampleLabel": "Ejemplo real (anonimizado)",
+      "howItWorks": "¿Cómo funciona?",
+      "steps": [
+        "Se elige una persona y una misión (o modo exploración libre)",
+        "La IA recorre la discovery como esa persona, respetando su comportamiento",
+        "Aplica una rúbrica estandarizada de 10 principios en cada pantalla",
+        "Genera un reporte de fricción en 3 capas con severidad calibrada"
+      ],
+      "report": {
+        "label": "Extracto de un reporte real (anonimizado)",
+        "mission": "Persona ops-coordinador · Misión: triage de la bandeja de alertas",
+        "verdictTitle": "Veredicto en 3 capas",
+        "verdict": [
+          {
+            "layer": "Tarea",
+            "value": "Completada con fricción"
+          },
+          {
+            "layer": "Rúbrica",
+            "value": "Buena cobertura de estados; el estado se pierde después de actuar"
+          },
+          {
+            "layer": "Foco de la persona",
+            "value": "Prioriza rápido, pero duda si la alerta sigue escalada"
+          }
+        ],
+        "findingsTitle": "Hallazgos principales",
+        "findings": [
+          {
+            "severity": "Media",
+            "text": "Al tomar el seguimiento, la marca \"Escalada\" desaparece de la fila: no queda claro si la escalada sigue activa.",
+            "principle": "1. Visibilidad del estado"
+          },
+          {
+            "severity": "Media",
+            "text": "La fila cambia de lugar después de accionarla y se pierde al escanear la lista.",
+            "principle": "7. Consistencia"
+          },
+          {
+            "severity": "Media",
+            "text": "La pestaña sigue diciendo \"Abiertas (9)\" mientras el filtro muestra 2 alertas.",
+            "principle": "1. Visibilidad del estado"
+          }
+        ],
+        "note": "El reporte separa la fricción de UX de las limitaciones del prototipo, como acciones sin test ID o datos mock."
+      },
+      "clip": {
+        "title": "Los hallazgos, en el prototipo",
+        "video": "/videos/cases/hub-alerts-follow-up.mp4",
+        "poster": "/videos/cases/hub-alerts-follow-up-poster.webp",
+        "caption": "Grabación del prototipo: al tomar el seguimiento, la alerta crítica pierde la marca \"Escalada\" y baja en la lista. Es la fricción que reportó el usuario sintético."
+      }
+    },
+    "beforeAfter": {
+      "title": "Antes vs. después",
+      "desc": "Qué cambió en el trabajo entre diseño, producto y desarrollo.",
+      "items": [
+        {
+          "before": "Diseño en Figma → PDF de specs → Cada dev interpreta",
+          "after": "Prototipo en el código real → Requisitos con ID → El dev implementa lo que ya vio funcionar"
+        },
+        {
+          "before": "Propuestas pensadas sin ver cómo funciona hoy el producto",
+          "after": "Cada discovery parte del código de producción y marca qué agrega, modifica y quita"
+        },
+        {
+          "before": "Las sesiones con usuarios reales cargan con toda la detección de fricción",
+          "after": "Pasada previa con usuarios sintéticos; las sesiones reales se enfocan en lo que solo un humano revela"
+        },
+        {
+          "before": "Handoff en prosa, armado a mano, que cada dev interpreta distinto",
+          "after": "Requisitos con ID, casos de prueba y tests automatizados para QA, vinculados a Jira"
+        },
+        {
+          "before": "Documentación manual que se desactualiza al primer cambio",
+          "after": "Un chequeo automático avisa si un requisito queda sin caso de prueba, si hay links rotos o IDs repetidos"
+        }
+      ]
+    },
+    "outcomes": {
+      "title": "Lo que salió del Hub",
+      "desc": "Dos de los casos de este portfolio se prototiparon, validaron y entregaron con el Hub, y hoy están en producción. Sus componentes salen del design system.",
+      "built_label": "Prototipado con el Hub",
+      "base_label": "Componentes del Hub",
+      "metrics_title": "En números",
+      "metrics_desc": "Contados en el propio repositorio."
     },
     "metrics": [
       {
@@ -158,61 +291,27 @@
         "label": "Casos de prueba derivados de ese handoff"
       }
     ],
-    "beforeAfter": {
-      "title": "Antes vs. después",
-      "desc": "El impacto del Discovery Hub comparado con el flujo de diseño tradicional.",
+    "learnings": {
+      "title": "Aprendizajes",
       "items": [
         {
-          "before": "Diseño en Figma → PDF de specs → El dev interpreta",
-          "after": "Prototipo en código real → Spec derivada con IDs → El dev implementa"
+          "title": "El prototipo más útil es el que habla el mismo idioma que el equipo.",
+          "body": "Prototipar en el stack real elimina el \"juego del teléfono descompuesto\" entre diseño y desarrollo."
         },
         {
-          "before": "Propuestas pensadas sin ver cómo funciona hoy el producto",
-          "after": "Cada discovery parte del código de producción y marca qué agrega, modifica y quita"
+          "title": "La documentación sale del prototipo.",
+          "body": "El handoff más confiable es el que se genera desde el código y las decisiones registradas."
         },
         {
-          "before": "Las sesiones con usuarios reales cargan con toda la detección de fricción",
-          "after": "Pasada previa con usuarios sintéticos; las sesiones reales se enfocan en lo que solo un humano revela"
-        },
-        {
-          "before": "Handoff en prosa, armado a mano, que cada dev interpreta distinto",
-          "after": "Requisitos con ID, casos de prueba, test IDs de producción y tests automatizados para QA integrados con Jira"
-        },
-        {
-          "before": "Documentación manual que se desactualiza al primer cambio",
-          "after": "Docs vivos con un gate de verificación automático"
+          "title": "Los usuarios sintéticos preparan las sesiones con personas.",
+          "body": "Limpian la fricción obvia antes, para que el tiempo con usuarios reales se use en lo que solo una persona puede revelar."
         }
       ]
     },
-    "solution": {
-      "title": "La solución",
-      "desc": "Un monorepo de prototipado que replica el stack real de desarrollo, alimentado con datos mock, donde cada feature se diseña, valida y documenta antes de escribir una sola línea de código productivo.",
-      "cards": [
-        {
-          "title": "Monorepo multiplataforma",
-          "desc": "4 entornos (1 web + 3 mobile) con el mismo stack que producción. Componentes compartidos, datos mock centralizados, y playgrounds independientes por plataforma."
-        },
-        {
-          "title": "Sistema de discoveries",
-          "desc": "Cada feature es una \"Discovery\" — una unidad funcional que agrupa componentes, páginas, hooks, mocks y documentación. 24 discoveries en 4 productos."
-        },
-        {
-          "title": "Skills de IA (Claude Code)",
-          "desc": "3 skills que automatizan el ciclo: discovery-start, handoff y synth-run. Desde la investigación inicial hasta la entrega al equipo de desarrollo."
-        },
-        {
-          "title": "Usuarios sintéticos",
-          "desc": "Personas ficticias con perfiles YAML que recorren los prototipos y reportan fricción UX en 3 capas. 12 personas en 4 productos, con misiones reutilizables."
-        },
-        {
-          "title": "Spec-Driven Development",
-          "desc": "Dos familias de docs que nunca se fusionan: la narrativa (el porqué) y la norma (el qué debe cumplir). Scripts de verificación automáticos."
-        },
-        {
-          "title": "Handoff sin fricciones",
-          "desc": "Los desarrolladores reciben prototipos funcionales en su mismo stack, requisitos con ID y casos de prueba. QA recibe tests automatizados integrados con Jira."
-        }
-      ]
+    "technical": {
+      "title": "Detalle técnico",
+      "hint": "Arquitectura, documentación de cada discovery, los 3 agentes de IA, un perfil de usuario sintético y el stack.",
+      "persona_title": "El perfil de un usuario sintético"
     },
     "architecture": {
       "title": "Arquitectura del monorepo",
@@ -284,11 +383,12 @@
           "desc": "Material crudo de reuniones, sin editar"
         }
       ],
-      "countLabel": "Decisiones documentadas en esta discovery:"
+      "countLabel": "Decisiones documentadas en esta discovery:",
+      "spec": "Las discoveries siguen Spec-Driven Development: dos familias de documentos que nunca se mezclan, la narrativa (el porqué) y la norma (qué debe cumplir el producto). En cada entrega, un script verifica que ningún requisito quede sin caso de prueba y que no haya links rotos ni IDs repetidos."
     },
     "skills": {
-      "title": "Skills de IA: pipeline real",
-      "desc": "Tres skills de Claude Code que automatizan el ciclo completo, desde la investigación inicial hasta la entrega al equipo de desarrollo.",
+      "title": "Los 3 agentes de IA",
+      "desc": "Tres skills de Claude Code automatizan las partes repetitivas del ciclo, desde la primera reunión hasta la entrega a desarrollo.",
       "inputLabel": "Input",
       "outputLabel": "Output automático",
       "items": [
@@ -324,114 +424,13 @@
         }
       ]
     },
-    "synthetic": {
-      "title": "Usuarios sintéticos en acción",
-      "desc": "Cada persona sintética tiene un perfil YAML con rol, comportamiento, frustraciones y foco. Recorren los prototipos y reportan fricción de usabilidad automáticamente.",
-      "exampleLabel": "Ejemplo real (anonimizado)",
-      "howItWorks": "¿Cómo funciona?",
-      "steps": [
-        "Se elige una persona y una misión (o modo exploración libre)",
-        "La IA recorre la discovery como esa persona, respetando su comportamiento",
-        "Aplica una rúbrica estandarizada de 10 principios en cada pantalla",
-        "Genera un reporte de fricción en 3 capas con severidad calibrada"
-      ],
-      "report": {
-        "label": "Extracto de un reporte real (anonimizado)",
-        "mission": "Persona ops-coordinador · Misión: triage de la bandeja de alertas",
-        "verdictTitle": "Veredicto en 3 capas",
-        "verdict": [
-          {
-            "layer": "Tarea",
-            "value": "Completada con fricción"
-          },
-          {
-            "layer": "Rúbrica",
-            "value": "Buena cobertura de estados; el estado se pierde después de actuar"
-          },
-          {
-            "layer": "Foco de la persona",
-            "value": "Prioriza rápido, pero duda si la alerta sigue escalada"
-          }
-        ],
-        "findingsTitle": "Hallazgos principales",
-        "findings": [
-          {
-            "severity": "Media",
-            "text": "Al tomar el seguimiento, la marca \"Escalada\" desaparece de la fila: no queda claro si la escalada sigue activa.",
-            "principle": "1. Visibilidad del estado"
-          },
-          {
-            "severity": "Media",
-            "text": "La fila cambia de lugar después de accionarla y se pierde al escanear la lista.",
-            "principle": "7. Consistencia"
-          },
-          {
-            "severity": "Media",
-            "text": "La pestaña sigue diciendo \"Abiertas (9)\" mientras el filtro muestra 2 alertas.",
-            "principle": "1. Visibilidad del estado"
-          }
-        ],
-        "note": "El reporte separa la fricción de UX de las limitaciones del prototipo, como acciones sin test ID o datos mock."
-      },
-      "clip": {
-        "title": "Los hallazgos, en el prototipo",
-        "video": "/videos/cases/hub-alerts-follow-up.mp4",
-        "poster": "/videos/cases/hub-alerts-follow-up-poster.webp",
-        "caption": "Grabación del prototipo: al tomar el seguimiento, la alerta crítica pierde la marca \"Escalada\" y baja en la lista. Es la fricción que reportó el usuario sintético."
-      }
-    },
-    "mockups": {
-      "title": "Interfaces prototipadas",
-      "desc": "Capturas reales de discoveries prototipadas en el Hub, con datos ficticios y el estilo visual anonimizado.",
-      "items": [
-        {
-          "label": "Bandeja de alertas clínicas y operativas",
-          "src": "/images/cases/hub-alerts-inbox.webp"
-        },
-        {
-          "label": "Gasto en agentes de IA por organización",
-          "src": "/images/cases/ai-consumption.webp"
-        },
-        {
-          "label": "Comparación de criterios en el optimizador de rutas",
-          "src": "/images/cases/routes-trial.webp"
-        }
-      ]
-    },
-    "metricsSection": {
-      "title": "Resultados e impacto",
-      "desc": "Datos contados en el propio repositorio, no estimaciones."
-    },
     "techStack": {
       "title": "Stack tecnológico"
-    },
-    "learnings": {
-      "title": "Aprendizajes",
-      "items": [
-        {
-          "title": "El prototipo más útil es el que habla el mismo idioma que el equipo.",
-          "body": "Prototipar en el stack real elimina el \"juego del teléfono descompuesto\" entre diseño y desarrollo."
-        },
-        {
-          "title": "La documentación debe derivarse, no inventarse.",
-          "body": "El handoff más confiable es el que se genera automáticamente desde el código y las decisiones documentadas."
-        },
-        {
-          "title": "La IA no reemplaza el criterio de diseño, lo amplifica.",
-          "body": "Los usuarios sintéticos limpian la fricción obvia antes de las sesiones con usuarios reales, para que ese tiempo se use en lo que solo un humano puede revelar."
-        }
-      ]
     },
     "cta": {
       "text": "¿Te interesa saber más sobre este proyecto?",
       "contact": "Conversemos",
       "more": "Ver más proyectos"
-    },
-    "image_alt": "Discovery Playground: cada módulo del producto agrupa sus discoveries",
-    "summary": {
-      "problem": "Los prototipos en Figma no reflejaban la complejidad real, y el handoff en prosa se interpretaba distinto en cada desarrollo.",
-      "solution": "Un hub de prototipado en el stack de producción, con agentes de IA que arman el discovery, prueban con usuarios sintéticos y derivan el handoff.",
-      "impact": "24 discoveries en 4 productos, y handoffs con requisitos con ID, casos de prueba y tests automatizados para QA integrados con Jira."
     }
   },
   "product_cases": {
@@ -445,7 +444,9 @@
       "built_with_text": "Prototipado, validado y entregado a desarrollo con el sistema de discovery que diseñé. Ver cómo funciona.",
       "cta_text": "¿Te interesa saber más sobre este proyecto?",
       "cta_contact": "Conversemos",
-      "cta_more": "Ver más proyectos"
+      "cta_more": "Ver más proyectos",
+      "markers_title": "Qué muestra la pantalla",
+      "sketch_label": "Esquema"
     },
     "ai_usage": {
       "badges": [
@@ -462,7 +463,31 @@
       "status_val": "En producción",
       "cover": {
         "src": "/images/cases/ai-balance.webp",
-        "alt": "Panel de saldo de la clínica: créditos disponibles y consumidos, bolsillos ordenados por vencimiento y reglas de consumo"
+        "alt": "Panel de saldo de la clínica: créditos disponibles y consumidos, bolsillos ordenados por vencimiento y reglas de consumo",
+        "width": 2732,
+        "height": 1176,
+        "markers": [
+          {
+            "x": 27.5,
+            "y": 44,
+            "text": "El saldo en dos números: disponible y consumido en el ciclo vigente."
+          },
+          {
+            "x": 50.5,
+            "y": 5.6,
+            "text": "Los bolsillos, en el orden en que se consumen: primero lo que vence antes."
+          },
+          {
+            "x": 42.8,
+            "y": 64.3,
+            "text": "El pago por uso entra solo al agotarse el saldo, con un tope mensual."
+          },
+          {
+            "x": 48.5,
+            "y": 80.8,
+            "text": "Las reglas del saldo, explicadas en la misma pantalla."
+          }
+        ]
       },
       "problem": {
         "title": "El problema",
@@ -528,10 +553,6 @@
             "width": 1920,
             "height": 1200,
             "caption": "El corte por organización: suspender el servicio exige un motivo y conserva el saldo y la configuración de la clínica."
-          },
-          {
-            "src": "/images/cases/ai-ops-close.webp",
-            "caption": "Cierre de mes: facturado y margen por mes, con el margen pintado como magnitud y no como alarma."
           }
         ]
       },
@@ -545,15 +566,27 @@
           },
           {
             "title": "La pantalla explica sus propias reglas",
-            "body": "Un saldo con vencimientos es opaco. La explicación vive donde aparece la duda, no en un manual."
+            "body": "Un saldo con vencimientos es opaco, así que las reglas de consumo se explican en la misma pantalla del saldo, junto a los bolsillos."
           },
           {
             "title": "El margen se muestra abierto",
-            "body": "El margen de reventa va separado del costo del cupo contractual, así el cupo incluido nunca se lee como pérdida. Es una decisión de negocio antes que visual."
+            "body": "El margen de reventa va separado del costo del cupo contractual, así el cupo incluido nunca se lee como pérdida. Es una decisión de negocio antes que visual.",
+            "image": {
+              "src": "/images/cases/crops/ai-margin-breakdown.webp",
+              "width": 2621,
+              "height": 416,
+              "alt": "Cierre de mes: el margen del mes, los ingresos y los costos de ventas. El costo del cupo incluido figura aparte, fuera del margen."
+            }
           },
           {
-            "title": "Magnitud, no alarma",
-            "body": "El margen se pinta con una rampa ordinal en lugar de verde y rojo: comunica cuánto sin sugerir que algo está mal, y es más accesible."
+            "title": "Un margen sin semáforo",
+            "body": "El margen se pinta con una rampa ordinal, sin verde ni rojo: comunica cuánto sin sugerir que algo está mal, y se lee sin depender de distinguir colores.",
+            "image": {
+              "src": "/images/cases/crops/ai-margin-chart.webp",
+              "width": 2684,
+              "height": 702,
+              "alt": "Gráfico de facturado y margen por mes, en tonos de un mismo color."
+            }
           },
           {
             "title": "Sin saldo se avisa antes de cero",
@@ -572,17 +605,53 @@
           {
             "before": "Replicar la consola de facturación de un proveedor cloud, como pidió un stakeholder",
             "after": "El usuario elige el período de análisis, y ese período nunca cambia el saldo",
-            "why": "En vez de copiar la pantalla, investigué qué problema resolvía cada control. Esa consola separa cuándo se consumió de en qué factura cae: el mismo problema que teníamos, porque los paquetes vencen a 30 días y los cupos se renuevan en el aniversario de cada cliente."
+            "why": "En vez de copiar la pantalla, investigué qué problema resolvía cada control. Esa consola separa cuándo se consumió de en qué factura cae: el mismo problema que teníamos, porque los paquetes vencen a 30 días y los cupos se renuevan en el aniversario de cada cliente.",
+            "sketch": {
+              "id": "ai-period",
+              "before": {
+                "console": "Réplica de la consola del proveedor"
+              },
+              "after": {
+                "period": "Período de análisis",
+                "charts": "Consumo del período",
+                "balance": "Saldo",
+                "balance_note": "No cambia con el período"
+              }
+            }
           },
           {
             "before": "Límites por usuario \"blandos\" o \"duros\", a elección",
             "after": "El límite por usuario siempre bloquea",
-            "why": "Un límite que no limita no es un límite: es un aviso, y confundía al admin. Proteger al profesional en plena consulta se resuelve con avisos previos, no con un segundo tipo de límite."
+            "why": "Un límite \"blando\" en realidad funcionaba como un aviso, y confundía al admin. Para que un profesional no se quede sin herramienta en plena consulta alcanzan los avisos previos.",
+            "sketch": {
+              "id": "ai-limits",
+              "before": {
+                "soft": "Blando: solo avisa",
+                "hard": "Duro: bloquea"
+              },
+              "after": {
+                "warn": "Avisos previos",
+                "limit": "Límite: bloquea"
+              }
+            }
           },
           {
             "before": "Todo el saldo vence a fin de mes calendario",
             "after": "Cada paquete vence a los 30 días de habilitado",
-            "why": "Un paquete comprado el día 10 no puede vencer el 31: se cobraba un mes y a veces se entregaban seis días. Era letra chica que en producción genera reclamos."
+            "why": "Un paquete comprado el día 10 no puede vencer el 31: se cobraba un mes y a veces se entregaban seis días. Era letra chica que en producción genera reclamos.",
+            "sketch": {
+              "id": "ai-expiry",
+              "before": {
+                "bought": "Compra: día 25",
+                "expires": "Fin de mes",
+                "span": "6 días de uso"
+              },
+              "after": {
+                "bought": "Habilitación: día 25",
+                "expires": "+30 días",
+                "span": "30 días de uso"
+              }
+            }
           }
         ]
       },
@@ -603,8 +672,8 @@
             "body": "\"¿Cómo monetizamos los agentes de IA?\" no tenía respuesta viable. \"¿Cómo controlamos su gasto?\" sí, y además desbloqueaba el lanzamiento."
           },
           {
-            "title": "Copiar una pantalla no es copiar una solución.",
-            "body": "El valor de una referencia está en el problema que resuelve cada control, no en su layout."
+            "title": "De una referencia sirve el problema que resuelve.",
+            "body": "La consola de facturación que un stakeholder pidió replicar fue útil cuando se entendió qué resolvía cada control: separar cuándo se consumió de en qué factura cae."
           },
           {
             "title": "Revertir barato es una ventaja.",
@@ -647,19 +716,63 @@
       ],
       "cover": {
         "src": "/images/cases/routes-agenda.webp",
-        "alt": "Agenda del día en formato Gantt por profesional, con la jornada ya optimizada, métricas de kilómetros y citas y el panel de no atendidas"
+        "alt": "Agenda del día en formato Gantt por profesional, con la jornada ya optimizada, métricas de kilómetros y citas y el panel de no atendidas",
+        "width": 2880,
+        "height": 2960,
+        "markers": [
+          {
+            "x": 25.5,
+            "y": 32.9,
+            "text": "La jornada llega optimizada: el sistema mantiene así los próximos 7 días."
+          },
+          {
+            "x": 26,
+            "y": 38.9,
+            "text": "Antes / Después: la ruta optimizada contra la ruta con retoques, en kilómetros y citas."
+          },
+          {
+            "x": 58.5,
+            "y": 35,
+            "text": "Probar otro criterio de optimización sin tocar la agenda del sistema."
+          },
+          {
+            "x": 49.5,
+            "y": 46.2,
+            "text": "El día en curso: las citas que ya pasaron no se editan."
+          },
+          {
+            "x": 82,
+            "y": 34,
+            "text": "Los pacientes no atendidos, listos para re-agendar."
+          }
+        ]
       },
       "problem": {
         "title": "El problema",
         "intro": "Los coordinadores armaban a mano la agenda diaria de los profesionales que visitan pacientes en su domicilio:",
         "items": [
           "Armar la agenda les llevaba entre 4 y 5 horas por día.",
+          "Las agendas se armaban en pantallas aisladas. El único control era un aviso de agenda ocupada al confirmar, así que el coordinador se enteraba del choque recién ahí.",
           "Las visitas se atrasaban, y cada atraso era un paciente esperando en su casa.",
           "Existía un optimizador para traslados con conductores, pero no servía tal cual: acá no hay centro de destino (el paciente es el destino), no hay capacidad de vehículo (hay especialidad) y las citas ya están agendadas en el sistema."
-        ]
+        ],
+        "sketch": {
+          "title": "Cómo se armaba una agenda antes",
+          "note": "Esquema del flujo anterior: no hay capturas del sistema viejo.",
+          "screen": "Nueva cita",
+          "field_a": "Profesional",
+          "field_b": "Fecha y hora",
+          "confirm": "Confirmar",
+          "warning": "La agenda del profesional ya está ocupada en ese horario.",
+          "steps": [
+            "Cada cita se cargaba en una pantalla aislada, sin ver el resto del día.",
+            "El coordinador confirmaba sin saber si chocaba con otra cita.",
+            "El conflicto aparecía recién al confirmar, como un aviso."
+          ]
+        }
       },
       "insight": {
-        "title": "El modelo mental: consulta y retoque, no disparador",
+        "title": "El modelo mental: la jornada ya viene armada",
         "body": "La optimización corre sola cada vez que se crea o se mueve una cita, así que el coordinador entra y la jornada ya viene armada. La pantalla no dispara nada: sirve para consultar y retocar. El sistema nunca propone cambios por su cuenta ni reacomoda la agenda mientras alguien trabaja. La agenda optimizada es la base, y los cambios son siempre del coordinador."
       },
       "flow": {
@@ -711,10 +824,10 @@
       },
       "decisions": {
         "title": "Decisiones clave",
-        "desc": "Cada decisión equilibra eficiencia con confianza: un optimizador que nadie entiende es uno que nadie usa.",
+        "desc": "Cada decisión equilibra eficiencia con confianza, porque el coordinador tiene que poder entender y corregir lo que hace el sistema.",
         "items": [
           {
-            "title": "Continuidad del cuidado antes que eficiencia",
+            "title": "El paciente conserva a su profesional",
             "body": "Se mantiene al profesional habitual del paciente salvo que reasignar ahorre 20 minutos o más de traslado. El trade-off es explícito y medible."
           },
           {
@@ -723,7 +836,13 @@
           },
           {
             "title": "Probar sin romper",
-            "body": "El coordinador puede comparar planes con otros criterios (mínimo traslado, carga equitativa, máximo de citas) como una prueba reversible."
+            "body": "El coordinador puede comparar planes con otros criterios (mínimo traslado, carga equitativa, máximo de citas) como una prueba reversible.",
+            "image": {
+              "src": "/images/cases/crops/routes-plans.webp",
+              "width": 2560,
+              "height": 860,
+              "alt": "Comparar planes: mínimo traslado, distribución equitativa y máximo de citas, con sus métricas y la opción de probar cada uno."
+            }
           },
           {
             "title": "Bloquear la jornada",
@@ -735,7 +854,13 @@
           },
           {
             "title": "Estados de la operación real",
-            "body": "El día en curso (las citas ya pasadas no se editan), los pacientes no atendidos con re-agendado y el error del optimizador con reintento."
+            "body": "El día en curso (las citas ya pasadas no se editan), los pacientes no atendidos con re-agendado y el error del optimizador con reintento.",
+            "image": {
+              "src": "/images/cases/crops/routes-states.webp",
+              "width": 1872,
+              "height": 784,
+              "alt": "Jornada en curso: un aviso indica que las citas anteriores a las 14:30 ya finalizaron, y una línea marca la hora actual en la agenda."
+            }
           }
         ]
       },
@@ -746,12 +871,41 @@
           {
             "before": "Fijar citas y después apretar \"Re-optimizar con mis fijaciones\" en una barra aparte",
             "after": "Fijar o quitar una fijación re-optimiza el día al instante",
-            "why": "Un paso y un concepto menos: fijar pasó a ser un retoque más, contado en el resumen de cambios."
+            "why": "Un paso y un concepto menos: fijar pasó a ser un retoque más, contado en el resumen de cambios.",
+            "sketch": {
+              "id": "routes-pin",
+              "before": {
+                "pin": "Fijar cita",
+                "bar": "Re-optimizar con mis fijaciones",
+                "result": "Día re-optimizado"
+              },
+              "after": {
+                "pin": "Fijar cita",
+                "result_now": "Día re-optimizado al instante"
+              }
+            }
           },
           {
             "before": "Fecha, toggle Antes/Después, métricas y \"Probar\" repartidos en filas distintas, y el toggle dentro del mapa",
             "after": "Una sola barra de contexto con fecha, rango de días, Antes/Después, métricas y prueba",
-            "why": "Menos lugares donde buscar, y el mismo control se comporta igual en la agenda y en el mapa."
+            "why": "Menos lugares donde buscar, y el mismo control se comporta igual en la agenda y en el mapa.",
+            "sketch": {
+              "id": "routes-toolbar",
+              "before": {
+                "date": "Fecha",
+                "metrics": "km · citas",
+                "try": "Probar",
+                "map": "Mapa",
+                "toggle": "Antes / Después"
+              },
+              "after": {
+                "date": "Fecha",
+                "range": "Días",
+                "toggle": "Antes / Después",
+                "metrics": "km · citas",
+                "try": "Probar"
+              }
+            }
           }
         ]
       },
@@ -836,7 +990,7 @@
         "body": "Web y mobile no pueden compartir una biblioteca de componentes: MUI existe solo para web, y en mobile conviene una biblioteca propia con control total del comportamiento. Por eso no se forzó una sola. Se unificó todo lo que comparte plataforma (las 3 apps pasaron a usar una única biblioteca) y, entre plataformas, se compartieron los tokens y los criterios en lugar del código."
       },
       "snippet": {
-        "title": "Tokens que dicen qué es el color, no cómo se ve",
+        "title": "Tokens que nombran la función del color",
         "desc": "Tres niveles: primitivos (la paleta), semánticos (la función) y componentes. Un componente nunca conoce un valor de color, solo su función.",
         "before_label": "Antes: el componente conoce el color",
         "before": "backgroundColor: \"#5DC4B9\",\n\"&:hover\": {\n  backgroundColor: darken(theme.palette.primary.main, 15),\n},",
@@ -882,7 +1036,7 @@
       },
       "decisions": {
         "title": "Gobernanza: cada decisión, en un solo lugar",
-        "desc": "Lo que hace durar un design system no es la cantidad de componentes, sino cómo se decide y cómo se publica cada cambio.",
+        "desc": "Cuatro reglas definen cómo se decide y cómo se publica cada cambio en las bibliotecas.",
         "items": [
           {
             "title": "Cambios por PR",
@@ -938,16 +1092,16 @@
         "title": "Aprendizajes",
         "items": [
           {
-            "title": "Un design system dura por su gobernanza, no por sus componentes.",
+            "title": "La gobernanza es lo que sostiene el sistema.",
             "body": "PRs, ADRs y releases versionados hicieron que cada cambio fuera visible y reversible para todos los equipos."
           },
           {
-            "title": "Entre plataformas, se comparten criterios, no código.",
+            "title": "Web y mobile comparten tokens; cada una tiene su biblioteca.",
             "body": "Forzar una sola biblioteca para web y mobile habría sido más prolijo en un diagrama y peor en la práctica."
           },
           {
-            "title": "La IA no reemplaza la revisión: la dirige.",
-            "body": "El mapa de impacto y la comparación pre/post no evitaron revisar cada pantalla, pero hicieron que esa revisión fuera dirigida y no a ciegas."
+            "title": "Con el mapa de impacto, cada pantalla se revisó sabiendo qué buscar.",
+            "body": "Los agentes de IA armaron el mapa de impacto y la comparación antes/después. La revisión siguió siendo pantalla por pantalla, pero guiada por esos dos materiales."
           }
         ]
       },

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 import { GradientDivider, GlowOrb } from "@/components/decorative-elements"
 import { CaseSummary, type CaseSummaryContent } from "@/components/case-summary"
 import { CaseVideo } from "@/components/case-video"
+import { AnnotatedImage, BeforeFlowSketch, PivotSketch, type BeforeFlowContent, type Marker, type PivotSketchContent } from "@/components/case-visuals"
 import { ArrowLeft, ArrowRight, Check, Lightbulb, Undo2 } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useDocumentTitle } from "@/lib/use-document-title"
@@ -24,6 +25,8 @@ const inView = { initial: "hidden", whileInView: "show", viewport: { once: true,
 
 /* ─── content shape (lives in i18n under product_cases.<caseKey>) ─── */
 interface Metric { value: string; label: string }
+interface Shot { src: string; alt: string; width: number; height: number }
+interface Decision { title: string; body: string; image?: Shot }
 interface ProductCase {
   badges: string[]
   title: string
@@ -34,21 +37,36 @@ interface ProductCase {
   status_val: string
   summary: CaseSummaryContent
   highlights?: Metric[]
-  cover?: { src: string; alt: string }
+  /** With `markers`, the cover gets numbered dots (x/y in % of the image) and a legend below. */
+  cover?: { src: string; alt: string; width?: number; height?: number; markers?: Marker[] }
   /** Items with `video` are screen recordings: `src` is then the poster frame. */
   gallery?: { title: string; desc: string; items: { src: string; caption: string; video?: string; width?: number; height?: number }[] }
-  problem: { title: string; intro: string; items: string[] }
+  problem: { title: string; intro: string; items: string[]; sketch?: BeforeFlowContent }
   insight: { title: string; body: string }
   snippet?: { title: string; desc: string; before_label: string; before: string; after_label: string; after: string; note: string }
   flow: { title: string; desc: string; steps: { actor: string; text: string }[] }
-  decisions: { title: string; desc: string; items: { title: string; body: string }[] }
-  pivots: { title: string; desc: string; items: { before: string; after: string; why: string }[] }
+  /** A decision with `image` gets a full-width card with a crop of the screen where it shows. */
+  decisions: { title: string; desc: string; items: Decision[] }
+  pivots: { title: string; desc: string; items: { before: string; after: string; why: string; sketch?: PivotSketchContent }[] }
   results: { title: string; desc: string; metrics?: Metric[]; items: string[] }
   learnings: { title: string; items: { title: string; body: string }[] }
   related?: { label: string; text: string }
 }
 
 export type ProductCaseKey = "ai_usage" | "routes" | "design_system"
+
+/** Text-only decisions sit two per row; one left alone between full-width image cards spans both columns. */
+function decisionSpans(items: Decision[]) {
+  const spans: boolean[] = []
+  let col = 0
+  items.forEach((d, i) => {
+    if (d.image) { spans.push(true); col = 0; return }
+    const nextIsBreak = i === items.length - 1 || !!items[i + 1].image
+    spans.push(col === 0 && nextIsBreak)
+    col = col === 0 && !nextIsBreak ? 1 : 0
+  })
+  return spans
+}
 
 export function ProductCaseStudyPage({ caseKey }: { caseKey: ProductCaseKey }) {
   const { t } = useTranslation()
@@ -116,7 +134,11 @@ export function ProductCaseStudyPage({ caseKey }: { caseKey: ProductCaseKey }) {
 
         {c.cover && (
           <m.div variants={fadeIn} className="mt-10">
-            <img src={c.cover.src} alt={c.cover.alt} className="w-full rounded-lg border" />
+            {c.cover.markers ? (
+              <AnnotatedImage src={c.cover.src} alt={c.cover.alt} markers={c.cover.markers} width={c.cover.width} height={c.cover.height} />
+            ) : (
+              <img src={c.cover.src} alt={c.cover.alt} className="w-full rounded-lg border" />
+            )}
           </m.div>
         )}
       </m.section>
@@ -132,6 +154,11 @@ export function ProductCaseStudyPage({ caseKey }: { caseKey: ProductCaseKey }) {
             {c.problem.items.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </m.div>
+        {c.problem.sketch && (
+          <m.div variants={fadeIn} className="mt-10 max-w-[1000px]">
+            <BeforeFlowSketch c={c.problem.sketch} />
+          </m.div>
+        )}
       </m.section>
 
       {/* ═══════════════ KEY INSIGHT ═══════════════ */}
@@ -231,16 +258,24 @@ export function ProductCaseStudyPage({ caseKey }: { caseKey: ProductCaseKey }) {
         <m.p variants={fadeIn} className="text-lg text-muted-foreground mb-10 max-w-[700px]">{c.decisions.desc}</m.p>
 
         <m.div className="grid grid-cols-1 md:grid-cols-2 gap-6" variants={stagger}>
-          {c.decisions.items.map((d) => (
-            <m.div key={d.title} variants={fadeIn}>
-              <Card className="h-full glow-card border-border/50 hover:border-primary/40 transition-all duration-400">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold mb-2">{d.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{d.body}</p>
-                </CardContent>
-              </Card>
-            </m.div>
-          ))}
+          {(() => {
+            const spans = decisionSpans(c.decisions.items)
+            return c.decisions.items.map((d, i) => (
+              <m.div key={d.title} variants={fadeIn} className={cn(spans[i] && "md:col-span-2")}>
+                <Card className="h-full overflow-hidden glow-card border-border/50 hover:border-primary/40 transition-all duration-400">
+                  {d.image && (
+                    <div className="border-b bg-white p-3 md:p-4">
+                      <img src={d.image.src} alt={d.image.alt} width={d.image.width} height={d.image.height} loading="lazy" className="w-full h-auto" />
+                    </div>
+                  )}
+                  <CardContent className={cn("p-6", d.image && "md:grid md:grid-cols-[1fr_2fr] md:gap-8")}>
+                    <h3 className="text-lg font-semibold mb-2">{d.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{d.body}</p>
+                  </CardContent>
+                </Card>
+              </m.div>
+            ))
+          })()}
         </m.div>
       </m.section>
 
@@ -252,18 +287,24 @@ export function ProductCaseStudyPage({ caseKey }: { caseKey: ProductCaseKey }) {
         <m.div className="space-y-6" variants={stagger}>
           {c.pivots.items.map((p) => (
             <m.div key={p.before} variants={fadeIn}>
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 items-center">
+              <div className={cn("grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4", p.sketch ? "items-stretch" : "items-center")}>
                 <Card className="border-border/60 bg-muted/40">
-                  <CardContent className="p-5 flex items-start gap-3">
-                    <Undo2 className="h-5 w-5 text-muted-foreground mt-0.5 shrink-0" />
-                    <p className="text-sm text-muted-foreground line-through decoration-muted-foreground/40"><span className="sr-only">{t('a11y.before')} </span>{p.before}</p>
+                  <CardContent className="p-5">
+                    <div className="flex items-start gap-3">
+                      <Undo2 className="h-5 w-5 text-muted-foreground mt-0.5 shrink-0" />
+                      <p className="text-sm text-muted-foreground line-through decoration-muted-foreground/40"><span className="sr-only">{t('a11y.before')} </span>{p.before}</p>
+                    </div>
+                    {p.sketch && <PivotSketch sketch={p.sketch} side="before" />}
                   </CardContent>
                 </Card>
-                <ArrowRight className="h-5 w-5 text-muted-foreground hidden md:block" />
+                <ArrowRight className="h-5 w-5 text-muted-foreground hidden md:block self-center" />
                 <Card className="border-primary/30 bg-primary/5">
-                  <CardContent className="p-5 flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                    <p className="text-sm text-foreground font-medium"><span className="sr-only">{t('a11y.after')} </span>{p.after}</p>
+                  <CardContent className="p-5">
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                      <p className="text-sm text-foreground font-medium"><span className="sr-only">{t('a11y.after')} </span>{p.after}</p>
+                    </div>
+                    {p.sketch && <PivotSketch sketch={p.sketch} side="after" />}
                   </CardContent>
                 </Card>
               </div>

@@ -28,7 +28,7 @@ const projects: { key: string; to: string; year?: string; badgeClass: string; ta
     year: "2026",
     badgeClass: "bg-indigo-600",
     tags: ["Product Strategy", "AI", "B2B SaaS"],
-    cover: { src: "/images/cases/ai-consumption.webp", position: "center", gradient: "from-indigo-500/25 via-violet-500/15 to-transparent" },
+    cover: { src: "/images/cases/crops/thumb-ai-balance.webp", position: "0% 0%", gradient: "from-indigo-500/25 via-violet-500/15 to-transparent" },
   },
   {
     key: "routes",
@@ -36,7 +36,7 @@ const projects: { key: string; to: string; year?: string; badgeClass: string; ta
     year: "2026",
     badgeClass: "bg-teal-700",
     tags: ["Automation", "Operations", "Data Viz"],
-    cover: { src: "/images/cases/routes-agenda.webp", position: "0% 62%", zoom: 1.8, gradient: "from-teal-500/25 via-sky-500/15 to-transparent" },
+    cover: { src: "/images/cases/crops/thumb-routes-gantt.webp", position: "0% 0%", gradient: "from-teal-500/25 via-sky-500/15 to-transparent" },
   },
   {
     key: "design_system",

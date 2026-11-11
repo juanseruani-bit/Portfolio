@@ -124,209 +124,60 @@
     "duration_label": "Duration:",
     "duration_val": "2025 — Present",
     "image": "/images/cases/hub-playground.webp",
+    "image_alt": "Discovery Playground: each product module groups its discoveries",
+    "summary": {
+      "problem": "Figma prototypes could not show real complexity, and prose handoffs were read differently by each developer.",
+      "solution": "A prototyping hub on the production stack, with AI agents that set up discovery, test with synthetic users and derive the handoff.",
+      "impact": "24 discoveries across 4 products, and handoffs with requirement IDs, test cases and automated QA tests integrated with Jira."
+    },
     "problem": {
-      "title": "The Problem",
-      "p1": "In complex digital products — especially in HealthTech, where a web platform for operators coexists with mobile apps for professionals, patients, and drivers — the classic design flow creates critical frictions:",
-      "li1": "Static prototypes do not reflect real complexity. A Figma mockup cannot simulate loading states, real-time validations, or multi-step flows with dynamic data.",
-      "li2": "Handoff is a bottleneck. Developers receive PDFs or Figma links that do not match the real frontend component architecture.",
-      "li3": "Documentation becomes outdated at the first change. Specifications written in parallel to the prototype are rewritten with each iteration.",
-      "li4": "UX testing is expensive and slow. Coordinating sessions with real users for each iteration is unsustainable in agile cycles."
-    },
-    "metrics": [
-      {
-        "value": "24",
-        "label": "Discoveries across 4 products (1 web + 3 mobile)"
-      },
-      {
-        "value": "12",
-        "label": "Synthetic users with reusable missions"
-      },
-      {
-        "value": "76",
-        "label": "Decisions logged in a single discovery"
-      },
-      {
-        "value": "8",
-        "label": "Decisions fully or partly reversed in the prototype, not in production"
-      },
-      {
-        "value": "86",
-        "label": "ID-tagged requirements in a single handoff"
-      },
-      {
-        "value": "240+",
-        "label": "Test cases derived from that handoff"
-      }
-    ],
-    "beforeAfter": {
-      "title": "Before vs. After",
-      "desc": "The impact of the Discovery Hub compared to the traditional design flow.",
+      "title": "The problem",
+      "intro": "The product has a web platform for operators and three mobile apps, for clinicians, patients and drivers. The traditional design flow caused three problems:",
       "items": [
-        {
-          "before": "Design in Figma → PDF specs → Dev interprets",
-          "after": "Prototype in real code → Spec derived with IDs → Dev implements"
-        },
-        {
-          "before": "Proposals made without seeing how the product works today",
-          "after": "Each discovery starts from production code and flags what it adds, changes and removes"
-        },
-        {
-          "before": "Live user sessions carry all of the friction detection",
-          "after": "A synthetic-user pass first; live sessions focus on what only a human reveals"
-        },
-        {
-          "before": "Hand-written prose handoff that each dev reads differently",
-          "after": "ID-tagged requirements, test cases, production test IDs and automated QA tests integrated with Jira"
-        },
-        {
-          "before": "Manual documentation that goes stale with the first change",
-          "after": "Living docs with an automated verification gate"
-        }
+        "A Figma mockup can't show loading states, validations or multi-step flows with changing data.",
+        "Engineering got Figma links and prose documents that each person read differently, and that didn't match the real frontend components.",
+        "Documentation went stale with every iteration, and testing each change with real users didn't fit in a sprint."
       ]
     },
-    "solution": {
-      "title": "The Solution",
-      "desc": "A prototyping monorepo that replicates the real development stack, fueled with mock data, where every feature is designed, validated, and documented before writing a single line of production code.",
-      "cards": [
-        {
-          "title": "Cross-Platform Monorepo",
-          "desc": "4 environments (1 web + 3 mobile) with the same stack as production. Shared components, centralized mock data, and independent playgrounds per platform."
-        },
-        {
-          "title": "Discoveries System",
-          "desc": "Each feature is a \"Discovery\" — a functional unit grouping components, pages, hooks, mocks and documentation. 24 discoveries across 4 products."
-        },
-        {
-          "title": "AI Skills (Claude Code)",
-          "desc": "3 skills that automate the cycle: discovery-start, handoff, and synth-run. From initial research to development team handoff."
-        },
-        {
-          "title": "Synthetic Users",
-          "desc": "Fictional personas with YAML profiles that walk through prototypes and report UX friction in 3 layers. 12 personas across 4 products, with reusable missions."
-        },
-        {
-          "title": "Spec-Driven Development",
-          "desc": "Two doc families that never merge: the narrative (the why) and the norm (the what). Automated verification scripts."
-        },
-        {
-          "title": "Frictionless Handoff",
-          "desc": "Developers receive working prototypes in their own stack, ID-tagged requirements and test cases. QA receives automated tests integrated with Jira."
-        }
-      ]
+    "insight": {
+      "title": "The shift: prototyping in the same code as production",
+      "body": "Prototypes are now built with the same stack and components as the product, using fictional data. What gets reviewed with the team and with users is what gets built, and the engineering documentation comes from the prototype and the logged decisions. Claude Code supports the whole process: prototypes are built with it, and its agents handle the repetitive parts."
     },
-    "architecture": {
-      "title": "Monorepo Architecture",
-      "desc": "A single repository containing the 4 product environments, with centralized shared resources.",
-      "packages": [
+    "cycle": {
+      "title": "How it works",
+      "desc": "Each feature is worked on as a discovery: a folder with the prototype, its fictional data and its documentation. This is how a discovery goes from the first meeting to engineering.",
+      "ai_label": "AI agent",
+      "steps": [
         {
-          "name": "web-backoffice",
-          "type": "React + Vite"
+          "title": "Business meeting",
+          "text": "Notes and requests are saved as they are. An agent sets up the discovery, starts the decision log and flags what changes from production.",
+          "ai": true
         },
         {
-          "name": "app-patient",
-          "type": "React Native"
+          "title": "Code prototype",
+          "text": "The design is built directly in React or React Native with Claude Code, using the design system components and fictional data.",
+          "ai": true
         },
         {
-          "name": "app-professional",
-          "type": "React Native"
+          "title": "Synthetic users",
+          "text": "An agent walks through the prototype with a fictional user's profile and a mission, and reports the friction it finds.",
+          "ai": true
         },
         {
-          "name": "app-mobility",
-          "type": "React Native"
-        }
-      ],
-      "shared": [
-        {
-          "name": "mock-factories",
-          "desc": "Shared mock data"
+          "title": "Review with people",
+          "text": "Product, the team and real users review every working prototype. Every change goes into the decision log.",
+          "ai": false
         },
         {
-          "name": "handoff",
-          "desc": "Contract and templates"
-        },
-        {
-          "name": "synthetic-users",
-          "desc": "Runner, rubric, harness"
-        },
-        {
-          "name": "utils",
-          "desc": "Common utilities"
-        }
-      ]
-    },
-    "anatomy": {
-      "title": "Anatomy of a Discovery",
-      "desc": "Every discovery has a rigorous document cycle. This is a real (anonymized) example of a financial feature with ",
-      "descBold": "76 documented decisions",
-      "items": [
-        {
-          "name": "README.md",
-          "desc": "How it works end-to-end"
-        },
-        {
-          "name": "DESIGN.md",
-          "desc": "The why behind every decision"
-        },
-        {
-          "name": "DECISIONS.md",
-          "desc": "Chronological log (D-001…D-076)"
-        },
-        {
-          "name": "STATUS.md",
-          "desc": "What is built, what is missing"
-        },
-        {
-          "name": "VALIDATION.md",
-          "desc": "How to navigate it with mock data"
-        },
-        {
-          "name": "notes/",
-          "desc": "Raw meeting material, unedited"
-        }
-      ],
-      "countLabel": "Documented decisions in this discovery:"
-    },
-    "skills": {
-      "title": "AI Skills — Real Pipeline",
-      "desc": "Three Claude Code skills that automate the full cycle, from initial research to dev handoff.",
-      "inputLabel": "Input",
-      "outputLabel": "Automated Output",
-      "items": [
-        {
-          "name": "discovery-start",
-          "input": "Meeting notes + business requests + production code",
-          "outputs": [
-            "docs/<discovery>/ folder with 5 narrative files",
-            "What is added, changed and removed vs. production",
-            "Decisions log started",
-            "Phased work plan",
-            "Raw material saved unedited"
-          ]
-        },
-        {
-          "name": "synth-run",
-          "input": "YAML Persona + Discovery ID + Mission",
-          "outputs": [
-            "3-layer friction report",
-            "Usability findings with severity",
-            "Detected prototype limitations"
-          ]
-        },
-        {
-          "name": "handoff",
-          "input": "Closed discovery + Narrative docs",
-          "outputs": [
-            "HANDOFF.md — Entry point for the team",
-            "SPECIFICATION.md — Requirements with IDs",
-            "TEST-CASES.md — Full coverage",
-            "Production test IDs + automated QA tests (Jira)"
-          ]
+          "title": "Engineering handoff",
+          "text": "An agent derives ID-tagged requirements and test cases. QA gets tests linked to Jira.",
+          "ai": true
         }
       ]
     },
     "synthetic": {
-      "title": "Synthetic Users in Action",
-      "desc": "Every synthetic persona has a YAML profile with role, behavior, frustrations, and focus. They navigate prototypes and report usability friction automatically.",
+      "title": "Synthetic users in action",
+      "desc": "Before a prototype is shown to a person, an agent walks through it with a fictional user's profile: for example, an operations coordinator who works under time pressure and skims each screen. It applies a 10-principle rubric on every screen and delivers a report at the end. This is an excerpt from a real run on the alerts inbox.",
       "exampleLabel": "Real example (anonymized)",
       "howItWorks": "How does it work?",
       "steps": [
@@ -380,31 +231,66 @@
         "caption": "Prototype recording: taking follow-up removes the critical alert's \"Escalated\" mark and moves it down the list. This is the friction the synthetic user reported."
       }
     },
-    "mockups": {
-      "title": "Prototyped Interfaces",
-      "desc": "Real captures of discoveries prototyped in the Hub, with fictional data and an anonymized visual style.",
+    "beforeAfter": {
+      "title": "Before vs. after",
+      "desc": "What changed in how design, product and engineering work together.",
       "items": [
         {
-          "label": "Clinical and operational alerts inbox",
-          "src": "/images/cases/hub-alerts-inbox.webp"
+          "before": "Design in Figma → PDF specs → Each dev interprets",
+          "after": "Prototype in real code → ID-tagged requirements → Dev builds what they already saw working"
         },
         {
-          "label": "AI agent spend per organization",
-          "src": "/images/cases/ai-consumption.webp"
+          "before": "Proposals made without seeing how the product works today",
+          "after": "Each discovery starts from production code and flags what it adds, changes and removes"
         },
         {
-          "label": "Comparing criteria in the route optimizer",
-          "src": "/images/cases/routes-trial.webp"
+          "before": "Live user sessions carry all of the friction detection",
+          "after": "A synthetic-user pass first; live sessions focus on what only a human reveals"
+        },
+        {
+          "before": "Hand-written prose handoff that each dev reads differently",
+          "after": "ID-tagged requirements, test cases and automated QA tests, linked to Jira"
+        },
+        {
+          "before": "Manual documentation that goes stale with the first change",
+          "after": "An automated check flags requirements without test cases, broken links or duplicate IDs"
         }
       ]
     },
-    "metricsSection": {
-      "title": "Results and Impact",
-      "desc": "Counted from the repository itself — not estimates."
+    "outcomes": {
+      "title": "What came out of the Hub",
+      "desc": "Two of the case studies in this portfolio were prototyped, validated and handed off with the Hub, and are now in production. Their components come from the design system.",
+      "built_label": "Prototyped with the Hub",
+      "base_label": "The Hub's components",
+      "metrics_title": "By the numbers",
+      "metrics_desc": "Counted from the repository itself."
     },
-    "techStack": {
-      "title": "Tech Stack"
-    },
+    "metrics": [
+      {
+        "value": "24",
+        "label": "Discoveries across 4 products (1 web + 3 mobile)"
+      },
+      {
+        "value": "12",
+        "label": "Synthetic users with reusable missions"
+      },
+      {
+        "value": "76",
+        "label": "Decisions logged in a single discovery"
+      },
+      {
+        "value": "8",
+        "label": "Decisions fully or partly reversed in the prototype, not in production"
+      },
+      {
+        "value": "86",
+        "label": "ID-tagged requirements in a single handoff"
+      },
+      {
+        "value": "240+",
+        "label": "Test cases derived from that handoff"
+      }
+    ],
     "learnings": {
       "title": "Learnings",
       "items": [
@@ -413,25 +299,138 @@
           "body": "Prototyping in the real stack eliminates the game of telephone between design and dev."
         },
         {
-          "title": "Documentation must be derived, not invented.",
-          "body": "The most reliable handoff is automatically generated from code and documented decisions."
+          "title": "Documentation comes out of the prototype.",
+          "body": "The most reliable handoff is generated from the code and the logged decisions."
         },
         {
-          "title": "AI amplifies design judgement, it doesn't replace it.",
-          "body": "Synthetic users clear out the obvious friction before live sessions, so time with real users goes to what only a human can reveal."
+          "title": "Synthetic users prepare the sessions with people.",
+          "body": "They clear out the obvious friction first, so time with real users goes to what only a person can reveal."
         }
       ]
     },
+    "technical": {
+      "title": "Technical detail",
+      "hint": "Architecture, each discovery's documentation, the 3 AI agents, a synthetic user profile and the stack.",
+      "persona_title": "A synthetic user profile"
+    },
+    "architecture": {
+      "title": "Monorepo architecture",
+      "desc": "A single repository containing the 4 product environments, with centralized shared resources.",
+      "packages": [
+        {
+          "name": "web-backoffice",
+          "type": "React + Vite"
+        },
+        {
+          "name": "app-patient",
+          "type": "React Native"
+        },
+        {
+          "name": "app-professional",
+          "type": "React Native"
+        },
+        {
+          "name": "app-mobility",
+          "type": "React Native"
+        }
+      ],
+      "shared": [
+        {
+          "name": "mock-factories",
+          "desc": "Shared mock data"
+        },
+        {
+          "name": "handoff",
+          "desc": "Contract and templates"
+        },
+        {
+          "name": "synthetic-users",
+          "desc": "Runner, rubric, harness"
+        },
+        {
+          "name": "utils",
+          "desc": "Common utilities"
+        }
+      ]
+    },
+    "anatomy": {
+      "title": "Anatomy of a discovery",
+      "desc": "Every discovery has a rigorous document cycle. This is a real (anonymized) example of a financial feature with ",
+      "descBold": "76 documented decisions",
+      "items": [
+        {
+          "name": "README.md",
+          "desc": "How it works end-to-end"
+        },
+        {
+          "name": "DESIGN.md",
+          "desc": "The why behind every decision"
+        },
+        {
+          "name": "DECISIONS.md",
+          "desc": "Chronological log (D-001…D-076)"
+        },
+        {
+          "name": "STATUS.md",
+          "desc": "What is built, what is missing"
+        },
+        {
+          "name": "VALIDATION.md",
+          "desc": "How to navigate it with mock data"
+        },
+        {
+          "name": "notes/",
+          "desc": "Raw meeting material, unedited"
+        }
+      ],
+      "countLabel": "Documented decisions in this discovery:",
+      "spec": "Discoveries follow Spec-Driven Development: two document families that never mix, the narrative (the why) and the norm (what the product must meet). On every handoff, a script checks that no requirement lacks a test case and that there are no broken links or duplicate IDs."
+    },
+    "skills": {
+      "title": "The 3 AI agents",
+      "desc": "Three Claude Code skills automate the repetitive parts of the cycle, from the first meeting to engineering handoff.",
+      "inputLabel": "Input",
+      "outputLabel": "Automated Output",
+      "items": [
+        {
+          "name": "discovery-start",
+          "input": "Meeting notes + business requests + production code",
+          "outputs": [
+            "docs/<discovery>/ folder with 5 narrative files",
+            "What is added, changed and removed vs. production",
+            "Decisions log started",
+            "Phased work plan",
+            "Raw material saved unedited"
+          ]
+        },
+        {
+          "name": "synth-run",
+          "input": "YAML Persona + Discovery ID + Mission",
+          "outputs": [
+            "3-layer friction report",
+            "Usability findings with severity",
+            "Detected prototype limitations"
+          ]
+        },
+        {
+          "name": "handoff",
+          "input": "Closed discovery + Narrative docs",
+          "outputs": [
+            "HANDOFF.md — Entry point for the team",
+            "SPECIFICATION.md — Requirements with IDs",
+            "TEST-CASES.md — Full coverage",
+            "Production test IDs + automated QA tests (Jira)"
+          ]
+        }
+      ]
+    },
+    "techStack": {
+      "title": "Tech stack"
+    },
     "cta": {
       "text": "Interested in knowing more about this project?",
-      "contact": "Lets talk",
+      "contact": "Let's talk",
       "more": "View more projects"
-    },
-    "image_alt": "Discovery Playground: each product module groups its discoveries",
-    "summary": {
-      "problem": "Figma prototypes could not show real complexity, and prose handoffs were read differently by each developer.",
-      "solution": "A prototyping hub on the production stack, with AI agents that set up discovery, test with synthetic users and derive the handoff.",
-      "impact": "24 discoveries across 4 products, and handoffs with requirement IDs, test cases and automated QA tests integrated with Jira."
     }
   },
   "product_cases": {
@@ -445,7 +444,9 @@
       "built_with_text": "Prototyped, validated and handed off to engineering with the discovery system I designed. See how it works.",
       "cta_text": "Interested in learning more about this project?",
       "cta_contact": "Let's talk",
-      "cta_more": "View more projects"
+      "cta_more": "View more projects",
+      "markers_title": "What the screen shows",
+      "sketch_label": "Sketch"
     },
     "ai_usage": {
       "badges": [
@@ -462,7 +463,31 @@
       "status_val": "In production",
       "cover": {
         "src": "/images/cases/ai-balance.webp",
-        "alt": "Clinic balance panel: available and consumed credits, pockets sorted by expiry and consumption rules"
+        "alt": "Clinic balance panel: available and consumed credits, pockets sorted by expiry and consumption rules",
+        "width": 2732,
+        "height": 1176,
+        "markers": [
+          {
+            "x": 27.5,
+            "y": 44,
+            "text": "The balance in two numbers: available and consumed in the current cycle."
+          },
+          {
+            "x": 50.5,
+            "y": 5.6,
+            "text": "Credit pockets in the order they're spent: what expires first goes first."
+          },
+          {
+            "x": 42.8,
+            "y": 64.3,
+            "text": "Pay-as-you-go only kicks in once the balance runs out, with a monthly cap."
+          },
+          {
+            "x": 48.5,
+            "y": 80.8,
+            "text": "The balance rules, explained on the same screen."
+          }
+        ]
       },
       "problem": {
         "title": "The Problem",
@@ -528,10 +553,6 @@
             "width": 1920,
             "height": 1200,
             "caption": "The per-organization cutoff: suspending the service requires a reason and keeps the clinic's balance and settings."
-          },
-          {
-            "src": "/images/cases/ai-ops-close.webp",
-            "caption": "Month close: invoiced amount and margin per month, with margin shown as magnitude, not alarm."
           }
         ]
       },
@@ -545,15 +566,27 @@
           },
           {
             "title": "The screen explains its own rules",
-            "body": "A balance with expiry dates is opaque. The explanation lives where the question comes up, not in a manual."
+            "body": "A balance with expiry dates is opaque, so the spending rules are explained on the balance screen itself, next to the credit pockets."
           },
           {
             "title": "Margin is shown broken down",
-            "body": "Resale margin is separated from the cost of the contractual quota, so the included quota never reads as a loss. A business decision before a visual one."
+            "body": "Resale margin is separated from the cost of the contractual quota, so the included quota never reads as a loss. A business decision before a visual one.",
+            "image": {
+              "src": "/images/cases/crops/ai-margin-breakdown.webp",
+              "width": 2621,
+              "height": 416,
+              "alt": "Month close: the monthly margin, revenue and cost of sales. The included quota cost is listed separately, outside the margin."
+            }
           },
           {
-            "title": "Magnitude, not alarm",
-            "body": "Margin uses an ordinal color ramp instead of green and red: it conveys how much without implying something is wrong, and it's more accessible."
+            "title": "Margin without traffic lights",
+            "body": "Margin uses an ordinal color ramp with no green or red: it conveys how much without implying something is wrong, and it reads without relying on telling colors apart.",
+            "image": {
+              "src": "/images/cases/crops/ai-margin-chart.webp",
+              "width": 2684,
+              "height": 702,
+              "alt": "Chart of billed amount and margin per month, in shades of a single color."
+            }
           },
           {
             "title": "Low balance is flagged before zero",
@@ -572,17 +605,53 @@
           {
             "before": "Replicate a cloud provider's billing console, as a stakeholder asked",
             "after": "Users choose the analysis period, and that period never changes the balance",
-            "why": "Instead of copying the screen, I researched what problem each control solved. That console separates when usage happened from which invoice it lands on: our exact problem, since packages expire after 30 days and quotas renew on each customer's anniversary."
+            "why": "Instead of copying the screen, I researched what problem each control solved. That console separates when usage happened from which invoice it lands on: our exact problem, since packages expire after 30 days and quotas renew on each customer's anniversary.",
+            "sketch": {
+              "id": "ai-period",
+              "before": {
+                "console": "Copy of the provider's console"
+              },
+              "after": {
+                "period": "Analysis period",
+                "charts": "Usage for the period",
+                "balance": "Balance",
+                "balance_note": "Doesn't change with the period"
+              }
+            }
           },
           {
             "before": "\"Soft\" or \"hard\" per-user limits, by choice",
             "after": "Per-user limits always block",
-            "why": "A limit that doesn't limit isn't a limit, it's a warning, and it confused admins. Protecting a clinician mid-consultation is solved with advance warnings, not a second kind of limit."
+            "why": "A \"soft\" limit actually worked as a warning, and it confused admins. Advance warnings are enough to keep a clinician from losing the tool mid-consultation.",
+            "sketch": {
+              "id": "ai-limits",
+              "before": {
+                "soft": "Soft: only warns",
+                "hard": "Hard: blocks"
+              },
+              "after": {
+                "warn": "Advance warnings",
+                "limit": "Limit: blocks"
+              }
+            }
           },
           {
             "before": "All balance expires at calendar month end",
             "after": "Each package expires 30 days after approval",
-            "why": "A package bought on the 10th can't expire on the 31st: it charged for a month and sometimes delivered six days. Fine print like that turns into complaints in production."
+            "why": "A package bought on the 10th can't expire on the 31st: it charged for a month and sometimes delivered six days. Fine print like that turns into complaints in production.",
+            "sketch": {
+              "id": "ai-expiry",
+              "before": {
+                "bought": "Bought: day 25",
+                "expires": "Month end",
+                "span": "6 days of use"
+              },
+              "after": {
+                "bought": "Enabled: day 25",
+                "expires": "+30 days",
+                "span": "30 days of use"
+              }
+            }
           }
         ]
       },
@@ -603,8 +672,8 @@
             "body": "\"How do we monetize the AI agents?\" had no viable answer. \"How do we control their spend?\" did, and it unblocked the launch."
           },
           {
-            "title": "Copying a screen isn't copying a solution.",
-            "body": "A reference's value is in the problem each control solves, not in its layout."
+            "title": "What's useful in a reference is the problem it solves.",
+            "body": "The billing console a stakeholder asked us to copy became useful once we understood what each control solved: separating when usage happened from which invoice it lands on."
           },
           {
             "title": "Cheap reversals are an advantage.",
@@ -647,19 +716,63 @@
       ],
       "cover": {
         "src": "/images/cases/routes-agenda.webp",
-        "alt": "Day schedule as a Gantt per clinician, already optimized, with kilometers and appointments metrics and the missed-visits panel"
+        "alt": "Day schedule as a Gantt per clinician, already optimized, with kilometers and appointments metrics and the missed-visits panel",
+        "width": 2880,
+        "height": 2960,
+        "markers": [
+          {
+            "x": 25.5,
+            "y": 32.9,
+            "text": "The day arrives optimized: the system keeps the next 7 days that way."
+          },
+          {
+            "x": 26,
+            "y": 38.9,
+            "text": "Before / After: the optimized route against the route with adjustments, in kilometers and appointments."
+          },
+          {
+            "x": 58.5,
+            "y": 35,
+            "text": "Try another optimization criterion without touching the system's schedule."
+          },
+          {
+            "x": 49.5,
+            "y": 46.2,
+            "text": "The current day: past appointments can't be edited."
+          },
+          {
+            "x": 82,
+            "y": 34,
+            "text": "Missed patients, ready to be rescheduled."
+          }
+        ]
       },
       "problem": {
         "title": "The Problem",
         "intro": "Coordinators built the daily schedule for clinicians visiting patients at home by hand:",
         "items": [
           "Building the schedule took them 4 to 5 hours a day.",
+          "Schedules were built in isolated screens. The only check was a \"schedule busy\" warning on confirmation, so coordinators found out about a clash only then.",
           "Visits ran late, and every delay meant a patient waiting at home.",
           "An optimizer existed for driver-based patient transfers, but it didn't fit as is: there's no destination facility (the patient is the destination), no vehicle capacity (there's specialty), and appointments are already booked in the system."
-        ]
+        ],
+        "sketch": {
+          "title": "How a schedule was built before",
+          "note": "Sketch of the previous flow: there are no captures of the old system.",
+          "screen": "New appointment",
+          "field_a": "Clinician",
+          "field_b": "Date and time",
+          "confirm": "Confirm",
+          "warning": "The clinician's schedule is already taken at that time.",
+          "steps": [
+            "Each appointment was entered in an isolated screen, without seeing the rest of the day.",
+            "The coordinator confirmed without knowing whether it clashed with another appointment.",
+            "The conflict only showed up on confirmation, as a warning."
+          ]
+        }
       },
       "insight": {
-        "title": "The mental model: review and adjust, not trigger",
+        "title": "The mental model: the day is already planned",
         "body": "Optimization runs on its own whenever an appointment is created or moved, so the coordinator opens a day that's already planned. The screen doesn't trigger anything: it's for reviewing and adjusting. The system never proposes changes by itself or reshuffles the schedule while someone is working. The optimized schedule is the baseline, and changes always belong to the coordinator."
       },
       "flow": {
@@ -711,10 +824,10 @@
       },
       "decisions": {
         "title": "Key decisions",
-        "desc": "Each decision balances efficiency with trust: an optimizer nobody understands is one nobody uses.",
+        "desc": "Each decision balances efficiency with trust, because coordinators need to understand and correct what the system does.",
         "items": [
           {
-            "title": "Continuity of care before efficiency",
+            "title": "Patients keep their usual clinician",
             "body": "The patient keeps their usual clinician unless reassigning saves 20 or more minutes of travel. The trade-off is explicit and measurable."
           },
           {
@@ -723,7 +836,13 @@
           },
           {
             "title": "Try without breaking",
-            "body": "Coordinators can compare plans under other criteria (least travel, balanced load, most appointments) as a reversible trial."
+            "body": "Coordinators can compare plans under other criteria (least travel, balanced load, most appointments) as a reversible trial.",
+            "image": {
+              "src": "/images/cases/crops/routes-plans.webp",
+              "width": 2560,
+              "height": 860,
+              "alt": "Compare plans: minimum travel, even distribution and maximum appointments, with their metrics and the option to try each one."
+            }
           },
           {
             "title": "Lock the day",
@@ -735,7 +854,13 @@
           },
           {
             "title": "Real-operation states",
-            "body": "The day in progress (past appointments aren't editable), missed visits with rescheduling, and optimizer errors with retry."
+            "body": "The day in progress (past appointments aren't editable), missed visits with rescheduling, and optimizer errors with retry.",
+            "image": {
+              "src": "/images/cases/crops/routes-states.webp",
+              "width": 1872,
+              "height": 784,
+              "alt": "Day in progress: a notice says appointments before 14:30 are finished, and a line marks the current time on the schedule."
+            }
           }
         ]
       },
@@ -746,12 +871,41 @@
           {
             "before": "Pin appointments, then press \"Re-optimize with my pins\" in a separate bar",
             "after": "Pinning or unpinning re-optimizes the day instantly",
-            "why": "One step and one concept fewer: pinning became just another adjustment, counted in the change summary."
+            "why": "One step and one concept fewer: pinning became just another adjustment, counted in the change summary.",
+            "sketch": {
+              "id": "routes-pin",
+              "before": {
+                "pin": "Pin appointment",
+                "bar": "Re-optimize with my pins",
+                "result": "Day re-optimized"
+              },
+              "after": {
+                "pin": "Pin appointment",
+                "result_now": "Day re-optimized at once"
+              }
+            }
           },
           {
             "before": "Date, Before/After toggle, metrics and \"Try\" spread across separate rows, with the toggle inside the map",
             "after": "A single context bar with date, day range, Before/After, metrics and trial",
-            "why": "Fewer places to look, and the same control behaves the same in the schedule and on the map."
+            "why": "Fewer places to look, and the same control behaves the same in the schedule and on the map.",
+            "sketch": {
+              "id": "routes-toolbar",
+              "before": {
+                "date": "Date",
+                "metrics": "km · appts",
+                "try": "Try",
+                "map": "Map",
+                "toggle": "Before / After"
+              },
+              "after": {
+                "date": "Date",
+                "range": "Days",
+                "toggle": "Before / After",
+                "metrics": "km · appts",
+                "try": "Try"
+              }
+            }
           }
         ]
       },
@@ -836,7 +990,7 @@
         "body": "Web and mobile can't share a component library: MUI only exists for web, and mobile is better served by its own library with full control over behavior. So a single library wasn't forced. Everything that shares a platform was unified (the 3 apps moved to one library), and across platforms the tokens and criteria were shared instead of the code."
       },
       "snippet": {
-        "title": "Tokens that say what a color is for, not what it looks like",
+        "title": "Tokens named after what a color is for",
         "desc": "Three levels: primitives (the palette), semantic tokens (the role) and components. A component never knows a color value, only its role.",
         "before_label": "Before: the component knows the color",
         "before": "backgroundColor: \"#5DC4B9\",\n\"&:hover\": {\n  backgroundColor: darken(theme.palette.primary.main, 15),\n},",
@@ -882,7 +1036,7 @@
       },
       "decisions": {
         "title": "Governance: every decision in one place",
-        "desc": "What makes a design system last isn't the number of components, but how each change is decided and released.",
+        "desc": "Four rules set how each change to the libraries is decided and released.",
         "items": [
           {
             "title": "Changes through PRs",
@@ -938,16 +1092,16 @@
         "title": "Learnings",
         "items": [
           {
-            "title": "A design system lasts because of its governance, not its components.",
+            "title": "Governance is what keeps the system going.",
             "body": "PRs, ADRs and versioned releases made every change visible and reversible for every team."
           },
           {
-            "title": "Across platforms, share criteria, not code.",
+            "title": "Web and mobile share tokens; each has its own library.",
             "body": "Forcing one library for web and mobile would have looked neater in a diagram and worked worse in practice."
           },
           {
-            "title": "AI doesn't replace review: it directs it.",
-            "body": "The impact map and the before/after comparison didn't remove the need to check every screen, but they made that review targeted instead of blind."
+            "title": "With the impact map, every screen was reviewed knowing what to look for.",
+            "body": "The AI agents built the impact map and the before/after comparison. Review was still screen by screen, but guided by those two."
           }
         ]
       },
