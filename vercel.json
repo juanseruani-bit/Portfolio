@@ -1,5 +1,9 @@
 {
   "rewrites": [
+    { "source": "/proyectos/discovery-hub", "destination": "/proyectos/discovery-hub.html" },
+    { "source": "/proyectos/consumo-ia", "destination": "/proyectos/consumo-ia.html" },
+    { "source": "/proyectos/optimizador-rutas", "destination": "/proyectos/optimizador-rutas.html" },
+    { "source": "/proyectos/design-system", "destination": "/proyectos/design-system.html" },
     {
       "source": "/(.*)",
       "destination": "/index.html"
