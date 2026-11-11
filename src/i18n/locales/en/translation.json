@@ -372,6 +372,12 @@
           }
         ],
         "note": "The report separates UX friction from prototype limitations, such as actions without test IDs or mock data."
+      },
+      "clip": {
+        "title": "The findings, in the prototype",
+        "video": "/videos/cases/hub-alerts-follow-up.mp4",
+        "poster": "/videos/cases/hub-alerts-follow-up-poster.webp",
+        "caption": "Prototype recording: taking follow-up removes the critical alert's \"Escalated\" mark and moves it down the list. This is the friction the synthetic user reported."
       }
     },
     "mockups": {
@@ -503,15 +509,25 @@
       },
       "gallery": {
         "title": "Prototype screens",
-        "desc": "Screenshots of the working prototype with fictional data. The same baseline handed off to engineering (UI in Spanish).",
+        "desc": "Screenshots and recordings of the working prototype with fictional data. The same baseline handed off to engineering (UI in Spanish).",
         "items": [
           {
             "src": "/images/cases/ai-consumption.webp",
             "caption": "Usage over the period, with switchable grouping by balance source or by agent."
           },
           {
-            "src": "/images/cases/ai-ops-queue.webp",
-            "caption": "Internal operations: monthly KPIs and the request queue sorted by decision urgency."
+            "src": "/videos/cases/ai-ops-enable-poster.webp",
+            "video": "/videos/cases/ai-ops-enable.mp4",
+            "width": 1920,
+            "height": 1200,
+            "caption": "Internal ops: a request from a clinic with no balance is enabled from the queue. The balance is credited instantly and the log records who did it."
+          },
+          {
+            "src": "/videos/cases/ai-ops-suspend-poster.webp",
+            "video": "/videos/cases/ai-ops-suspend.mp4",
+            "width": 1920,
+            "height": 1200,
+            "caption": "The per-organization cutoff: suspending the service requires a reason and keeps the clinic's balance and settings."
           },
           {
             "src": "/images/cases/ai-ops-close.webp",
@@ -678,11 +694,14 @@
       },
       "gallery": {
         "title": "Prototype screens",
-        "desc": "Screenshots of the working prototype with fictional data. The same baseline handed off to engineering (UI in Spanish).",
+        "desc": "Screenshots and recordings of the working prototype with fictional data. The same baseline handed off to engineering (UI in Spanish).",
         "items": [
           {
-            "src": "/images/cases/routes-trial.webp",
-            "caption": "Try optimization: three criteria compared side by side, as a reversible trial."
+            "src": "/videos/cases/routes-try-plan-poster.webp",
+            "video": "/videos/cases/routes-try-plan.mp4",
+            "width": 1920,
+            "height": 1200,
+            "caption": "Trying another criterion: the plan applies as a test, shows how much the day changed, and is discarded without touching the system schedule."
           },
           {
             "src": "/images/cases/routes-summary.webp",
@@ -957,6 +976,8 @@
     "close": "Close",
     "new_tab": "(opens in a new tab)",
     "before": "Before:",
-    "after": "After:"
+    "after": "After:",
+    "play_video": "Play video",
+    "pause_video": "Pause video"
   }
 }

@@ -372,6 +372,12 @@
           }
         ],
         "note": "El reporte separa la fricción de UX de las limitaciones del prototipo, como acciones sin test ID o datos mock."
+      },
+      "clip": {
+        "title": "Los hallazgos, en el prototipo",
+        "video": "/videos/cases/hub-alerts-follow-up.mp4",
+        "poster": "/videos/cases/hub-alerts-follow-up-poster.webp",
+        "caption": "Grabación del prototipo: al tomar el seguimiento, la alerta crítica pierde la marca \"Escalada\" y baja en la lista. Es la fricción que reportó el usuario sintético."
       }
     },
     "mockups": {
@@ -503,15 +509,25 @@
       },
       "gallery": {
         "title": "Pantallas del prototipo",
-        "desc": "Capturas del prototipo funcional con datos ficticios. Es la misma base que se entregó a desarrollo.",
+        "desc": "Capturas y grabaciones del prototipo funcional con datos ficticios. Es la misma base que se entregó a desarrollo.",
         "items": [
           {
             "src": "/images/cases/ai-consumption.webp",
             "caption": "Consumo del período, con la agrupación conmutable entre origen del saldo y agente."
           },
           {
-            "src": "/images/cases/ai-ops-queue.webp",
-            "caption": "Operación interna: KPIs del mes y cola de solicitudes ordenada por urgencia de decisión."
+            "src": "/videos/cases/ai-ops-enable-poster.webp",
+            "video": "/videos/cases/ai-ops-enable.mp4",
+            "width": 1920,
+            "height": 1200,
+            "caption": "Operación interna: la solicitud de una clínica sin saldo se habilita desde la cola. El saldo se acredita al instante y la bitácora registra quién lo hizo."
+          },
+          {
+            "src": "/videos/cases/ai-ops-suspend-poster.webp",
+            "video": "/videos/cases/ai-ops-suspend.mp4",
+            "width": 1920,
+            "height": 1200,
+            "caption": "El corte por organización: suspender el servicio exige un motivo y conserva el saldo y la configuración de la clínica."
           },
           {
             "src": "/images/cases/ai-ops-close.webp",
@@ -678,11 +694,14 @@
       },
       "gallery": {
         "title": "Pantallas del prototipo",
-        "desc": "Capturas del prototipo funcional con datos ficticios. Es la misma base que se entregó a desarrollo.",
+        "desc": "Capturas y grabaciones del prototipo funcional con datos ficticios. Es la misma base que se entregó a desarrollo.",
         "items": [
           {
-            "src": "/images/cases/routes-trial.webp",
-            "caption": "Probar optimización: tres criterios comparados lado a lado, como una prueba reversible."
+            "src": "/videos/cases/routes-try-plan-poster.webp",
+            "video": "/videos/cases/routes-try-plan.mp4",
+            "width": 1920,
+            "height": 1200,
+            "caption": "Probar otro criterio: el plan se aplica como prueba, muestra cuánto cambió la jornada y se descarta sin tocar la agenda del sistema."
           },
           {
             "src": "/images/cases/routes-summary.webp",
@@ -957,6 +976,8 @@
     "close": "Cerrar",
     "new_tab": "(se abre en una pestaña nueva)",
     "before": "Antes:",
-    "after": "Después:"
+    "after": "Después:",
+    "play_video": "Reproducir video",
+    "pause_video": "Pausar video"
   }
 }

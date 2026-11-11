@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Link } from "react-router-dom"
 import { GradientDivider, GlowOrb } from "@/components/decorative-elements"
 import { CaseSummary, type CaseSummaryContent } from "@/components/case-summary"
+import { CaseVideo } from "@/components/case-video"
 import { ArrowLeft, ArrowRight, Check, Lightbulb, Undo2 } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useDocumentTitle } from "@/lib/use-document-title"
@@ -34,7 +35,8 @@ interface ProductCase {
   summary: CaseSummaryContent
   highlights?: Metric[]
   cover?: { src: string; alt: string }
-  gallery?: { title: string; desc: string; items: { src: string; caption: string }[] }
+  /** Items with `video` are screen recordings: `src` is then the poster frame. */
+  gallery?: { title: string; desc: string; items: { src: string; caption: string; video?: string; width?: number; height?: number }[] }
   problem: { title: string; intro: string; items: string[] }
   insight: { title: string; body: string }
   snippet?: { title: string; desc: string; before_label: string; before: string; after_label: string; after: string; note: string }
@@ -208,7 +210,11 @@ export function ProductCaseStudyPage({ caseKey }: { caseKey: ProductCaseKey }) {
             <m.div className="space-y-12" variants={stagger}>
               {c.gallery.items.map((shot) => (
                 <m.figure key={shot.src} variants={fadeIn}>
-                  <img src={shot.src} alt={shot.caption} loading="lazy" className="w-full rounded-lg border" />
+                  {shot.video ? (
+                    <CaseVideo src={shot.video} poster={shot.src} label={shot.caption} width={shot.width ?? 1920} height={shot.height ?? 1200} />
+                  ) : (
+                    <img src={shot.src} alt={shot.caption} loading="lazy" className="w-full rounded-lg border" />
+                  )}
                   <figcaption className="text-sm text-muted-foreground mt-3">{shot.caption}</figcaption>
                 </m.figure>
               ))}

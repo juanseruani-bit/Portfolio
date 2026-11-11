@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Link } from "react-router-dom"
 import { GradientDivider, GlowOrb } from "@/components/decorative-elements"
 import { CaseSummary, type CaseSummaryContent } from "@/components/case-summary"
+import { CaseVideo } from "@/components/case-video"
 import {
   ArrowLeft, Layers, Bot, TestTube, FileCheck, Code, Users,
   FolderTree, ArrowRight, Check, X,
@@ -468,6 +469,18 @@ export function CaseStudyPage() {
             })()}
           </div>
         </m.div>
+
+        {/* The report's findings, as they look in the prototype */}
+        {(() => {
+          const clip = t('case_study.synthetic.clip', { returnObjects: true }) as { title: string; video: string; poster: string; caption: string }
+          return (
+            <m.figure variants={fadeIn} className="mt-12 max-w-[960px]">
+              <h3 className="font-semibold mb-3">{clip.title}</h3>
+              <CaseVideo src={clip.video} poster={clip.poster} label={clip.caption} width={1920} height={1440} />
+              <figcaption className="text-sm text-muted-foreground mt-3">{clip.caption}</figcaption>
+            </m.figure>
+          )
+        })()}
       </m.section>
 
       <GradientDivider />
