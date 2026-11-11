@@ -101,6 +101,8 @@
   "layout": {
     "nav": {
       "projects": "Proyectos",
+      "about": "Sobre mí",
+      "contact": "Contacto",
       "linkedin": "LinkedIn"
     },
     "footer": {

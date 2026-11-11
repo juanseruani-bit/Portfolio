@@ -10,6 +10,13 @@ import { useEffect, useRef, useState } from "react"
 import { buttonVariants } from "./ui/button"
 import { CONTACT_EMAIL, LINKEDIN_URL } from "./contact-section"
 
+// Home sections reachable from any page; useRouteFocus scrolls to each one and focuses its heading
+const sectionLinks = [
+  { to: "/#proyectos", label: "layout.nav.projects" },
+  { to: "/#sobre-mi", label: "layout.nav.about" },
+  { to: "/#contacto", label: "layout.nav.contact" },
+] as const
+
 /**
  * Client-side navigation keeps the old scroll position, drops focus on <body> and ignores #anchors.
  * On each navigation, scroll to the anchor (e.g. /#proyectos) or to the top of the new page, then
@@ -88,12 +95,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Desktop Nav */}
           <nav aria-label={t('a11y.menu_desc')} className="hidden md:flex items-center space-x-4 md:space-x-6">
-            <Link
-              to="/#proyectos"
-              className="text-sm font-medium transition-colors hover:text-primary"
-            >
-              {t('layout.nav.projects')}
-            </Link>
+            {sectionLinks.map(({ to, label }) => (
+              <Link key={to} to={to} className="text-sm font-medium transition-colors hover:text-primary">
+                {t(label)}
+              </Link>
+            ))}
             <a
               href="https://www.linkedin.com/in/jsruani"
               target="_blank"
@@ -121,13 +127,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <SheetDescription className="sr-only">{t('a11y.menu_desc')}</SheetDescription>
                 
                 <div className="flex flex-col space-y-6 flex-1 mt-4">
-                  <Link
-                    to="/#proyectos"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium transition-colors hover:text-primary border-b border-border/50 pb-4"
-                  >
-                    {t('layout.nav.projects')}
-                  </Link>
+                  {sectionLinks.map(({ to, label }) => (
+                    <Link
+                      key={to}
+                      to={to}
+                      onClick={() => setIsOpen(false)}
+                      className="text-lg font-medium transition-colors hover:text-primary border-b border-border/50 pb-4"
+                    >
+                      {t(label)}
+                    </Link>
+                  ))}
                   <a
                     href="https://www.linkedin.com/in/jsruani"
                     target="_blank"

@@ -305,7 +305,7 @@ export function Home() {
       </GridPattern>
 
       {/* ═══════════════ ABOUT ═══════════════ */}
-      <section className="container mx-auto px-4 md:px-8 py-4 relative">
+      <section id="sobre-mi" className="container mx-auto px-4 md:px-8 py-4 relative scroll-mt-16">
         <GlowOrb color="violet" size="md" className="-right-32 top-20" />
 
         <div className="mb-12">
